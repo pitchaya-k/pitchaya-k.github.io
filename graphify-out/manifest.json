@@ -185,12 +185,6 @@
     "ast_hash": "67d88e9d0760c3ba54c75dfd9551c1c5",
     "semantic_hash": ""
   },
-  "ECMIS Flow \u0e23\u0e32\u0e22\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21.html": {
-    "mtime": 1793113459.8388684,
-    "seen": 1793124325.451015,
-    "ast_hash": "c09ea0af343b89c0556a4de80fabcaa9",
-    "semantic_hash": ""
-  },
   "FLOW.md": {
     "mtime": 1792666160.5405576,
     "seen": 1793124325.4510212,
@@ -3482,6 +3476,2961 @@
   "prototype/_viewport/14_other_pages__12_ECMIS_Flow_\u0e23\u0e32\u0e22\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21.png": {
     "mtime": 1793123703.492693,
     "seen": 1793124325.452367,
+    "ast_hash": "1d94c42a3595faafe70d9c9a6bbf7e05",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\.claude\\launch.json": {
+    "mtime": 1792533510.0,
+    "ast_hash": "cd52d99aabdbad8e999ad4d519877d1f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\.claude\\settings.json": {
+    "mtime": 1792613504.0,
+    "ast_hash": "3ac995fbf93552a991ecab9b63f776aa",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\.claude\\settings.local.json": {
+    "mtime": 1792652895.707198,
+    "ast_hash": "78bafc1f5257035e89634a1dcf1c3088",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\agenda-registry-data.js": {
+    "mtime": 1792365932.0,
+    "ast_hash": "1a6ace44adfc9e5911e0e50818ac844b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\case-closure.js": {
+    "mtime": 1792365932.0,
+    "ast_hash": "c046d959b3cda51e1f5df74b202b4439",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\case-summary-card.js": {
+    "mtime": 1792591064.0,
+    "ast_hash": "8cfc6443dd4cacf6a707f30eeda19ee2",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\case-summary-mock-data.js": {
+    "mtime": 1792607098.0,
+    "ast_hash": "4c982c375b0a97ee9ffdfe25d91b95f8",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\case-summary-mock-page.js": {
+    "mtime": 1792607304.0,
+    "ast_hash": "9653d66e5018c36604c42df9cd2d9555",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\case-summary-prototype-fill.js": {
+    "mtime": 1792583436.0,
+    "ast_hash": "a35f8900a3fceb979d7a3e40447b66d5",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\dashboard-analytics-service.js": {
+    "mtime": 1792365932.0,
+    "ast_hash": "ee9953f06d226cf1ec813b89b38dc741",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\dashboard-chart-service.js": {
+    "mtime": 1792365932.0,
+    "ast_hash": "f6121efe30ab2e6159c1c7fff01ca5e5",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\dashboard-export-service.js": {
+    "mtime": 1792365932.0,
+    "ast_hash": "5dd87d9fe80f1ba8dddf7d49ed9fe244",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\ecmis-app.js": {
+    "mtime": 1792365932.0,
+    "ast_hash": "293bf914df9d784c481cbbba2e1acddb",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\ecmis-model.js": {
+    "mtime": 1792365932.0,
+    "ast_hash": "e1343622843ea680d6a3045c41a39ef7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\html2pdf.bundle.min.js": {
+    "mtime": 1792365932.0,
+    "ast_hash": "5c6ee7cc4411e35934ae6b2e6cb6bb68",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\junction-bridge-a7.js": {
+    "mtime": 1792365932.0,
+    "ast_hash": "dc9c60ccddb83e543e4f3a996f3051bb",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\order-memo-docs.js": {
+    "mtime": 1792365932.0,
+    "ast_hash": "8af27319f949f98648b01d5cd788f93f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\report-export.js": {
+    "mtime": 1792365932.0,
+    "ast_hash": "d70abccba08401bd9090c41d52b65cbb",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\resolution-split.js": {
+    "mtime": 1792365932.0,
+    "ast_hash": "90cec512e1ec3ab32f908ab0d3479eba",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\saraban-no.js": {
+    "mtime": 1792365932.0,
+    "ast_hash": "497a832a640309dabd139b482e811b7c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\secgen-route-text.js": {
+    "mtime": 1792607032.0,
+    "ast_hash": "6f559683878e81dfa5fd3acc16391b26",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\scripts\\backfill-stale-agenda-links.mjs": {
+    "mtime": 1792365932.0,
+    "ast_hash": "c4c484c41adf7d11f310b035815f2a35",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\scripts\\run_pipeline_parallel.py": {
+    "mtime": 1792365932.0,
+    "ast_hash": "90df090019cb9f7adbacf57b785af26a",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\scripts\\run_pipeline_parallel.sh": {
+    "mtime": 1792365932.0,
+    "ast_hash": "8728d4cef4618cb72315fc39d60d6f55",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\scripts\\seed-deputy-cases.mjs": {
+    "mtime": 1792365932.0,
+    "ast_hash": "c58d95a6a95ecba3d54597cc83146d62",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\scripts\\seed-scenario-cases.mjs": {
+    "mtime": 1792365932.0,
+    "ast_hash": "9abd29a80857d84c9ee9a261ff895ed7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\scripts\\sync-board-resolution.mjs": {
+    "mtime": 1792365932.0,
+    "ast_hash": "ae3be5db06eafda1b83c23a1d3555e1b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\tests\\deputy-rules.test.mjs": {
+    "mtime": 1792365932.0,
+    "ast_hash": "82119eb2bcbdff94b5a599396fc773c5",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\tests\\resolution-rules.test.mjs": {
+    "mtime": 1792365932.0,
+    "ast_hash": "2a6ec7d185be2cd00014d537de668365",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\tests\\secgen-rules.test.mjs": {
+    "mtime": 1792365932.0,
+    "ast_hash": "0025c78006175424e3585a1e0e915e90",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\affairs-case-detail.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "dbbef1efc3cd60613790bfae2f467f81",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\affairs-opinion.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "413d5553543558e4a7089a9c56f5af87",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\agenda-detail.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "66f9c79feaabac8e9f909cf8178c733e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\agenda-meeting-docs.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "60b4df02f362d50eeb0c9c3db3ba285b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\agenda-registry-detail.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "66f9c79feaabac8e9f909cf8178c733e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\agenda-registry.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "ec5d96a328385965b71ca7aebf9ff61a",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\agenda-set.html": {
+    "mtime": 1792533460.0,
+    "ast_hash": "685d668112775eca3ddbf5e268245fb4",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\agenda.html": {
+    "mtime": 1792533460.0,
+    "ast_hash": "5c50e4c0756f5a2deab690f9b5632097",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\approval-review-mock-01.html": {
+    "mtime": 1792607304.0,
+    "ast_hash": "d0c3fd5d017ca70899ef5e2bfc5caefe",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\approval-review-mock-02.html": {
+    "mtime": 1792607304.0,
+    "ast_hash": "bfadff6f911490f1b3a3da1b56dca0d0",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\approval-review-mock-03.html": {
+    "mtime": 1792607304.0,
+    "ast_hash": "366569a3926337201865ac2923efb862",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\approval-review-mock-04.html": {
+    "mtime": 1792607304.0,
+    "ast_hash": "65d870adb1f63303e113af93d52e9dd6",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\approval-review-mock-05.html": {
+    "mtime": 1792607304.0,
+    "ast_hash": "d7d7a32b0c3a62dc698ce26ec82dbd23",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\approval-review-mock-06.html": {
+    "mtime": 1792607304.0,
+    "ast_hash": "59dad734521b58056820133a122005b8",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\approval-review-mock-07.html": {
+    "mtime": 1792607306.0,
+    "ast_hash": "fab1d1e9aefed133b2bfcc43eab833da",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\approval-review-mock-08.html": {
+    "mtime": 1792607306.0,
+    "ast_hash": "ac98bbd55635fac9bf1ac9fc622ffa2a",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\approval-review-mock-09.html": {
+    "mtime": 1792607306.0,
+    "ast_hash": "d16b2909696db1726a1297be6faae3a1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\approval-review-mock-10.html": {
+    "mtime": 1792607306.0,
+    "ast_hash": "44fcc8b5748157b0d84235db9e7bb978",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\approval-review.html": {
+    "mtime": 1793070942.0,
+    "ast_hash": "e7c883f9ab2a51b8ea8aafa1d6976b74",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\board-detail.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "0762eea56a751e636098a6d924dd28ea",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\board-inbox.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "7ffc9c6ced8e9de3b37a348fd2f32fb9",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\board-resolution.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "009781cae247b2ea4a6ca27597cb8f88",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\case-admin-detail.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "a6cf171aabc946f22552b12aaa0d163d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\case-admin-inbox.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "47d22584f4f13615a1bed1229cd0c1b0",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\case-register.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "b9c1dbd8f4291b9e1a0ee4a59cdd88fe",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\chairman-agenda.html": {
+    "mtime": 1792533444.0,
+    "ast_hash": "5aa1f072895185bfc819785eaff36a07",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\chairman.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "7c6d06ee3ec2ff0e749db96e09e06c42",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\CLAUDE.md": {
+    "mtime": 1792613504.0,
+    "ast_hash": "67d88e9d0760c3ba54c75dfd9551c1c5",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\dashboard.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "c26b9160ec5f4498b9195bc1b365a050",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\dir-case-support-assign.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "95141f7ab750c5455073a6da1bfa03ee",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\FLOW.md": {
+    "mtime": 1792615760.0,
+    "ast_hash": "c1ed3f2478e071798ceabcb96d6fa6ba",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\followup-dashboard.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "fcdec548b0c06d04f9ddb7976f94723f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\inbox.html": {
+    "mtime": 1792607304.0,
+    "ast_hash": "a569054a22a03d06eac8cc30a8797cde",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\index.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "ef5a7b2626741a72c246e9ff13845361",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\login.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "147b8c844e6ba1b335a10093b6865351",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\m38-inbox.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "cda68cd9694a188c345dd49d9870fd31",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\m38-review.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "043b958bb0dd49626333bce645a71bcf",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\meeting-docs.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "44c77bbfe8fe5088566692b2dfafb0f6",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\meeting-report.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "8fd99cbdc4c8ae582ddadbdcc2b2c3fa",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\order-m24.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "f5d8ae7f9779fe675c8fdadd9abddf77",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\order.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "3a9488ea4527af62c30edaf21c6db173",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\overall-flow.html": {
+    "mtime": 1793171304.1546175,
+    "ast_hash": "0ef4255dc32f6d0ef72600490c7bc985",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\README.md": {
+    "mtime": 1792365932.0,
+    "ast_hash": "526267065af7d9159838d9b72c75262d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\register.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "7e5c7198b30461e3fcd7fcc935db0e09",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\resolution-72.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "afebcd56a74a54230f7a3a171712a110",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\resolution-inbox.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "73bdb514f030d24e1ab4eaaf29f41234",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\resolution.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "8fa6cb6102e369df6cedf5c3336d6483",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\review.html": {
+    "mtime": 1792600552.0,
+    "ast_hash": "6badc980b43fea0684c7f4fed9c50821",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\ruling-report.html": {
+    "mtime": 1793070998.0,
+    "ast_hash": "5bfee708e1d407eb5493c103da468032",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\screening.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "e414cf51eae907bd18648be914cd57ff",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\subcommittee-inbox.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "7518d98cfa3d44287089b710c1f2d546",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\subcommittee-screening.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "27dd682e989981ff5d60de2a8b07f8b2",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\support-subcommittee-inbox.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "6a1af326c79243e60d2f222d59d109f9",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\support-subcommittee.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "014d75bbe8ad2facd4d1b4bedceba1e9",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\urgent-agenda.html": {
+    "mtime": 1792533424.0,
+    "ast_hash": "60f7f6e88ccbaa2d005db732fb83f3fe",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\.claude\\CLAUDE.md": {
+    "mtime": 1792613504.0,
+    "ast_hash": "9b31786b637be3c13978bec4c2330752",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\.claude\\skills\\graphify\\SKILL.md": {
+    "mtime": 1792613504.0,
+    "ast_hash": "dceb6e1ca5bc75a2fa01790162f715af",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\.claude\\skills\\graphify\\references\\add-watch.md": {
+    "mtime": 1792613272.0,
+    "ast_hash": "c1f65eb4102ad515149303c7f296b718",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\.claude\\skills\\graphify\\references\\exports.md": {
+    "mtime": 1792613272.0,
+    "ast_hash": "73968e2842f6eb742f96cf04c1f8db68",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\.claude\\skills\\graphify\\references\\extraction-spec.md": {
+    "mtime": 1792613272.0,
+    "ast_hash": "b50f43d87ae9a11bcf1082942e1f99d4",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\.claude\\skills\\graphify\\references\\github-and-merge.md": {
+    "mtime": 1792613272.0,
+    "ast_hash": "cde13df085e4c492aeb7ba298a996d0d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\.claude\\skills\\graphify\\references\\hooks.md": {
+    "mtime": 1792613272.0,
+    "ast_hash": "3f545db6ce646650bb9de588f5512a27",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\.claude\\skills\\graphify\\references\\query.md": {
+    "mtime": 1792613272.0,
+    "ast_hash": "d650e8b65648aa27c5f99c3742e010c9",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\.claude\\skills\\graphify\\references\\transcribe.md": {
+    "mtime": 1792613272.0,
+    "ast_hash": "67b6a5fa6c0974e18f60db9f8932fbd8",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\.claude\\skills\\graphify\\references\\update.md": {
+    "mtime": 1792613272.0,
+    "ast_hash": "54bb75d63631ba69e65d5908d52fbbd0",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\a7-prototype-changes-28102026.md": {
+    "mtime": 1793073892.0,
+    "ast_hash": "aa434a42a09ff0ad0520da00fcd619ad",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\secgen-urgent-complex.md": {
+    "mtime": 1793073890.0,
+    "ast_hash": "7120f1dc8013d30ac6bb3b1bd0c03f70",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\agent-prompts\\00-orchestrator.md": {
+    "mtime": 1792365932.0,
+    "ast_hash": "e39dd7d757db45b97aafda19681cf0ea",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\agent-prompts\\01-legal-ba.md": {
+    "mtime": 1792365932.0,
+    "ast_hash": "65c64744a64f3a97ef40791d01156df9",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\agent-prompts\\02-flow-architect.md": {
+    "mtime": 1792365932.0,
+    "ast_hash": "0bcf2ba84dad499d2378591e0bc1abd0",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\agent-prompts\\03-qa-test-engineer.md": {
+    "mtime": 1792365932.0,
+    "ast_hash": "8b98b083884deb6e2059e8b43c7c4cab",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\agent-prompts\\04-mockup-developer.md": {
+    "mtime": 1792365932.0,
+    "ast_hash": "2c38152a2e91229f1a3285a279791b63",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\agent-prompts\\05-content-cleansing.md": {
+    "mtime": 1792365932.0,
+    "ast_hash": "9684537df65e66b1fdfaf77b4bebfcd5",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\agent-prompts\\06-parallel-execution.md": {
+    "mtime": 1792365932.0,
+    "ast_hash": "ea0d3deccd46a6410a816e4c96df6539",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\agent-prompts\\README.md": {
+    "mtime": 1792365932.0,
+    "ast_hash": "ced8e2641aa7ffb7034d656720f60a47",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\README - \u0e27\u0e34\u0e18\u0e35\u0e40\u0e1b\u0e34\u0e14\u0e41\u0e25\u0e30\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a.md": {
+    "mtime": 1792954968.0,
+    "ast_hash": "85e7967b8623bebce1e8421309026f44",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\\u0e1c\u0e25\u0e15\u0e23\u0e27\u0e08 Tester - DFD V1.0.3.txt": {
+    "mtime": 1792953716.0,
+    "ast_hash": "a2c83c8a6b8b9722aa9e90dc7e253c72",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\README.txt": {
+    "mtime": 1792958474.0,
+    "ast_hash": "56aeb4d648f9603ed87f6b64400bc2a7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\\u0e1c\u0e25\u0e15\u0e23\u0e27\u0e08 Tester - DFD V1.0.4.txt": {
+    "mtime": 1792958476.0,
+    "ast_hash": "ce8410bf9703ab5d44179fe53ee1051e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\\u0e1c\u0e25\u0e15\u0e23\u0e27\u0e08 Tester - User Flow V1.0.4.txt": {
+    "mtime": 1792958476.0,
+    "ast_hash": "435ccd514ead7aff31a694e8459462bd",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\README - \u0e27\u0e34\u0e18\u0e35\u0e40\u0e1b\u0e34\u0e14\u0e41\u0e25\u0e30\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a.md": {
+    "mtime": 1792950314.0,
+    "ast_hash": "432f4307bbcb35a6eb8e5193950c0bb6",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\tester_report.txt": {
+    "mtime": 1792950314.0,
+    "ast_hash": "6427f7cb7a19cc54acafac7f04bbf147",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\_to_delete\\28102026\\userflow-dup__README - \u0e40\u0e18\u0e07\u0e40\u0e18\u0e14\u0e40\u0e18\u0098\u0e40\u0e18\u0e15\u0e40\u0e19\u20ac\u0e40\u0e18\u009b\u0e40\u0e18\u0e14\u0e40\u0e18\u201d\u0e40\u0e19\u0081\u0e40\u0e18\u0e05\u0e40\u0e18\u0e10\u0e40\u0e18\u2022\u0e40\u0e18\u0e03\u0e40\u0e18\u0e07\u0e40\u0e18\u0088\u0e40\u0e18\u0e0a\u0e40\u0e18\u0e0d\u0e40\u0e18\u009a.md": {
+    "mtime": 1792945932.0,
+    "ast_hash": "432f4307bbcb35a6eb8e5193950c0bb6",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\README.md": {
+    "mtime": 1793073892.0,
+    "ast_hash": "a975be53c2d9fe060832ca65b85e7dbc",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\tests\\legal-audit.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "c458a7de0b607650b5099f0ab20a1e70",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\tests\\test-design.html": {
+    "mtime": 1792365932.0,
+    "ast_hash": "e23a605816641d18afbe1c58098cfe63",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\\u0e40\u0e25\u0e48\u0e21 4 - \u0e01\u0e08 7 \u0e2d\u0e2d\u0e01\u0e41\u0e1a\u0e1a\u0e2a\u0e48\u0e27\u0e19\u0e01\u0e32\u0e23\u0e15\u0e34\u0e14\u0e15\u0e48\u0e2d\u0e01\u0e31\u0e1a\u0e1c\u0e39\u0e49\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19 V1.5.pdf": {
+    "mtime": 1793072940.0,
+    "ast_hash": "b564dea95ab80ac7985f0a1e14c934ea",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\_to_delete\\28102026\\\u0e40\u0e25\u0e48\u0e21 4 - \u0e01\u0e08_7 \u0e2d\u0e2d\u0e01\u0e41\u0e1a\u0e1a\u0e2a\u0e48\u0e27\u0e19\u0e01\u0e32\u0e23\u0e15\u0e34\u0e14\u0e15\u0e48\u0e2d\u0e01\u0e31\u0e1a\u0e1c\u0e39\u0e49\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19_version \u0e25\u0e48\u0e32\u0e2a\u0e38\u0e14\u0e42\u0e14\u0e22\u0e15\u0e39\u0e19.pdf": {
+    "mtime": 1793050730.0,
+    "ast_hash": "d0ecfdc66a4cfce17ee8211cb1cbc561",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\doc_logo.jpg": {
+    "mtime": 1792365932.0,
+    "ast_hash": "4d71f07fd53f38d41924877e2182d80c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\assets\\pacc_logo.png": {
+    "mtime": 1792365932.0,
+    "ast_hash": "b8e84a0154effdb57e8a74a0bd000f19",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Class Diagram-20261020T062636Z-1-001\\Class Diagram\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Class Diagram V1.0.2-Part1_CaseRequest.png": {
+    "mtime": 1792430444.0,
+    "ast_hash": "8ff0e530be4fd38c7f1ba9b09f64eb73",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Class Diagram-20261020T062636Z-1-001\\Class Diagram\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Class Diagram V1.0.2-Part2_CalendarAgenda.png": {
+    "mtime": 1792430444.0,
+    "ast_hash": "1ac0e663d1b72186444ae26d6b0fe17f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Class Diagram-20261020T062636Z-1-001\\Class Diagram\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Class Diagram V1.0.2-Part3_ResolutionMaster.png": {
+    "mtime": 1792430444.0,
+    "ast_hash": "2f63b24efeea2c4fa3f93fc38593905c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Class Diagram-20261020T062636Z-1-001\\Class Diagram\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Class Diagram V1.0.2-Part4_OrderForward.png": {
+    "mtime": 1792430444.0,
+    "ast_hash": "725c827e005b0b51c78d6b6f1758b24c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Context Diagram (Level 0)-20261020T062633Z-1-001\\Context Diagram (Level 0)\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.2 - 01.png": {
+    "mtime": 1792430424.0,
+    "ast_hash": "b364fb6f68f44d7299e2fe141f7dec7f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Context Diagram (Level 0)-20261020T062633Z-1-001\\Context Diagram (Level 0)\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.2 - 02.png": {
+    "mtime": 1792430424.0,
+    "ast_hash": "2cb1991ba39afa7115aea02f4d749c1f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Data Flow (Level 1)-20261020T062640Z-1-001\\Data Flow (Level 1)\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.2 - 01.png": {
+    "mtime": 1792430474.0,
+    "ast_hash": "ede32707f1611c7d37628211a7026040",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Data Flow (Level 1)-20261020T062640Z-1-001\\Data Flow (Level 1)\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.2 - 02.png": {
+    "mtime": 1792430474.0,
+    "ast_hash": "84c81ee187c6b52de596ff1ced139215",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Data Flow (Level 1)-20261020T062640Z-1-001\\Data Flow (Level 1)\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.2 - 03.png": {
+    "mtime": 1792430474.0,
+    "ast_hash": "9725f2d503a4f377fc82fa3a20fd8dfd",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Data Flow (Level 1)-20261020T062640Z-1-001\\Data Flow (Level 1)\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.2 - 04.png": {
+    "mtime": 1792430474.0,
+    "ast_hash": "aa0e2904fbf36e51c73f0f54b2c01742",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Data Flow (Level 1)-20261020T062640Z-1-001\\Data Flow (Level 1)\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.2 - 05.png": {
+    "mtime": 1792430474.0,
+    "ast_hash": "3de755da0318402c3a9fe2973eb69d11",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Data Flow (Level 1)-20261020T062640Z-1-001\\Data Flow (Level 1)\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.2 - 06.png": {
+    "mtime": 1792430474.0,
+    "ast_hash": "a78d119f574a726d96b659e297b92cda",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Data Flow (Level 2)-20261020T062638Z-1-001\\Data Flow (Level 2)\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.2 - 01.png": {
+    "mtime": 1792430480.0,
+    "ast_hash": "0d89c7a3b1c87da7214881fce75e20ee",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Data Flow (Level 2)-20261020T062638Z-1-001\\Data Flow (Level 2)\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.2 - 02.png": {
+    "mtime": 1792430480.0,
+    "ast_hash": "50a5da46881e9d2f309d0beb1528ae01",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Data Flow (Level 2)-20261020T062638Z-1-001\\Data Flow (Level 2)\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.2 - 03.png": {
+    "mtime": 1792430480.0,
+    "ast_hash": "c1a8bc717239ec0dbe1faffe7b0785b3",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Data Flow (Level 2)-20261020T062638Z-1-001\\Data Flow (Level 2)\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.2 - 04.png": {
+    "mtime": 1792430480.0,
+    "ast_hash": "ff14fcdb3ef3c52e3986af2709f0f1db",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Data Flow (Level 2)-20261020T062638Z-1-001\\Data Flow (Level 2)\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.2 - 05.png": {
+    "mtime": 1792430480.0,
+    "ast_hash": "050dc60d4d0499c795f44d20f0ddde6f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\Data Flow (Level 2)-20261020T062638Z-1-001\\Data Flow (Level 2)\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.2 - 06.png": {
+    "mtime": 1792430480.0,
+    "ast_hash": "03d6a4b2aec4dc2fe9d55c170817e5d4",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Context Diagram (Level 0) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.3 - 00 \u0e20\u0e32\u0e1e\u0e23\u0e27\u0e21.png": {
+    "mtime": 1792953674.0,
+    "ast_hash": "3832e41ba0387eefeb349bbf0c2682da",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Context Diagram (Level 0) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.3 - 01 \u0e2b\u0e19\u0e49\u0e32 1-6 (E1\u2013E2).png": {
+    "mtime": 1792953676.0,
+    "ast_hash": "45ccbe430c08cb6f7455ecd0bba50347",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Context Diagram (Level 0) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.3 - 02 \u0e2b\u0e19\u0e49\u0e32 2-6 (E3).png": {
+    "mtime": 1792953676.0,
+    "ast_hash": "21163b3884880a66e18ebd5bb08f8b78",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Context Diagram (Level 0) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.3 - 03 \u0e2b\u0e19\u0e49\u0e32 3-6 (E4\u2013E5).png": {
+    "mtime": 1792953678.0,
+    "ast_hash": "8f8d9c344f8d4107b5aea933e6b1b027",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Context Diagram (Level 0) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.3 - 04 \u0e2b\u0e19\u0e49\u0e32 4-6 (E6).png": {
+    "mtime": 1792953680.0,
+    "ast_hash": "29b1ee1b862d95279571545193af6c72",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Context Diagram (Level 0) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.3 - 05 \u0e2b\u0e19\u0e49\u0e32 5-6 (E7\u2013E8).png": {
+    "mtime": 1792953680.0,
+    "ast_hash": "ae77855ff307f63a13057cc383beb712",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Context Diagram (Level 0) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.3 - 06 \u0e2b\u0e19\u0e49\u0e32 6-6 (E9\u2013E10).png": {
+    "mtime": 1792953682.0,
+    "ast_hash": "9ec8fea40afe0aaa085cc0615554b8af",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 1) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.3 - 00 \u0e20\u0e32\u0e1e\u0e23\u0e27\u0e21.png": {
+    "mtime": 1792953684.0,
+    "ast_hash": "787f9a3f8888d771980d38d95ad5b543",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 1) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.3 - 01 \u0e2b\u0e19\u0e49\u0e32 1-10 (E1 \u0e01\u0e31\u0e1a 1.0).png": {
+    "mtime": 1792953688.0,
+    "ast_hash": "92008d6793592fc49e6c6c063012bc29",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 1) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.3 - 02 \u0e2b\u0e19\u0e49\u0e32 2-10 (E2 \u0e01\u0e31\u0e1a 1.0).png": {
+    "mtime": 1792953690.0,
+    "ast_hash": "ae600a2d7d59795fd861a466ef843ce9",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 1) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.3 - 03 \u0e2b\u0e19\u0e49\u0e32 3-10 (E3 \u0e01\u0e31\u0e1a 2.0, 3.0, 4.0).png": {
+    "mtime": 1792953692.0,
+    "ast_hash": "3ffebc531184c2103f62e4bbb8f58f57",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 1) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.3 - 04 \u0e2b\u0e19\u0e49\u0e32 4-10 (E4 \u0e01\u0e31\u0e1a 4.0).png": {
+    "mtime": 1792953692.0,
+    "ast_hash": "09e256543bd58f8fad08512c81d93900",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 1) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.3 - 05 \u0e2b\u0e19\u0e49\u0e32 5-10 (E5 \u0e01\u0e31\u0e1a 4.0, 5.0, 6.0).png": {
+    "mtime": 1792953694.0,
+    "ast_hash": "452542e7ed2f86eab9c793cd4cd9970c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 1) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.3 - 06 \u0e2b\u0e19\u0e49\u0e32 6-10 (E6 \u0e01\u0e31\u0e1a 2.0, 3.0, 5.0, 6.0).png": {
+    "mtime": 1792953696.0,
+    "ast_hash": "75feef86243d998c32f537bda7f13e29",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 1) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.3 - 07 \u0e2b\u0e19\u0e49\u0e32 7-10 (E7 \u0e01\u0e31\u0e1a 1.0).png": {
+    "mtime": 1792953696.0,
+    "ast_hash": "7c28acbbad67e52389ac390e74fbde53",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 1) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.3 - 08 \u0e2b\u0e19\u0e49\u0e32 8-10 (E8 \u0e01\u0e31\u0e1a 1.0, 2.0, 4.0, 5.0, 6.0).png": {
+    "mtime": 1792953698.0,
+    "ast_hash": "2d67f80bea0e61e29e49d28406e4c9f6",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 1) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.3 - 09 \u0e2b\u0e19\u0e49\u0e32 9-10 (E9 \u0e01\u0e31\u0e1a 2.0, 3.0).png": {
+    "mtime": 1792953700.0,
+    "ast_hash": "e2ebf1044670a1285f3bbe6a9b38051b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 1) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.3 - 10 \u0e2b\u0e19\u0e49\u0e32 10-10 (E10 \u0e01\u0e31\u0e1a 3.0).png": {
+    "mtime": 1792953700.0,
+    "ast_hash": "6d094ddbc328b60f51f67c8575e0b6cf",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 2) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.3 - P1.0 \u0e20\u0e32\u0e1e\u0e23\u0e27\u0e21.png": {
+    "mtime": 1792953704.0,
+    "ast_hash": "82c06eee7c7a7b5557e6c40f43d48ef4",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 2) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.3 - P1.0 \u0e2b\u0e19\u0e49\u0e32 1-3 (1.1\u20131.2).png": {
+    "mtime": 1792953704.0,
+    "ast_hash": "2e7ad29f736994122fe27b3a0682ebd1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 2) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.3 - P1.0 \u0e2b\u0e19\u0e49\u0e32 2-3 (1.3\u20131.4).png": {
+    "mtime": 1792953706.0,
+    "ast_hash": "b35ba3e84e7a98b948a35a7fbadad550",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 2) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.3 - P1.0 \u0e2b\u0e19\u0e49\u0e32 3-3 (1.5).png": {
+    "mtime": 1792953708.0,
+    "ast_hash": "93c411d45033c7bb4b4f6adb6c946a8d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 2) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.3 - P2.0 \u0e2b\u0e19\u0e49\u0e32 1-1 (2.1).png": {
+    "mtime": 1792953710.0,
+    "ast_hash": "ca60b56af39e1e7f5d311af678eaf016",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 2) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.3 - P3.0 \u0e2b\u0e19\u0e49\u0e32 1-1 (3.1).png": {
+    "mtime": 1792953710.0,
+    "ast_hash": "254d49d8cd9b7f4611a5d43b53e8b695",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 2) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.3 - P4.0 \u0e2b\u0e19\u0e49\u0e32 1-1 (4.1\u20134.2).png": {
+    "mtime": 1792953712.0,
+    "ast_hash": "84cbb85b1220e4179619dc2c7eb6d697",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 2) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.3 - P5.0 \u0e2b\u0e19\u0e49\u0e32 1-1 (5.1).png": {
+    "mtime": 1792953714.0,
+    "ast_hash": "be3c39d952169e4ee41c39659ae933c8",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\dataflow update 26102026\\Data Flow (Level 2) \u0e09\u0e1a\u0e31\u0e1a\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.3 - P6.0 \u0e2b\u0e19\u0e49\u0e32 1-1 (6.1\u20136.2).png": {
+    "mtime": 1792953714.0,
+    "ast_hash": "9207382d56a57e6295c66eee056f4369",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\ER Diagram-20261020T062635Z-1-001\\ER Diagram\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 ER Diagram V1.0.2-Part1_CaseRequest.png": {
+    "mtime": 1792430466.0,
+    "ast_hash": "d8e3b513c0b7304c24ea982d9043a327",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\ER Diagram-20261020T062635Z-1-001\\ER Diagram\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 ER Diagram V1.0.2-Part2_CalendarAgenda.png": {
+    "mtime": 1792430466.0,
+    "ast_hash": "89975718be4ade4ad9f40fb82fc88810",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\ER Diagram-20261020T062635Z-1-001\\ER Diagram\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 ER Diagram V1.0.2-Part3_ResolutionMaster.png": {
+    "mtime": 1792430466.0,
+    "ast_hash": "20018e54e73e70c09358f4c20823a8a0",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\ER Diagram-20261020T062635Z-1-001\\ER Diagram\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 ER Diagram V1.0.2-Part4_OrderForward.png": {
+    "mtime": 1792430466.0,
+    "ast_hash": "c0fc173c2f2643f5ae27d9641b8b05af",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\process outline 27102026\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Business Flow V1.0.0 - \u0e20\u0e32\u0e1e\u0e23\u0e27\u0e21\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14.png": {
+    "mtime": 1793050094.0,
+    "ast_hash": "ddd5df126cb6285e834e9c6dc1af847a",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\process outline 27102026\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Business Flow V1.0.0 - \u0e2a\u0e48\u0e27\u0e19\u0e17\u0e35\u0e48 1 (\u0e0a\u0e48\u0e27\u0e07\u0e07\u0e32\u0e19 1\u20132 \u0e41\u0e25\u0e30 8).png": {
+    "mtime": 1793050096.0,
+    "ast_hash": "93dc3f813eb2c80bc11000561acf0a59",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\process outline 27102026\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Business Flow V1.0.0 - \u0e2a\u0e48\u0e27\u0e19\u0e17\u0e35\u0e48 2 (\u0e0a\u0e48\u0e27\u0e07\u0e07\u0e32\u0e19 3\u20134).png": {
+    "mtime": 1793050098.0,
+    "ast_hash": "9237b0157a1fd2f0c3642e8312bf7124",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\process outline 27102026\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Business Flow V1.0.0 - \u0e2a\u0e48\u0e27\u0e19\u0e17\u0e35\u0e48 3 (\u0e0a\u0e48\u0e27\u0e07\u0e07\u0e32\u0e19 5\u20137).png": {
+    "mtime": 1793050100.0,
+    "ast_hash": "89f4b2cac296eb0d77aa2e71fe7440d1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\process outline 27102026\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 \u0e20\u0e32\u0e1e\u0e23\u0e27\u0e21\u0e01\u0e23\u0e30\u0e1a\u0e27\u0e19\u0e01\u0e32\u0e23 (Overview Flow) V1.0.0.png": {
+    "mtime": 1793045636.0,
+    "ast_hash": "f1fc32ea915850740b0a37c40ef35ac0",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\process outline 27102026\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 \u0e20\u0e32\u0e1e\u0e23\u0e27\u0e21\u0e01\u0e23\u0e30\u0e1a\u0e27\u0e19\u0e01\u0e32\u0e23 (Overview Flow) V1.0.1.png": {
+    "mtime": 1793046246.0,
+    "ast_hash": "ebf9197c49695a987ce165812907bef8",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\process outline 27102026\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 \u0e20\u0e32\u0e1e\u0e23\u0e27\u0e21\u0e01\u0e23\u0e30\u0e1a\u0e27\u0e19\u0e01\u0e32\u0e23 (Overview Flow) V1.0.2.png": {
+    "mtime": 1793050102.0,
+    "ast_hash": "f8dc204aeb8eefc6bb24d9bb62dafbd6",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\2 User Flow - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.4 - 1-1.png": {
+    "mtime": 1792958450.0,
+    "ast_hash": "4356f4eadce6d1e03519df1762bc3ac6",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\2 User Flow - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.4 - 1-2.png": {
+    "mtime": 1792958452.0,
+    "ast_hash": "7beefcbdfb78fd254f7d5585ead68d8e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\2 User Flow - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.4 - 1-3.png": {
+    "mtime": 1792958454.0,
+    "ast_hash": "a7caf4d1089ad01b1e0bdf4c9be47b4d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\2 User Flow - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.4 - 1-4.png": {
+    "mtime": 1792958454.0,
+    "ast_hash": "c2745cc6123c2675ee7d071eb61c1177",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\2 User Flow - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.4 - 1-5.png": {
+    "mtime": 1792958456.0,
+    "ast_hash": "47b7d7c8782b8da862500816783b4016",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\2 User Flow - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.4 - 2-1.png": {
+    "mtime": 1792958458.0,
+    "ast_hash": "5dc4033ea634d2e8d06c2d6d876c84b2",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\2 User Flow - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.4 - 2-2.png": {
+    "mtime": 1792958460.0,
+    "ast_hash": "59ec34f2d530eb680c70344c535c873a",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\2 User Flow - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.4 - 2-3.png": {
+    "mtime": 1792958462.0,
+    "ast_hash": "217785b02919dc107f7369d31e7ad246",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\2 User Flow - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.4 - 2-4.png": {
+    "mtime": 1792958462.0,
+    "ast_hash": "60ab1a122858ee65ee12eda47c95a547",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\2 User Flow - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.4 - 2-5.png": {
+    "mtime": 1792958464.0,
+    "ast_hash": "52d1a319565f38e60f6088a8c0d04759",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\2 User Flow - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.4 - 2-6.png": {
+    "mtime": 1792958464.0,
+    "ast_hash": "0dc8bd950a26015f51295bb490218e57",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\2 User Flow - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.4 - 3-1.png": {
+    "mtime": 1792958466.0,
+    "ast_hash": "c1b2e17cf98d85aa7f70555c5d5622f6",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\2 User Flow - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.4 - 3-2.png": {
+    "mtime": 1792958468.0,
+    "ast_hash": "15fd733127af9d361108a23dc9da433a",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\2 User Flow - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.4 - 3-3.png": {
+    "mtime": 1792958470.0,
+    "ast_hash": "44f13c7c525e7d953dafe830a224a877",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\2 User Flow - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.4 - 4-1.png": {
+    "mtime": 1792958470.0,
+    "ast_hash": "a31ff26e4d0ebdd3c8101694b4931da2",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\2 User Flow - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.4 - 5-1.png": {
+    "mtime": 1792958472.0,
+    "ast_hash": "89c5aed47da41acecfc4906b1d2fca85",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 0\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.4 - 00 \u0e20\u0e32\u0e1e\u0e23\u0e27\u0e21.png": {
+    "mtime": 1792958496.0,
+    "ast_hash": "01df96defa6db2c0d8e1b8be13fef158",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 0\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.4 - 01 \u0e2b\u0e19\u0e49\u0e32 1-7 (E1\u2013E2).png": {
+    "mtime": 1792958496.0,
+    "ast_hash": "4176ec7f8f18069cc6062547d41d8c5e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 0\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.4 - 02 \u0e2b\u0e19\u0e49\u0e32 2-7 (E3).png": {
+    "mtime": 1792958498.0,
+    "ast_hash": "2e04363f53b2313ca227891347bab0cb",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 0\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.4 - 03 \u0e2b\u0e19\u0e49\u0e32 3-7 (E4\u2013E5).png": {
+    "mtime": 1792958500.0,
+    "ast_hash": "1e0d5591a0cf479f33196416b9ec13d9",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 0\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.4 - 04 \u0e2b\u0e19\u0e49\u0e32 4-7 (E6).png": {
+    "mtime": 1792958502.0,
+    "ast_hash": "a6d472982043b6168047101578cac293",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 0\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.4 - 05 \u0e2b\u0e19\u0e49\u0e32 5-7 (E7\u2013E8).png": {
+    "mtime": 1792958502.0,
+    "ast_hash": "3466066ebf2307094e7c4d78419c4512",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 0\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.4 - 06 \u0e2b\u0e19\u0e49\u0e32 6-7 (E9\u2013E10).png": {
+    "mtime": 1792958502.0,
+    "ast_hash": "08071dd8110fbca8bafff38f3aaccd1f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 0\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Context Diagram (Level 0) V1.0.4 - 07 \u0e2b\u0e19\u0e49\u0e32 7-7 (E11).png": {
+    "mtime": 1792958506.0,
+    "ast_hash": "f83d34d9baed23008a7939640291f5bc",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 1\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.4 - 00 \u0e20\u0e32\u0e1e\u0e23\u0e27\u0e21.png": {
+    "mtime": 1792958508.0,
+    "ast_hash": "9548da6950306ebe7990d2064e4f039c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 1\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.4 - 01 \u0e2b\u0e19\u0e49\u0e32 1-11 (E1 \u0e01\u0e31\u0e1a 1.0).png": {
+    "mtime": 1792958510.0,
+    "ast_hash": "9b498e527523436969418bd0b2c00a69",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 1\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.4 - 02 \u0e2b\u0e19\u0e49\u0e32 2-11 (E2 \u0e01\u0e31\u0e1a 1.0).png": {
+    "mtime": 1792958510.0,
+    "ast_hash": "f7ac579778d15fb754cdb1496cab1179",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 1\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.4 - 03 \u0e2b\u0e19\u0e49\u0e32 3-11 (E3 \u0e01\u0e31\u0e1a 2.0, 3.0, 4.0).png": {
+    "mtime": 1792958512.0,
+    "ast_hash": "6e6e8b67466370ae2cd6d04d3155414f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 1\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.4 - 04 \u0e2b\u0e19\u0e49\u0e32 4-11 (E4 \u0e01\u0e31\u0e1a 4.0).png": {
+    "mtime": 1792958514.0,
+    "ast_hash": "9e1971c305b231c0dd9aeff4f327f12a",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 1\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.4 - 05 \u0e2b\u0e19\u0e49\u0e32 5-11 (E5 \u0e01\u0e31\u0e1a 4.0, 5.0, 6.0).png": {
+    "mtime": 1792958514.0,
+    "ast_hash": "8fe1e098f4cb3ed713475f69cf73e1c0",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 1\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.4 - 06 \u0e2b\u0e19\u0e49\u0e32 6-11 (E6 \u0e01\u0e31\u0e1a 2.0, 3.0, 5.0, 6.0).png": {
+    "mtime": 1792958516.0,
+    "ast_hash": "701b97e37a848acbe7d41dbc96072c6e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 1\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.4 - 07 \u0e2b\u0e19\u0e49\u0e32 7-11 (E7 \u0e01\u0e31\u0e1a 1.0).png": {
+    "mtime": 1792958518.0,
+    "ast_hash": "489a8292589dc48909b2433e6edcebc9",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 1\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.4 - 08 \u0e2b\u0e19\u0e49\u0e32 8-11 (E8 \u0e01\u0e31\u0e1a 1.0, 2.0, 4.0, 5.0, 6.0).png": {
+    "mtime": 1792958518.0,
+    "ast_hash": "ae52381a7b31c71874c0b725546687f2",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 1\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.4 - 09 \u0e2b\u0e19\u0e49\u0e32 9-11 (E9 \u0e01\u0e31\u0e1a 2.0, 3.0).png": {
+    "mtime": 1792958520.0,
+    "ast_hash": "7f7d5b0095a02117e02e4977ca6d3212",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 1\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.4 - 10 \u0e2b\u0e19\u0e49\u0e32 10-11 (E10 \u0e01\u0e31\u0e1a 3.0).png": {
+    "mtime": 1792958522.0,
+    "ast_hash": "3443c980ead5b43fb927e35c1b936631",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 1\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 1) V1.0.4 - 11 \u0e2b\u0e19\u0e49\u0e32 11-11 (E11 \u0e01\u0e31\u0e1a 5.0, 6.0).png": {
+    "mtime": 1792958524.0,
+    "ast_hash": "fc9347a27770c7d5da0e9c43430ef1e3",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 2\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.4 - P1.0 \u0e20\u0e32\u0e1e\u0e23\u0e27\u0e21.png": {
+    "mtime": 1792958524.0,
+    "ast_hash": "04e86b0d25505c66d8846393760e58fd",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 2\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.4 - P1.0 \u0e2b\u0e19\u0e49\u0e32 1-3 (1.1\u20131.2).png": {
+    "mtime": 1792958526.0,
+    "ast_hash": "00cd776830aba13a547c9667542e2ca7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 2\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.4 - P1.0 \u0e2b\u0e19\u0e49\u0e32 2-3 (1.3\u20131.4).png": {
+    "mtime": 1792958528.0,
+    "ast_hash": "572d62bebbe270f1f043d7e848526580",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 2\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.4 - P1.0 \u0e2b\u0e19\u0e49\u0e32 3-3 (1.5).png": {
+    "mtime": 1792958528.0,
+    "ast_hash": "3b4b914ea7fd54b011628dbedd9dfd15",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 2\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.4 - P2.0 \u0e2b\u0e19\u0e49\u0e32 1-1 (2.1).png": {
+    "mtime": 1792958532.0,
+    "ast_hash": "200cd8325c9bea2acfdd6a1673259798",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 2\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.4 - P3.0 \u0e2b\u0e19\u0e49\u0e32 1-1 (3.1).png": {
+    "mtime": 1792958532.0,
+    "ast_hash": "1e9b3d1c4899f5db80723f6ce5ec32e7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 2\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.4 - P4.0 \u0e2b\u0e19\u0e49\u0e32 1-1 (4.1\u20134.2).png": {
+    "mtime": 1792958534.0,
+    "ast_hash": "676faf474f953c4d8793dc944d0fa0cc",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 2\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.4 - P5.0 \u0e2b\u0e19\u0e49\u0e32 1-1 (5.1).png": {
+    "mtime": 1792958536.0,
+    "ast_hash": "7c2132f15a7495506e51e64c2a192a5a",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\update V1.4 26102026\\4 Data Flow Level 0-2 - \u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\\Level 2\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 Data Flow Diagram (Level 2) V1.0.4 - P6.0 \u0e2b\u0e19\u0e49\u0e32 1-1 (6.1\u20136.2).png": {
+    "mtime": 1792958538.0,
+    "ast_hash": "44660e7a5d2a039fbd4f9f1aa10ac996",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 01.png": {
+    "mtime": 1792430434.0,
+    "ast_hash": "fa49eaf24eb945fba97d2ff00b067eeb",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 02.png": {
+    "mtime": 1792430434.0,
+    "ast_hash": "aac7694c3e865d73f026386f6814a046",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 03.png": {
+    "mtime": 1792430432.0,
+    "ast_hash": "b5d1e15b9ac7c3277a71940eb56df83b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 04.png": {
+    "mtime": 1792430432.0,
+    "ast_hash": "63a81f7432b70a04edce7cbe155c711a",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 05.png": {
+    "mtime": 1792430432.0,
+    "ast_hash": "309e59e5e452d5f6339209bac4027530",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 06.png": {
+    "mtime": 1792430434.0,
+    "ast_hash": "e2e9cd2baa0a3ba15256b214e1798b8e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 07.png": {
+    "mtime": 1792430432.0,
+    "ast_hash": "d76b6af599054c26c46db417c833e708",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 08.png": {
+    "mtime": 1792430434.0,
+    "ast_hash": "7517850cae20a6f270d8034fa34d4ab5",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 09.png": {
+    "mtime": 1792430434.0,
+    "ast_hash": "700e50dd5408412134c18bc65d0e56e1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 10.png": {
+    "mtime": 1792430432.0,
+    "ast_hash": "0a5bc9942bd9d92faf2fe91bae35a5fb",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 11.png": {
+    "mtime": 1792430432.0,
+    "ast_hash": "1dd0f124f38a2573cad50b5c74b225ee",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 12.png": {
+    "mtime": 1792430434.0,
+    "ast_hash": "651acb6ff5ede11fa19bacb6339f54e1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 13.png": {
+    "mtime": 1792430434.0,
+    "ast_hash": "1982ab3e4d51a3fdcb504a896cdfffae",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 14.png": {
+    "mtime": 1792430434.0,
+    "ast_hash": "8918ddcb4b5aeb9bb097399dafb92962",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 15.png": {
+    "mtime": 1792430432.0,
+    "ast_hash": "189c6b9d1c3ebf683bd622a7728c15c8",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 16.png": {
+    "mtime": 1792430434.0,
+    "ast_hash": "9acd77a480eece47336ac5df5173a725",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 17.png": {
+    "mtime": 1792430434.0,
+    "ast_hash": "ab82cea9ea79fe93fce8a492222be1ab",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 18.png": {
+    "mtime": 1792430432.0,
+    "ast_hash": "8679b3213b1fccb4ab5d1122996f9ddc",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 19.png": {
+    "mtime": 1792430432.0,
+    "ast_hash": "3ef31c89c73b64cc9367876c2c3376d4",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 20.png": {
+    "mtime": 1792430434.0,
+    "ast_hash": "a6f566aa7f0bdb814b43362419089ed6",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 21.png": {
+    "mtime": 1792430434.0,
+    "ast_hash": "8f31f72730c2dbfd54077db92dd21175",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\User Flow-20261020T062631Z-1-001\\User Flow\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.2 - 22.png": {
+    "mtime": 1792430434.0,
+    "ast_hash": "6e9fdcfe13309c4dc8514e1349476e3e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.3 - 1-1.png": {
+    "mtime": 1792950324.0,
+    "ast_hash": "2d1bdcde7a484542b1a0ef18726cfa65",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.3 - 1-2.png": {
+    "mtime": 1792950324.0,
+    "ast_hash": "745de54fc526652942c1cd2b984e1be9",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.3 - 1-3.png": {
+    "mtime": 1792950326.0,
+    "ast_hash": "c87bb82513fb9bdb8c084404efdaf84b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.3 - 1-4.png": {
+    "mtime": 1792950326.0,
+    "ast_hash": "bba32249b3dfe38dd0266a9d77c37498",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.3 - 1-5.png": {
+    "mtime": 1792950328.0,
+    "ast_hash": "ac8902f478c4a8cee1a0eca8caf44349",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.3 - 2-1.png": {
+    "mtime": 1792950328.0,
+    "ast_hash": "43ad5c6b96ab709ce9768c6633ba8927",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.3 - 2-2.png": {
+    "mtime": 1792950330.0,
+    "ast_hash": "e4db6423548e8a24fbca59ddfc891bff",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.3 - 2-3.png": {
+    "mtime": 1792950332.0,
+    "ast_hash": "82975ae73609720e05dd329490a4c3d0",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.3 - 2-4.png": {
+    "mtime": 1792950332.0,
+    "ast_hash": "a6ab2a69be6ed72ba5e8c5da39f453c7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.3 - 2-5.png": {
+    "mtime": 1792950334.0,
+    "ast_hash": "87e1ac15d5a379348a897d6e433f09ac",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.3 - 2-6.png": {
+    "mtime": 1792950334.0,
+    "ast_hash": "82917e3445aa3a5814e4464f0f76f64a",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.3 - 3-1.png": {
+    "mtime": 1792950336.0,
+    "ast_hash": "f792d8143e7e293853e64315207be1db",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.3 - 3-2.png": {
+    "mtime": 1792950338.0,
+    "ast_hash": "aae8226c0d11f4758ba9b947410ab398",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21\u0e17\u0e35\u0e48 7 User Flow V1.0.3 - 3-3.png": {
+    "mtime": 1792950338.0,
+    "ast_hash": "fb348912c271715bd11227a4ebb6e47f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e40\u0e18\u0081\u0e40\u0e18\u0e14\u0e40\u0e18\u0088\u0e40\u0e18\u0081\u0e40\u0e18\u0e03\u0e40\u0e18\u0e03\u0e40\u0e18\u0e01\u0e40\u0e18\u2014\u0e40\u0e18\u0e15\u0e40\u0e19\u0088 7 User Flow V1.0.3 - 1-1.png": {
+    "mtime": 1792945932.0,
+    "ast_hash": "f68b043d6c97c67151afd7c4a6787732",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e40\u0e18\u0081\u0e40\u0e18\u0e14\u0e40\u0e18\u0088\u0e40\u0e18\u0081\u0e40\u0e18\u0e03\u0e40\u0e18\u0e03\u0e40\u0e18\u0e01\u0e40\u0e18\u2014\u0e40\u0e18\u0e15\u0e40\u0e19\u0088 7 User Flow V1.0.3 - 1-2.png": {
+    "mtime": 1792945932.0,
+    "ast_hash": "dab53f0f92a07469b8b47d7f670263eb",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e40\u0e18\u0081\u0e40\u0e18\u0e14\u0e40\u0e18\u0088\u0e40\u0e18\u0081\u0e40\u0e18\u0e03\u0e40\u0e18\u0e03\u0e40\u0e18\u0e01\u0e40\u0e18\u2014\u0e40\u0e18\u0e15\u0e40\u0e19\u0088 7 User Flow V1.0.3 - 1-3.png": {
+    "mtime": 1792945932.0,
+    "ast_hash": "f8b96f593de99bb258fbd1a3a33b2de4",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e40\u0e18\u0081\u0e40\u0e18\u0e14\u0e40\u0e18\u0088\u0e40\u0e18\u0081\u0e40\u0e18\u0e03\u0e40\u0e18\u0e03\u0e40\u0e18\u0e01\u0e40\u0e18\u2014\u0e40\u0e18\u0e15\u0e40\u0e19\u0088 7 User Flow V1.0.3 - 1-4.png": {
+    "mtime": 1792945932.0,
+    "ast_hash": "acff3bcc61e7d28f37a41a9679d53fc1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e40\u0e18\u0081\u0e40\u0e18\u0e14\u0e40\u0e18\u0088\u0e40\u0e18\u0081\u0e40\u0e18\u0e03\u0e40\u0e18\u0e03\u0e40\u0e18\u0e01\u0e40\u0e18\u2014\u0e40\u0e18\u0e15\u0e40\u0e19\u0088 7 User Flow V1.0.3 - 1-5.png": {
+    "mtime": 1792945932.0,
+    "ast_hash": "d8570b402c906ad54cc31909a7b2f302",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e40\u0e18\u0081\u0e40\u0e18\u0e14\u0e40\u0e18\u0088\u0e40\u0e18\u0081\u0e40\u0e18\u0e03\u0e40\u0e18\u0e03\u0e40\u0e18\u0e01\u0e40\u0e18\u2014\u0e40\u0e18\u0e15\u0e40\u0e19\u0088 7 User Flow V1.0.3 - 2-1.png": {
+    "mtime": 1792945932.0,
+    "ast_hash": "85a19f1921efaffadde460108684284a",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e40\u0e18\u0081\u0e40\u0e18\u0e14\u0e40\u0e18\u0088\u0e40\u0e18\u0081\u0e40\u0e18\u0e03\u0e40\u0e18\u0e03\u0e40\u0e18\u0e01\u0e40\u0e18\u2014\u0e40\u0e18\u0e15\u0e40\u0e19\u0088 7 User Flow V1.0.3 - 2-2.png": {
+    "mtime": 1792945932.0,
+    "ast_hash": "f47f1816b995345de03973239b3daa57",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e40\u0e18\u0081\u0e40\u0e18\u0e14\u0e40\u0e18\u0088\u0e40\u0e18\u0081\u0e40\u0e18\u0e03\u0e40\u0e18\u0e03\u0e40\u0e18\u0e01\u0e40\u0e18\u2014\u0e40\u0e18\u0e15\u0e40\u0e19\u0088 7 User Flow V1.0.3 - 2-3.png": {
+    "mtime": 1792945932.0,
+    "ast_hash": "79a0f8ba01bea3a02425788aba6f4fd1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e40\u0e18\u0081\u0e40\u0e18\u0e14\u0e40\u0e18\u0088\u0e40\u0e18\u0081\u0e40\u0e18\u0e03\u0e40\u0e18\u0e03\u0e40\u0e18\u0e01\u0e40\u0e18\u2014\u0e40\u0e18\u0e15\u0e40\u0e19\u0088 7 User Flow V1.0.3 - 2-4.png": {
+    "mtime": 1792945932.0,
+    "ast_hash": "0da2fd2f041a328c7f90e13f383a3577",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e40\u0e18\u0081\u0e40\u0e18\u0e14\u0e40\u0e18\u0088\u0e40\u0e18\u0081\u0e40\u0e18\u0e03\u0e40\u0e18\u0e03\u0e40\u0e18\u0e01\u0e40\u0e18\u2014\u0e40\u0e18\u0e15\u0e40\u0e19\u0088 7 User Flow V1.0.3 - 2-5.png": {
+    "mtime": 1792945932.0,
+    "ast_hash": "482e30be10261724000d70bfe22ef33f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e40\u0e18\u0081\u0e40\u0e18\u0e14\u0e40\u0e18\u0088\u0e40\u0e18\u0081\u0e40\u0e18\u0e03\u0e40\u0e18\u0e03\u0e40\u0e18\u0e01\u0e40\u0e18\u2014\u0e40\u0e18\u0e15\u0e40\u0e19\u0088 7 User Flow V1.0.3 - 2-6.png": {
+    "mtime": 1792945932.0,
+    "ast_hash": "832fde054a2b16da5500f51d7513e14b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e40\u0e18\u0081\u0e40\u0e18\u0e14\u0e40\u0e18\u0088\u0e40\u0e18\u0081\u0e40\u0e18\u0e03\u0e40\u0e18\u0e03\u0e40\u0e18\u0e01\u0e40\u0e18\u2014\u0e40\u0e18\u0e15\u0e40\u0e19\u0088 7 User Flow V1.0.3 - 3-1.png": {
+    "mtime": 1792945934.0,
+    "ast_hash": "62c6eca556b8ef5c651f749671b2da0a",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e40\u0e18\u0081\u0e40\u0e18\u0e14\u0e40\u0e18\u0088\u0e40\u0e18\u0081\u0e40\u0e18\u0e03\u0e40\u0e18\u0e03\u0e40\u0e18\u0e01\u0e40\u0e18\u2014\u0e40\u0e18\u0e15\u0e40\u0e19\u0088 7 User Flow V1.0.3 - 3-2.png": {
+    "mtime": 1792945934.0,
+    "ast_hash": "50ddc6b52b0a7ef50a161ef1308b93ce",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\docs\\userflow update 26102026\\png\\\u0e40\u0e18\u0081\u0e40\u0e18\u0e14\u0e40\u0e18\u0088\u0e40\u0e18\u0081\u0e40\u0e18\u0e03\u0e40\u0e18\u0e03\u0e40\u0e18\u0e01\u0e40\u0e18\u2014\u0e40\u0e18\u0e15\u0e40\u0e19\u0088 7 User Flow V1.0.3 - 3-3.png": {
+    "mtime": 1792945934.0,
+    "ast_hash": "6e04bae99e206581ffeba33bcc298f7b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\00_common\\01_login.png": {
+    "mtime": 1793072364.0,
+    "ast_hash": "b196c3f8c4852613fa2b3aa2ea57fe56",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\01_home_inbox.png": {
+    "mtime": 1793072372.0,
+    "ast_hash": "99775108eca22430a03389b187e95020",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\02_menu_case-register.png": {
+    "mtime": 1793072378.0,
+    "ast_hash": "134f1d4c93ff932d03a8c36e7ea73022",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\03_menu_followup-dashboard.png": {
+    "mtime": 1793072384.0,
+    "ast_hash": "202cd44eaf55b207f6f7e2fa2f0f4493",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\04_menu_dashboard.png": {
+    "mtime": 1793072388.0,
+    "ast_hash": "f567fe6c4739679854dc65af39f36983",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\05_detail_approval-review_9205-2569.png": {
+    "mtime": 1793072394.0,
+    "ast_hash": "a4f17e4dd50f59d1b7ed8e3505227094",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\06_detail_order_9615-2569.png": {
+    "mtime": 1793072400.0,
+    "ast_hash": "78871895f9ae68df25267e9f349cdc32",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\07_detail_resolution_9609-2569.png": {
+    "mtime": 1793072408.0,
+    "ast_hash": "fa5147728f20b5e16a306ad4ab4b16d8",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\08_detail_affairs-opinion_9308-2569.png": {
+    "mtime": 1793072414.0,
+    "ast_hash": "6171209357d42967fc95f91bc142c14c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\09_detail_chairman-agenda_0001-2569.png": {
+    "mtime": 1793072420.0,
+    "ast_hash": "428ce7c7969a12ad3068a39a80c24288",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\10_detail_ruling-report_1344-2566.png": {
+    "mtime": 1793072432.0,
+    "ast_hash": "99a9ece9c714d70c233571484baaf34b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\11_detail_register_0982-2568.png": {
+    "mtime": 1793072440.0,
+    "ast_hash": "0fadeb6453a36949c31da877f9efec63",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\12_detail_subcommittee-screening_0001-2569.png": {
+    "mtime": 1793072446.0,
+    "ast_hash": "9b581d4d6b8c26ca4c4ab278f8da7bf1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\13_detail_case-register_0005-2569.png": {
+    "mtime": 1793072452.0,
+    "ast_hash": "134f1d4c93ff932d03a8c36e7ea73022",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\14_detail_board-resolution_3027-2569.png": {
+    "mtime": 1793072458.0,
+    "ast_hash": "dc433974eb885c6f05c51536d06d2ac2",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\15_detail_resolution-72_1402-2565.png": {
+    "mtime": 1793072466.0,
+    "ast_hash": "f33721c8cb25006133b6926dca24f0d2",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\16_detail_support-subcommittee_0921-2569.png": {
+    "mtime": 1793072472.0,
+    "ast_hash": "2bed861e72394fd5fc2a620681236144",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\01_affairs\\17_detail_urgent-agenda_1177-2566.png": {
+    "mtime": 1793072480.0,
+    "ast_hash": "ce5eb6c567047bc7b2ee7ccf770b7670",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\02_deputy\\01_home_inbox.png": {
+    "mtime": 1793072488.0,
+    "ast_hash": "b986c3c69fa579bb208e6b4424104538",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\02_deputy\\02_menu_case-register.png": {
+    "mtime": 1793072492.0,
+    "ast_hash": "c5831686e6c6a8ddf7c3c6d3c6966d7c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\02_deputy\\03_menu_m38-inbox.png": {
+    "mtime": 1793072498.0,
+    "ast_hash": "513e81daf93266d46d5c222722e9f13e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\02_deputy\\04_detail_approval-review_9205-2569.png": {
+    "mtime": 1793072508.0,
+    "ast_hash": "c9c156fe07163f2baf279357d21dc5cf",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\02_deputy\\05_detail_m38-review.png": {
+    "mtime": 1793072524.0,
+    "ast_hash": "5237cfe7788a350585a252bd32e7e0da",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\03_secgen\\01_home_inbox.png": {
+    "mtime": 1793072532.0,
+    "ast_hash": "79e69e9b90ba0360495e09670953296b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\03_secgen\\02_menu_case-register.png": {
+    "mtime": 1793072538.0,
+    "ast_hash": "72ddede91278c157eca1a8e4733a3d7e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\03_secgen\\03_menu_m38-inbox.png": {
+    "mtime": 1793072542.0,
+    "ast_hash": "162d98af29f7065356013990995b7182",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\03_secgen\\04_menu_dashboard.png": {
+    "mtime": 1793072548.0,
+    "ast_hash": "b1fe8a2212803466cc2520ea2b539427",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\03_secgen\\05_detail_approval-review_9205-2569.png": {
+    "mtime": 1793072556.0,
+    "ast_hash": "9918056c676afae34f2ad65ea7f6b81c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\03_secgen\\06_detail_chairman-agenda_0001-2569.png": {
+    "mtime": 1793072562.0,
+    "ast_hash": "397c172f4fab0feb45ba2d7475c45b9a",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\03_secgen\\07_detail_subcommittee-screening_0001-2569.png": {
+    "mtime": 1793072574.0,
+    "ast_hash": "1cdbc8b6541b242b7f6ab66d31157bf1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\03_secgen\\08_detail_case-register_0005-2569.png": {
+    "mtime": 1793072580.0,
+    "ast_hash": "72ddede91278c157eca1a8e4733a3d7e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\03_secgen\\09_detail_board-resolution_3027-2569.png": {
+    "mtime": 1793072586.0,
+    "ast_hash": "7dc763eab56451938502fcb5e2af6442",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\03_secgen\\10_detail_ruling-report_1119-2565.png": {
+    "mtime": 1793072592.0,
+    "ast_hash": "f6adbe9aaa8c4f3aeb0df4fe2c58ccda",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\03_secgen\\11_detail_resolution-72_1402-2565.png": {
+    "mtime": 1793072600.0,
+    "ast_hash": "2246bcf4aaa5d6998c34842d6a8e45ed",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\03_secgen\\12_detail_resolution_9423-2569.png": {
+    "mtime": 1793072606.0,
+    "ast_hash": "baf477264210593b5a3a87fe3ad66b8d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\03_secgen\\13_detail_support-subcommittee_0921-2569.png": {
+    "mtime": 1793072614.0,
+    "ast_hash": "3e0ff1a75fd2f3684fca45ed1b936e4d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\03_secgen\\14_detail_urgent-agenda_1177-2566.png": {
+    "mtime": 1793072620.0,
+    "ast_hash": "c55b5574f5ab105f3aa89d1d1b73f30c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\04_dir_case\\01_home_inbox.png": {
+    "mtime": 1793072630.0,
+    "ast_hash": "7a5ac13fffbcb26ff78f9c8a4f3f2cb9",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\04_dir_case\\02_menu_case-register.png": {
+    "mtime": 1793072634.0,
+    "ast_hash": "c1b457914469614b8b0ee818f43689f3",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\04_dir_case\\03_detail_approval-review_9303-2569.png": {
+    "mtime": 1793072644.0,
+    "ast_hash": "60ab79a1a403b2555f7489a93e8f9c66",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\04_dir_case\\04_detail_urgent-agenda_1155-2566.png": {
+    "mtime": 1793072652.0,
+    "ast_hash": "e86933af43e7005589716e7cb66408be",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\05_support_sub\\01_home_support-subcommittee-inbox.png": {
+    "mtime": 1793072660.0,
+    "ast_hash": "74d9730e7450a67cb96091b8c3e35b0d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\05_support_sub\\02_menu_case-register.png": {
+    "mtime": 1793072664.0,
+    "ast_hash": "7a3dbe0ddaba2edb115fc986eb7e929b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\05_support_sub\\03_menu_agenda-registry.png": {
+    "mtime": 1793072670.0,
+    "ast_hash": "901e97c5b0e211c40c6cc8b19b87d192",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\05_support_sub\\04_detail_support-subcommittee_9602-2569.png": {
+    "mtime": 1793072676.0,
+    "ast_hash": "c59bb20a6b58dc1cb2ca67fa1847a0b7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\05_support_sub\\05_detail_agenda-detail.png": {
+    "mtime": 1793072692.0,
+    "ast_hash": "07f2158d967ddfcd56b2d95a7cdb88e1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\05_support_sub\\06_detail_case-register_0005-2569.png": {
+    "mtime": 1793072698.0,
+    "ast_hash": "7a3dbe0ddaba2edb115fc986eb7e929b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\05_support_sub\\07_detail_agenda-registry_1525-2558.png": {
+    "mtime": 1793072704.0,
+    "ast_hash": "b23666657b244e558964ab189c39690b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\06_subcommittee\\01_home_subcommittee-inbox.png": {
+    "mtime": 1793072368.0,
+    "ast_hash": "28034e78660217e340ff11fe73d2bd9f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\06_subcommittee\\02_menu_case-register.png": {
+    "mtime": 1793072374.0,
+    "ast_hash": "0590ae34c9c015f848b77ca88234363f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\06_subcommittee\\03_detail_subcommittee-screening_0001-2569.png": {
+    "mtime": 1793072384.0,
+    "ast_hash": "8e9f059eb0119bde776154ba65f88dcb",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\06_subcommittee\\04_detail_case-register_0005-2569.png": {
+    "mtime": 1793072406.0,
+    "ast_hash": "ec89c4c571ea532764c58e7a5e7520e1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\07_chairman\\01_home_inbox.png": {
+    "mtime": 1793072414.0,
+    "ast_hash": "35297e3be8f23f6743441905bb091de7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\07_chairman\\02_menu_case-register.png": {
+    "mtime": 1793072418.0,
+    "ast_hash": "36425c61962bd4519523d50f27ebbce7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\07_chairman\\03_menu_followup-dashboard.png": {
+    "mtime": 1793072424.0,
+    "ast_hash": "803ecc531c372f18e85db695ce585124",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\07_chairman\\04_menu_dashboard.png": {
+    "mtime": 1793072430.0,
+    "ast_hash": "901856ac7bcd0ce5b87670c4730b27f2",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\07_chairman\\05_detail_approval-review_9205-2569.png": {
+    "mtime": 1793072436.0,
+    "ast_hash": "cebe5cf0034806a971391b16c0fcdefa",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\07_chairman\\06_detail_chairman-agenda_0001-2569.png": {
+    "mtime": 1793072442.0,
+    "ast_hash": "f3ed803e742c4155b1061f489484800e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\07_chairman\\07_detail_urgent-agenda_9607-2569.png": {
+    "mtime": 1793072450.0,
+    "ast_hash": "c15ce41135a5dca305b3a018d47ec76c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\07_chairman\\08_detail_affairs-case-detail_9605-2569.png": {
+    "mtime": 1793072456.0,
+    "ast_hash": "c3f7f106933a8ad2d8dc9ad6ae368bba",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\07_chairman\\09_detail_ruling-report_1344-2566.png": {
+    "mtime": 1793072468.0,
+    "ast_hash": "77d3144ddab38adabb4b28a873bb1cf4",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\07_chairman\\10_detail_register_0982-2568.png": {
+    "mtime": 1793072474.0,
+    "ast_hash": "3af281dfc713cf68435d6aed5d444fd6",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\07_chairman\\11_detail_subcommittee-screening_0001-2569.png": {
+    "mtime": 1793072480.0,
+    "ast_hash": "442df88184b2e8af95cc0e65753922d6",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\07_chairman\\12_detail_case-register_0005-2569.png": {
+    "mtime": 1793072486.0,
+    "ast_hash": "a7f518711316a7b41580a3020088481e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\07_chairman\\13_detail_board-resolution_3027-2569.png": {
+    "mtime": 1793072492.0,
+    "ast_hash": "cb2320667ded4249a61d41c32ab6a13a",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\07_chairman\\14_detail_resolution-72_1402-2565.png": {
+    "mtime": 1793072500.0,
+    "ast_hash": "39c2915a597d2b1d9987b79334c07745",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\07_chairman\\15_detail_resolution_9423-2569.png": {
+    "mtime": 1793072506.0,
+    "ast_hash": "3e48ff76c1fe9ad62fa92312a8b80f8b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\07_chairman\\16_detail_support-subcommittee_0921-2569.png": {
+    "mtime": 1793072514.0,
+    "ast_hash": "50ca9c2ba0da781daaac84828870c782",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\01_home_agenda-registry.png": {
+    "mtime": 1793072522.0,
+    "ast_hash": "40457e6d9edecfcd5157a8f8549dc179",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\02_menu_case-register.png": {
+    "mtime": 1793072528.0,
+    "ast_hash": "566a974caff4d965f52c78774ea5b1b2",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\03_menu_resolution-inbox.png": {
+    "mtime": 1793072532.0,
+    "ast_hash": "b15d2da452c1fd09388ac6afabe1bae9",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\04_menu_meeting-report.png": {
+    "mtime": 1793072538.0,
+    "ast_hash": "bf67b80f30c285eda0fa24d55ce27823",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\05_menu_followup-dashboard.png": {
+    "mtime": 1793072544.0,
+    "ast_hash": "64ec90fb8033b7625dcc277670a4be34",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\06_menu_dashboard.png": {
+    "mtime": 1793072550.0,
+    "ast_hash": "999699dd10f2be3261fcacd36a12ed3f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\07_detail_approval-review_9205-2569.png": {
+    "mtime": 1793072556.0,
+    "ast_hash": "3dc05ec4a561be74cb445eee3e59d4ba",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\08_detail_chairman-agenda_0001-2569.png": {
+    "mtime": 1793072562.0,
+    "ast_hash": "41cf688efed0a62a201ef38dccd76c9d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\09_detail_agenda-registry_0012-2565.png": {
+    "mtime": 1793072568.0,
+    "ast_hash": "40457e6d9edecfcd5157a8f8549dc179",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\10_detail_board-resolution_0012-2565.png": {
+    "mtime": 1793072576.0,
+    "ast_hash": "6caf1395ebd24ff33a8d967b074178f8",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\11_detail_ruling-report_1344-2566.png": {
+    "mtime": 1793072582.0,
+    "ast_hash": "72bc06df38440b7442cd89f3269080b1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\12_detail_register_0982-2568.png": {
+    "mtime": 1793072588.0,
+    "ast_hash": "b73ffccb7e1254e0f1650a14329e6735",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\13_detail_subcommittee-screening_0001-2569.png": {
+    "mtime": 1793072596.0,
+    "ast_hash": "5341d6da43c4e10dcc61a741e0087a7b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\14_detail_case-register_0005-2569.png": {
+    "mtime": 1793072602.0,
+    "ast_hash": "fb31dd58750848865ea60340717eda5c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\15_detail_resolution-72_1402-2565.png": {
+    "mtime": 1793072608.0,
+    "ast_hash": "8d4ce958c83f2072c061eae89fefa3ec",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\16_detail_resolution_9423-2569.png": {
+    "mtime": 1793072614.0,
+    "ast_hash": "ededfbd11fa0d8eb6a7dc1b67a55fbaa",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\17_detail_support-subcommittee_0921-2569.png": {
+    "mtime": 1793072622.0,
+    "ast_hash": "a075a2ec811b349372a7d243a8f58620",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\08_board_sec\\18_detail_urgent-agenda_1177-2566.png": {
+    "mtime": 1793072628.0,
+    "ast_hash": "3f36ab6f3da19037bed178b4ed3e3489",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\01_home_board-inbox.png": {
+    "mtime": 1793072636.0,
+    "ast_hash": "926c2bb42a7b506fab631ffdf9104423",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\02_menu_case-register.png": {
+    "mtime": 1793072640.0,
+    "ast_hash": "9d89b103e77f2aa7a34867c95f9462c2",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\03_menu_agenda-registry.png": {
+    "mtime": 1793072646.0,
+    "ast_hash": "0fbecbbaa9d21142cd522ecd8babfa67",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\04_menu_followup-dashboard.png": {
+    "mtime": 1793072652.0,
+    "ast_hash": "92415e431b51e65990bd0d37f867402f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\05_menu_dashboard.png": {
+    "mtime": 1793072656.0,
+    "ast_hash": "1b639fd0a9de5f895f5c0690e3ba720a",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\06_detail_approval-review_9205-2569.png": {
+    "mtime": 1793072662.0,
+    "ast_hash": "2e4a3fbe5563fd923cc9851d1e78dbb7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\07_detail_chairman-agenda_0001-2569.png": {
+    "mtime": 1793072668.0,
+    "ast_hash": "f4aee2a163083661961f358c6f3d606e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\08_detail_agenda-registry_0012-2565.png": {
+    "mtime": 1793072676.0,
+    "ast_hash": "0fbecbbaa9d21142cd522ecd8babfa67",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\09_detail_agenda-detail.png": {
+    "mtime": 1793072682.0,
+    "ast_hash": "7e27ca1d03a08e740c8f87dd92ddc862",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\10_detail_ruling-report_1344-2566.png": {
+    "mtime": 1793072688.0,
+    "ast_hash": "874e2e7b7d832086aa0dc8223008620b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\11_detail_register_0982-2568.png": {
+    "mtime": 1793072694.0,
+    "ast_hash": "850062ac8c12cf44288de366b331d2bb",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\12_detail_subcommittee-screening_0001-2569.png": {
+    "mtime": 1793072700.0,
+    "ast_hash": "1c37acd40499a1755ad5188c4062e982",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\13_detail_case-register_0005-2569.png": {
+    "mtime": 1793072708.0,
+    "ast_hash": "3a74c39621251619cc6e886beb720d39",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\14_detail_board-resolution_3027-2569.png": {
+    "mtime": 1793072714.0,
+    "ast_hash": "a19280dcbb3a17e45a01e8fbc15425d3",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\15_detail_resolution-72_1402-2565.png": {
+    "mtime": 1793072720.0,
+    "ast_hash": "8c52fd37a93837bf9fb788c4efe0e1bf",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\16_detail_resolution_9423-2569.png": {
+    "mtime": 1793072728.0,
+    "ast_hash": "ec3c09d3a6e15ed1e1d91eb3b0c3144b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\17_detail_support-subcommittee_0921-2569.png": {
+    "mtime": 1793072734.0,
+    "ast_hash": "b98e371272c9e63a2342d194cb43988f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\09_board\\18_detail_urgent-agenda_1177-2566.png": {
+    "mtime": 1793072742.0,
+    "ast_hash": "135564226080d3b2f9edfaff5917b1e8",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\10_case_admin\\01_home_case-admin-inbox.png": {
+    "mtime": 1793072750.0,
+    "ast_hash": "5829f326687ccd90faca25185ca981b7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\10_case_admin\\02_menu_case-register.png": {
+    "mtime": 1793072754.0,
+    "ast_hash": "d99981a8ee1d89be54dfd7a2ab883daf",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\10_case_admin\\03_menu_followup-dashboard.png": {
+    "mtime": 1793072760.0,
+    "ast_hash": "331d5af7052be1d4351208bfe787724e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\10_case_admin\\04_menu_dashboard.png": {
+    "mtime": 1793072766.0,
+    "ast_hash": "756b1d83a45ed3e95681c63455ef2a6e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\10_case_admin\\05_detail_approval-review_9205-2569.png": {
+    "mtime": 1793072772.0,
+    "ast_hash": "19214bc09ebf0f42c522e4a50c976895",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\10_case_admin\\06_detail_case-admin-detail_9606-2569.png": {
+    "mtime": 1793072778.0,
+    "ast_hash": "a48aa4ebe4dcda8c753fc7c5c0777477",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\10_case_admin\\07_detail_chairman-agenda_0001-2569.png": {
+    "mtime": 1793072784.0,
+    "ast_hash": "98940a05ced1d39c38cb08cb7872b36b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\10_case_admin\\08_detail_ruling-report_1344-2566.png": {
+    "mtime": 1793072796.0,
+    "ast_hash": "b7027a24f9794ebb0f12f1e24d23a9e2",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\10_case_admin\\09_detail_register_0982-2568.png": {
+    "mtime": 1793072802.0,
+    "ast_hash": "047ec94de752c4cd77cd495b7ee3e571",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\10_case_admin\\10_detail_subcommittee-screening_0001-2569.png": {
+    "mtime": 1793072810.0,
+    "ast_hash": "c962b51eb3af23e53f34e310596d6475",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\10_case_admin\\11_detail_case-register_0005-2569.png": {
+    "mtime": 1793072816.0,
+    "ast_hash": "d99981a8ee1d89be54dfd7a2ab883daf",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\10_case_admin\\12_detail_board-resolution_3027-2569.png": {
+    "mtime": 1793072822.0,
+    "ast_hash": "cadf6e028edc6253eaca935f80fc5168",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\10_case_admin\\13_detail_resolution-72_1402-2565.png": {
+    "mtime": 1793072830.0,
+    "ast_hash": "e21b400a0232747074dece9b7675ae8d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\10_case_admin\\14_detail_resolution_9423-2569.png": {
+    "mtime": 1793072836.0,
+    "ast_hash": "f5412b10c542bcee166a529e3f02b145",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\10_case_admin\\15_detail_support-subcommittee_0921-2569.png": {
+    "mtime": 1793072842.0,
+    "ast_hash": "43b8592fc7da864804c5ff83d3c46aa1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\10_case_admin\\16_detail_urgent-agenda_1177-2566.png": {
+    "mtime": 1793072850.0,
+    "ast_hash": "cd45da210eaf5fac4805927ec166c342",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\11_mock_case_summary\\01_approval-review-mock-01.png": {
+    "mtime": 1793072856.0,
+    "ast_hash": "f4907eea42a7ab103ee15f9f79f78d73",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\11_mock_case_summary\\02_approval-review-mock-02.png": {
+    "mtime": 1793072860.0,
+    "ast_hash": "ff20c09988598ac4b3d39854260948fa",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\11_mock_case_summary\\03_approval-review-mock-03.png": {
+    "mtime": 1793072866.0,
+    "ast_hash": "ca743c7a2d0fd763c6a53b68d9063f9f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\11_mock_case_summary\\04_approval-review-mock-04.png": {
+    "mtime": 1793072870.0,
+    "ast_hash": "e72eda617d86c18bf9f523c88444cb6c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\11_mock_case_summary\\05_approval-review-mock-05.png": {
+    "mtime": 1793072874.0,
+    "ast_hash": "fc9fe2f93019b9084331a2c91329e61b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\11_mock_case_summary\\06_approval-review-mock-06.png": {
+    "mtime": 1793072878.0,
+    "ast_hash": "92f67a051933e76616af00fd2ed7738d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\11_mock_case_summary\\07_approval-review-mock-07.png": {
+    "mtime": 1793072882.0,
+    "ast_hash": "66c0d5cce8a5056d2a0faa0bfa03ffbc",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\11_mock_case_summary\\08_approval-review-mock-08.png": {
+    "mtime": 1793072888.0,
+    "ast_hash": "e36dc98a4f1b2f83101cf0d88c4d1906",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\11_mock_case_summary\\09_approval-review-mock-09.png": {
+    "mtime": 1793072892.0,
+    "ast_hash": "9f3d406d64790ffbf8bca1def5d2fc9f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\11_mock_case_summary\\10_approval-review-mock-10.png": {
+    "mtime": 1793072896.0,
+    "ast_hash": "3a0e1b16ec04adceb670cbaebab1e636",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\12_fix_points_A7\\A7-10_secgen_full.png": {
+    "mtime": 1793071704.0,
+    "ast_hash": "01b38614651865735a6f341f837213f3",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\12_fix_points_A7\\A7-10_secgen_no_m28.png": {
+    "mtime": 1793071758.0,
+    "ast_hash": "c73451a806c92cb81e26b2ea0fffc525",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\12_fix_points_A7\\A7-13_return_dialog.png": {
+    "mtime": 1793071712.0,
+    "ast_hash": "66567de4bf1dd0958612d7895b955e44",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\12_fix_points_A7\\A7-13_return_notice_toast.png": {
+    "mtime": 1793071712.0,
+    "ast_hash": "77fb8495c9a9caf155f120f1dd25de89",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\12_fix_points_A7\\A7-15_sign_method_options.png": {
+    "mtime": 1793071722.0,
+    "ast_hash": "8983a3c32a98342c9ad60ac302cfe172",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\12_fix_points_A7\\A7-16_confirm_wet_sign.png": {
+    "mtime": 1793071724.0,
+    "ast_hash": "a985eb3542a11f088502ce2921c9a53e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\12_fix_points_A7\\A7-16_signed_file_attached.png": {
+    "mtime": 1793071724.0,
+    "ast_hash": "2fa37464dbe51d15584a630b94939fea",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\affairs_ruling_report_full.png": {
+    "mtime": 1793072396.0,
+    "ast_hash": "8e22af2b12845e82f2df3c955aa9c3a3",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\affairs_ruling_report_part1.png": {
+    "mtime": 1793072396.0,
+    "ast_hash": "f32187196f59463a27913c376221ee42",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\affairs_ruling_report_part2.png": {
+    "mtime": 1793072396.0,
+    "ast_hash": "75237e77b20cfa1a4d6e78367da19327",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\affairs_ruling_report_part3.png": {
+    "mtime": 1793072396.0,
+    "ast_hash": "84bd0022e9fc42c6a6d17570b9552187",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\affairs_ruling_report_part4.png": {
+    "mtime": 1793072396.0,
+    "ast_hash": "7bbc6dd1fae0b19f678ac2f838a999a0",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\affairs_ruling_report_top.png": {
+    "mtime": 1793072394.0,
+    "ast_hash": "c15a8cf39c255495dce4ae936d04b9ec",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\chair_sign_ruling_full.png": {
+    "mtime": 1793072386.0,
+    "ast_hash": "b7ea8e9c441efe337262eb008664ea48",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\chair_sign_ruling_part1.png": {
+    "mtime": 1793072388.0,
+    "ast_hash": "670644db92d155c9e7950783f06e4c9f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\chair_sign_ruling_part2.png": {
+    "mtime": 1793072388.0,
+    "ast_hash": "8cd8a7ddfb282cf48f60fc768af38c4b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\chair_sign_ruling_part3.png": {
+    "mtime": 1793072388.0,
+    "ast_hash": "cbd42a0df3a0182691bf9b42c53dbb81",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\chair_sign_ruling_top.png": {
+    "mtime": 1793072386.0,
+    "ast_hash": "515bb274e12f479e89cf6e77967f1610",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\resolution_72_full.png": {
+    "mtime": 1793072406.0,
+    "ast_hash": "22b76b42961017db0ca23587cfdce0fc",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\resolution_72_part1.png": {
+    "mtime": 1793072406.0,
+    "ast_hash": "ef565796da58d1ee3b44216b0025f750",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\resolution_72_part2.png": {
+    "mtime": 1793072406.0,
+    "ast_hash": "164c42d5188379f63c7aa86285daeb71",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\resolution_72_part3.png": {
+    "mtime": 1793072406.0,
+    "ast_hash": "30eaa45787a257c71cb17b94a648ee3c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\resolution_72_part4.png": {
+    "mtime": 1793072406.0,
+    "ast_hash": "12e6228ed14c51c434619fb70e2489b5",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\resolution_72_top.png": {
+    "mtime": 1793072404.0,
+    "ast_hash": "0ee2e4b870639b0d7310fac10f302bfa",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\secgen_213_full.png": {
+    "mtime": 1793072368.0,
+    "ast_hash": "bcdf318356e489cf201a0a087d9480d1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\secgen_213_part1.png": {
+    "mtime": 1793072370.0,
+    "ast_hash": "4fba0365d3c2c7cc495cd920aa0e615f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\secgen_213_part2.png": {
+    "mtime": 1793072370.0,
+    "ast_hash": "d69bf50d321377baf7874d0329e5e873",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\secgen_213_part3.png": {
+    "mtime": 1793072370.0,
+    "ast_hash": "e00df9512c9ed96522ecabdcab113c1c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\secgen_213_part4.png": {
+    "mtime": 1793072370.0,
+    "ast_hash": "06458f7c94d449059c4e477beb97b8a1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\secgen_213_top.png": {
+    "mtime": 1793072368.0,
+    "ast_hash": "f870110d62a5b857e8bc39a1e6fb9bb2",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\secgen_644_full.png": {
+    "mtime": 1793072378.0,
+    "ast_hash": "3ed8dbf4b83536e874a218e8305314df",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\secgen_644_part1.png": {
+    "mtime": 1793072378.0,
+    "ast_hash": "e2ec17d946714c0e1b60820526656ba5",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\secgen_644_part2.png": {
+    "mtime": 1793072378.0,
+    "ast_hash": "119752cc40d7825b6d0587ec10c43b30",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\secgen_644_part3.png": {
+    "mtime": 1793072378.0,
+    "ast_hash": "86d59dd3c0c9d2f4cf553c4c449ab6ad",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\secgen_644_part4.png": {
+    "mtime": 1793072378.0,
+    "ast_hash": "f5864c3f8a8c6c6e948f0fe7faa4f273",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\13_doc_sections\\secgen_644_top.png": {
+    "mtime": 1793072376.0,
+    "ast_hash": "723f91ef61de749114d0c67848f9f245",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\14_other_pages\\01_board-detail.png": {
+    "mtime": 1793073130.0,
+    "ast_hash": "3684d27ffcbd0decac5f698c1960343d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\14_other_pages\\02_meeting-docs.png": {
+    "mtime": 1793073330.0,
+    "ast_hash": "36be36fac3d8e4498e50a13c8b5287de",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\14_other_pages\\03_agenda-meeting-docs.png": {
+    "mtime": 1793073184.0,
+    "ast_hash": "36be36fac3d8e4498e50a13c8b5287de",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\14_other_pages\\04_agenda-registry-detail.png": {
+    "mtime": 1793073224.0,
+    "ast_hash": "edad92ab5cad2304842682ed9a61d6f4",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\14_other_pages\\05_agenda-set.png": {
+    "mtime": 1793073232.0,
+    "ast_hash": "d906052924cc4481fec12f140d511436",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\14_other_pages\\06_agenda.png": {
+    "mtime": 1793073240.0,
+    "ast_hash": "d906052924cc4481fec12f140d511436",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\14_other_pages\\07_chairman.png": {
+    "mtime": 1793073250.0,
+    "ast_hash": "a8e3008d395adf38928dd57ccd2a11fa",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\14_other_pages\\08_order-m24.png": {
+    "mtime": 1793073262.0,
+    "ast_hash": "1cc3d03ab056c332cc1dfc3f6b33a4e4",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\14_other_pages\\09_screening.png": {
+    "mtime": 1793073270.0,
+    "ast_hash": "ddac215f099cce71060874dc2b499bb7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\14_other_pages\\10_review.png": {
+    "mtime": 1793073284.0,
+    "ast_hash": "a26f0ca2fce9d1b5606f52ef394d5bc0",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\14_other_pages\\11_dir-case-support-assign.png": {
+    "mtime": 1793073296.0,
+    "ast_hash": "36da470d224c9ed3340f8d3234503588",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\14_other_pages\\12_ECMIS_Flow_\u0e23\u0e32\u0e22\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21.png": {
+    "mtime": 1793073304.0,
+    "ast_hash": "f55913ec5f8a19d395462e244646ff6b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\00_common__01_login.png": {
+    "mtime": 1793072364.0,
+    "ast_hash": "1ed244df99a2a24cecc8ee63f784b32f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__01_home_inbox.png": {
+    "mtime": 1793072372.0,
+    "ast_hash": "79b4a14bcb9ed9b73ddab320ee22ab04",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__02_menu_case-register.png": {
+    "mtime": 1793072376.0,
+    "ast_hash": "6c9d388e4de277195a6cbd3f170df40d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__03_menu_followup-dashboard.png": {
+    "mtime": 1793072382.0,
+    "ast_hash": "88063267ae952a0850c0b6b82b21e3b9",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__04_menu_dashboard.png": {
+    "mtime": 1793072388.0,
+    "ast_hash": "f3a293f1352e1dea21a6ebf796f45cdb",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__05_detail_approval-review_9205-2569.png": {
+    "mtime": 1793072394.0,
+    "ast_hash": "bf32f20a5003857e3e0ecb307484319c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__06_detail_order_9615-2569.png": {
+    "mtime": 1793072400.0,
+    "ast_hash": "5cf65c6cda906a16b8868589e50b3e21",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__07_detail_resolution_9609-2569.png": {
+    "mtime": 1793072406.0,
+    "ast_hash": "8e2e71482b479992defc423aae66d4f3",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__08_detail_affairs-opinion_9308-2569.png": {
+    "mtime": 1793072414.0,
+    "ast_hash": "dde86fdf9d1094a41378d174f0f08219",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__09_detail_chairman-agenda_0001-2569.png": {
+    "mtime": 1793072420.0,
+    "ast_hash": "ebc36557454db4af469bc9022452b167",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__10_detail_ruling-report_1344-2566.png": {
+    "mtime": 1793072430.0,
+    "ast_hash": "0b368a031658aae9a780037e194398e1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__11_detail_register_0982-2568.png": {
+    "mtime": 1793072438.0,
+    "ast_hash": "d4eb36a23dd98ac8b85f99e2a641b29a",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__12_detail_subcommittee-screening_0001-2569.png": {
+    "mtime": 1793072446.0,
+    "ast_hash": "049068d01cb138dca0eebdb2abdc5c9c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__13_detail_case-register_0005-2569.png": {
+    "mtime": 1793072452.0,
+    "ast_hash": "6c9d388e4de277195a6cbd3f170df40d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__14_detail_board-resolution_3027-2569.png": {
+    "mtime": 1793072458.0,
+    "ast_hash": "3262b17db01b7ed4a4badcdbca609989",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__15_detail_resolution-72_1402-2565.png": {
+    "mtime": 1793072464.0,
+    "ast_hash": "19675981f00b3583e736d7f9538d1332",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__16_detail_support-subcommittee_0921-2569.png": {
+    "mtime": 1793072472.0,
+    "ast_hash": "98f49840f6e2cc1d715a6a602fc1fd78",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\01_affairs__17_detail_urgent-agenda_1177-2566.png": {
+    "mtime": 1793072478.0,
+    "ast_hash": "7b00bcf27307fad3369f8d3f02ef482e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\02_deputy__01_home_inbox.png": {
+    "mtime": 1793072486.0,
+    "ast_hash": "5445b1bb32b26e7dd6687432e6587940",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\02_deputy__02_menu_case-register.png": {
+    "mtime": 1793072492.0,
+    "ast_hash": "14d273f35dba41c6cd86ca9c9b54a5d6",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\02_deputy__03_menu_m38-inbox.png": {
+    "mtime": 1793072496.0,
+    "ast_hash": "513e81daf93266d46d5c222722e9f13e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\02_deputy__04_detail_approval-review_9205-2569.png": {
+    "mtime": 1793072508.0,
+    "ast_hash": "4c70a39ad63f12e24ed3daa7ab547033",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\02_deputy__05_detail_m38-review.png": {
+    "mtime": 1793072524.0,
+    "ast_hash": "d2a938030f550efc2ebee7fa3fcae7f4",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\03_secgen__01_home_inbox.png": {
+    "mtime": 1793072532.0,
+    "ast_hash": "4ebefa93e8db96dfb4b5b2247ec8ca18",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\03_secgen__02_menu_case-register.png": {
+    "mtime": 1793072536.0,
+    "ast_hash": "7d2c4f493ef4d24a2d6b540db92dee90",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\03_secgen__03_menu_m38-inbox.png": {
+    "mtime": 1793072542.0,
+    "ast_hash": "162d98af29f7065356013990995b7182",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\03_secgen__04_menu_dashboard.png": {
+    "mtime": 1793072548.0,
+    "ast_hash": "f0dbb108c9db15788bad909c98c036f6",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\03_secgen__05_detail_approval-review_9205-2569.png": {
+    "mtime": 1793072554.0,
+    "ast_hash": "2d304a1b51bc35332932fe21d2b62fd3",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\03_secgen__06_detail_chairman-agenda_0001-2569.png": {
+    "mtime": 1793072560.0,
+    "ast_hash": "fbbb3e9b8d675afeadde167f18ea8c9e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\03_secgen__07_detail_subcommittee-screening_0001-2569.png": {
+    "mtime": 1793072572.0,
+    "ast_hash": "516d2775c0bb09917ed446f34878c59b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\03_secgen__08_detail_case-register_0005-2569.png": {
+    "mtime": 1793072578.0,
+    "ast_hash": "7d2c4f493ef4d24a2d6b540db92dee90",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\03_secgen__09_detail_board-resolution_3027-2569.png": {
+    "mtime": 1793072584.0,
+    "ast_hash": "a87ea20c59e35560eea7605b9ef5efcf",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\03_secgen__10_detail_ruling-report_1119-2565.png": {
+    "mtime": 1793072592.0,
+    "ast_hash": "2bef8ba60c462178d6c900df2a4a0376",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\03_secgen__11_detail_resolution-72_1402-2565.png": {
+    "mtime": 1793072598.0,
+    "ast_hash": "4cbb97640e2a843cec19116955ad6285",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\03_secgen__12_detail_resolution_9423-2569.png": {
+    "mtime": 1793072606.0,
+    "ast_hash": "4101d6424f1b2d9eb4b22074162977fa",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\03_secgen__13_detail_support-subcommittee_0921-2569.png": {
+    "mtime": 1793072612.0,
+    "ast_hash": "50393bea65467d7008571234e058a17f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\03_secgen__14_detail_urgent-agenda_1177-2566.png": {
+    "mtime": 1793072618.0,
+    "ast_hash": "92e95fa61b56f78a7926795a609c6594",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\04_dir_case__01_home_inbox.png": {
+    "mtime": 1793072628.0,
+    "ast_hash": "7a5ac13fffbcb26ff78f9c8a4f3f2cb9",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\04_dir_case__02_menu_case-register.png": {
+    "mtime": 1793072634.0,
+    "ast_hash": "c1b457914469614b8b0ee818f43689f3",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\04_dir_case__03_detail_approval-review_9303-2569.png": {
+    "mtime": 1793072644.0,
+    "ast_hash": "a7bfe5591803976b04ef12a2000f06d7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\04_dir_case__04_detail_urgent-agenda_1155-2566.png": {
+    "mtime": 1793072650.0,
+    "ast_hash": "03ecbbda615d9fa67da2dd9be30db75e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\05_support_sub__01_home_support-subcommittee-inbox.png": {
+    "mtime": 1793072658.0,
+    "ast_hash": "47dd07da91d149ccbd3ad6c78383546b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\05_support_sub__02_menu_case-register.png": {
+    "mtime": 1793072664.0,
+    "ast_hash": "4608e70383a7de350718be730afdfe04",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\05_support_sub__03_menu_agenda-registry.png": {
+    "mtime": 1793072668.0,
+    "ast_hash": "347c489a23e788f680b0ebaaea70a40c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\05_support_sub__04_detail_support-subcommittee_9602-2569.png": {
+    "mtime": 1793072674.0,
+    "ast_hash": "02ca0c856074f82825796d63c115483d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\05_support_sub__05_detail_agenda-detail.png": {
+    "mtime": 1793072690.0,
+    "ast_hash": "132b2e80b8be7387ab040e6fad85122f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\05_support_sub__06_detail_case-register_0005-2569.png": {
+    "mtime": 1793072696.0,
+    "ast_hash": "4608e70383a7de350718be730afdfe04",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\05_support_sub__07_detail_agenda-registry_1525-2558.png": {
+    "mtime": 1793072702.0,
+    "ast_hash": "347c489a23e788f680b0ebaaea70a40c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\06_subcommittee__01_home_subcommittee-inbox.png": {
+    "mtime": 1793072368.0,
+    "ast_hash": "236e0e69720956eefd5d0c9cbd49be9d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\06_subcommittee__02_menu_case-register.png": {
+    "mtime": 1793072372.0,
+    "ast_hash": "87dc6afd1ad5deebcc2889177a8ed6d0",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\06_subcommittee__03_detail_subcommittee-screening_0001-2569.png": {
+    "mtime": 1793072384.0,
+    "ast_hash": "f6d1d8576c61f79a0bb2f91ea88bc259",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\06_subcommittee__04_detail_case-register_0005-2569.png": {
+    "mtime": 1793072404.0,
+    "ast_hash": "d1a2b32698c6d8fba4d75ea86386b3b7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\07_chairman__01_home_inbox.png": {
+    "mtime": 1793072412.0,
+    "ast_hash": "46dc774dff72c5bc2512da3fac4d8355",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\07_chairman__02_menu_case-register.png": {
+    "mtime": 1793072418.0,
+    "ast_hash": "8b575be9d39f76e9d60b5ebc242ae6b0",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\07_chairman__03_menu_followup-dashboard.png": {
+    "mtime": 1793072424.0,
+    "ast_hash": "ee0d69a4fdc6171b3c5bc5c32deba5ea",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\07_chairman__04_menu_dashboard.png": {
+    "mtime": 1793072428.0,
+    "ast_hash": "92a3981a5d32a06e1bf937a05af78795",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\07_chairman__05_detail_approval-review_9205-2569.png": {
+    "mtime": 1793072436.0,
+    "ast_hash": "5b58787b129ac8aa15315ee392cf5f1c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\07_chairman__06_detail_chairman-agenda_0001-2569.png": {
+    "mtime": 1793072442.0,
+    "ast_hash": "badd4d50a9eeca5bf47320e3d71e84e1",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\07_chairman__07_detail_urgent-agenda_9607-2569.png": {
+    "mtime": 1793072448.0,
+    "ast_hash": "740ff055931c2666709b4851ff71037b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\07_chairman__08_detail_affairs-case-detail_9605-2569.png": {
+    "mtime": 1793072454.0,
+    "ast_hash": "75001e0c7da6484e03ea2cc205701d4e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\07_chairman__09_detail_ruling-report_1344-2566.png": {
+    "mtime": 1793072466.0,
+    "ast_hash": "b5692acdc3d4a2a1930c7d9435f79d2d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\07_chairman__10_detail_register_0982-2568.png": {
+    "mtime": 1793072472.0,
+    "ast_hash": "197d275d1ccf386f9ed1bf1430a00abd",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\07_chairman__11_detail_subcommittee-screening_0001-2569.png": {
+    "mtime": 1793072480.0,
+    "ast_hash": "520ecccda07f0ba57b77bdac98429c58",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\07_chairman__12_detail_case-register_0005-2569.png": {
+    "mtime": 1793072486.0,
+    "ast_hash": "6caf21cfe10f067403a0e50e0bd6b5e8",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\07_chairman__13_detail_board-resolution_3027-2569.png": {
+    "mtime": 1793072492.0,
+    "ast_hash": "9edceb307a08dcb8f1790d78ad0c357d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\07_chairman__14_detail_resolution-72_1402-2565.png": {
+    "mtime": 1793072498.0,
+    "ast_hash": "460bd293ec2926785408d124604a46f5",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\07_chairman__15_detail_resolution_9423-2569.png": {
+    "mtime": 1793072506.0,
+    "ast_hash": "047edf7f987abd175e64593b73313f0e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\07_chairman__16_detail_support-subcommittee_0921-2569.png": {
+    "mtime": 1793072512.0,
+    "ast_hash": "44c86d5af34a0c156e46bd45832cf331",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__01_home_agenda-registry.png": {
+    "mtime": 1793072520.0,
+    "ast_hash": "1f979266ac6342663aeb9f8c4e5674e7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__02_menu_case-register.png": {
+    "mtime": 1793072526.0,
+    "ast_hash": "0e86f1689ce29e9208091bd0270ea854",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__03_menu_resolution-inbox.png": {
+    "mtime": 1793072532.0,
+    "ast_hash": "06b2e53f416ed59fa727a695ff8c5699",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__04_menu_meeting-report.png": {
+    "mtime": 1793072536.0,
+    "ast_hash": "4172ebcb3c95e6e4e265be5f7956a93f",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__05_menu_followup-dashboard.png": {
+    "mtime": 1793072542.0,
+    "ast_hash": "f7ec619b56e6dbbe1ef2b358b0c5f564",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__06_menu_dashboard.png": {
+    "mtime": 1793072548.0,
+    "ast_hash": "fa8c79b539e6d81df8df8868ab670fd7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__07_detail_approval-review_9205-2569.png": {
+    "mtime": 1793072554.0,
+    "ast_hash": "3ac9b6c2147fc0491b609516ee8634bc",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__08_detail_chairman-agenda_0001-2569.png": {
+    "mtime": 1793072560.0,
+    "ast_hash": "a3d0844f69b316704fbf69924f42f823",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__09_detail_agenda-registry_0012-2565.png": {
+    "mtime": 1793072568.0,
+    "ast_hash": "1f979266ac6342663aeb9f8c4e5674e7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__10_detail_board-resolution_0012-2565.png": {
+    "mtime": 1793072574.0,
+    "ast_hash": "b575b2a687e2f0a929de924a8f93ad15",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__11_detail_ruling-report_1344-2566.png": {
+    "mtime": 1793072580.0,
+    "ast_hash": "ad5eae71a979848afa29c35670737c01",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__12_detail_register_0982-2568.png": {
+    "mtime": 1793072588.0,
+    "ast_hash": "e2756efccc2cd31cca1029908ee1ee24",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__13_detail_subcommittee-screening_0001-2569.png": {
+    "mtime": 1793072594.0,
+    "ast_hash": "3b4db8db1c573d4911fdbdf9bf41e8dc",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__14_detail_case-register_0005-2569.png": {
+    "mtime": 1793072600.0,
+    "ast_hash": "f6afb28ad872f20ade75398cbe88bfc3",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__15_detail_resolution-72_1402-2565.png": {
+    "mtime": 1793072606.0,
+    "ast_hash": "febc1659e68b7bf4f5d449ab216f1481",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__16_detail_resolution_9423-2569.png": {
+    "mtime": 1793072614.0,
+    "ast_hash": "b712fa2f9bf97e29c093d14cd6aac363",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__17_detail_support-subcommittee_0921-2569.png": {
+    "mtime": 1793072620.0,
+    "ast_hash": "3d91674b7a6169002dd28eab6b0c420b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\08_board_sec__18_detail_urgent-agenda_1177-2566.png": {
+    "mtime": 1793072626.0,
+    "ast_hash": "f14ee87184eb23743c05115c7f4f5e3c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__01_home_board-inbox.png": {
+    "mtime": 1793072636.0,
+    "ast_hash": "dfb553bb34739b0bbbb442ba49c7071c",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__02_menu_case-register.png": {
+    "mtime": 1793072640.0,
+    "ast_hash": "f4219a7352a19d2cfcaacac669babeff",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__03_menu_agenda-registry.png": {
+    "mtime": 1793072646.0,
+    "ast_hash": "c5170e3b5acc75aabaeb0cee3da6ddf9",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__04_menu_followup-dashboard.png": {
+    "mtime": 1793072650.0,
+    "ast_hash": "25226892114e8eb897f85546825b3006",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__05_menu_dashboard.png": {
+    "mtime": 1793072656.0,
+    "ast_hash": "e484c8929bd4fa138ef68e65dccc3363",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__06_detail_approval-review_9205-2569.png": {
+    "mtime": 1793072662.0,
+    "ast_hash": "8ad59b15460dbfbc5de2a59d9f875acf",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__07_detail_chairman-agenda_0001-2569.png": {
+    "mtime": 1793072668.0,
+    "ast_hash": "a02860c6cd2e1610f2b1a6c35bc2c445",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__08_detail_agenda-registry_0012-2565.png": {
+    "mtime": 1793072674.0,
+    "ast_hash": "c5170e3b5acc75aabaeb0cee3da6ddf9",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__09_detail_agenda-detail.png": {
+    "mtime": 1793072680.0,
+    "ast_hash": "15df6be77ece4539d86fe78b4be7929e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__10_detail_ruling-report_1344-2566.png": {
+    "mtime": 1793072686.0,
+    "ast_hash": "1b04faf463aba305e5e91ee7e9158c42",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__11_detail_register_0982-2568.png": {
+    "mtime": 1793072694.0,
+    "ast_hash": "55a5d487fedd8b9e71d0c7d45e9f16e4",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__12_detail_subcommittee-screening_0001-2569.png": {
+    "mtime": 1793072700.0,
+    "ast_hash": "586592f3683338ee4b5266d654643275",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__13_detail_case-register_0005-2569.png": {
+    "mtime": 1793072706.0,
+    "ast_hash": "f4219a7352a19d2cfcaacac669babeff",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__14_detail_board-resolution_3027-2569.png": {
+    "mtime": 1793072712.0,
+    "ast_hash": "c099e60b90d63736510c4059be3c78fb",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__15_detail_resolution-72_1402-2565.png": {
+    "mtime": 1793072720.0,
+    "ast_hash": "2278a59ce5e27a5a44dd6eafddf7b2cc",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__16_detail_resolution_9423-2569.png": {
+    "mtime": 1793072726.0,
+    "ast_hash": "47836a99c4b6365c80ea3c6ad94d1f64",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__17_detail_support-subcommittee_0921-2569.png": {
+    "mtime": 1793072734.0,
+    "ast_hash": "225d9c2835fc57be67f7cd103dcc1522",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\09_board__18_detail_urgent-agenda_1177-2566.png": {
+    "mtime": 1793072740.0,
+    "ast_hash": "b53058b20e5d227f239cdff03068c028",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\10_case_admin__01_home_case-admin-inbox.png": {
+    "mtime": 1793072748.0,
+    "ast_hash": "6aa946ffa06311ec780beea1df3ff0ce",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\10_case_admin__02_menu_case-register.png": {
+    "mtime": 1793072754.0,
+    "ast_hash": "5c3bfd1c7f35e4919b047d4b05099e26",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\10_case_admin__03_menu_followup-dashboard.png": {
+    "mtime": 1793072758.0,
+    "ast_hash": "011fdb7a84fc27514298f676751ab9da",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\10_case_admin__04_menu_dashboard.png": {
+    "mtime": 1793072764.0,
+    "ast_hash": "df3da2a37064cbd17b632782ec78dbc6",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\10_case_admin__05_detail_approval-review_9205-2569.png": {
+    "mtime": 1793072770.0,
+    "ast_hash": "35cd00e4c11ecd028542a5ce6a07d0a3",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\10_case_admin__06_detail_case-admin-detail_9606-2569.png": {
+    "mtime": 1793072776.0,
+    "ast_hash": "48ec811d6d91c0c9bf21e3d1736ce0e4",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\10_case_admin__07_detail_chairman-agenda_0001-2569.png": {
+    "mtime": 1793072784.0,
+    "ast_hash": "1e4b8e1c6cbb335f1771fe4b5b7868e3",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\10_case_admin__08_detail_ruling-report_1344-2566.png": {
+    "mtime": 1793072796.0,
+    "ast_hash": "4d0833dc5d93363c6a5ab1249dfe6faf",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\10_case_admin__09_detail_register_0982-2568.png": {
+    "mtime": 1793072802.0,
+    "ast_hash": "79837cd1acc5a2530fe3d96a00d53599",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\10_case_admin__10_detail_subcommittee-screening_0001-2569.png": {
+    "mtime": 1793072808.0,
+    "ast_hash": "34cd81ed11f7a109238b149d927e6777",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\10_case_admin__11_detail_case-register_0005-2569.png": {
+    "mtime": 1793072814.0,
+    "ast_hash": "5c3bfd1c7f35e4919b047d4b05099e26",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\10_case_admin__12_detail_board-resolution_3027-2569.png": {
+    "mtime": 1793072822.0,
+    "ast_hash": "520700539e36d1fe2554b08eb6c6cb5d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\10_case_admin__13_detail_resolution-72_1402-2565.png": {
+    "mtime": 1793072828.0,
+    "ast_hash": "407da7db966baabd3e9b2b7144661309",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\10_case_admin__14_detail_resolution_9423-2569.png": {
+    "mtime": 1793072834.0,
+    "ast_hash": "fe1784f14092e52b81860545530ed83b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\10_case_admin__15_detail_support-subcommittee_0921-2569.png": {
+    "mtime": 1793072842.0,
+    "ast_hash": "20193934ac93a0a58a645a76c99e30fc",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\10_case_admin__16_detail_urgent-agenda_1177-2566.png": {
+    "mtime": 1793072848.0,
+    "ast_hash": "ce7b02c2d25c32401119839ad5b4b1be",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\11_mock_case_summary__01_approval-review-mock-01.png": {
+    "mtime": 1793072856.0,
+    "ast_hash": "a98e7a2639b85e9f0ba88205d419a1f9",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\11_mock_case_summary__02_approval-review-mock-02.png": {
+    "mtime": 1793072860.0,
+    "ast_hash": "162115c582d2dd4a6fd0f0503e878e79",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\11_mock_case_summary__03_approval-review-mock-03.png": {
+    "mtime": 1793072864.0,
+    "ast_hash": "8f44917a24d347f7f6b7267ed9d9250d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\11_mock_case_summary__04_approval-review-mock-04.png": {
+    "mtime": 1793072868.0,
+    "ast_hash": "eefc086c058c68241ea70aa4edd86bff",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\11_mock_case_summary__05_approval-review-mock-05.png": {
+    "mtime": 1793072874.0,
+    "ast_hash": "bc30fbca12ae4faa6700efb87e0fcba6",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\11_mock_case_summary__06_approval-review-mock-06.png": {
+    "mtime": 1793072878.0,
+    "ast_hash": "fef2067b2ffb41b0ae2b2b394f88ca7b",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\11_mock_case_summary__07_approval-review-mock-07.png": {
+    "mtime": 1793072882.0,
+    "ast_hash": "cd3bdb579e8f6ea7e4c3250d2e43e2ce",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\11_mock_case_summary__08_approval-review-mock-08.png": {
+    "mtime": 1793072886.0,
+    "ast_hash": "bf938220e970932e56df9b65d311cc4e",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\11_mock_case_summary__09_approval-review-mock-09.png": {
+    "mtime": 1793072892.0,
+    "ast_hash": "ae984a1e05bc9019cbd734169f1afd26",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\11_mock_case_summary__10_approval-review-mock-10.png": {
+    "mtime": 1793072896.0,
+    "ast_hash": "47e09a06cc654cacdae456270ce7a831",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\14_other_pages__01_board-detail.png": {
+    "mtime": 1793073130.0,
+    "ast_hash": "dd45df29cdfd606cd3aaa667b3b82931",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\14_other_pages__02_meeting-docs.png": {
+    "mtime": 1793073330.0,
+    "ast_hash": "36be36fac3d8e4498e50a13c8b5287de",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\14_other_pages__03_agenda-meeting-docs.png": {
+    "mtime": 1793073184.0,
+    "ast_hash": "36be36fac3d8e4498e50a13c8b5287de",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\14_other_pages__04_agenda-registry-detail.png": {
+    "mtime": 1793073222.0,
+    "ast_hash": "64c43202007ec75572179faa7bff08ce",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\14_other_pages__05_agenda-set.png": {
+    "mtime": 1793073230.0,
+    "ast_hash": "b0cf1ae283648641993ee6de29342e8d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\14_other_pages__06_agenda.png": {
+    "mtime": 1793073238.0,
+    "ast_hash": "b0cf1ae283648641993ee6de29342e8d",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\14_other_pages__07_chairman.png": {
+    "mtime": 1793073248.0,
+    "ast_hash": "d04749e5359e7a58e4f7911b6bda9825",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\14_other_pages__08_order-m24.png": {
+    "mtime": 1793073260.0,
+    "ast_hash": "baa260fa0fc58d83898a6ce97980b705",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\14_other_pages__09_screening.png": {
+    "mtime": 1793073270.0,
+    "ast_hash": "7cf890cb2909763ed693f66a7fb0acea",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\14_other_pages__10_review.png": {
+    "mtime": 1793073282.0,
+    "ast_hash": "4d9630b5cb8d520b1c1e23b4509c59c7",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\14_other_pages__11_dir-case-support-assign.png": {
+    "mtime": 1793073296.0,
+    "ast_hash": "c0f6c95d94d82d687887b57824863e50",
+    "semantic_hash": ""
+  },
+  "D:\\Mercil\\pitchaya-k.github.io\\prototype\\_viewport\\14_other_pages__12_ECMIS_Flow_\u0e23\u0e32\u0e22\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21.png": {
+    "mtime": 1793073302.0,
     "ast_hash": "1d94c42a3595faafe70d9c9a6bbf7e05",
     "semantic_hash": ""
   }

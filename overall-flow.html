@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ภาพรวมกระบวนงาน กจ.7 | E-CMIS</title>
+<link rel="icon" type="image/png" href="assets/pacc_logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@600;700;800&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a2647; --navy-2:#123b63; --gold:#c9a227; --red:#a5322a;
+  --bg:#f7f6f2; --paper:#ffffff; --ink:#20262e; --muted:#5b6470; --line:#d9d5c7;
+  --serif:'Noto Serif Thai',serif; --sans:'Sarabun',sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+header{background:var(--navy);color:#fff;padding:28px 16px 22px;border-bottom:4px solid var(--gold)}
+header .wrap,main{max-width:1280px;margin:0 auto}
+header h1{font-family:var(--serif);font-size:clamp(1.5rem,1rem + 2vw,2.3rem);margin:0 0 4px}
+header p{margin:0;opacity:.85}
+nav.toc{position:sticky;top:0;z-index:5;background:var(--navy-2);padding:8px 16px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+nav.toc a{color:#fff;text-decoration:none;padding:4px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.25);font-size:.92rem}
+nav.toc a:hover,nav.toc a:focus-visible{background:var(--gold);color:var(--navy);outline:none}
+main{padding:24px 16px 60px}
+section{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:28px;box-shadow:0 2px 10px rgba(10,38,71,.05);scroll-margin-top:56px}
+h2{font-family:var(--serif);color:var(--navy);margin:0 0 6px;font-size:1.45rem}
+h2 small{font-family:var(--sans);font-weight:500;color:var(--muted);font-size:.9rem;margin-left:6px}
+.lead{color:var(--muted);margin:0 0 14px}
+.diagram{position:relative;overflow-x:auto;border:1px dashed var(--line);border-radius:8px;padding:12px;background:#fcfbf8}
+.diagram svg{max-width:100%;height:auto}
+.diagram.full svg{max-width:none}
+.zoom-btn{position:sticky;left:0;top:0;z-index:2;margin-bottom:8px;font:600 .85rem var(--sans);color:var(--navy);background:#fff;border:1px solid var(--navy);border-radius:999px;padding:3px 12px;cursor:pointer}
+.zoom-btn:hover,.zoom-btn:focus-visible{background:var(--navy);color:#fff;outline:none}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin:0 0 18px;padding:0;list-style:none;font-size:.9rem}
+.legend li{display:flex;align-items:center;gap:6px}
+.legend i{width:16px;height:16px;border-radius:4px;display:inline-block;border:2px solid}
+.notes{margin:14px 0 0;padding-left:20px;font-size:.93rem}
+.notes li{margin-bottom:4px}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff;font-weight:600}
+tr:nth-child(even) td{background:#faf9f5}
+td code{background:#eef1f5;padding:1px 5px;border-radius:4px;font-size:.85rem}
+td a{color:var(--navy-2)}
+.table-wrap{overflow-x:auto}
+.pill{display:inline-block;padding:0 8px;border-radius:999px;font-size:.8rem;font-weight:600;color:#fff;white-space:nowrap}
+.p71{background:#2b6cb0}.p72{background:#a5322a}.p73{background:#2f855a}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:0 16px 30px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>ภาพรวมกระบวนงาน กิจกรรมที่ 7 (E-CMIS)</h1>
+    <p>การพิจารณาและดำเนินการตามมติคณะกรรมการ ป.ป.ท. — ทุกขั้น ทุกทางแยก พร้อมหน้าจอ prototype ที่ใช้ (คลิกกล่องเพื่อเปิดหน้า)</p>
+  </div>
+</header>
+
+<nav class="toc" aria-label="สารบัญ">
+  <a href="#overview">ภาพรวม</a>
+  <a href="#flow71">สาย 7.1 / 7.3</a>
+  <a href="#after71">หลังมติ 7.1 / 7.3</a>
+  <a href="#flow72">สาย 7.2</a>
+  <a href="#status">ตารางสถานะ</a>
+  <a href="#pages">หน้าจอตาม role</a>
+</nav>
+
+<main>
+
+<ul class="legend" aria-label="คำอธิบายสี">
+  <li><i style="background:#eceff3;border-color:#8a94a3"></i>กจ.5 / เจ้าของสำนวน / สายบังคับบัญชา</li>
+  <li><i style="background:#dbe6f4;border-color:#123b63"></i>รองเลขาฯ / เลขาธิการฯ</li>
+  <li><i style="background:#ece3f7;border-color:#6b46c1"></i>ผอ.กบค.</li>
+  <li><i style="background:#d9f1ee;border-color:#2c7a7b"></i>คณะอนุสนับสนุน / อนุกลั่นกรองฯ</li>
+  <li><i style="background:#fbf1d3;border-color:#c9a227"></i>ประธานกรรมการ ป.ป.ท.</li>
+  <li><i style="background:#e1f2e3;border-color:#2f855a"></i>ฝ่ายเลขาฯ บอร์ด / กลุ่มงานกิจการฯ</li>
+  <li><i style="background:#f7dcd9;border-color:#a5322a"></i>ปิดสำนวน / จบ</li>
+  <li><i style="background:#fff;border-color:#20262e;transform:rotate(45deg)"></i>ทางแยก (ตัดสินใจ)</li>
+</ul>
+
+<!-- ───────────── 0. ภาพรวม ───────────── -->
+<section id="overview">
+  <h2>0 · ภาพรวม 3 สาย</h2>
+  <p class="lead">เรื่องเข้าจาก กจ.5 แล้วแยกตามประเภทเอกสาร: <span class="pill p71">7.1</span> รายงาน 213 (ไต่สวนเบื้องต้น) · <span class="pill p73">7.3</span> เรื่องทั่วไป / กกม. · <span class="pill p72">7.2</span> รายงานวินิจฉัยชี้มูล (644)</p>
+  <div class="diagram"><pre class="mermaid">
+flowchart LR
+  IN(["กจ.5 ส่งเรื่องเข้า กจ.7"]):::up --> T{"ประเภทเรื่อง?"}:::dec
+  T -->|"รายงาน 213"| L71["สาย 7.1<br/>ไต่สวนเบื้องต้น"]:::sec
+  T -->|"เรื่องทั่วไป / กกม."| L73["สาย 7.3<br/>ไม่ผ่านอนุกลั่นกรองฯ"]:::sec
+  T -->|"รายงานชี้มูล 644"| L72["สาย 7.2<br/>วินิจฉัยชี้มูล"]:::sec
+  L71 --> M1["บอร์ดลงมติ"]:::board
+  L73 --> M1
+  M1 -->|"รับไว้ไต่สวน ม.24"| ORD["ออกคำสั่ง ม.24<br/>→ ไต่สวน"]:::board
+  M1 -->|"ส่งหน่วยงานภายนอก / กองกฎหมาย"| DSP["ส่งออก / รอผลกลับ"]:::board
+  M1 -->|"ไม่รับ / แจ้งมติ"| C1(["ปิดสำนวน"]):::fin
+  DSP --> C1
+  ORD -->|"ไต่สวนเสร็จ เสนอรายงานชี้มูล"| L72
+  L72 --> M2["บอร์ดลงมติ (วาระที่ ๕)<br/>→ รายงานวินิจฉัยชี้มูล"]:::board
+  M2 -->|"ชี้มูล / ไม่มีมูล / ส่ง ป.ป.ช."| C2(["ปิดสำนวน 7.2"]):::fin
+  M2 -.->|"สั่งไต่สวนเพิ่มเติม"| L72
+  classDef up fill:#eceff3,stroke:#8a94a3,color:#20262e
+  classDef sec fill:#dbe6f4,stroke:#123b63,color:#0a2647
+  classDef board fill:#e1f2e3,stroke:#2f855a,color:#1c4532
+  classDef dec fill:#fff,stroke:#20262e,color:#20262e
+  classDef fin fill:#f7dcd9,stroke:#a5322a,color:#742a2a
+  click L71 "#flow71"
+  click L73 "#flow71"
+  click L72 "#flow72"
+  click M1 "#after71"
+  </pre></div>
+</section>
+
+<!-- ───────────── 1. สาย 7.1 / 7.3 ก่อนมติ ───────────── -->
+<section id="flow71">
+  <h2>1 · สาย 7.1 / 7.3 — จากรับเรื่องถึงที่ประชุม <small>รหัสสถานะ 000–026</small></h2>
+  <p class="lead">7.1 กับ 7.3 ใช้ทางเดียวกันจนถึงประธานฯ — 7.3 ไม่มีคณะอนุกลั่นกรองฯ จึงตรงเข้าบรรจุวาระ</p>
+  <div class="diagram"><pre class="mermaid">
+flowchart TD
+  D0["000 ร่างรายงาน 213<br/><i>เจ้าของสำนวน (กจ.5)</i>"]:::up --> D2["002 หัวหน้ากลุ่มงาน"]:::up --> D3["003 ผอ.กอง / ผอ.เขต"]:::up
+  D3 --> DEP["004 รอรองเลขาฯ พิจารณา<br/><i>รองเลขาฯ · approval-review</i>"]:::sec
+  DEP -->|"ลงความเห็น (บังคับ) + ลงนาม"| SG["005 รอเลขาธิการฯ ลงนาม<br/><i>เลขาฯ · approval-review</i>"]:::sec
+  DEP -->|"ตีกลับ + เหตุผล/ไฟล์ · แจ้งเตือน"| RET["001 ส่งคืน กจ.5 รอแก้ไข<br/><i>เจ้าของสำนวน</i>"]:::up
+  RET -.->|"แก้แล้วเสนอใหม่"| D2
+
+  SG --> Q1{"ซับซ้อน หรือ<br/>ความเห็นในสายไม่ตรงกัน?"}:::dec
+  SG -->|"ส่งคืนสายงานต้นทาง"| RET
+  Q1 -->|"ใช่"| SA["025 ผอ.กบค. ออกเลขทะเบียนคุม<br/>มอบหมายคณะอนุสนับสนุน 1/2<br/><i>dir-case-support-assign</i>"]:::dir
+  SA -->|"ไม่มีทางตีกลับ"| SS["006 คณะอนุสนับสนุนฯ พิจารณา<br/><i>support-subcommittee</i>"]:::sub
+  SS -->|"ความเห็นคืนเลขาฯ เสมอ"| SG
+  Q1 -->|"ไม่"| Q2{"มีใบด่วน?"}:::dec
+  Q2 -->|"ไม่"| CH["009 รอประธานฯ สั่งการ<br/><i>ประธานฯ · chairman-agenda</i>"]:::chair
+  Q2 -->|"ใช่"| UR["007 รอ ผอ.กบค. รับรองใบด่วน<br/><i>approval-review</i>"]:::dir
+  UR -->|"รับรองเหตุผลเร่งด่วน"| UC["022 รอเลขาฯ ยืนยันวาระด่วน"]:::sec
+  UC -->|"ยืนยัน"| CH
+  UR -->|"ไม่ด่วน (7.1)"| SCR
+  UR -->|"ไม่ด่วน (7.3)"| CH
+
+  CH --> Q3{"ประธานฯ สั่ง?"}:::dec
+  Q3 -->|"ส่งกลั่นกรอง (7.1)"| SCR["010 อยู่อนุกลั่นกรองฯ คณะ 1–8<br/><i>subcommittee-screening</i>"]:::sub
+  Q3 -->|"วาระด่วน (มีรับรอง ผอ.กบค. + เลขาฯ ยืนยัน)"| AG
+  Q3 -->|"เรื่องทั่วไป/กกม. (7.3) ตรงเข้าวาระ"| AG
+
+  SCR --> Q4{"ผลกลั่นกรอง?"}:::dec
+  Q4 -->|"ขอข้อมูลเพิ่ม (หยุด SLA)"| MI["021 ขอข้อมูลเพิ่มเติม"]:::sub
+  MI -->|"เจ้าของสำนวนส่งกลับ"| SCR
+  Q4 -->|"ให้ไต่สวนเพิ่ม · ม.24 ว.5"| RET2["001 ส่งคืนเจ้าของสำนวน"]:::up
+  RET2 -->|"ไต่สวนเพิ่มแล้วเสนอกลับคณะเดิม"| SCR
+  Q4 -->|"เสร็จ (เสนอ กก. / ยุติ)"| SGA["026 รอประธานฯ ลงนามสั่งบรรจุวาระ<br/><i>chairman-agenda</i>"]:::chair
+  SGA -->|"ตีกลับให้ทบทวน"| SCR
+  SGA -->|"ลงนาม"| AG["011 รอบรรจุวาระ<br/><i>ฝ่ายเลขาฯ บอร์ด · agenda-registry</i>"]:::board
+
+  AG -->|"เปิดประชุม"| MT["012 ประชุมบอร์ด<br/><i>board-resolution</i>"]:::board
+  MT --> Q5{"องค์ประชุมครบ?"}:::dec
+  Q5 -->|"ไม่ครบ → บล็อกบันทึกมติ"| MT
+  Q5 -->|"ครบ · บันทึกมติ + ล็อก PDF"| RS(["015 มีมติแล้ว → ดูส่วนที่ 2"]):::board
+  MT -->|"เลื่อน / ถอนวาระ"| DF["013 เลื่อน/ถอนวาระ<br/><i>กลุ่มงานกิจการฯ</i>"]:::board
+  DF -->|"ได้เลขวาระใหม่"| AG
+
+  classDef up fill:#eceff3,stroke:#8a94a3,color:#20262e
+  classDef sec fill:#dbe6f4,stroke:#123b63,color:#0a2647
+  classDef dir fill:#ece3f7,stroke:#6b46c1,color:#44337a
+  classDef sub fill:#d9f1ee,stroke:#2c7a7b,color:#234e52
+  classDef chair fill:#fbf1d3,stroke:#c9a227,color:#5f4b0b
+  classDef board fill:#e1f2e3,stroke:#2f855a,color:#1c4532
+  classDef dec fill:#fff,stroke:#20262e,color:#20262e
+  click DEP "approval-review.html" "เปิดหน้า"
+  click SG "approval-review.html" "เปิดหน้า"
+  click SA "dir-case-support-assign.html" "เปิดหน้า"
+  click SS "support-subcommittee.html" "เปิดหน้า"
+  click UR "approval-review.html" "เปิดหน้า"
+  click UC "approval-review.html" "เปิดหน้า"
+  click CH "chairman-agenda.html" "เปิดหน้า"
+  click SCR "subcommittee-screening.html" "เปิดหน้า"
+  click MI "subcommittee-screening.html" "เปิดหน้า"
+  click SGA "chairman-agenda.html" "เปิดหน้า"
+  click AG "agenda-registry.html" "เปิดหน้า"
+  click MT "board-resolution.html" "เปิดหน้า"
+  click DF "board-resolution.html" "เปิดหน้า"
+  click RS "#after71"
+  </pre></div>
+  <ul class="notes">
+    <li>รองเลขาฯ / เลขาฯ ส่งคืน: ใส่เหตุผล + แนบไฟล์ (ไม่บังคับ) → ระบบแจ้งเตือนผู้รับผิดชอบสำนวน (A7-13)</li>
+    <li>หน้าเลขาฯ: ซ่อนการ์ด ม.28 — ค่าเริ่มต้น "สั่งรับเรื่องไว้พิจารณา" (A7-10)</li>
+    <li>ขั้น 000–003 เป็นงานต้นทาง กจ.5 (แสดงเพื่อให้เห็นทางกลับเมื่อถูกตีกลับ)</li>
+  </ul>
+</section>
+
+<!-- ───────────── 2. หลังมติ 7.1 / 7.3 ───────────── -->
+<section id="after71">
+  <h2>2 · หลังมติ สาย 7.1 / 7.3 <small>015 → 016 / 017 / 018–020</small></h2>
+  <p class="lead">ทางแยกตามชนิดมติ — 7.1 ทำที่ order.html / board-resolution · 7.3 ทำที่ resolution.html</p>
+  <div class="diagram"><pre class="mermaid">
+flowchart TD
+  RS["015 มีมติแล้ว"]:::board --> L{"สาย?"}:::dec
+  L -->|"7.1"| R1{"มติบอร์ด?"}:::dec
+  L -->|"7.3"| R3{"มติเรื่องทั่วไป?"}:::dec
+
+  R1 -->|"รับไว้ไต่สวน ม.24"| OR["ออกคำสั่งแต่งตั้งคณะไต่สวน ม.24<br/><i>order.html</i>"]:::board
+  OR --> OQ{"ระดับคำสั่ง?"}:::dec
+  OQ -->|"ระดับคณะกรรมการ ปปท.5-02 / 5-08"| OC["018 รอประธานฯ ลงนามคำสั่ง ม.24"]:::chair
+  OQ -->|"ระดับสำนักงาน ปปท.5-05 / 5-17"| OS["019 รอเลขาฯ ลงนามคำสั่ง ม.24"]:::sec
+  OC --> UI["020 อยู่ระหว่างไต่สวนตามคำสั่ง ม.24"]:::up
+  OS --> UI
+  UI -->|"ไต่สวนเสร็จ · เสนอรายงานชี้มูล"| G72(["ไปสาย 7.2 (ส่วนที่ 3)"]):::red
+  R1 -->|"ส่งหน่วยงานภายนอก"| DS["016 ส่งมติออก รอไฟล์ลงนามกลับ<br/><i>order.html</i>"]:::board
+  DS -->|"อัปโหลดสแกนฉบับลงนาม + คัดสำเนา ม.18/1 (ถ้าบังคับ)"| CL(["017 ปิดสำนวน"]):::fin
+  R1 -->|"ไม่รับไว้ไต่สวน / บันทึกมติ"| CL
+  R1 -->|"ขอทบทวนมติ (ได้เลขวาระใหม่)"| AG["011 รอบรรจุวาระ"]:::board
+
+  R3 -->|"แจ้งมติ / ส่งเอกสารให้ผู้รับผิดชอบ"| CL
+  R3 -->|"ส่งกองกฎหมายพิจารณา"| LG["016 รอความเห็นกองกฎหมาย<br/><i>resolution.html</i>"]:::board
+  LG -->|"ได้ความเห็น → เข้าวาระใหม่"| AG
+  LG -->|"ได้ความเห็น → ปิดเรื่อง"| CL
+  R3 -->|"ขอทบทวนมติ"| AG
+
+  classDef up fill:#eceff3,stroke:#8a94a3,color:#20262e
+  classDef sec fill:#dbe6f4,stroke:#123b63,color:#0a2647
+  classDef chair fill:#fbf1d3,stroke:#c9a227,color:#5f4b0b
+  classDef board fill:#e1f2e3,stroke:#2f855a,color:#1c4532
+  classDef dec fill:#fff,stroke:#20262e,color:#20262e
+  classDef fin fill:#f7dcd9,stroke:#a5322a,color:#742a2a
+  classDef red fill:#a5322a,stroke:#742a2a,color:#fff
+  click RS "board-resolution.html" "เปิดหน้า"
+  click OR "order.html" "เปิดหน้า"
+  click OC "order.html" "เปิดหน้า"
+  click OS "order.html" "เปิดหน้า"
+  click DS "order.html" "เปิดหน้า"
+  click LG "resolution.html" "เปิดหน้า"
+  click AG "agenda-registry.html" "เปิดหน้า"
+  click G72 "#flow72"
+  </pre></div>
+</section>
+
+<!-- ───────────── 3. สาย 7.2 ───────────── -->
+<section id="flow72">
+  <h2>3 · สาย 7.2 — รายงานวินิจฉัยชี้มูล <small>รหัสสถานะ 100–124</small></h2>
+  <p class="lead">เริ่มเมื่อคณะไต่สวนตาม ม.24 เสนอรายงาน — ผ่านสายบังคับบัญชาใหม่ทั้งสาย แล้วแยกซับซ้อน / ด่วน / ปกติ</p>
+  <div class="diagram"><pre class="mermaid">
+flowchart TD
+  ST(["คณะไต่สวน ม.24 เสนอรายงานไต่สวนชี้มูล"]):::up --> S0["100 หัวหน้ากลุ่มงาน<br/><i>approval-review</i>"]:::up
+  S0 -->|"เสนอ"| S1["101 ผอ.กอง / ผอ.เขต"]:::up
+  S1 -->|"เสนอ"| S2["102 รองเลขาฯ พิจารณา<br/>(ความเห็นบังคับ)"]:::sec
+  S2 -->|"เสนอ"| SG["104 เลขาฯ พิจารณา / ลงนาม<br/><i>approval-review</i>"]:::sec
+  S0 -->|"ส่งคืน"| RT["103 ตีกลับเจ้าของสำนวน"]:::up
+  S1 -->|"ส่งคืน"| RT
+  S2 -->|"ตีกลับ กจ.5"| RT
+  RT -->|"แก้แล้วเสนอใหม่"| S0
+
+  SG --> Q1{"ซับซ้อน?"}:::dec
+  Q1 -->|"ใช่"| SA["123 ผอ.กบค. ออกเลขทะเบียนคุม<br/>มอบหมายคณะอนุสนับสนุน<br/><i>dir-case-support-assign</i>"]:::dir
+  SA --> SS["105 คณะอนุสนับสนุนฯ<br/><i>support-subcommittee</i>"]:::sub
+  SS -->|"ความเห็นคืนเลขาฯ"| SG
+  Q1 -->|"ไม่"| Q2{"ด่วน?"}:::dec
+
+  Q2 -->|"ใช่"| UR["106 ผอ.กบค. รับรองเหตุผลเร่งด่วน<br/><i>urgent-agenda</i>"]:::dir
+  UR -->|"ไม่ด่วน → กลับทางปกติ"| SG
+  UR -->|"รับรอง"| UC["120 เลขาฯ ยืนยันวาระด่วน<br/><i>urgent-agenda</i>"]:::sec
+  UC --> CU["107 ประธานฯ ลงนามมอบหมาย /<br/>บรรจุวาระด่วน<br/><i>urgent-agenda</i>"]:::chair
+  CU -->|"บรรจุวาระด่วน (ข้ามกลั่นกรอง)"| INV
+  CU -->|"ยังไม่ด่วนจริง"| SCR
+  CU -->|"ตีกลับแก้ไข"| RT
+
+  Q2 -->|"ไม่ (ปกติ)"| CS["121 ประธานฯ ลงรับ / คัดกรอง<br/><i>affairs-case-detail</i>"]:::chair
+  CS -->|"ยุ่งยาก → สั่งส่งอนุกลั่นกรองฯ"| SCR
+  CS -->|"ไม่ยุ่งยาก → มอบกลุ่มงานกิจการฯ"| AO["124 กลุ่มงานกิจการฯ ทำความเห็นเสนอ<br/><i>affairs-opinion</i>"]:::board
+  AO --> CA["122 ประธานฯ ลงนามสั่งบรรจุวาระ<br/><i>chairman-agenda</i>"]:::chair
+  CA --> INV
+
+  C72["118 ประธานฯ ลงนามมอบหมาย<br/>(เส้นทางเดิม)<br/><i>chairman-agenda</i>"]:::chair -.->|"ส่งอนุกลั่นกรองฯ"| SCR
+  C72 -.->|"ตีกลับ"| RT
+
+  SCR["108 คณะอนุกลั่นกรองฯ คณะ 1–8<br/><i>subcommittee-screening</i>"]:::sub --> Q3{"ผลกลั่นกรอง?"}:::dec
+  Q3 -->|"ขอข้อมูลเพิ่ม (หยุด SLA)"| MI["117 ขอข้อมูลเพิ่มเติม"]:::sub
+  MI -->|"ส่งข้อมูลกลับ"| SCR
+  Q3 -->|"ทำเพิ่มเติม · ม.67"| RT2["103 ส่งคืนเจ้าของสำนวน"]:::up
+  RT2 -->|"เสนอกลับคณะเดิม"| SCR
+  Q3 -->|"เสร็จ (ชี้มูล / ไม่ชี้มูล / ตกไป)"| SGA["119 ประธานฯ ลงนามสั่งบรรจุวาระ (วาระที่ ๕)<br/><i>chairman-agenda</i>"]:::chair
+  SGA -->|"ตีกลับทบทวน"| SCR
+  SGA -->|"ลงนาม"| INV
+
+  INV["109 จัดทำหนังสือเชิญประชุม<br/><i>ฝ่ายเลขาฯ บอร์ด · agenda-registry</i>"]:::board -->|"เปิดประชุม"| MT["110 ประชุมบอร์ด<br/><i>resolution-72</i>"]:::board
+  MT --> Q4{"องค์ประชุมครบ?"}:::dec
+  Q4 -->|"ไม่ครบ → บล็อก"| MT
+  Q4 -->|"ครบ · บันทึกมติ"| RP["111 รอจัดทำรายงานวินิจฉัยชี้มูล<br/><i>กลุ่มงานกิจการฯ · ruling-report</i>"]:::board
+  RP -->|"ร่างรายงาน"| SR["112 ประธานฯ ลงนามรายงาน<br/>① ลงนามในระบบ ② เซ็นจริง + อัปโหลด PDF/PNG<br/><i>ruling-report</i>"]:::chair
+  SR --> Q5{"มติวินิจฉัย?"}:::dec
+  Q5 -->|"สั่งไต่สวนเพิ่มเติม · ม.24 ว.4 (วนรอบใหม่)"| S0
+  Q5 -->|"ไม่มีมูล · ม.32"| AN["113 บันทึกรับมติ / แจ้งผู้ถูกกล่าวหา<br/>ภายใน 15 วัน"]:::board
+  Q5 -->|"ส่ง ป.ป.ช. · ม.19(ข)(1)"| NC["114 ส่งเรื่องให้ ป.ป.ช.<br/>อัปโหลดสแกนฉบับนำส่ง"]:::board
+  Q5 -->|"ชี้มูลความผิด · ม.17·38·44"| GU["115 รอส่งดำเนินคดี<br/>สายอาญา (อัยการ) + สายวินัย (ต้นสังกัด)"]:::board
+  AN --> CL(["116 ปิดสำนวน — จบกระบวนการ"]):::fin
+  NC --> CL
+  GU -->|"ทั้ง 2 สายส่งครบ"| CL
+  CL -.->|"กจ.8 ตีกลับ ป.วินัย → แก้แล้วส่งใหม่"| GU
+
+  classDef up fill:#eceff3,stroke:#8a94a3,color:#20262e
+  classDef sec fill:#dbe6f4,stroke:#123b63,color:#0a2647
+  classDef dir fill:#ece3f7,stroke:#6b46c1,color:#44337a
+  classDef sub fill:#d9f1ee,stroke:#2c7a7b,color:#234e52
+  classDef chair fill:#fbf1d3,stroke:#c9a227,color:#5f4b0b
+  classDef board fill:#e1f2e3,stroke:#2f855a,color:#1c4532
+  classDef dec fill:#fff,stroke:#20262e,color:#20262e
+  classDef fin fill:#f7dcd9,stroke:#a5322a,color:#742a2a
+  click S0 "approval-review.html" "เปิดหน้า"
+  click S1 "approval-review.html" "เปิดหน้า"
+  click S2 "approval-review.html" "เปิดหน้า"
+  click SG "approval-review.html" "เปิดหน้า"
+  click RT "approval-review.html" "เปิดหน้า"
+  click SA "dir-case-support-assign.html" "เปิดหน้า"
+  click SS "support-subcommittee.html" "เปิดหน้า"
+  click UR "urgent-agenda.html" "เปิดหน้า"
+  click UC "urgent-agenda.html" "เปิดหน้า"
+  click CU "urgent-agenda.html" "เปิดหน้า"
+  click CS "affairs-case-detail.html" "เปิดหน้า"
+  click AO "affairs-opinion.html" "เปิดหน้า"
+  click CA "chairman-agenda.html" "เปิดหน้า"
+  click C72 "chairman-agenda.html" "เปิดหน้า"
+  click SCR "subcommittee-screening.html" "เปิดหน้า"
+  click MI "subcommittee-screening.html" "เปิดหน้า"
+  click SGA "chairman-agenda.html" "เปิดหน้า"
+  click INV "agenda-registry.html" "เปิดหน้า"
+  click MT "resolution-72.html" "เปิดหน้า"
+  click RP "ruling-report.html" "เปิดหน้า"
+  click SR "ruling-report.html" "เปิดหน้า"
+  click AN "ruling-report.html" "เปิดหน้า"
+  click NC "ruling-report.html" "เปิดหน้า"
+  click GU "ruling-report.html" "เปิดหน้า"
+  click CL "ruling-report.html" "เปิดหน้า"
+  </pre></div>
+  <ul class="notes">
+    <li>ลงนามรายงานวินิจฉัยชี้มูล: ค่าเริ่มต้น ② เซ็นจริง + อัปโหลด (ตามมติครั้งที่ 10) — ① ยังเป็นทางเลือก (A7-15/16)</li>
+    <li>ขั้นปิดงาน 7.2 ทุกทาง ผู้บันทึกคือกลุ่มงานกิจการคณะกรรมการ</li>
+    <li>เส้นประ = ทางเดิม / ทางวนหลังปิด</li>
+  </ul>
+</section>
+
+<!-- ───────────── 4. ตารางสถานะ ───────────── -->
+<section id="status">
+  <h2>4 · ตารางสถานะ → ผู้รับผิดชอบ → หน้าจอ</h2>
+  <p class="lead">จาก <code>STATUS</code> / <code>STATUS_CODE</code> / <code>pageForCaseByStatus()</code> ใน assets/ecmis-app.js</p>
+  <div class="table-wrap"><table id="statusTable">
+    <thead><tr><th>รหัส</th><th>สาย</th><th>สถานะ</th><th>ผู้รับผิดชอบ</th><th>หน้าจอ</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+</section>
+
+<!-- ───────────── 5. หน้าจอตาม role ───────────── -->
+<section id="pages">
+  <h2>5 · หน้าแรก / หน้าจอหลัก ตาม role</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Role</th><th>หน้าแรกหลังล็อกอิน</th><th>หน้าทำงานในสำนวน</th></tr></thead>
+    <tbody>
+      <tr><td>รองเลขาธิการฯ (deputy)</td><td><a href="inbox.html">inbox.html</a></td><td><a href="approval-review.html">approval-review.html</a></td></tr>
+      <tr><td>เลขาธิการฯ (secgen)</td><td><a href="inbox.html">inbox.html</a></td><td><a href="approval-review.html">approval-review.html</a>, <a href="urgent-agenda.html">urgent-agenda.html</a>, <a href="order.html">order.html</a></td></tr>
+      <tr><td>ผอ.กบค. (dir_case)</td><td><a href="inbox.html">inbox.html</a></td><td><a href="dir-case-support-assign.html">dir-case-support-assign.html</a>, <a href="urgent-agenda.html">urgent-agenda.html</a></td></tr>
+      <tr><td>คณะอนุสนับสนุนฯ (support_sub)</td><td><a href="support-subcommittee-inbox.html">support-subcommittee-inbox.html</a></td><td><a href="support-subcommittee.html">support-subcommittee.html</a></td></tr>
+      <tr><td>ประธานกรรมการ (chairman)</td><td><a href="inbox.html">inbox.html</a></td><td><a href="chairman-agenda.html">chairman-agenda.html</a>, <a href="affairs-case-detail.html">affairs-case-detail.html</a>, <a href="ruling-report.html">ruling-report.html</a>, <a href="order.html">order.html</a></td></tr>
+      <tr><td>คณะอนุกลั่นกรองฯ (subcommittee)</td><td><a href="subcommittee-inbox.html">subcommittee-inbox.html</a></td><td><a href="subcommittee-screening.html">subcommittee-screening.html</a></td></tr>
+      <tr><td>ฝ่ายเลขาฯ บอร์ด (board_sec)</td><td><a href="agenda-registry.html">agenda-registry.html</a></td><td><a href="resolution-inbox.html">resolution-inbox.html</a>, <a href="agenda-meeting-docs.html">agenda-meeting-docs.html</a>, <a href="board-resolution.html">board-resolution.html</a>, <a href="resolution-72.html">resolution-72.html</a></td></tr>
+      <tr><td>กลุ่มงานกิจการฯ (affairs)</td><td><a href="inbox.html">inbox.html</a></td><td><a href="affairs-opinion.html">affairs-opinion.html</a>, <a href="ruling-report.html">ruling-report.html</a>, <a href="resolution.html">resolution.html</a>, <a href="order.html">order.html</a></td></tr>
+      <tr><td>กรรมการ ป.ป.ท. (board)</td><td><a href="board-inbox.html">board-inbox.html</a></td><td><a href="board-detail.html">board-detail.html</a></td></tr>
+      <tr><td>กองบริหารคดี (case_admin)</td><td><a href="case-admin-inbox.html">case-admin-inbox.html</a></td><td><a href="case-admin-detail.html">case-admin-detail.html</a></td></tr>
+      <tr><td>ทุก role</td><td colspan="2"><a href="login.html">login.html</a> · <a href="case-register.html">case-register.html</a> (ทะเบียนสำนวน) · <a href="dashboard.html">dashboard.html</a> · <a href="followup-dashboard.html">followup-dashboard.html</a> (ติดตามผลมติ) · <a href="m38-inbox.html">m38-inbox.html</a> / <a href="m38-review.html">m38-review.html</a> (รายงานผล ม.38)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+</main>
+<footer>สร้างจากโค้ด prototype (TRANSITIONS / STATUS / pageForCaseByStatus) · 28 ต.ค. 2569</footer>
+
+<script>
+(function () {
+  var OWNER = {
+    owner:'เจ้าของสำนวน (กจ.5)', section_head:'หัวหน้ากลุ่มงาน', director:'ผอ.กอง / ผอ.เขต',
+    deputy:'รองเลขาธิการฯ', secgen:'เลขาธิการฯ', dir_case:'ผอ.กบค.', support_sub:'คณะอนุสนับสนุนฯ',
+    chairman:'ประธานกรรมการ', subcommittee:'คณะอนุกลั่นกรองฯ', board_sec:'ฝ่ายเลขาฯ บอร์ด',
+    affairs:'กลุ่มงานกิจการฯ', '-':'—'
+  };
+  var LINE_CLASS = { '7.1':'p71', '7.2':'p72', '7.3':'p73', '7.1/7.3':'p71' };
+  /* [รหัส, สาย, สถานะ, owner, หน้า] */
+  var ROWS = [
+    ['000','7.1','ร่างรายงาน 213 (ในกอง/เขต)','owner','—'],
+    ['001','7.1','ส่งคืน กจ.5 — รอแก้ไข','owner','approval-review.html'],
+    ['002','7.1','รอหัวหน้ากลุ่มงาน (ในกอง/เขต)','section_head','—'],
+    ['003','7.1','รอ ผอ.กอง / ผอ.เขต','director','—'],
+    ['004','7.1/7.3','รอรองเลขาธิการฯ พิจารณา','deputy','approval-review.html'],
+    ['005','7.1/7.3','รอเลขาธิการฯ ลงนาม','secgen','approval-review.html'],
+    ['025','7.1/7.3','รอ ผอ.กบค. ออกเลขทะเบียนคุม / มอบหมายคณะอนุสนับสนุน','dir_case','dir-case-support-assign.html'],
+    ['006','7.1/7.3','ส่งให้คณะอนุสนับสนุนฯ พิจารณาแล้ว','support_sub','support-subcommittee.html'],
+    ['007','7.1/7.3','รอ ผอ.กบค. รับรองใบด่วน','dir_case','approval-review.html'],
+    ['022','7.1/7.3','รอเลขาธิการฯ ยืนยันวาระด่วน','secgen','approval-review.html'],
+    ['009','7.1/7.3','รอประธานฯ สั่งการ','chairman','chairman-agenda.html'],
+    ['010','7.1','อยู่อนุกลั่นกรองฯ','subcommittee','subcommittee-screening.html'],
+    ['021','7.1','อนุกลั่นกรองฯ ขอข้อมูลเพิ่มเติม','subcommittee','subcommittee-screening.html'],
+    ['026','7.1','รอประธานฯ ลงนามสั่งบรรจุวาระ','chairman','chairman-agenda.html'],
+    ['011','7.1/7.3','รอบรรจุวาระ','board_sec','agenda-registry.html'],
+    ['012','7.1/7.3','อยู่ระหว่างประชุมบอร์ด','board_sec','board-resolution.html'],
+    ['013','7.1/7.3','เลื่อน/ถอนวาระ — รอเลขวาระใหม่','affairs','board-resolution.html'],
+    ['014','7.1/7.3','มีมติแล้ว รอล็อก PDF/ลงนาม','board_sec','board-resolution.html'],
+    ['015','7.1/7.3','มีมติแล้ว','board_sec','board-resolution.html / resolution.html (7.3)'],
+    ['016','7.1/7.3','ส่งมติออกแล้ว รอไฟล์ลงนามกลับ / รอความเห็นกองกฎหมาย (7.3)','owner','order.html / resolution.html (7.3)'],
+    ['017','7.1/7.3','ปิดสำนวน','-','board-resolution.html / resolution.html (7.3)'],
+    ['018','7.1','รอประธานฯ ลงนามคำสั่ง ม.24','chairman','order.html'],
+    ['019','7.1','รอเลขาธิการฯ ลงนามคำสั่ง ม.24','secgen','order.html'],
+    ['020','7.1','อยู่ระหว่างไต่สวนตามคำสั่ง ม.24','-','—'],
+    ['100','7.2','รอหัวหน้ากลุ่มงาน (รายงานวินิจฉัยชี้มูล)','section_head','approval-review.html'],
+    ['101','7.2','รอ ผอ.กอง / ผอ.เขต','director','approval-review.html'],
+    ['102','7.2','รอรองเลขาธิการฯ พิจารณา','deputy','approval-review.html'],
+    ['103','7.2','ตีกลับเจ้าของสำนวน','owner','approval-review.html'],
+    ['104','7.2','รอเลขาธิการฯ พิจารณา / ลงนาม','secgen','approval-review.html'],
+    ['123','7.2','รอ ผอ.กบค. ออกเลขทะเบียนคุม / มอบหมายคณะอนุสนับสนุน','dir_case','dir-case-support-assign.html'],
+    ['105','7.2','ส่งคณะอนุสนับสนุนเลขาธิการฯ พิจารณาแล้ว','support_sub','support-subcommittee.html'],
+    ['106','7.2','รอ ผอ.กบค. รับรองเหตุผลเร่งด่วน','dir_case','urgent-agenda.html'],
+    ['120','7.2','รอเลขาธิการฯ ยืนยันวาระด่วน','secgen','urgent-agenda.html'],
+    ['107','7.2','รอประธานฯ ลงนามมอบหมาย / บรรจุวาระด่วน','chairman','urgent-agenda.html'],
+    ['121','7.2','รอประธานฯ ลงรับ / คัดกรอง','chairman','affairs-case-detail.html'],
+    ['124','7.2','รอกลุ่มงานกิจการฯ ทำความเห็นเสนอ (ไม่ซับซ้อน)','affairs','affairs-opinion.html'],
+    ['122','7.2','รอประธานฯ ลงนามสั่งบรรจุวาระ (ไม่ซับซ้อน)','chairman','chairman-agenda.html'],
+    ['118','7.2','รอประธานฯ ลงนามมอบหมาย (ส่งคณะอนุกลั่นกรองฯ)','chairman','chairman-agenda.html'],
+    ['108','7.2','อยู่คณะอนุกลั่นกรองเรื่องไต่สวนข้อเท็จจริง','subcommittee','subcommittee-screening.html'],
+    ['117','7.2','อนุกลั่นกรองฯ ขอข้อมูลเพิ่มเติม','subcommittee','subcommittee-screening.html'],
+    ['119','7.2','รอประธานฯ ลงนามสั่งบรรจุวาระ','chairman','chairman-agenda.html'],
+    ['109','7.2','รอจัดทำหนังสือเชิญประชุม','board_sec','agenda-registry.html'],
+    ['110','7.2','อยู่ระหว่างประชุมบอร์ด','board_sec','resolution-72.html'],
+    ['111','7.2','มีมติแล้ว รอจัดทำรายงานวินิจฉัยชี้มูล','affairs','ruling-report.html'],
+    ['112','7.2','รอประธานฯ ลงนามรายงานวินิจฉัยชี้มูล','chairman','ruling-report.html'],
+    ['113','7.2','รอพื้นที่บันทึกรับมติ / แจ้งผล (ม.32)','affairs','ruling-report.html'],
+    ['114','7.2','รอส่งเรื่องให้ ป.ป.ช. (ม.19)','affairs','ruling-report.html'],
+    ['115','7.2','ชี้มูลความผิดแล้ว รอส่งดำเนินคดี','affairs','ruling-report.html'],
+    ['116','7.2','ปิดสำนวน — จบกระบวนการ','-','ruling-report.html']
+  ];
+
+  function pageCell(spec) {
+    var td = document.createElement('td');
+    spec.split(' / ').forEach(function (p, i) {
+      if (i) td.appendChild(document.createTextNode(' / '));
+      var file = p.split(' ')[0];
+      if (!/\.html$/.test(file)) { td.appendChild(document.createTextNode(p)); return; }
+      var a = document.createElement('a');
+      a.href = file;
+      a.textContent = p;
+      td.appendChild(a);
+    });
+    return td;
+  }
+  function textCell(text, tag, cls) {
+    var td = document.createElement('td');
+    if (!tag) { td.textContent = text; return td; }
+    var el = document.createElement(tag);
+    if (cls) el.className = cls;
+    el.textContent = text;
+    td.appendChild(el);
+    return td;
+  }
+
+  document.querySelectorAll('.diagram').forEach(function (box) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'zoom-btn';
+    btn.textContent = 'ดูขนาดจริง';
+    btn.addEventListener('click', function () {
+      var full = box.classList.toggle('full');
+      btn.textContent = full ? 'ย่อให้พอดีจอ' : 'ดูขนาดจริง';
+    });
+    box.insertBefore(btn, box.firstChild);
+  });
+
+  var tbody = document.querySelector('#statusTable tbody');
+  ROWS.forEach(function (r) {
+    var tr = document.createElement('tr');
+    tr.appendChild(textCell(r[0], 'code'));
+    tr.appendChild(textCell(r[1], 'span', 'pill ' + LINE_CLASS[r[1]]));
+    tr.appendChild(textCell(r[2]));
+    tr.appendChild(textCell(OWNER[r[3]]));
+    tr.appendChild(pageCell(r[4]));
+    tbody.appendChild(tr);
+  });
+})();
+</script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
+mermaid.initialize({
+  startOnLoad: true,
+  securityLevel: 'loose',
+  theme: 'base',
+  flowchart: { htmlLabels: true, curve: 'basis', nodeSpacing: 36, rankSpacing: 46, useMaxWidth: false },
+  themeVariables: { fontFamily: 'Sarabun, sans-serif', fontSize: '14px', lineColor: '#5b6470', primaryTextColor: '#20262e' }
+});
+</script>
+</body>
+</html>
