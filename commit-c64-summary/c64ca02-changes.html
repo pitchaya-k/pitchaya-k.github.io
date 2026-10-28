@@ -1,0 +1,203 @@
+<title>E-CMIS c64ca02 Changes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap">
+<style>
+/* Layout: sticky index rail on the left, one section per screenshot on the right; stacks on phones */
+:root {
+  --bg: #f4f5f8; --surface: #ffffff; --fg: #1b2233; --muted: #5d667a;
+  --line: #dde1ea; --navy: #1f2f6b; --mark: #e11d48; --mark-soft: #fde7ec;
+  --display: "Bai Jamjuree", "IBM Plex Sans Thai", system-ui, sans-serif;
+  --body: "IBM Plex Sans Thai", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #12151d; --surface: #1b202b; --fg: #e6e9f0; --muted: #9aa3b5;
+  --line: #2c3342; --navy: #9fb2ff; --mark: #fb7190; --mark-soft: #3a1c26; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #12151d; --surface: #1b202b; --fg: #e6e9f0; --muted: #9aa3b5;
+  --line: #2c3342; --navy: #9fb2ff; --mark: #fb7190; --mark-soft: #3a1c26; color-scheme: dark }
+
+body { background: var(--bg); color: var(--fg); font: 15px/1.65 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 32px 64px; }
+.wrap { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 40px; }
+header.top { grid-column: 1 / -1; display: grid; gap: 6px; }
+.eyebrow { font: 600 12px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font: 700 clamp(26px, 4vw, 36px)/1.2 var(--display); margin: 0; color: var(--navy); text-wrap: balance; }
+.lede { margin: 0; color: var(--muted); max-width: 70ch; }
+.legend { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.legend i { width: 22px; height: 14px; border: 3px solid var(--mark); border-radius: 4px; display: inline-block; }
+
+nav.rail { position: sticky; top: calc(16px + env(safe-area-inset-top, 0px)); align-self: start; display: grid; gap: 2px; }
+nav.rail a { display: grid; grid-template-columns: 28px 1fr; gap: 6px; padding: 7px 10px; border-radius: 8px; color: var(--fg); text-decoration: none; font-size: 14px; line-height: 1.4; }
+nav.rail a span { font: 600 13px/1.4 var(--display); color: var(--mark); font-variant-numeric: tabular-nums; }
+nav.rail a:hover, nav.rail a:focus-visible { background: var(--surface); outline: none; box-shadow: inset 0 0 0 1px var(--line); }
+
+main { display: grid; gap: 48px; min-width: 0; }
+section { display: grid; gap: 14px; scroll-margin-top: 16px; min-width: 0; }
+.head { display: grid; gap: 4px; }
+.head h2 { font: 600 21px/1.3 var(--display); margin: 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 2px 9px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); color: var(--muted); }
+.chip.file { font-family: ui-monospace, Consolas, monospace; }
+ul.points { margin: 0; padding-left: 20px; max-width: 72ch; display: grid; gap: 4px; }
+ul.points b { color: var(--mark); font-weight: 600; }
+figure { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px; }
+figure a { display: block; max-height: 760px; overflow: auto; border-radius: 6px; }
+figure img { display: block; width: 100%; height: auto; }
+
+.note { background: var(--mark-soft); border-radius: 12px; padding: 16px 18px; display: grid; gap: 6px; }
+.note h2 { font: 600 17px/1.3 var(--display); margin: 0; }
+.note ul { margin: 0; padding-left: 20px; }
+code { font-family: ui-monospace, Consolas, monospace; font-size: .9em; }
+
+@media (max-width: 820px) {
+  .wrap { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  nav.rail { position: static; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  figure a { max-height: 560px; }
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">Commit c64ca02 · update28102026 · 28 ต.ค. 2569</div>
+    <h1>สิ่งที่เปลี่ยนในกิจกรรมที่ 7 (มติคณะกรรมการ ป.ป.ท.)</h1>
+    <p class="lede">ภาพเต็มหน้าจอของหน้าที่เปลี่ยนใน commit ล่าสุด จุดที่เปลี่ยนมีกรอบสีแดงพร้อมป้ายอธิบาย ภาพ 01–06 ใช้เคสสาธิต 9990/2569 (สำเนาจาก 9422/2569 ไม่บันทึกลงฐานข้อมูล) ภาพ 07–09 เป็นหน้าจอ Mock ที่เพิ่มใหม่</p>
+    <div class="legend"><i></i> กรอบแดง = ส่วนที่เปลี่ยนหรือเพิ่มใหม่ · คลิกภาพเพื่อเปิดขนาดเต็ม</div>
+  </header>
+
+  <nav class="rail" aria-label="รายการภาพ">
+    <a href="#s1"><span>01</span>หน้าพิจารณา · เลขาฯ</a>
+    <a href="#s2"><span>02</span>การ์ดสรุปสำนวน (ขยาย)</a>
+    <a href="#s3"><span>03</span>หน้าพิจารณา · รองเลขาฯ</a>
+    <a href="#s4"><span>04</span>review.html · เลขาฯ</a>
+    <a href="#s5"><span>05</span>รายงานวินิจฉัยชี้มูล · ประธานฯ</a>
+    <a href="#s6"><span>06</span>รายการพิจารณา · เลขาฯ</a>
+    <a href="#s7"><span>07</span>Mock 01 · ข้อมูลยังไม่ครบ</a>
+    <a href="#s8"><span>08</span>Mock 02 · ข้อมูลครบ</a>
+    <a href="#s9"><span>09</span>Mock 09 · ความเห็นไม่ตรงกัน</a>
+    <a href="#hidden"><span>—</span>เปลี่ยนแต่ไม่เห็นบนจอ</a>
+  </nav>
+
+  <main>
+    <section id="s1">
+      <div class="head">
+        <h2>01 · หน้าพิจารณาและลงนาม — เลขาธิการฯ</h2>
+        <div class="meta"><span class="chip file">approval-review.html</span><span class="chip">สถานะ PENDING_SECGEN · สาย 7.1</span></div>
+      </div>
+      <ul class="points">
+        <li><b>①</b> การ์ด "สรุปสำนวน" แบบใหม่ ย้ายไปไฟล์กลาง <code>case-summary-card.js</code> แสดงแบบย่อก่อน กด "ดูทั้งหมด" เพื่อขยาย</li>
+        <li><b>②</b> กล่อง "เป็นกรณีเร่งด่วนหรือไม่?" แยกเป็นกล่องของตัวเองและอยู่ก่อนกล่องซับซ้อน</li>
+        <li><b>③</b> กล่อง "เป็นกรณีซับซ้อนหรือไม่?" แสดงเฉพาะเลขาฯ สาย 7.1/7.2 ที่ยังไม่ผ่านคณะอนุฯ สนับสนุน</li>
+        <li><b>④</b> ใหม่: "เส้นทางเมื่อลงนาม" บอกว่าลงนามแล้วเรื่องจะไปที่ใด ป้ายปุ่มลงนามเปลี่ยนตามเส้นทาง</li>
+        <li>การ์ดคำสั่ง ม.28 ถูกซ่อนในหน้าเลขาฯ ระบบถือว่ารับไว้พิจารณาอัตโนมัติ (A7-10)</li>
+      </ul>
+      <figure><a href="01-approval-review-secgen.png" target="_blank" rel="noopener"><img src="01-approval-review-secgen.png" alt="หน้าพิจารณาของเลขาธิการฯ พร้อมกรอบแดง 4 จุด" loading="lazy" width="1440" height="2784"></a></figure>
+    </section>
+
+    <section id="s2">
+      <div class="head">
+        <h2>02 · การ์ดสรุปสำนวนเมื่อกด "ดูทั้งหมด"</h2>
+        <div class="meta"><span class="chip file">assets/case-summary-card.js</span><span class="chip file">assets/case-summary-prototype-fill.js</span></div>
+      </div>
+      <ul class="points">
+        <li>ช่องใหม่ (A7-01 – A7-07): ช่องทางรับเรื่อง, วันที่รับเรื่องพร้อมจำนวนวันที่ดำเนินการมาแล้ว, ฐานความผิด, ผลรายบุคคล, การคุ้มครองพยาน</li>
+        <li>ช่องว่างแยกความหมาย 3 แบบ: ยังไม่มีข้อมูล / ไม่มีรายการ / ไม่เกี่ยวข้อง</li>
+        <li>ช่องที่ฐานข้อมูลยังไม่มี เติมด้วยค่าตัวอย่างและติดป้าย "ข้อมูลจำลอง" ไม่แก้ข้อมูลเคสที่บันทึกจริง</li>
+      </ul>
+      <figure><a href="02-approval-review-secgen-expanded.png" target="_blank" rel="noopener"><img src="02-approval-review-secgen-expanded.png" alt="การ์ดสรุปสำนวนแบบขยายเต็ม" loading="lazy" width="1440" height="3590"></a></figure>
+    </section>
+
+    <section id="s3">
+      <div class="head">
+        <h2>03 · หน้าพิจารณา — รองเลขาธิการฯ</h2>
+        <div class="meta"><span class="chip file">approval-review.html</span><span class="chip">สถานะ PENDING_DEPUTY</span></div>
+      </div>
+      <ul class="points">
+        <li>ใช้การ์ดสรุปสำนวนตัวเดียวกับหน้าเลขาฯ แต่ไม่มีกล่องเร่งด่วน/ซับซ้อน</li>
+      </ul>
+      <figure><a href="03-approval-review-deputy.png" target="_blank" rel="noopener"><img src="03-approval-review-deputy.png" alt="หน้าพิจารณาของรองเลขาธิการฯ" loading="lazy"></a></figure>
+    </section>
+
+    <section id="s4">
+      <div class="head">
+        <h2>04 · หน้าพิจารณารายงานชี้มูล — เลขาธิการฯ</h2>
+        <div class="meta"><span class="chip file">review.html</span><span class="chip">สถานะ PENDING_SECGEN</span></div>
+      </div>
+      <ul class="points">
+        <li><b>①</b> กล่องซับซ้อนแสดงตามเงื่อนไข <code>g1BoxVisible()</code> (เดิมแสดงทุกเคส รวม 7.3 และรอบหลังคณะอนุฯ สนับสนุน)</li>
+        <li><b>②</b> กล่องเร่งด่วน · เคสที่มีใบด่วนแนบมาจะแสดงป้ายแทนกล่องเลือก</li>
+        <li><b>③</b> ใหม่: สรุปเส้นทางเมื่อลงนาม ใช้ตรรกะเดียวกับตอนบันทึก</li>
+      </ul>
+      <figure><a href="04-review-secgen.png" target="_blank" rel="noopener"><img src="04-review-secgen.png" alt="review.html ของเลขาธิการฯ" loading="lazy"></a></figure>
+    </section>
+
+    <section id="s5">
+      <div class="head">
+        <h2>05 · รายงานวินิจฉัยชี้มูล — ประธานกรรมการ ป.ป.ท.</h2>
+        <div class="meta"><span class="chip file">ruling-report.html</span><span class="chip">สถานะ PENDING_SIGN_RULING_72 · สาย 7.2</span></div>
+      </div>
+      <ul class="points">
+        <li>ใหม่ (A7-15/16): เลือกวิธีลงนาม ① ลงลายเซ็นในระบบ หรือ ② เซ็นจริงแล้วอัปโหลดฉบับลงนาม</li>
+        <li>ค่าเริ่มต้นเป็นแบบ ② · ต้องแนบไฟล์ PDF หรือ PNG ก่อนบันทึก ไฟล์เข้าเอกสารแนบของสำนวน</li>
+      </ul>
+      <figure><a href="05-ruling-report-chairman.png" target="_blank" rel="noopener"><img src="05-ruling-report-chairman.png" alt="รายงานวินิจฉัยชี้มูลพร้อมตัวเลือกวิธีลงนาม" loading="lazy" width="1440" height="2343"></a></figure>
+    </section>
+
+    <section id="s6">
+      <div class="head">
+        <h2>06 · รายการพิจารณา/ลงนาม — เลขาธิการฯ</h2>
+        <div class="meta"><span class="chip file">inbox.html</span></div>
+      </div>
+      <ul class="points">
+        <li>ใหม่: กล่อง "หน้าจอ Mock การ์ดสรุปสำนวน" ลิงก์ไปหน้า Mock 01–10 แสดงเฉพาะรองเลขาฯ และเลขาฯ</li>
+        <li>อยู่แยกจากตารางคิวงานจริง ไม่นับใน KPI</li>
+      </ul>
+      <figure><a href="06-inbox-secgen.png" target="_blank" rel="noopener"><img src="06-inbox-secgen.png" alt="หน้ารายการพิจารณาพร้อมกล่องลิงก์ Mock" loading="lazy" width="1440" height="2543"></a></figure>
+    </section>
+
+    <section id="s7">
+      <div class="head">
+        <h2>07 · หน้า Mock 01 — เรื่องทั่วไป 7.3 · ข้อมูลยังมาไม่ครบ</h2>
+        <div class="meta"><span class="chip file">approval-review-mock-01.html</span><span class="chip">หน้าใหม่</span></div>
+      </div>
+      <ul class="points">
+        <li>ตัวสลับด้านบนเลือกประเภทเคส (7.3 / 213 / 644) สถานะข้อมูล และมุมมองบทบาท</li>
+        <li>เห็นการ์ดเมื่อข้อมูลยังไม่ครบ ช่องว่างแสดง "ยังไม่มีข้อมูล" แทนการสรุปว่าไม่มี</li>
+      </ul>
+      <figure><a href="07-mock-01-7.3-partial.png" target="_blank" rel="noopener"><img src="07-mock-01-7.3-partial.png" alt="หน้า Mock 01" loading="lazy"></a></figure>
+    </section>
+
+    <section id="s8">
+      <div class="head">
+        <h2>08 · หน้า Mock 02 — เรื่องทั่วไป 7.3 · ข้อมูลครบ</h2>
+        <div class="meta"><span class="chip file">approval-review-mock-02.html</span><span class="chip">หน้าใหม่</span></div>
+      </div>
+      <ul class="points">
+        <li>เคสเดียวกับ Mock 01 แต่เติมข้อมูลจำลองครบทุกช่อง ใช้เทียบกับภาพ 07</li>
+      </ul>
+      <figure><a href="08-mock-02-7.3-full.png" target="_blank" rel="noopener"><img src="08-mock-02-7.3-full.png" alt="หน้า Mock 02" loading="lazy"></a></figure>
+    </section>
+
+    <section id="s9">
+      <div class="head">
+        <h2>09 · หน้า Mock 09 — ความเห็นในสายบังคับบัญชาไม่ตรงกัน</h2>
+        <div class="meta"><span class="chip file">approval-review-mock-09.html</span><span class="chip">หน้าใหม่ 07–10</span></div>
+      </div>
+      <ul class="points">
+        <li>หน้า Mock 07–10 แสดงการ์ดความเห็นของเลขาฯ 4 สถานการณ์: 7.1 กองปราบ, มีใบด่วนแนบ, ความเห็นไม่ตรงกัน, รอบที่ 2</li>
+        <li>เมื่อความเห็นไม่ตรงกัน ระบบบังคับเลือก "ซับซ้อน" และปิดตัวเลือก "ไม่ซับซ้อน"</li>
+        <li>สรุปเส้นทางเมื่อลงนามแสดงเหตุผลจากระบบตรวจ</li>
+      </ul>
+      <figure><a href="09-mock-09-secgen-scenario.png" target="_blank" rel="noopener"><img src="09-mock-09-secgen-scenario.png" alt="หน้า Mock 09" loading="lazy"></a></figure>
+    </section>
+
+    <section id="hidden" class="note">
+      <h2>เปลี่ยนแต่ไม่เห็นบนหน้าจอ</h2>
+      <ul>
+        <li><code>agenda.html</code> / <code>agenda-set.html</code> — แก้ปุ่มส่งออก DOCX ที่เคยเกิด ReferenceError (<code>docTab</code>)</li>
+        <li><code>chairman-agenda.html</code> — ประธานฯ ตีกลับสำนวนแล้วบันทึกสถานะลง Supabase (เดิมเปลี่ยนแค่ในเบราว์เซอร์)</li>
+        <li><code>urgent-agenda.html</code> — ลงนามบรรจุวาระด่วนแล้วไปหน้า <code>agenda-set.html</code> แทน <code>agenda.html</code></li>
+        <li><code>approval-review.html</code> — ตีกลับสำนวนแล้วแจ้งเตือนผู้รับผิดชอบสำนวน พร้อมเหตุผลและไฟล์แนบ (A7-13)</li>
+      </ul>
+    </section>
+  </main>
+</div>
