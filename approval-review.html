@@ -46,17 +46,8 @@
         </div>
 
         <div class="ws-card mb-3" id="summaryCard">
-          <div class="card-header"><i class="fa-solid fa-circle-info"></i> สรุปสำนวนสำหรับผู้พิจารณา</div>
-          <div class="card-body">
-            <div class="row g-2 kv" id="summary"></div>
-            <hr>
-            <div class="mb-2"><span class="k text-muted">ข้อกล่าวหา</span>
-              <div class="v" id="sAllegation"></div>
-            </div>
-            <div><span class="k text-muted">ความเห็นของผู้รับผิดชอบสำนวน</span>
-              <div class="v" id="sOpinion"></div>
-            </div>
-          </div>
+          <div class="card-header"><i class="fa-solid fa-folder-open"></i> สรุปสำนวน</div>
+          <div class="card-body"><!-- เนื้อหาเติมโดย renderCaseSummary() --></div>
         </div>
 
 
@@ -96,51 +87,58 @@
           <div class="card-header"><i class="fa-solid fa-pen-nib"></i> ความเห็นของผู้พิจารณาชั้นนี้</div>
           <div class="card-body">
 
-            <div id="g1Box" class="d-none mb-3">
+            <!-- เลขาธิการฯ: 2 กล่องแยกกัน (radio คนละกลุ่ม) — บนหน้าจอแสดงกล่องเร่งด่วนก่อนกล่องซับซ้อน
+                 แต่ลำดับการพิจารณา/ส่งต่อยังเป็นของ secgenRoute() เดิม (ซับซ้อน > เร่งด่วน > ผ่านอนุฯ สนับสนุน > ปกติ) -->
 
-              <label class="form-label field-req">สำนวนนี้เป็นเรื่องยุ่งยากซับซ้อนหรือไม่? <small
-                  class="text-muted fw-normal">(ดุลพินิจเลขาธิการฯ)</small></label>
-              <div class="d-flex gap-3 flex-wrap mb-2">
-                <div class="form-check">
+            <!-- กล่องที่ 1: เร่งด่วน — เคสที่มีใบด่วนแนบมาจากต้นทาง (kase.urgent) แสดงป้ายแทนกล่องเลือก -->
+            <div id="urgentPreBadge" class="d-none border rounded-3 p-3 mb-3" style="background:#fffaf0"></div>
+
+            <div id="urgentBox72" class="d-none border rounded-3 p-3 mb-3" style="background:#f8fafc">
+              <label class="form-label field-req fw-semibold mb-2">เป็นกรณีเร่งด่วนหรือไม่?</label>
+              <div class="d-flex flex-wrap gap-4">
+                <div class="form-check mb-0">
+                  <input class="form-check-input" type="radio" name="urgent72toggle" id="urgentNo72" value="no" checked>
+                  <label class="form-check-label" for="urgentNo72">ไม่เร่งด่วน</label>
+                </div>
+                <div class="form-check mb-0">
+                  <input class="form-check-input" type="radio" name="urgent72toggle" id="urgentYes72" value="yes">
+                  <label class="form-check-label" for="urgentYes72">เร่งด่วน</label>
+                </div>
+              </div>
+              <div id="urgentReasonBox72" class="mt-2 d-none">
+                <label class="form-label field-req">เหตุผลที่ถือเป็นกรณีเร่งด่วน</label>
+                <textarea class="form-control" id="urgentReason72" rows="2"
+                  placeholder="ระบุเหตุผลที่ถือว่าสำนวนนี้เป็นกรณีเร่งด่วน"></textarea>
+              </div>
+            </div>
+
+            <!-- กล่องที่ 2: ซับซ้อน — เฉพาะเลขาฯ รอบแรกของ 7.1/7.2 (g1BoxVisible) · ข้อความ "ไม่ซับซ้อน" ตั้งตามเส้นทางของสำนวน (A7-11) -->
+            <div id="g1Box" class="d-none border rounded-3 p-3 mb-3" style="background:#f8fafc">
+              <label class="form-label field-req fw-semibold mb-2">เป็นกรณีซับซ้อนหรือไม่?</label>
+              <div class="d-flex flex-column gap-2">
+                <div class="form-check mb-0">
                   <input class="form-check-input" type="radio" name="g1" id="g1no" value="no" checked>
                   <label class="form-check-label" for="g1no">ไม่ซับซ้อน</label>
                 </div>
-                <div class="form-check">
+                <div class="form-check mb-0">
                   <input class="form-check-input" type="radio" name="g1" id="g1yes" value="yes">
                   <label class="form-check-label" for="g1yes">ซับซ้อน — ส่ง ผอ.กบค. ออกเลขทะเบียนคุม / มอบหมายคณะอนุสนับสนุนฯ</label>
                 </div>
               </div>
+              <div id="g1DivergedNote" class="d-none small text-danger mt-2"><i class="fa-solid fa-triangle-exclamation me-1"></i>ความเห็นในสายบังคับบัญชาไม่ตรงกัน (ระบบตรวจ) — ต้องส่งเป็นเรื่องซับซ้อน</div>
 
               <!-- 2026-09-28: เลขาฯ ไม่เลือกคณะอนุสนับสนุนเองแล้ว (ผอ.กบค. เป็นผู้มอบหมาย) — กรอกเหตุผล
                    ความซับซ้อนแทน ใช้เป็นเนื้อหาใบบันทึกซับซ้อนถึง ผอ.กบค. -->
-              <div id="complexReasonBox" class="mt-2 mb-2 d-none">
+              <div id="complexReasonBox" class="mt-3 d-none">
                 <label class="form-label field-req" for="complexReason">เหตุผลที่เห็นว่าเป็นเรื่องยุ่งยากซับซ้อน
                   <small class="text-muted fw-normal">(ใช้ในใบบันทึกซับซ้อนถึง ผอ.กบค.)</small></label>
                 <textarea class="form-control" id="complexReason" rows="3"
                   placeholder="เช่น มีผู้ถูกกล่าวหาหลายราย พยานหลักฐานจำนวนมาก ประเด็นข้อกฎหมายซับซ้อน..."></textarea>
               </div>
-              <hr>
             </div>
 
-            <div id="urgentBox72" class="d-none mb-3">
-              <label class="form-label field-req">เป็นกรณีเร่งด่วนหรือไม่?</label>
-              <div class="d-flex gap-3 flex-wrap mb-2">
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="urgent72toggle" id="urgentNo72" value="no" checked>
-                  <label class="form-check-label" for="urgentNo72">ไม่เร่งด่วน</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="urgent72toggle" id="urgentYes72" value="yes">
-                  <label class="form-check-label" for="urgentYes72">เร่งด่วน — ขอรับรองบรรจุวาระด่วน</label>
-                </div>
-              </div>
-              <div id="urgentReasonBox72" class="mb-1 d-none">
-                <label class="form-label field-req">เหตุผลที่ถือเป็นกรณีเร่งด่วน</label>
-                <textarea class="form-control" id="urgentReason72" rows="2"
-                  placeholder="ระบุเหตุผลที่ถือว่าสำนวนนี้เป็นกรณีเร่งด่วน"></textarea>
-              </div>
-              <hr>
-            </div>
+            <!-- สรุปเส้นทางเมื่อลงนาม (เลขาธิการฯ) — ข้อความมาจาก secgenRoute() ตัวเดียวกับที่ save_status ใช้ -->
+            <div id="g1Outcome" class="ws-callout mb-3 d-none" style="font-size:.85rem"></div>
 
             <div id="myOpinionBox">
               <label class="form-label field-req">ความเห็น</label>
@@ -283,6 +281,9 @@
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
   <script src="assets/ecmis-model.js"></script>
+  <script src="assets/case-summary-card.js?v=20261022d"></script>
+  <script src="assets/case-summary-prototype-fill.js?v=20261022d"></script>
+  <script src="assets/secgen-route-text.js?v=20261022d"></script>
   <script>
     ECMIS.renderShell('approval-review.html');
 
@@ -365,6 +366,26 @@
       return path;
     }
 
+    /* A7-13: แจ้งเตือนผู้รับผิดชอบสำนวนเมื่อส่งคืน — แนบเหตุผลและชื่อไฟล์แนบ (ถ้ามี)
+       ผู้รับผิดชอบสำนวนเป็นผู้ใช้ กจ.5 จึงส่งผ่านทะเบียนกลาง (publishReturn) และบันทึก audit event RETURN_NOTICE
+       สมมติฐาน (รอตกลงกับทีม กจ.5): ช่องทาง = แจ้งเตือนในระบบ E-CMIS ฝั่ง กจ.5 + อีเมลผู้รับผิดชอบสำนวน */
+    function returnReasonLabel(code) {
+      return ((ECMIS.RETURN_REASONS || []).find(r => r.code === code) || {}).label || '';
+    }
+    async function notifyOwnerOnReturn(k, info) {
+      const notice = {
+        to: k.owner || 'ผู้รับผิดชอบสำนวน', toOrg: k.ownerOrg || '',
+        reason: info.reason || '', reasonLabel: info.reasonLabel || '', file: info.fileName || null,
+        channel: 'แจ้งเตือนในระบบ (กจ.5) + อีเมล', by: role.name || role.id, atIso: new Date().toISOString()
+      };
+      try { await ECMIS.logRequestEvent(k.trr_id, null, null, { type: 'RETURN_NOTICE', actorRole: role.id, data: notice }); }
+      catch (e) { console.warn('บันทึกการแจ้งเตือนส่งคืนไม่สำเร็จ (ไม่กระทบการส่งคืน):', e); }
+      return notice;
+    }
+    function returnNoticeText(n) {
+      return `แจ้งเตือนถึง ${n.to} แล้ว — เหตุผล: ${n.reasonLabel || n.reason}${n.file ? ` · ไฟล์แนบ: ${n.file}` : ''}`;
+    }
+
     /* จำนวนไฟล์แนบจริง (+ แถวใบด่วนจำลอง "แนบมาจากต้นทาง") มาจากการ์ด "เอกสารแนบเพิ่มเติม" กลาง (ECMIS.initAttachmentCard)
        ผ่าน event ecmis:attachments — การ์ด "ไฟล์แนบสำนวน" เดิมของหน้านี้ถูกรวมเข้าการ์ดกลางแล้ว (2026-10-01) */
     let attachmentCount = 0;
@@ -377,63 +398,18 @@
     /* ด่านรับรอง/ยืนยันความเร่งด่วนของสาย 7.1 (T7 ผอ.กบค. + เลขาธิการฯ ยืนยันซ้ำ) — คนละงานกับ
        การพิจารณารายงาน 213/G1/G3 ตามปกติของหน้านี้ จึงแทนที่ docWorkspace ทั้งหมดด้วย UI เบา ๆ
        แยกต่างหาก แทนที่จะฝังเข้าไปในฟอร์ม G1/G3/m28 ที่ซับซ้อนอยู่แล้ว */
-    /* A7-02: วันที่รับเรื่อง · ดำเนินการมาแล้ว N วัน — นับถึงวันนี้ด้วย helper วันที่ไทยเดิม (ปีระบบเป็น พ.ศ.;
-       ค่าจากฐานข้อมูลที่เป็น ค.ศ. แปลงเป็น พ.ศ. ก่อนนับ) ไม่มีวันที่รับเรื่อง → "—" ไม่แสดงจำนวนวัน */
-    function receivedWithAge(k) {
-      const raw = k && k.receivedDate;
-      if (!raw || raw === '—') return '—';
-      const iso = String(raw).slice(0, 10);
-      const p = iso.split('-');
-      if (p.length !== 3) return ECMIS.thaiDate(raw);
-      let y = parseInt(p[0], 10);
-      if (!isNaN(y) && y < 2400) y += 543;
-      const days = -ECMIS.daysUntilFakeIso(`${y}-${p[1]}-${p[2]}`);
-      return ECMIS.thaiDate(iso) + (Number.isFinite(days) && days >= 0 ? ` · ดำเนินการมาแล้ว ${days} วัน` : '');
+    /* การ์ดสรุปสำนวน (A7-01 – A7-07) อยู่ในไฟล์กลาง assets/case-summary-card.js — ใช้ร่วมกับหน้าจอ Mock
+       approval-review-mock-01..06.html เพื่อให้หน้าตาและกติกาการแสดงช่องว่างเหมือนกันทุกหน้า */
+    /* เคสเดิมยังไม่มีช่องทางรับเรื่อง/ฐานความผิด/ผลรายบุคคล/คุ้มครองพยานในฐานข้อมูล — เติมตัวอย่างประกอบบนสำเนา
+       (assets/case-summary-prototype-fill.js) การ์ดระบุว่าช่องไหนเป็นตัวอย่างประกอบ ไม่แตะ kase ที่บันทึกจริง */
+    const summaryCase = k => (window.ECMISCaseSummaryFill ? window.ECMISCaseSummaryFill.apply(k) : k);
+    const caseSummaryHtml = (k, opts) => window.ECMISCaseSummary.html(summaryCase(k), opts);
+    function renderCaseSummary(k, opts) {
+      const body = document.querySelector('#summaryCard .card-body');
+      if (body) body.innerHTML = caseSummaryHtml(k, opts);
     }
-
-    /* A7-07: การ์ดสรุปสำนวนพับได้ (ทั้งหน้ารองเลขาฯ และเลขาฯ) — ค่าเริ่มต้นแสดงแบบย่อ กด "ดูทั้งหมด" เพื่อขยาย
-       ช่องแบบย่อประกาศเป็นรายการ [ชื่อ, getter] — getter คืน null เมื่อไม่มีข้อมูล = ไม่แสดง (ห้ามค่าปลอม)
-       ช่องใหม่ของกลุ่ม 2 (ฐานความผิด, ช่องทางรับเรื่อง ฯลฯ) เพิ่มเป็นแถวในรายการนี้หรือในรายละเอียดเต็มได้ภายหลัง */
-    const SUMMARY_COMPACT_FIELDS = [
-      ['เรื่อง', k => k.subject || null],
-      ['เลขสำนวน', k => ECMIS.caseNo(k) || null],
-      ['ผู้ถูกกล่าวหา', k => (Array.isArray(k.accused) ? `${k.accused.length} คน` : null)]
-    ];
     function mountSummaryCollapse() {
-      const card = document.getElementById('summaryCard');
-      if (!card || card.dataset.collapse || !kase) return;
-      card.dataset.collapse = '1';
-      const header = card.querySelector('.card-header');
-      const body = card.querySelector('.card-body');
-      if (!header || !body) return;
-      const full = document.createElement('div');
-      full.id = 'summaryFull';
-      full.hidden = true;
-      while (body.firstChild) full.appendChild(body.firstChild);
-      const compact = document.createElement('div');
-      compact.className = 'summary-compact';
-      compact.innerHTML = SUMMARY_COMPACT_FIELDS.map(([label, get]) => {
-        const v = get(kase);
-        return v == null ? '' : `<div class="mb-1"><span class="text-muted">${label}:</span> ${ECMIS.escapeHtml(String(v))}</div>`;
-      }).join('');
-      body.append(compact, full);
-      header.classList.add('d-flex', 'align-items-center', 'gap-2');
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'btn btn-sm btn-link ms-auto p-0 text-decoration-none';
-      btn.dataset.a7roKeep = '';
-      btn.setAttribute('aria-expanded', 'false');
-      btn.setAttribute('aria-controls', 'summaryFull');
-      btn.innerHTML = '<span>ดูทั้งหมด</span> <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>';
-      btn.addEventListener('click', () => {
-        const open = btn.getAttribute('aria-expanded') !== 'true';
-        btn.setAttribute('aria-expanded', String(open));
-        full.hidden = !open;
-        compact.hidden = open;
-        btn.querySelector('span').textContent = open ? 'ย่อ' : 'ดูทั้งหมด';
-        btn.querySelector('i').className = `fa-solid fa-chevron-${open ? 'up' : 'down'}`;
-      });
-      header.appendChild(btn);
+      window.ECMISCaseSummary.mountCollapse(document.getElementById('summaryCard'), summaryCase(kase));
     }
 
     function initUrgentGateScreen() {
@@ -452,15 +428,6 @@
 
       /* Task 245: การ์ด "ที่มาของสำนวน" และ "สรุปสำนวนสำหรับผู้พิจารณา" แบบเดียวกับหน้าเลขาธิการฯ แทนกล่องสรุปย่อ + ชิปวันครบกำหนดเดิม
          ลำดับ: ที่มา → สรุป → เอกสารแนบเพิ่มเติม (ระบบวางต่อจากการ์ดสรุปเอง) → การ์ดรับรอง/ยืนยัน */
-      const ownerOp = (kase.chainOpinions || []).find(o => o.roleId === 'owner');
-      const summaryRows = [
-        ['เลขสำนวน', ECMIS.caseNo(kase)],
-        ['ฐานการรับเรื่อง', kase.legalBase], ['เจ้าของสำนวน', kase.owner],
-        ['หน่วยงาน', kase.ownerOrg], ['วันที่รับเรื่อง', receivedWithAge(kase)],
-        ['ต้องเริ่มไต่สวนภายใน (ม.23)', ECMIS.thaiDate(kase.deadline60)],
-        ['ครบกำหนด 2 ปี (ม.23)', ECMIS.thaiDate(kase.deadline2y)]
-      ].map(([k, v]) => `<div class="col-md-6"><span class="k">${k}:</span> <span class="v">${ECMIS.escapeHtml(ECMIS.dash(v))}</span></div>`).join('');
-
       const bodyHtml = isCertifyStep
         ? `<label class="form-label field-req">เหตุผลความเร่งด่วน</label>
            <textarea class="form-control" id="urgentReason" rows="5"
@@ -480,16 +447,12 @@
          จะไม่หายไม่ว่าจะถูกวางก่อนหรือหลังฟังก์ชันนี้ */
       const left = document.getElementById('docLeftCol');
       const chainCard = document.getElementById('chain').closest('.ws-card');
-      const summaryCard = document.getElementById('summary').closest('.ws-card');
+      const summaryCard = document.getElementById('summaryCard');
       Array.from(left.children).forEach(el => { if (el !== chainCard && el !== summaryCard && el.id !== 'attachExtraCard') el.remove(); });
       chainCard.querySelector('.card-header').innerHTML = `<i class="fa-solid fa-list-ol"></i> ที่มาของสำนวน — การเสนอตามลำดับชั้น
         <span class="chip ms-2" style="font-size:.7rem">ชั้นกอง/เขต = ตัวอย่างประกอบ</span>`;
       document.getElementById('chain').innerHTML = ECMIS.caseRouteChainHtml(kase);
-      document.getElementById('summary').innerHTML = summaryRows;
-      document.getElementById('sAllegation').textContent = ECMIS.dash(kase.allegation);
-      document.getElementById('sOpinion').innerHTML = ECMIS.isCase73(kase) ? '—' : ownerOp
-        ? `<span class="chip">${ECMIS.OPINION_TYPES[ownerOp.type].label}</span> — ${ECMIS.escapeHtml(ownerOp.note)}`
-        : '<span class="text-muted">— ยังไม่มีการบันทึกความเห็นของผู้รับผิดชอบสำนวน —</span>';
+      renderCaseSummary(kase);
       const gateCard = document.createElement('div');
       gateCard.className = 'ws-card mb-3';
       gateCard.innerHTML = `<div class="card-header"><i class="fa-solid fa-bolt"></i> ${isCertifyStep ? 'รับรองเหตุผลเร่งด่วน' : 'ยืนยันวาระด่วน'}</div>
@@ -672,16 +635,6 @@
       document.getElementById('stBadge').innerHTML = `<span class="chip me-1">เลขสำนวน ${ECMIS.caseNo(kase)}</span>` + ECMIS.statusBadge(kase.status) + ' ' + ECMIS.slaBadge(kase);
       document.getElementById('stepper').innerHTML = ECMIS.stepperHtml(kase);
 
-      const accusedSummary = (kase.accused || []).map(a => `${esc(a.name)}${a.pos ? ' — ' + esc(a.pos) : ''}`).join('<br>') || '—';
-      const summaryHtml = [
-        ['ประเภทเรื่อง', ECMIS.typeBadge(kase)],
-        ['ฐานการรับเรื่อง', esc(kase.legalBase)],
-        ['เจ้าของสำนวน', `${esc(kase.owner || '—')}${kase.ownerOrg ? ' · ' + esc(kase.ownerOrg) : ''}`],
-        ['วันที่รับเรื่อง', receivedWithAge(kase)],
-        ['ผู้ถูกกล่าวหา', accusedSummary],
-        ['ข้อกล่าวหา', esc(kase.allegation || kase.subject || '—')]
-      ].map(([k, v]) => `<div class="mb-1"><span class="text-muted">${k}:</span> ${v || '—'}</div>`).join('');
-
       /* ที่มาของสำนวนก่อนถึงรองเลขาฯ — ชั้นกอง/เขตต้นทาง กจ.5 เป็นตัวอย่างประกอบ (Task 179) */
       const sourceRows = ECMIS.upstreamMockChain(kase).filter(rid => rid !== 'deputy').map(rid => {
         const sla = ECMIS.UPSTREAM_MOCK_SLA[rid] || { used: 2, limit: 5 };
@@ -720,7 +673,7 @@
         </div>
         <div class="ws-card mb-3" id="summaryCard">
           <div class="card-header"><i class="fa-solid fa-folder-open"></i> สรุปสำนวน</div>
-          <div class="card-body" style="font-size:.88rem">${summaryHtml}</div>
+          <div class="card-body">${caseSummaryHtml(kase)}</div>
         </div>
         <div class="ws-card mb-3">
           <div class="card-header"><i class="fa-solid fa-pen-to-square"></i> ความเห็นรองเลขาธิการฯ</div>
@@ -857,6 +810,7 @@
           });
           if (!res.isConfirmed) return;
           const ret = { reason: res.value.n, reasonCode: res.value.r, scope: res.value.s, by: deputy.name, byRole: 'deputy', atIso: new Date().toISOString() };
+          let notice = null;
           try {
             await persistCase(kase, { status: returnSt,
               resolutionData: { ...(kase.resolutionData || {}), sourceReturn: ret, deputyReturn: ret } });
@@ -870,18 +824,23 @@
             }
             ECMIS.pushCaseHistory?.(kase, { action: is72 ? 'RETURN_72' : 'DEPUTY_RETURN', status: returnSt, reasonCode: ret.reasonCode });
             ECMIS.saveCases();
+            notice = await notifyOwnerOnReturn(kase, { reason: ret.reason, reasonLabel: returnReasonLabel(ret.reasonCode), fileName: res.value.f ? res.value.f.name : null });
           } catch (err) {
             console.error('ตีกลับไม่สำเร็จ:', err);
             ECMIS.toastWarn('บันทึกลงฐานข้อมูลไม่สำเร็จ ลองใหม่อีกครั้ง');
             return;
           }
-          ECMIS.toastOk(`ตีกลับเรียบร้อย — ส่งคืนผู้รับผิดชอบสำนวน (${sourceProcessLabel(kase)}) แล้ว`);
+          ECMIS.toastOk(`ตีกลับเรียบร้อย — ส่งคืนผู้รับผิดชอบสำนวน (${sourceProcessLabel(kase)}) แล้ว`, notice ? returnNoticeText(notice) : '');
           setTimeout(() => location.href = ECMIS.homeHref(role.id), 1600);
         }
       }
     }
 
     let kase, docType, isRuling, secgenPendingStatus, alreadySigned, signed, g1;
+    /* ข้อความสรุปเส้นทาง (#g1Outcome) และปุ่มลงนามของเลขาธิการฯ — อยู่ใน assets/secgen-route-text.js (ใช้ร่วมกับหน้าจอ Mock)
+       อ่านคู่กับ secgenRoute() (หน้าจอ 213) และ ECMIS.nextStates() (หน้าจอชี้มูล) จึงตรงกับเส้นทางที่บันทึกจริงเสมอ */
+    const SECGEN_ROUTE_TEXT = window.ECMISSecgenRouteText.TEXT;
+    const DIVERGED_REASON = window.ECMISSecgenRouteText.DIVERGED_REASON;
     const SECGEN_SIG_IMG = 'data:image/svg+xml;utf8,' + encodeURIComponent(
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 70">' +
       '<path d="M8 50 C 30 10, 55 10, 70 40 S 110 65, 130 30 S 165 5, 185 35 S 205 55, 212 40" ' +
@@ -1034,19 +993,7 @@
       /* ---------- สรุปสำนวน ----------
          "ฐานการรับเรื่อง" เป็นข้อมูลที่มาจากต้นทาง (ตอนรับสำนวนเข้าระบบ) ไม่ใช่ฟิลด์ที่
          เลขาธิการฯ เลือก/แก้ไขเองในขั้นตอนนี้ — แสดงเป็น text อ่านอย่างเดียวเสมอ */
-      document.getElementById('summary').innerHTML = [
-        ['เลขสำนวน', ECMIS.caseNo(kase)],
-        ['ฐานการรับเรื่อง', kase.legalBase], ['เจ้าของสำนวน', kase.owner],
-        ['หน่วยงาน', kase.ownerOrg], ['วันที่รับเรื่อง', receivedWithAge(kase)],
-        ['ต้องเริ่มไต่สวนภายใน (ม.23)', ECMIS.thaiDate(kase.deadline60)],
-        ['ครบกำหนด 2 ปี (ม.23)', ECMIS.thaiDate(kase.deadline2y)]
-      ].map(([k, v]) => `<div class="col-md-6"><span class="k">${k}:</span> <span class="v">${(v === null || v === undefined || v === '') ? '—' : v}</span></div>`).join('');
-      document.getElementById('sAllegation').textContent = kase.allegation;
-      /* 7.3 (เรื่องทั่วไป/ข้อกฎหมาย) ไม่มีความเห็น "รับไว้ไต่สวน" ของผู้รับผิดชอบ — แสดง "—" (Task 179) */
-      const ownerOp = opByRole['owner'];
-      document.getElementById('sOpinion').innerHTML = ECMIS.isCase73(kase) ? '—' : ownerOp
-        ? `<span class="chip">${ECMIS.OPINION_TYPES[ownerOp.type].label}</span> — ${ownerOp.note}`
-        : '<span class="text-muted">— ยังไม่มีการบันทึกความเห็นของผู้รับผิดชอบสำนวน —</span>';
+      renderCaseSummary(kase);
 
       if (kase.supportOpinion || kase.supportOpinion72 || kase.supportTeam) {
         const resCard = document.getElementById('supportSubResultCard');
@@ -1083,11 +1030,10 @@
 
       if (role.id === 'secgen') {
         const is73 = ECMIS.isCase73(kase);
-        if (!is73) {
-          document.getElementById('m28Card').classList.remove('d-none');
-        } else {
-          document.getElementById('m28Card').classList.add('d-none');
-        }
+        /* A7-10: ไม่แสดงตัวเลือกคำสั่ง ม.28 ในหน้าเลขาฯ — สำนวนถือว่ารับไว้พิจารณาอัตโนมัติ
+           (การ์ดซ่อนไว้ ตัวเลือกแรก "สั่งรับเรื่องไว้พิจารณา" ถูกเลือกเป็นค่าเริ่มต้น m28Selected() จึงคืน ACCEPT เสมอ
+           ทางเดิน ม.28 ไม่รับ/จำหน่าย ใน secgenRoute()/save_status ยังอยู่ครบ เพียงไม่มีทางเลือกจากหน้าจอ) */
+        document.getElementById('m28Card').classList.add('d-none');
         document.getElementById('signCard').classList.remove('d-none');
 
         /* ช่อง "เป็นกรณีเร่งด่วนหรือไม่?" — เดิมมีแค่ในหน้าจอ RULING (initRulingScreen)
@@ -1099,6 +1045,14 @@
         {
           const urgentBox = document.getElementById('urgentBox72');
           const preFlaggedUrgent = !!kase.urgent;
+          /* มีใบด่วนแนบมาจากต้นทาง: ซ่อนกล่องเลือก แสดงป้ายแทน (ถือว่าเลือกเร่งด่วนแล้ว — secgenRoute อ่าน kase.urgent) */
+          const preBadge = document.getElementById('urgentPreBadge');
+          if (preBadge) {
+            preBadge.classList.toggle('d-none', !preFlaggedUrgent);
+            preBadge.innerHTML = preFlaggedUrgent
+              ? `<span class="text-warning fw-medium"><i class="fa-solid fa-bolt me-1"></i>มีใบด่วนแนบ: ${ECMIS.escapeHtml(kase.urgentReason || '—')}</span>`
+              : '';
+          }
           if (urgentBox) {
             urgentBox.classList.toggle('d-none', preFlaggedUrgent);
             if (!preFlaggedUrgent) {
@@ -1144,8 +1098,20 @@
           // ยังไม่ผ่านอนุสนับสนุนฯ: แสดง g1Box ให้เลขาธิการฯ เลือกซับซ้อนหรือไม่ — ไม่ใช้กับ 7.3
           // (เรื่องทั่วไป/ข้อกฎหมาย ไม่มีเส้นทางซับซ้อน/คณะอนุสนับสนุนฯ เลย เลขาฯ มีหน้าที่แค่
           // พิจารณาให้ความเห็นชอบ ดู /grill-me 2026-09-25)
-          document.getElementById('g1Box').classList.remove('d-none');
+          document.getElementById('g1Box').classList.toggle('d-none', !g1BoxVisible());
+          /* ความเห็นในสายบังคับบัญชาไม่ตรงกัน (g1Triggers.diverged): บังคับซับซ้อน ปิดตัวเลือกไม่ซับซ้อน */
+          if (g1.diverged) {
+            document.getElementById('g1yes').checked = true;
+            document.getElementById('g1no').disabled = true;
+            document.getElementById('g1DivergedNote').classList.remove('d-none');
+          }
         }
+        document.getElementById('g1Outcome').classList.remove('d-none');
+      }
+      /* กล่องซับซ้อนแสดงเมื่อ: เลขาธิการฯ · สาย 7.1/7.2 · คำสั่ง ม.28 = รับไว้ · ยังไม่ผ่านคณะอนุฯ สนับสนุน */
+      function g1BoxVisible() {
+        const hasSupport = !!(kase.supportOpinion || kase.supportOpinion72 || kase.supportDecision);
+        return role.id === 'secgen' && !ECMIS.isCase73(kase) && m28Selected() === 'ACCEPT' && !hasSupport;
       }
       if (role.id === 'support_sub') document.getElementById('g2Box').classList.remove('d-none');
 
@@ -1164,8 +1130,8 @@
         const accept = m28Selected() === 'ACCEPT';
         document.getElementById('m28RejectLaw').classList.toggle('d-none', accept);
 
-        document.getElementById('g1Box').classList.toggle('d-none', !accept);
-        renderActionButtons();
+        document.getElementById('g1Box').classList.toggle('d-none', !g1BoxVisible());
+        renderActionButtons(); renderG1Outcome();
       }
       if (document.getElementById('m28Card')) {
         document.querySelectorAll('input[name="m28order"]').forEach(r =>
@@ -1238,18 +1204,15 @@
       }
 
       /* ---- สรุปเส้นทางที่จะเกิดขึ้นจริง ---- */
+      /* ข้อความสรุปเส้นทาง: อ่านปลายทางจาก secgenRoute() ตัวเดียวกับ save_status (ซับซ้อน > เร่งด่วน > ผ่านอนุฯ สนับสนุน > ปกติ) */
       function renderG1Outcome() {
         const el = document.getElementById('g1Outcome');
-        if (!el) return;
-        const why = g1.diverged
-          ? 'ความเห็นในสายบังคับบัญชาไม่ตรงกัน (ระบบตรวจ)'
-          : (document.getElementById('g1yes').checked ? 'เลขาธิการฯ เห็นว่าเป็นเรื่องยุ่งยากซับซ้อน' : 'ไม่เข้าเงื่อนไขทั้งสองข้อ');
-        el.innerHTML = g1Yes()
-          ? `<strong>G1 = ใช่</strong> → <span class="chip">T6 คณะอนุสนับสนุนฯ</span> → <span class="chip">G2</span>
-       <div class="text-muted mt-1" style="font-size:.78rem">เหตุ: ${why}</div>`
-          : `<strong>G1 = ไม่ใช่</strong> → <span class="chip">G3 ตรวจใบด่วน</span> →
-       <span class="chip">${kase.urgent ? 'T7 ผอ.กบค.' : 'T8 ประธานกรรมการ ป.ป.ท.'}</span>
-       <div class="text-muted mt-1" style="font-size:.78rem">เหตุ: ${why}</div>`;
+        if (!el || role.id !== 'secgen') return;
+        const r = secgenRoute();
+        const text = r.m28 !== 'ACCEPT' ? `ปิดเรื่องตามคำสั่ง ม.28 — ${r.dest}` : ((SECGEN_ROUTE_TEXT[r.targetStatus] || {}).summary || r.dest);
+        const why = (r.targetStatus === 'PENDING_SUPPORT_ASSIGN' || r.targetStatus === 'PENDING_SUPPORT_ASSIGN_72') && g1.diverged
+          ? `<div class="text-muted mt-1" style="font-size:.78rem">เหตุ: ${DIVERGED_REASON}</div>` : '';
+        el.innerHTML = `<strong>เส้นทางเมื่อลงนาม:</strong> ${text}${why}`;
       }
 
       document.querySelectorAll('[name="g1"]').forEach(r => r.addEventListener('change', () => {
@@ -1261,6 +1224,8 @@
       });
       onG1Change();
       renderG1Outcome(); renderG3();
+      /* สลับเร่งด่วนต้องเปลี่ยนข้อความสรุปเส้นทางทันที (เร่งด่วนอยู่ก่อนเส้นทางปกติใน secgenRoute) */
+      document.querySelectorAll('[name="urgent72toggle"]').forEach(r => r.addEventListener('change', renderG1Outcome));
 
       /* ถ้ามาจากปุ่ม "มอบหมาย" ที่โต๊ะสั่งการ (11-secgen-desk.html) ให้ตั้งค่า G1 = ใช่ ล่วงหน้า */
       if (params.get('assign') === '1' && role.id === 'secgen' && document.getElementById('g1yes')) {
@@ -1399,12 +1364,78 @@
       function isRegionalCase(k) {
         return !ECMIS.isCase72(k) && !ECMIS.isCase73(k) && !!(k.ownerOrg && k.ownerOrg.includes('เขต'));
       }
+      /* Task 234 (ย้ายออกจาก handle() มาระดับหน้าจอโดยไม่แก้ตรรกะ ให้สรุปเส้นทาง/ป้ายปุ่มใช้ร่วมกัน): ปลายทางที่เลขาฯ จะส่ง — ใช้ทั้งบรรทัด "ลงนามแล้วจะส่งต่อ" ในกล่องลงนามและตอนบันทึก (ตรรกะเดียว) */
+      function secgenRoute() {
+        const m28 = m28Selected();
+        const complex = g1Yes();
+        const hasSupportOpinion = !!(kase.supportOpinion || kase.supportOpinion72 || kase.supportDecision);
+        const is72 = ECMIS.isCase72(kase);
+        let dest, path, targetStatus;
+
+        if (m28 !== 'ACCEPT') {
+          const lawSel = document.getElementById('m28Law');
+          const order = ECMIS.m28Order(m28);
+          targetStatus = is72 ? 'CLOSED_72' : 'CLOSED';
+          dest = order.label;
+          path = `ม.28 — ${order.label} (${order.lawRef} มาตรา ${lawSel ? lawSel.value : ''})`;
+        } else if (complex && !hasSupportOpinion) {
+          targetStatus = is72 ? 'PENDING_SUPPORT_ASSIGN_72' : 'PENDING_SUPPORT_ASSIGN';
+          dest = 'ผอ.กบค. (ออกเลขทะเบียนคุม / มอบหมายคณะอนุสนับสนุนฯ)';
+          path = g1.diverged
+            ? 'เรื่องมีความเห็นไม่ตรงกันในสายบังคับบัญชา จึงส่ง ผอ.กบค. มอบหมายคณะอนุสนับสนุนฯ กลั่นกรอง'
+            : 'เลขาธิการฯ เห็นว่าเรื่องซับซ้อน จึงส่ง ผอ.กบค. มอบหมายคณะอนุสนับสนุนฯ กลั่นกรอง';
+        } else if (kase.urgent || urgentYes()) {
+          targetStatus = is72 ? 'PENDING_URGENT_72' : 'PENDING_URGENT';
+          dest = 'ผู้อำนวยการกองบริหารคดี เพื่อรับรองเหตุผลเร่งด่วน';
+          path = 'สำนวนเร่งด่วน: รับรองเหตุผลเร่งด่วนก่อนเสนอประธานฯ';
+        } else if (hasSupportOpinion && isRegionalCase(kase)) {
+          /* สาย 7.1 เขตพื้นที่ที่ผ่านคณะอนุสนับสนุนฯ มาแล้ว — ยังไม่ต้องผ่านประธานฯ เช่นเดียวกับ
+             เส้นทางปกติ ส่งตรงกองบริหารคดีเพื่อกระจายเข้าคณะอนุกลั่นกรองฯ (ดู /grill-me 2026-09-25) */
+          targetStatus = 'IN_SCREENING';
+          dest = 'กองบริหารคดี';
+          path = 'ผ่านการกลั่นกรองโดยคณะอนุสนับสนุนฯ แล้ว — สำนวนเขตพื้นที่ ส่งตรงกองบริหารคดีเพื่อกระจายเข้าคณะอนุกลั่นกรองฯ ไม่ต้องผ่านประธานฯ';
+        } else if (hasSupportOpinion || ECMIS.isCase73(kase)) {
+          /* เคสที่ผ่านคณะอนุสนับสนุนฯ มาแล้ว หรือเป็นเรื่องทั่วไป/ข้อกฎหมาย (7.3) ยังคงเข้าคิว
+             ประธานฯ ตรงตามเดิม — gate คัดกรองความยุ่งยากของ กบค. (2026-09-17) ใช้เฉพาะเส้นทาง
+             "สำนวนปกติ" ที่เสนอตรงจากเลขาธิการฯ เท่านั้น */
+          targetStatus = is72 ? 'PENDING_CHAIRMAN_72' : 'PENDING_CHAIRMAN';
+          dest = 'ประธานกรรมการ ป.ป.ท.';
+          path = hasSupportOpinion
+            ? 'ผ่านการกลั่นกรองโดยคณะอนุสนับสนุนฯ แล้ว — เสนอประธานฯ เพื่อพิจารณาสั่งการบรรจุวาระการประชุม'
+            : 'เรื่องทั่วไป / ข้อกฎหมาย (7.3): เสนอประธานฯ เพื่อพิจารณาสั่งบรรจุวาระการประชุม';
+        } else if (is72) {
+          /* gate คัดกรองความยุ่งยาก (2026-09-17 เดิมเป็นของ affairs — 2026-09-30 เปลี่ยนเป็นประธานฯ) — เฉพาะสาย 7.2 เท่านั้น (จำกัด scope
+             เมื่อ 2026-09-23) ดู docs/memory/plans/2026-09-17-move-screening-gate-to-affairs.md
+             และ docs/memory/plans/2026-09-23-scope-complexity-gate-to-72-only.md */
+          targetStatus = 'PENDING_CASE_ADMIN_SCREEN_72';
+          dest = 'ประธานกรรมการ ป.ป.ท. (ลงรับและคัดกรองสำนวน)';
+          path = 'สำนวนปกติ (วินิจฉัยชี้มูล): เสนอประธานฯ ลงรับและคัดกรองสำนวน (ซับซ้อน → ลงนามสั่งส่งคณะอนุกลั่นกรองฯ / ไม่ซับซ้อน → ลงนามมอบหมาย → กลุ่มงานกิจการฯ ทำความเห็น → ลงนามสั่งบรรจุวาระ)';
+        } else if (isRegionalCase(kase)) {
+          /* สาย 7.1 เขตพื้นที่ (ownerOrg มีคำว่า "เขต") ไม่ต้องผ่านประธานฯ — ส่งตรงกองบริหารคดี
+             เพื่อกระจายเข้าคณะอนุกลั่นกรองฯ ทันที ต่างจากกองปราบปรามการทุจริตในภาครัฐที่ยังคง
+             เข้าคิวประธานฯ ตามเดิม (ดู /grill-me 2026-09-25) */
+          targetStatus = 'IN_SCREENING';
+          dest = 'กองบริหารคดี';
+          path = 'สำนวนปกติ (เขตพื้นที่): ส่งตรงกองบริหารคดีเพื่อกระจายเข้าคณะอนุกลั่นกรองฯ ไม่ต้องผ่านประธานฯ';
+        } else {
+          /* สาย 7.1: 2026-09-23 ตัด gate คัดกรองความยุ่งยากออกแล้ว — เข้าคิวประธานฯ ตรงจากเลขาธิการฯ
+             เหมือนก่อนมีฟีเจอร์นี้ (2026-09-17) ดู
+             docs/memory/plans/2026-09-23-scope-complexity-gate-to-72-only.md */
+          targetStatus = 'PENDING_CHAIRMAN';
+          dest = 'ประธานกรรมการ ป.ป.ท.';
+          path = 'สำนวนปกติ: เสนอประธานฯ เพื่อพิจารณาสั่งการบรรจุวาระการประชุม';
+        }
+        return { m28, complex, hasSupportOpinion, is72, dest, path, targetStatus };
+      }
+
       /* A7-11: ข้อความตัวเลือก "ไม่ซับซ้อน" บอกปลายทางจริงตาม secgenRoute() (เปลี่ยนเฉพาะข้อความ ไม่แตะ routing) */
       const g1NoLabel = document.querySelector('label[for="g1no"]');
       if (g1NoLabel) {
-        g1NoLabel.textContent = isRegionalCase(kase)
-          ? 'ไม่ซับซ้อน — ส่งกองบริหารคดีเพื่อส่งเข้าคณะอนุกลั่นกรองฯ'
-          : 'ไม่ซับซ้อน — เสนอประธานกรรมการ ป.ป.ท. พิจารณาบรรจุวาระ';
+        g1NoLabel.textContent = ECMIS.isCase72(kase)
+          ? 'ไม่ซับซ้อน — เสนอประธานกรรมการ ป.ป.ท. ลงรับและคัดกรองสำนวน'
+          : isRegionalCase(kase)
+            ? 'ไม่ซับซ้อน — ส่งกองบริหารคดีเพื่อส่งเข้าคณะอนุกลั่นกรองฯ'
+            : 'ไม่ซับซ้อน — เสนอประธานกรรมการ ป.ป.ท. พิจารณาบรรจุวาระ';
       }
 
       function nextRoleTitle() {
@@ -1419,15 +1450,14 @@
         const b = [{ act: 'return', label: `ส่งคืนผู้รับผิดชอบสำนวน (${sourceProcessLabel(kase)})`, icon: 'fa-arrow-left-long', cls: 'btn-outline-danger' }];
         if (role.id === 'secgen') {
           const hasSupportOpinion = !!(kase.supportOpinion || kase.supportOpinion72 || kase.supportDecision);
-          const isRegional = isRegionalCase(kase);
-          /* เคสด่วน (ตั้งต้นด่วน หรือเลขาฯ เลือกด่วน) ไปที่ ผอ.กบค. กำกับความเร่งด่วนเสมอ ตามลำดับใน save_status —
-             ป้ายต้องบอกปลายทางนี้ ไม่ใช่ "ส่งกองบริหารคดี" / "เสนอประธานฯ" ของเส้นทางไม่ด่วน (Task 195) */
-          const goesUrgent = m28Selected() === 'ACCEPT' && !(g1Yes() && !hasSupportOpinion) && (!!kase.urgent || urgentYes());
+          /* ป้ายปุ่มตามปลายทางจริงจาก secgenRoute() — ข้อความเดียวกับสรุปเส้นทาง (#g1Outcome)
+             เคสด่วน (ตั้งต้นด่วน หรือเลขาฯ เลือกด่วน) จึงขึ้นปลายทาง ผอ.กบค. เสมอ ตามลำดับใน save_status (Task 195) */
+          const routeText = SECGEN_ROUTE_TEXT[secgenRoute().targetStatus] || {};
           if (signed) {
             return [
               { act: 'edit_sign', label: 'แก้ไข / ลงนามใหม่', icon: 'fa-pen-to-square', cls: 'btn-outline-warning' },
               { act: 'clear_sign', label: 'ลบลายเซ็น', icon: 'fa-trash-can', cls: 'btn-outline-danger' },
-              { act: 'save_status', label: goesUrgent ? 'บันทึกและส่ง ผอ.กบค. กำกับความเร่งด่วน' : (hasSupportOpinion ? (isRegional ? 'บันทึกและส่งกองบริหารคดี' : 'บันทึกและเสนอประธานกรรมการ ป.ป.ท.') : 'บันทึกเพื่อเปลี่ยนสถานะ (เลขาลงนามแล้ว)'), icon: 'fa-paper-plane', cls: 'btn-success' }
+              { act: 'save_status', label: routeText.save || 'บันทึกเพื่อเปลี่ยนสถานะ (เลขาลงนามแล้ว)', icon: 'fa-paper-plane', cls: 'btn-success' }
             ];
           }
           const m28 = m28Selected();
@@ -1439,7 +1469,7 @@
                 cls: 'btn-navy'
               });
             } else {
-              b.push({ act: 'sign', label: goesUrgent ? 'ลงนามดิจิทัลและส่ง ผอ.กบค. กำกับความเร่งด่วน' : (hasSupportOpinion ? (isRegional ? 'ลงนามดิจิทัลและส่งกองบริหารคดี' : 'ลงนามดิจิทัลและเสนอประธานฯ') : 'ลงนามดิจิทัลและส่งต่อ'), icon: 'fa-signature', cls: 'btn-gold' });
+              b.push({ act: 'sign', label: routeText.sign || 'ลงนามดิจิทัลและส่งต่อ', icon: 'fa-signature', cls: 'btn-gold' });
             }
           } else {
             b.push({
@@ -1571,6 +1601,7 @@
             }
           }).then(async res => {
             if (res.isConfirmed) {
+              let notice = null;
               try {
                 await persistCase(kase, { status: ECMIS.isCase72(kase) ? 'RETURNED_72' : 'RETURNED',
                   resolutionData: { ...(kase.resolutionData || {}), sourceReturn: { reason: res.value.n, reasonCode: res.value.r, scope: res.value.s, by: role.name || role.id } } });
@@ -1579,6 +1610,7 @@
                   await uploadAttachment(kase.tcc_id, res.value.f, role.id);
                   if (ECMIS.refreshAttachmentCard) ECMIS.refreshAttachmentCard();
                 }
+                notice = await notifyOwnerOnReturn(kase, { reason: res.value.n, reasonLabel: returnReasonLabel(res.value.r), fileName: res.value.f ? res.value.f.name : null });
               } catch (err) {
                 console.error('ตีกลับไม่สำเร็จ:', err);
                 ECMIS.toastWarn('บันทึกลงฐานข้อมูลไม่สำเร็จ ลองใหม่อีกครั้ง');
@@ -1586,7 +1618,7 @@
               }
               const dest = sourceProcessLabel(kase) !== 'กระบวนการไต่สวน' ? sourceProcessLabel(kase)
                 : res.value.s === 'TO_OWNER' ? 'เจ้าของสำนวน' : 'ผอ.กอง / ผอ.สำนักงานคณะกรรมการป้องกันและปราบปรามการทุจริตในภาครัฐ เขต';
-              ECMIS.toastOk(`ตีกลับเรียบร้อย — ส่งคืน${dest} และ Pause กำหนดเวลาแล้ว`);
+              ECMIS.toastOk(`ตีกลับเรียบร้อย — ส่งคืน${dest} และ Pause กำหนดเวลาแล้ว`, notice ? returnNoticeText(notice) : '');
               setTimeout(() => location.href = ECMIS.homeHref(role.id), 1600);
             }
           });
@@ -1664,69 +1696,6 @@
           return;
         }
 
-        /* Task 234: ปลายทางที่เลขาฯ จะส่ง — ใช้ทั้งบรรทัด "ลงนามแล้วจะส่งต่อ" ในกล่องลงนามและตอนบันทึก (ตรรกะเดียว) */
-        function secgenRoute() {
-          const m28 = m28Selected();
-          const complex = g1Yes();
-          const hasSupportOpinion = !!(kase.supportOpinion || kase.supportOpinion72 || kase.supportDecision);
-          const is72 = ECMIS.isCase72(kase);
-          let dest, path, targetStatus;
-
-          if (m28 !== 'ACCEPT') {
-            const lawSel = document.getElementById('m28Law');
-            const order = ECMIS.m28Order(m28);
-            targetStatus = is72 ? 'CLOSED_72' : 'CLOSED';
-            dest = order.label;
-            path = `ม.28 — ${order.label} (${order.lawRef} มาตรา ${lawSel ? lawSel.value : ''})`;
-          } else if (complex && !hasSupportOpinion) {
-            targetStatus = is72 ? 'PENDING_SUPPORT_ASSIGN_72' : 'PENDING_SUPPORT_ASSIGN';
-            dest = 'ผอ.กบค. (ออกเลขทะเบียนคุม / มอบหมายคณะอนุสนับสนุนฯ)';
-            path = g1.diverged
-              ? 'เรื่องมีความเห็นไม่ตรงกันในสายบังคับบัญชา จึงส่ง ผอ.กบค. มอบหมายคณะอนุสนับสนุนฯ กลั่นกรอง'
-              : 'เลขาธิการฯ เห็นว่าเรื่องซับซ้อน จึงส่ง ผอ.กบค. มอบหมายคณะอนุสนับสนุนฯ กลั่นกรอง';
-          } else if (kase.urgent || urgentYes()) {
-            targetStatus = is72 ? 'PENDING_URGENT_72' : 'PENDING_URGENT';
-            dest = 'ผู้อำนวยการกองบริหารคดี เพื่อรับรองเหตุผลเร่งด่วน';
-            path = 'สำนวนเร่งด่วน: รับรองเหตุผลเร่งด่วนก่อนเสนอประธานฯ';
-          } else if (hasSupportOpinion && isRegionalCase(kase)) {
-            /* สาย 7.1 เขตพื้นที่ที่ผ่านคณะอนุสนับสนุนฯ มาแล้ว — ยังไม่ต้องผ่านประธานฯ เช่นเดียวกับ
-               เส้นทางปกติ ส่งตรงกองบริหารคดีเพื่อกระจายเข้าคณะอนุกลั่นกรองฯ (ดู /grill-me 2026-09-25) */
-            targetStatus = 'IN_SCREENING';
-            dest = 'กองบริหารคดี';
-            path = 'ผ่านการกลั่นกรองโดยคณะอนุสนับสนุนฯ แล้ว — สำนวนเขตพื้นที่ ส่งตรงกองบริหารคดีเพื่อกระจายเข้าคณะอนุกลั่นกรองฯ ไม่ต้องผ่านประธานฯ';
-          } else if (hasSupportOpinion || ECMIS.isCase73(kase)) {
-            /* เคสที่ผ่านคณะอนุสนับสนุนฯ มาแล้ว หรือเป็นเรื่องทั่วไป/ข้อกฎหมาย (7.3) ยังคงเข้าคิว
-               ประธานฯ ตรงตามเดิม — gate คัดกรองความยุ่งยากของ กบค. (2026-09-17) ใช้เฉพาะเส้นทาง
-               "สำนวนปกติ" ที่เสนอตรงจากเลขาธิการฯ เท่านั้น */
-            targetStatus = is72 ? 'PENDING_CHAIRMAN_72' : 'PENDING_CHAIRMAN';
-            dest = 'ประธานกรรมการ ป.ป.ท.';
-            path = hasSupportOpinion
-              ? 'ผ่านการกลั่นกรองโดยคณะอนุสนับสนุนฯ แล้ว — เสนอประธานฯ เพื่อพิจารณาสั่งการบรรจุวาระการประชุม'
-              : 'เรื่องทั่วไป / ข้อกฎหมาย (7.3): เสนอประธานฯ เพื่อพิจารณาสั่งบรรจุวาระการประชุม';
-          } else if (is72) {
-            /* gate คัดกรองความยุ่งยาก (2026-09-17 เดิมเป็นของ affairs — 2026-09-30 เปลี่ยนเป็นประธานฯ) — เฉพาะสาย 7.2 เท่านั้น (จำกัด scope
-               เมื่อ 2026-09-23) ดู docs/memory/plans/2026-09-17-move-screening-gate-to-affairs.md
-               และ docs/memory/plans/2026-09-23-scope-complexity-gate-to-72-only.md */
-            targetStatus = 'PENDING_CASE_ADMIN_SCREEN_72';
-            dest = 'ประธานกรรมการ ป.ป.ท. (ลงรับและคัดกรองสำนวน)';
-            path = 'สำนวนปกติ (วินิจฉัยชี้มูล): เสนอประธานฯ ลงรับและคัดกรองสำนวน (ซับซ้อน → ลงนามสั่งส่งคณะอนุกลั่นกรองฯ / ไม่ซับซ้อน → ลงนามมอบหมาย → กลุ่มงานกิจการฯ ทำความเห็น → ลงนามสั่งบรรจุวาระ)';
-          } else if (isRegionalCase(kase)) {
-            /* สาย 7.1 เขตพื้นที่ (ownerOrg มีคำว่า "เขต") ไม่ต้องผ่านประธานฯ — ส่งตรงกองบริหารคดี
-               เพื่อกระจายเข้าคณะอนุกลั่นกรองฯ ทันที ต่างจากกองปราบปรามการทุจริตในภาครัฐที่ยังคง
-               เข้าคิวประธานฯ ตามเดิม (ดู /grill-me 2026-09-25) */
-            targetStatus = 'IN_SCREENING';
-            dest = 'กองบริหารคดี';
-            path = 'สำนวนปกติ (เขตพื้นที่): ส่งตรงกองบริหารคดีเพื่อกระจายเข้าคณะอนุกลั่นกรองฯ ไม่ต้องผ่านประธานฯ';
-          } else {
-            /* สาย 7.1: 2026-09-23 ตัด gate คัดกรองความยุ่งยากออกแล้ว — เข้าคิวประธานฯ ตรงจากเลขาธิการฯ
-               เหมือนก่อนมีฟีเจอร์นี้ (2026-09-17) ดู
-               docs/memory/plans/2026-09-23-scope-complexity-gate-to-72-only.md */
-            targetStatus = 'PENDING_CHAIRMAN';
-            dest = 'ประธานกรรมการ ป.ป.ท.';
-            path = 'สำนวนปกติ: เสนอประธานฯ เพื่อพิจารณาสั่งการบรรจุวาระการประชุม';
-          }
-          return { m28, complex, hasSupportOpinion, is72, dest, path, targetStatus };
-        }
         if (act === 'save_status') {
           const { m28, complex, hasSupportOpinion, is72, dest, path, targetStatus } = secgenRoute();
 
@@ -1947,16 +1916,11 @@
           <div class="tl-m">พิจารณา/ลงนาม/ชี้สำนวนซับซ้อน-เร่งด่วน</div></li>`;
 
       /* ---------- สรุปสำนวน — ไม่มี ม.23 (60 วัน/2 ปี) ในชั้นวินิจฉัยชี้มูล ใช้รอบการไต่สวนแทน ---------- */
-      document.getElementById('summary').innerHTML = [
-        ['เลขสำนวน', ECMIS.caseNo(kase)],
-        ['ฐานการรับเรื่อง', kase.legalBase], ['ผู้รับผิดชอบสำนวน', kase.owner],
-        ['หน่วยงาน', kase.ownerOrg], ['วันที่รับเรื่อง', receivedWithAge(kase)],
-        ['รอบการไต่สวน', `ครั้งที่ ${kase.round72 || 1}`]
-      ].map(([k, v]) => `<div class="col-md-6"><span class="k">${k}:</span> <span class="v">${(v === null || v === undefined || v === '') ? '—' : v}</span></div>`).join('');
-      document.getElementById('sAllegation').textContent = kase.allegation;
-      document.getElementById('sOpinion').innerHTML = (kase.chainOpinions || []).length
-        ? (kase.chainOpinions || []).map(o => `<span class="chip me-1">${o.mock ? ECMIS.upstreamMockTitle(o.roleId, kase) : ECMIS.getRole(o.roleId).title}</span>`).join('')
-        : '<span class="text-muted">— ยังไม่มีการบันทึกความเห็นตามสายอนุมัติ —</span>';
+      renderCaseSummary(kase, {
+        extraOpinionFields: [['ความเห็นตามสายอนุมัติ', (kase.chainOpinions || []).length
+          ? (kase.chainOpinions || []).map(o => `<span class="chip me-1">${o.mock ? ECMIS.upstreamMockTitle(o.roleId, kase) : ECMIS.getRole(o.roleId).title}</span>`).join('')
+          : '<span class="text-muted">ยังไม่มีข้อมูล</span>']]
+      });
 
       /* opinionCard แสดงต่างกัน 3 แบบตามบทบาท:
          - เลขาธิการฯ: ซ่อนช่องความเห็น (myOpinionBox) ทั้งชุด แสดง g1Box+urgentBox72 แทน
@@ -1988,8 +1952,28 @@
       }
 
       if (role.id === 'secgen') {
-        document.getElementById('g1Box').classList.remove('d-none');
-        document.getElementById('urgentBox72').classList.remove('d-none');
+        /* กล่องซับซ้อนเฉพาะรอบแรก (ยังไม่ผ่านคณะอนุฯ สนับสนุน) · ตัวเลือก "ไม่ซับซ้อน" บอกปลายทางของ 7.2 (A7-11) */
+        const hasSupport = !!(kase.supportOpinion || kase.supportOpinion72 || kase.supportDecision);
+        document.getElementById('g1Box').classList.toggle('d-none', hasSupport);
+        document.querySelector('label[for="g1no"]').textContent = 'ไม่ซับซ้อน — เสนอประธานกรรมการ ป.ป.ท. ลงรับและคัดกรองสำนวน';
+        if (!hasSupport && g1.diverged) {
+          /* ความเห็นในสายบังคับบัญชาไม่ตรงกัน: บังคับซับซ้อน ปิดตัวเลือกไม่ซับซ้อน (เหมือนหน้าจอ 213) */
+          document.getElementById('g1yes').checked = true;
+          document.getElementById('g1no').disabled = true;
+          document.getElementById('g1DivergedNote').classList.remove('d-none');
+        }
+        /* มีใบด่วนแนบจากต้นทาง: ซ่อนกล่องเลือก แสดงป้ายแทน — ตั้งตัวเลือกเร่งด่วน (ซ่อน) และเหตุผลจากต้นทางไว้
+           เพื่อให้ approve/nextStates() เดิมเห็นค่าเร่งด่วนเหมือนที่ผู้ใช้เห็นบนหน้าจอ */
+        const preUrgent = !!(kase.urgent || kase.urgent72);
+        document.getElementById('urgentBox72').classList.toggle('d-none', preUrgent);
+        if (preUrgent) {
+          document.getElementById('urgentYes72').checked = true;
+          document.getElementById('urgentReason72').value = kase.urgentReason72 || kase.urgentReason || '';
+          const preBadge = document.getElementById('urgentPreBadge');
+          preBadge.classList.remove('d-none');
+          preBadge.innerHTML = `<span class="text-warning fw-medium"><i class="fa-solid fa-bolt me-1"></i>มีใบด่วนแนบ: ${ECMIS.escapeHtml(kase.urgentReason72 || kase.urgentReason || '—')}</span>`;
+        }
+        document.getElementById('g1Outcome').classList.remove('d-none');
         /* ไม่มีการลงนามดิจิทัลในขั้นนี้ -- รายงานการไต่สวนวินิจฉัยชี้มูล (ม.24 วรรคท้าย) ตัวจริง
            ยังไม่เกิดขึ้นจนกว่าบอร์ดจะลงมติ (ลงนามจริงที่ PENDING_SIGN_RULING_72 โดยประธานฯ)
            เลขาธิการฯ ในขั้นนี้มีหน้าที่เพียงเห็นชอบส่งเข้าสู่กระบวนการกลั่นกรอง/บรรจุวาระ */
@@ -2004,24 +1988,29 @@
       function onComplexChange() {
         const box = document.getElementById('complexReasonBox');
         if (box) box.classList.toggle('d-none', !complexYes());
-        renderRouteOutcome(); renderDoc();
+        renderRouteOutcome(); renderDoc(); renderActionButtons();
       }
       function onUrgentChange() {
         const box = document.getElementById('urgentReasonBox72');
         if (box) box.classList.toggle('d-none', !urgentYes());
-        renderRouteOutcome(); renderDoc();
+        renderRouteOutcome(); renderDoc(); renderActionButtons();
       }
       document.querySelectorAll('[name="g1"]').forEach(r => r.addEventListener('change', onComplexChange));
       document.querySelectorAll('[name="urgent72toggle"]').forEach(r => r.addEventListener('change', onUrgentChange));
 
+      /* ปลายทางของหน้าจอชี้มูล = ECMIS.nextStates() ตัวเดียวกับที่ approve ใช้ (อ่านจากสำเนา ไม่แก้ kase)
+         ข้อความเดิม "ไม่ซับซ้อน + ไม่เร่งด่วน → เข้าคณะอนุกลั่นกรองฯ" ไม่ตรงกับ TRANSITIONS (SIGN_NORMAL_72 → 121) */
+      function rulingNext() {
+        const opts = ECMIS.nextStates(secgenPendingStatus, Object.assign({}, kase, { complex72: complexYes(), urgent72: urgentYes() }));
+        return opts.length ? opts[0].to : null;
+      }
       function renderRouteOutcome() {
         const el = document.getElementById('g1Outcome');
         if (!el) return;
-        let outcome;
-        if (complexYes()) outcome = 'ซับซ้อน → ส่งคณะอนุกรรมการสนับสนุนเลขาธิการฯ ก่อน หากเป็นกรณีเร่งด่วนจะพิจารณาความเร่งด่วนต่อในขั้นถัดไป';
-        else if (urgentYes()) outcome = 'ไม่ซับซ้อน + เร่งด่วน → ขอรับรองเหตุผลเร่งด่วนจาก ผอ.กบค. เพื่อเสนอวาระด่วน';
-        else outcome = 'ไม่ซับซ้อน + ไม่เร่งด่วน → เข้าคณะอนุกรรมการกลั่นกรองเรื่องไต่สวนข้อเท็จจริงตามเส้นทางปกติ';
-        el.innerHTML = `<strong>เส้นทางที่จะเกิดขึ้น:</strong> ${outcome}`;
+        const to = rulingNext();
+        const complexRoute = to === 'PENDING_SUPPORT_ASSIGN_72';
+        el.innerHTML = `<strong>เส้นทางเมื่อลงนาม:</strong> ${(SECGEN_ROUTE_TEXT[to] || {}).summary || (to ? ECMIS.STATUS[to].label : '—')}`
+          + (complexRoute && g1.diverged ? `<div class="text-muted mt-1" style="font-size:.78rem">เหตุ: ${DIVERGED_REASON}</div>` : '');
       }
 
       function renderDoc() {
@@ -2098,7 +2087,9 @@
 
       function buildButtons() {
         if (role.id === 'secgen') {
-          return [{ act: 'approve', label: 'เห็นชอบส่งเข้าสู่กระบวนการกลั่นกรอง/บรรจุวาระ', icon: 'fa-check', cls: 'btn-navy' }];
+          /* ป้ายปุ่มตามปลายทางจริง (ข้อความเดียวกับสรุปเส้นทาง) — หน้าจอนี้เลขาฯ เห็นชอบส่งต่อ ไม่ลงนามดิจิทัล */
+          const sign = (SECGEN_ROUTE_TEXT[rulingNext()] || {}).sign;
+          return [{ act: 'approve', label: sign ? sign.replace('ลงนามดิจิทัลและ', 'เห็นชอบและ') : 'เห็นชอบส่งเข้าสู่กระบวนการกลั่นกรอง/บรรจุวาระ', icon: 'fa-check', cls: 'btn-navy' }];
         }
         if (isReturned) return [{ act: 'resubmit', label: 'เสนอใหม่', icon: 'fa-paper-plane', cls: 'btn-navy' }];
         return [
@@ -2161,6 +2152,8 @@
               <select id="swal-reason" class="form-select mb-2"><option value="">— เลือกเหตุผล —</option>${opts}</select>
               <label class="form-label">รายละเอียดเพิ่มเติม <span style="color:#DB2626">*</span></label>
               <textarea id="swal-note" class="form-control" rows="3" placeholder="ระบุสิ่งที่ต้องแก้ไขให้ชัดเจน"></textarea>
+              <label class="form-label mt-2" for="swal-file">แนบไฟล์ประกอบเหตุผล (ไม่บังคับ)</label>
+              <input type="file" id="swal-file" class="form-control form-control-sm" accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg,.zip">
             </div>`,
             showCancelButton: true, confirmButtonText: 'ยืนยันตีกลับ', cancelButtonText: 'ยกเลิก',
             confirmButtonColor: '#DB2626', cancelButtonColor: '#7C8CA3', reverseButtons: true, width: 560,
@@ -2169,13 +2162,19 @@
               const n = document.getElementById('swal-note').value.trim();
               if (!r) { Swal.showValidationMessage('กรุณาเลือกเหตุผลการตีกลับ'); return false; }
               if (n.length < 10) { Swal.showValidationMessage('กรุณาระบุรายละเอียดอย่างน้อย 10 ตัวอักษร'); return false; }
-              return { r, n };
+              return { r, n, f: document.getElementById('swal-file').files[0] || null };
             }
           }).then(async res => {
             if (!res.isConfirmed) return;
+            let notice = null;
             try {
               await persistCase(kase, { status: 'RETURNED_72' });
               window.ECMISJunctionBridgeA7?.publishReturn?.(kase, { reason: res.value.n, by: role.name || role.id });
+              if (res.value.f && kase.tcc_id) {
+                await uploadAttachment(kase.tcc_id, res.value.f, role.id);
+                if (ECMIS.refreshAttachmentCard) ECMIS.refreshAttachmentCard();
+              }
+              notice = await notifyOwnerOnReturn(kase, { reason: res.value.n, reasonLabel: returnReasonLabel(res.value.r), fileName: res.value.f ? res.value.f.name : null });
             } catch (err) {
               console.error('ตีกลับไม่สำเร็จ:', err);
               ECMIS.toastWarn('บันทึกลงฐานข้อมูลไม่สำเร็จ ลองใหม่อีกครั้ง');
@@ -2184,7 +2183,7 @@
             kase.returnReason72 = res.value.r;
             kase.returnNote72 = res.value.n;
             kase.returnedBy72 = role.id;
-            ECMIS.toastOk('ตีกลับเรียบร้อย — ส่งคืนเจ้าของสำนวนแล้ว');
+            ECMIS.toastOk('ตีกลับเรียบร้อย — ส่งคืนเจ้าของสำนวนแล้ว', notice ? returnNoticeText(notice) : '');
             setTimeout(() => location.href = ECMIS.homeHref(role.id), 1400);
           });
           return;

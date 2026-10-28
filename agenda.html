@@ -240,7 +240,8 @@
             Object.assign(kase, patch);
         }
 
-        let kase, docType, isRuling;
+        /* docTab อยู่ระดับนอกเพราะปุ่ม #btnDocx (ผูกนอก initAgenda71) อ่านค่านี้ — เดิมประกาศใน initAgenda71 ทำให้ ReferenceError */
+        let kase, docType, isRuling, docTab = 'agenda';
 
         (async function main() {
             try {
@@ -264,7 +265,7 @@
         })();
 
         async function initAgenda71(){
-        let docTab = 'agenda';
+        docTab = 'agenda';
         const AR = window.AgendaRegistry;
 
         /* ครั้งประชุมจริงจาก tbl_res_calendar (ผ่าน agenda-registry-data.js — module เดียวกับที่

@@ -1,0 +1,6 @@
+[P1] ไต่สวนเบื้องต้น (RES001-RES033) V1.0.4: tasks=33 gateways=7 ends=4 links=7 start-to-end paths=21 issues=0
+[P2] ไต่สวนวินิจฉัยชี้มูล (RES101-RES137) V1.0.4: tasks=37 gateways=6 ends=4 links=8 start-to-end paths=16 issues=0
+[P3] มติเรื่องทั่วไป (RES201-RES219) V1.0.4: tasks=19 gateways=3 ends=2 links=2 start-to-end paths=6 issues=0
+[P4] ค้นหาและกรองข้อมูลคดี (RES053) V1.0.4: tasks=1 gateways=0 ends=1 links=0 start-to-end paths=1 issues=0
+[P5] แสดงผลข้อมูล (RES054-RES055) V1.0.4: tasks=2 gateways=0 ends=1 links=0 start-to-end paths=1 issues=0
+ALL PASS

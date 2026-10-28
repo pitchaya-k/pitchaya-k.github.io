@@ -110,6 +110,7 @@
                   <label class="form-check-label" for="g1yes">ซับซ้อน — ส่ง ผอ.กบค. ออกเลขทะเบียนคุม / มอบหมายคณะอนุสนับสนุนฯ</label>
                 </div>
               </div>
+              <div id="g1DivergedNote" class="d-none small text-danger mb-2"><i class="fa-solid fa-triangle-exclamation me-1"></i>ความเห็นในสายบังคับบัญชาไม่ตรงกัน (ระบบตรวจ) — ต้องส่งเป็นเรื่องซับซ้อน</div>
 
               <!-- 2026-09-28: เลขาฯ ไม่เลือกคณะอนุสนับสนุนเองแล้ว (ผอ.กบค. เป็นผู้มอบหมาย) -->
               <div id="g1reasonBox" class="mt-2 d-none">
@@ -120,16 +121,19 @@
               <hr>
             </div>
 
+            <!-- เคสที่มีใบด่วนแนบมาจากต้นทาง (kase.urgent) — แสดงป้ายแทนกล่องเลือกเร่งด่วน -->
+            <div id="urgentPreBadge" class="d-none mb-3"></div>
+
             <div id="urgentBox72" class="d-none mb-3">
               <label class="form-label field-req">เป็นกรณีเร่งด่วนหรือไม่?</label>
               <div class="d-flex gap-3 flex-wrap mb-2">
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="urgent72toggle" id="urgentNo72" value="no" checked>
-                  <label class="form-check-label" for="urgentNo72">ไม่เร่งด่วน</label>
+                  <label class="form-check-label" for="urgentNo72">ไม่เร่งด่วน — ดำเนินการตามขั้นตอนปกติ</label>
                 </div>
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="urgent72toggle" id="urgentYes72" value="yes">
-                  <label class="form-check-label" for="urgentYes72">เร่งด่วน — ขอรับรองบรรจุวาระด่วน</label>
+                  <label class="form-check-label" for="urgentYes72">เร่งด่วน — ส่ง ผอ.กบค. รับรองเหตุผล เพื่อขอบรรจุวาระด่วน</label>
                 </div>
               </div>
               <div id="urgentReasonBox72" class="mb-1 d-none">
@@ -139,6 +143,9 @@
               </div>
               <hr>
             </div>
+
+            <!-- สรุปเส้นทางเมื่อลงนาม (เลขาธิการฯ) — ข้อความมาจาก secgenRoute() ตัวเดียวกับที่ save_status ใช้ -->
+            <div id="g1Outcome" class="ws-callout mb-3 d-none" style="font-size:.85rem"></div>
 
             <div id="myOpinionBox">
               <label class="form-label field-req">ความเห็น</label>
@@ -350,6 +357,16 @@
     });
 
     let kase, docType, isRuling, secgenPendingStatus, alreadySigned, signed, g1;
+    /* ข้อความสรุปเส้นทาง (#g1Outcome) และปุ่มลงนามของเลขาธิการฯ ตามสถานะปลายทางที่ secgenRoute() ของหน้านี้คืนมา
+       (ชุดข้อความเดียวกับ approval-review.html) — ไม่ตัดสินเส้นทางเอง */
+    const SECGEN_ROUTE_TEXT = {
+      PENDING_SUPPORT_ASSIGN:       { summary: 'ส่ง ผอ.กบค. ออกเลขทะเบียนคุม → คณะอนุฯ สนับสนุน → กลับเลขาธิการฯ', sign: 'ส่ง ผอ.กบค. ออกเลขทะเบียนคุม' },
+      PENDING_URGENT:               { summary: 'ส่ง ผอ.กบค. รับรองเหตุผลเร่งด่วน → เลขาธิการฯ ยืนยัน → ประธานฯ บรรจุวาระด่วน', sign: 'ลงนามดิจิทัลและส่ง ผอ.กบค. รับรองเหตุผลเร่งด่วน', save: 'บันทึกและส่ง ผอ.กบค. รับรองเหตุผลเร่งด่วน' },
+      PENDING_CHAIRMAN:             { summary: 'เสนอประธานกรรมการ ป.ป.ท. พิจารณาบรรจุวาระ', sign: 'ลงนามดิจิทัลและเสนอประธานฯ', save: 'บันทึกและเสนอประธานกรรมการ ป.ป.ท.' },
+      IN_SCREENING:                 { summary: 'ส่งกองบริหารคดี → คณะอนุกลั่นกรองฯ → ประธานฯ ลงนามบรรจุวาระ', sign: 'ลงนามดิจิทัลและส่งกองบริหารคดี', save: 'บันทึกและส่งกองบริหารคดี' },
+      PENDING_CASE_ADMIN_SCREEN_72: { summary: 'เสนอประธานฯ ลงรับและคัดกรองสำนวน', sign: 'ลงนามดิจิทัลและเสนอประธานฯ ลงรับและคัดกรองสำนวน', save: 'บันทึกและเสนอประธานฯ ลงรับและคัดกรองสำนวน' }
+    };
+    const DIVERGED_REASON = 'ความเห็นในสายบังคับบัญชาไม่ตรงกัน (ระบบตรวจ)';
     const SECGEN_SIG_IMG = 'data:image/svg+xml;utf8,' + encodeURIComponent(
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 70">' +
       '<path d="M8 50 C 30 10, 55 10, 70 40 S 110 65, 130 30 S 165 5, 185 35 S 205 55, 212 40" ' +
@@ -513,8 +530,28 @@
 
       if (role.id === 'secgen') {
         document.getElementById('m28Card').classList.remove('d-none');
-        document.getElementById('g1Box').classList.remove('d-none');
+        /* กล่องซับซ้อนแสดงตาม g1BoxVisible() (เดิมแสดงทุกเคสรวม 7.3 / รอบหลังคณะอนุฯ สนับสนุน) */
+        document.getElementById('g1Box').classList.toggle('d-none', !g1BoxVisible());
+        if (g1BoxVisible() && g1.diverged) {
+          /* ความเห็นในสายบังคับบัญชาไม่ตรงกัน: บังคับซับซ้อน ปิดตัวเลือกไม่ซับซ้อน */
+          document.getElementById('g1yes').checked = true;
+          document.getElementById('g1no').disabled = true;
+          document.getElementById('g1DivergedNote').classList.remove('d-none');
+        }
+        /* รอบที่ 2 (คณะอนุฯ สนับสนุนส่งความเห็นกลับแล้ว): ช่องความเห็นเลขาธิการฯ พร้อมข้อความตั้งต้นที่แก้ได้ */
+        if (kase.supportOpinion || kase.supportOpinion72 || kase.supportDecision) {
+          const lbl = document.querySelector('#myOpinionBox label');
+          if (lbl) lbl.textContent = 'ความเห็นของเลขาธิการ ป.ป.ท.';
+          const op = document.getElementById('myOpinion');
+          if (op && !op.value.trim()) op.value = 'ตรวจทานรายงานและผลการกลั่นกรองของคณะอนุกรรมการสนับสนุนเลขาธิการฯ แล้ว เห็นชอบตามผลการกลั่นกรอง เห็นควรเสนอประธานกรรมการ ป.ป.ท. สั่งบรรจุวาระการประชุม';
+        }
+        document.getElementById('g1Outcome').classList.remove('d-none');
         document.getElementById('signCard').classList.remove('d-none');
+        const preBadge = document.getElementById('urgentPreBadge');
+        if (preBadge && kase.urgent) {
+          preBadge.classList.remove('d-none');
+          preBadge.innerHTML = `<span class="text-warning fw-medium"><i class="fa-solid fa-bolt me-1"></i>มีใบด่วนแนบ: ${ECMIS.escapeHtml(kase.urgentReason || '—')}</span>`;
+        }
 
         /* ช่อง "เป็นกรณีเร่งด่วนหรือไม่?" — เดิมมีแค่ในหน้าจอ RULING (initRulingScreen)
            แต่เคสทั้งสาย 7.1 และ 7.2 ที่ยังอยู่ขั้นรายงาน 644/213 ก็ต้องเลือกด่วน/ไม่ด่วนได้
@@ -554,8 +591,13 @@
         const accept = m28Selected() === 'ACCEPT';
         document.getElementById('m28RejectLaw').classList.toggle('d-none', accept);
 
-        document.getElementById('g1Box').classList.toggle('d-none', !accept);
-        renderActionButtons();
+        document.getElementById('g1Box').classList.toggle('d-none', !g1BoxVisible());
+        renderActionButtons(); renderG1Outcome();
+      }
+      /* กล่องซับซ้อนแสดงเมื่อ: เลขาธิการฯ · สาย 7.1/7.2 · คำสั่ง ม.28 = รับไว้ · ยังไม่ผ่านคณะอนุฯ สนับสนุน */
+      function g1BoxVisible() {
+        const hasSupport = !!(kase.supportOpinion || kase.supportOpinion72 || kase.supportDecision);
+        return role.id === 'secgen' && !ECMIS.isCase73(kase) && m28Selected() === 'ACCEPT' && !hasSupport;
       }
       if (document.getElementById('m28Card')) {
         document.querySelectorAll('input[name="m28order"]').forEach(r =>
@@ -571,6 +613,7 @@
         const g1reasonBox = document.getElementById('g1reasonBox');
 
         if (g1reasonBox) g1reasonBox.classList.toggle('d-none', !isComplex);
+        if (role.id === 'secgen') document.getElementById('myOpinionBox')?.classList.toggle('d-none', isComplex);
 
         if (myOpinion) {
           if (isComplex) {
@@ -587,6 +630,40 @@
           }
         }
       }
+
+      /* Task 234 (ย้ายออกจาก handle() มาระดับหน้าจอโดยไม่แก้ตรรกะ ให้สรุปเส้นทาง/ป้ายปุ่มใช้ร่วมกัน): ปลายทางที่เลขาฯ จะส่ง — ใช้ทั้งบรรทัด "ลงนามแล้วจะส่งต่อ" ในกล่องลงนามและตอนบันทึก (ตรรกะเดียว) */
+      function secgenRoute() {
+        const m28 = m28Selected();
+        const complex = g1Yes();
+        let dest, path, targetStatus;
+
+        if (m28 !== 'ACCEPT') {
+          const lawSel = document.getElementById('m28Law');
+          const order = ECMIS.m28Order(m28);
+          targetStatus = 'CLOSED';
+          dest = order.label;
+          path = `ม.28 — ${order.label} (${order.lawRef} มาตรา ${lawSel ? lawSel.value : ''})`;
+        } else if (complex) {
+          targetStatus = 'PENDING_SUPPORT_ASSIGN';
+          dest = 'ผอ.กบค. (ออกเลขทะเบียนคุม / มอบหมายคณะอนุสนับสนุนฯ)';
+          path = g1.diverged
+            ? 'เรื่องมีความเห็นไม่ตรงกันในสายบังคับบัญชา จึงส่ง ผอ.กบค. มอบหมายคณะอนุสนับสนุนฯ กลั่นกรอง'
+            : 'เลขาธิการฯ เห็นว่าเรื่องซับซ้อน จึงส่ง ผอ.กบค. มอบหมายคณะอนุสนับสนุนฯ กลั่นกรอง';
+        } else if (kase.urgent || urgentYes()) {
+          targetStatus = 'PENDING_CHAIRMAN';
+          dest = 'ประธานกรรมการ ป.ป.ท.';
+          path = 'สำนวนเร่งด่วน: เสนอตรงประธานฯ เพื่อสั่งบรรจุวาระด่วน';
+        } else {
+          targetStatus = 'PENDING_CHAIRMAN';
+          dest = 'ประธานกรรมการ ป.ป.ท.';
+          path = 'สำนวนปกติ: เสนอประธานฯ พิจารณาสั่งการ';
+        }
+        return { m28, complex, dest, path, targetStatus };
+      }
+
+      /* A7-11: ตัวเลือกไม่ซับซ้อนบอกปลายทางจริงของหน้านี้ — secgenRoute() ของ review.html ส่งเรื่องไม่ซับซ้อนเข้าคิวประธานฯ ทุกสาย */
+      const g1NoLabel = document.querySelector('label[for="g1no"]');
+      if (g1NoLabel) g1NoLabel.textContent = 'ไม่ซับซ้อน — เสนอประธานกรรมการ ป.ป.ท. พิจารณาบรรจุวาระ';
 
       function g1Yes() {
         const g1yes = document.getElementById('g1yes');
@@ -612,18 +689,15 @@
       }
 
       /* ---- สรุปเส้นทางที่จะเกิดขึ้นจริง ---- */
+      /* ข้อความสรุปเส้นทาง: อ่านปลายทางจาก secgenRoute() ตัวเดียวกับ save_status */
       function renderG1Outcome() {
         const el = document.getElementById('g1Outcome');
-        if (!el) return;
-        const why = g1.diverged
-          ? 'ความเห็นในสายบังคับบัญชาไม่ตรงกัน (ระบบตรวจ)'
-          : (document.getElementById('g1yes').checked ? 'เลขาธิการฯ เห็นว่าเป็นเรื่องยุ่งยากซับซ้อน' : 'ไม่เข้าเงื่อนไขทั้งสองข้อ');
-        el.innerHTML = g1Yes()
-          ? `<strong>G1 = ใช่</strong> → <span class="chip">T6 คณะอนุสนับสนุนฯ</span> → <span class="chip">G2</span>
-       <div class="text-muted mt-1" style="font-size:.78rem">เหตุ: ${why}</div>`
-          : `<strong>G1 = ไม่ใช่</strong> → <span class="chip">G3 ตรวจใบด่วน</span> →
-       <span class="chip">T8 ประธานกรรมการ ป.ป.ท.${kase.urgent ? ' (วาระด่วน)' : ''}</span>
-       <div class="text-muted mt-1" style="font-size:.78rem">เหตุ: ${why}</div>`;
+        if (!el || role.id !== 'secgen') return;
+        const r = secgenRoute();
+        const text = r.m28 !== 'ACCEPT' ? `ปิดเรื่องตามคำสั่ง ม.28 — ${r.dest}` : ((SECGEN_ROUTE_TEXT[r.targetStatus] || {}).summary || r.dest);
+        const why = r.targetStatus === 'PENDING_SUPPORT_ASSIGN' && g1.diverged
+          ? `<div class="text-muted mt-1" style="font-size:.78rem">เหตุ: ${DIVERGED_REASON}</div>` : '';
+        el.innerHTML = `<strong>เส้นทางเมื่อลงนาม:</strong> ${text}${why}`;
       }
 
       document.querySelectorAll('[name="g1"]').forEach(r => r.addEventListener('change', () => {
@@ -635,6 +709,7 @@
       });
       onG1Change();
       renderG1Outcome(); renderG3();
+      document.querySelectorAll('[name="urgent72toggle"]').forEach(r => r.addEventListener('change', () => { renderG1Outcome(); renderActionButtons(); }));
 
       /* ถ้ามาจากปุ่ม "มอบหมาย" ที่โต๊ะสั่งการ (11-secgen-desk.html) ให้ตั้งค่า G1 = ใช่ ล่วงหน้า */
       if (params.get('assign') === '1' && role.id === 'secgen' && document.getElementById('g1yes')) {
@@ -782,7 +857,7 @@
             return [
               { act: 'edit_sign', label: 'แก้ไข / ลงนามใหม่', icon: 'fa-pen-to-square', cls: 'btn-outline-warning' },
               { act: 'clear_sign', label: 'ลบลายเซ็น', icon: 'fa-trash-can', cls: 'btn-outline-danger' },
-              { act: 'save_status', label: 'บันทึกเพื่อเปลี่ยนสถานะ (เลขาลงนามแล้ว)', icon: 'fa-floppy-disk', cls: 'btn-success' }
+              { act: 'save_status', label: (SECGEN_ROUTE_TEXT[secgenRoute().targetStatus] || {}).save || 'บันทึกเพื่อเปลี่ยนสถานะ (เลขาลงนามแล้ว)', icon: 'fa-floppy-disk', cls: 'btn-success' }
             ];
           }
           const m28 = m28Selected();
@@ -795,7 +870,8 @@
                 cls: 'btn-navy'
               });
             } else {
-              b.push({ act: 'sign', label: 'ลงนามดิจิทัลและส่งต่อ', icon: 'fa-signature', cls: 'btn-gold' });
+              /* ป้ายปุ่มตามปลายทางจริงจาก secgenRoute() — ข้อความเดียวกับสรุปเส้นทาง (#g1Outcome) */
+              b.push({ act: 'sign', label: (SECGEN_ROUTE_TEXT[secgenRoute().targetStatus] || {}).sign || 'ลงนามดิจิทัลและส่งต่อ', icon: 'fa-signature', cls: 'btn-gold' });
             }
           } else {
             b.push({
@@ -1003,35 +1079,6 @@
           return;
         }
 
-        /* Task 234: ปลายทางที่เลขาฯ จะส่ง — ใช้ทั้งบรรทัด "ลงนามแล้วจะส่งต่อ" ในกล่องลงนามและตอนบันทึก (ตรรกะเดียว) */
-        function secgenRoute() {
-          const m28 = m28Selected();
-          const complex = g1Yes();
-          let dest, path, targetStatus;
-
-          if (m28 !== 'ACCEPT') {
-            const lawSel = document.getElementById('m28Law');
-            const order = ECMIS.m28Order(m28);
-            targetStatus = 'CLOSED';
-            dest = order.label;
-            path = `ม.28 — ${order.label} (${order.lawRef} มาตรา ${lawSel ? lawSel.value : ''})`;
-          } else if (complex) {
-            targetStatus = 'PENDING_SUPPORT_ASSIGN';
-            dest = 'ผอ.กบค. (ออกเลขทะเบียนคุม / มอบหมายคณะอนุสนับสนุนฯ)';
-            path = g1.diverged
-              ? 'เรื่องมีความเห็นไม่ตรงกันในสายบังคับบัญชา จึงส่ง ผอ.กบค. มอบหมายคณะอนุสนับสนุนฯ กลั่นกรอง'
-              : 'เลขาธิการฯ เห็นว่าเรื่องซับซ้อน จึงส่ง ผอ.กบค. มอบหมายคณะอนุสนับสนุนฯ กลั่นกรอง';
-          } else if (kase.urgent || urgentYes()) {
-            targetStatus = 'PENDING_CHAIRMAN';
-            dest = 'ประธานกรรมการ ป.ป.ท.';
-            path = 'สำนวนเร่งด่วน: เสนอตรงประธานฯ เพื่อสั่งบรรจุวาระด่วน';
-          } else {
-            targetStatus = 'PENDING_CHAIRMAN';
-            dest = 'ประธานกรรมการ ป.ป.ท.';
-            path = 'สำนวนปกติ: เสนอประธานฯ พิจารณาสั่งการ';
-          }
-          return { m28, complex, dest, path, targetStatus };
-        }
         if (act === 'save_status') {
           const { m28, complex, dest, path, targetStatus } = secgenRoute();
 

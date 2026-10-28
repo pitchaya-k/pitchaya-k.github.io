@@ -159,6 +159,9 @@
     </div>
   </div>
 
+  <!-- ลิงก์หน้าจอ Mock การ์ดสรุปสำนวน (เฉพาะรองเลขาฯ / เลขาฯ) — เคส Mock ไม่อยู่ในฐานข้อมูล จึงแยกไว้นอกตารางคิวจริง -->
+  <div id="mockSummaryLinks"></div>
+
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -172,6 +175,7 @@
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
 <script src="assets/ecmis-model.js"></script>
+<script src="assets/case-summary-mock-data.js?v=20261022d"></script>
 <script>
 ECMIS.renderShell('inbox.html');
 
@@ -1122,7 +1126,52 @@ function computeQueues() {
   computeQueues();
   renderKPICards();
   applyFilters();
+  renderMockSummaryLinks();
 })();
+
+/* หน้าจอ Mock การ์ดสรุปสำนวน (approval-review-mock-01..06.html) — ข้อมูลจำลองไม่ได้บันทึกลงฐานข้อมูล จึงไม่อยู่ในคิว/KPI
+   ด้านบน แสดงเป็นกล่องลิงก์แยกต่างหากเฉพาะบทบาทที่ใช้การ์ดนี้ (รองเลขาฯ / เลขาฯ) */
+function renderMockSummaryLinks() {
+  const box = document.getElementById('mockSummaryLinks');
+  const M = window.ECMISCaseSummaryMocks;
+  if (!box || !M || !['deputy', 'secgen'].includes(role.id)) return;
+  const rows = Object.values(M.CASES).flatMap(c => ['partial', 'full'].map(st => `
+    <tr>
+      <td class="fw-semibold">${ECMIS.escapeHtml(c.partial.id)}</td>
+      <td>${ECMIS.escapeHtml(c.label)}</td>
+      <td>${st === 'full' ? '<span class="meet-badge" style="background:#DCFCE7;color:#166534">' : '<span class="meet-badge meet-pending">'}${M.STATE_LABEL[st]}</span></td>
+      <td class="text-muted small">${ECMIS.escapeHtml(c.files[st])}</td>
+      <td class="text-end"><a class="btn btn-sm btn-outline-primary" href="${c.files[st]}">เปิดหน้าจอ <i class="fa-solid fa-arrow-right ms-1"></i></a></td>
+    </tr>`)).join('') + Object.values(M.SCENARIOS || {}).map(sc => {
+    /* ตัวอย่างการ์ดความเห็นของเลขาฯ (หน้า 07–10) */
+    const k = M.buildScenario(Object.keys(M.SCENARIOS).find(key => M.SCENARIOS[key] === sc));
+    return `
+    <tr>
+      <td class="fw-semibold">${ECMIS.escapeHtml(k.id)}</td>
+      <td>ความเห็นเลขาฯ: ${ECMIS.escapeHtml(sc.label)}</td>
+      <td><span class="meet-badge" style="background:#DCFCE7;color:#166534">${M.STATE_LABEL.full}</span></td>
+      <td class="text-muted small">${ECMIS.escapeHtml(sc.file)}</td>
+      <td class="text-end"><a class="btn btn-sm btn-outline-primary" href="${sc.file}">เปิดหน้าจอ <i class="fa-solid fa-arrow-right ms-1"></i></a></td>
+    </tr>`;
+  }).join('');
+  box.innerHTML = `
+    <div class="card card-ecmis mb-4">
+      <div class="card-header d-flex align-items-center flex-wrap gap-2">
+        <i class="fa-solid fa-flask text-primary"></i>
+        <span class="fw-bold">หน้าจอ Mock การ์ดสรุปสำนวน</span>
+        <span class="chip">ข้อมูลจำลอง (Prototype)</span>
+        <span class="ms-auto small text-muted">ไม่อยู่ในคิวงานจริง · ไม่บันทึกข้อมูล</span>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover tbl-ecmis mb-0 align-middle">
+            <thead><tr><th>เลขสำนวน Mock</th><th>ประเภทเคส</th><th>สถานะข้อมูล</th><th>ไฟล์</th><th class="text-end">ดำเนินการ</th></tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      </div>
+    </div>`;
+}
 
 </script>
 

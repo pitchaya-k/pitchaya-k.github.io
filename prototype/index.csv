@@ -1,0 +1,143 @@
+﻿folder,role,ประเภทหน้า,ชื่อหน้า (title),URL,ไฟล์ภาพ
+00_common,ทุก role,หน้าเข้าสู่ระบบ,เข้าสู่ระบบ | E-CMIS,login.html,prototype\00_common\01_login.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,หน้าแรก (Work Inbox),รายการเรื่องที่ต้องจัดทำ | E-CMIS,inbox.html,prototype\01_affairs\01_home_inbox.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,เมนู,ทะเบียนสำนวน | E-CMIS,case-register.html,prototype\01_affairs\02_menu_case-register.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,เมนู,Dashboard ติดตามผลมติ | E-CMIS,followup-dashboard.html,prototype\01_affairs\03_menu_followup-dashboard.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,เมนู,Dashboard สถิติมติคณะกรรมการ ป.ป.ท. | E-CMIS,dashboard.html,prototype\01_affairs\04_menu_dashboard.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,หน้าข้างใน (สำนวน),เลขาธิการฯ พิจารณา / ลงนาม | E-CMIS,approval-review.html?case=9205%2F2569,prototype\01_affairs\05_detail_approval-review_9205-2569.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,หน้าข้างใน (สำนวน),ออกคำสั่งแต่งตั้งคณะไต่สวน ม.24 | E-CMIS,order.html?case=9615%2F2569,prototype\01_affairs\06_detail_order_9615-2569.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. | E-CMIS,resolution.html?case=9609%2F2569,prototype\01_affairs\07_detail_resolution_9609-2569.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,หน้าข้างใน (สำนวน),ทำความเห็นเสนอ (กลุ่มงานกิจการฯ) | E-CMIS,affairs-opinion.html?case=9308%2F2569,prototype\01_affairs\08_detail_affairs-opinion_9308-2569.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,หน้าข้างใน (สำนวน),ลงนามคำสั่งและรายงาน | E-CMIS,chairman-agenda.html?case=0001%2F2569,prototype\01_affairs\09_detail_chairman-agenda_0001-2569.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,หน้าข้างใน (สำนวน),รายงานวินิจฉัยชี้มูล | E-CMIS,ruling-report.html?case=1344%2F2566,prototype\01_affairs\10_detail_ruling-report_1344-2566.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,หน้าข้างใน (สำนวน),ทะเบียนสำนวน | E-CMIS,register.html?case=0982%2F2568,prototype\01_affairs\11_detail_register_0982-2568.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,หน้าข้างใน (สำนวน),คณะอนุกลั่นกรองฯ คณะที่ 1–8 | E-CMIS,subcommittee-screening.html?case=0001%2F2569,prototype\01_affairs\12_detail_subcommittee-screening_0001-2569.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,หน้าข้างใน (สำนวน),ทะเบียนสำนวน | E-CMIS,case-register.html?case=0005%2F2569,prototype\01_affairs\13_detail_case-register_0005-2569.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. | E-CMIS,board-resolution.html?case=3027%2F2569,prototype\01_affairs\14_detail_board-resolution_3027-2569.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. (วินิจฉัยชี้มูล) | E-CMIS,resolution-72.html?case=1402%2F2565,prototype\01_affairs\15_detail_resolution-72_1402-2565.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,หน้าข้างใน (สำนวน),คณะอนุกรรมการสนับสนุนเลขาธิการฯ กลั่นกรองสำนวนซับซ้อน | E-CMIS,support-subcommittee.html?case=0921%2F2569,prototype\01_affairs\16_detail_support-subcommittee_0921-2569.png
+01_affairs,กลุ่มงานกิจการคณะกรรมการ,หน้าข้างใน (สำนวน),คำร้องขอบรรจุวาระด่วน | E-CMIS,urgent-agenda.html?case=1177%2F2566,prototype\01_affairs\17_detail_urgent-agenda_1177-2566.png
+02_deputy,รองเลขาธิการ,หน้าแรก (Work Inbox),รายการพิจารณา/ลงความเห็น (รองเลขาธิการฯ) | E-CMIS,inbox.html,prototype\02_deputy\01_home_inbox.png
+02_deputy,รองเลขาธิการ,เมนู,ทะเบียนสำนวน | E-CMIS,case-register.html,prototype\02_deputy\02_menu_case-register.png
+02_deputy,รองเลขาธิการ,เมนู,รายงานผล ม.38 | E-CMIS,m38-inbox.html,prototype\02_deputy\03_menu_m38-inbox.png
+02_deputy,รองเลขาธิการ,หน้าข้างใน (สำนวน),เลขาธิการฯ พิจารณา / ลงนาม | E-CMIS,approval-review.html?case=9205%2F2569,prototype\02_deputy\04_detail_approval-review_9205-2569.png
+02_deputy,รองเลขาธิการ,หน้าข้างใน (สำนวน),รองเลขาธิการฯ พิจารณา / อนุมัติรายงานผล ม.38 | E-CMIS,m38-review.html?report=0004%2F0112,prototype\02_deputy\05_detail_m38-review.png
+03_secgen,เลขาธิการ,หน้าแรก (Work Inbox),รายการพิจารณา/ลงนาม | E-CMIS,inbox.html,prototype\03_secgen\01_home_inbox.png
+03_secgen,เลขาธิการ,เมนู,ทะเบียนสำนวน | E-CMIS,case-register.html,prototype\03_secgen\02_menu_case-register.png
+03_secgen,เลขาธิการ,เมนู,รายงานผล ม.38 | E-CMIS,m38-inbox.html,prototype\03_secgen\03_menu_m38-inbox.png
+03_secgen,เลขาธิการ,เมนู,Dashboard สถิติมติคณะกรรมการ ป.ป.ท. | E-CMIS,dashboard.html,prototype\03_secgen\04_menu_dashboard.png
+03_secgen,เลขาธิการ,หน้าข้างใน (สำนวน),เลขาธิการฯ พิจารณา / ลงนาม | E-CMIS,approval-review.html?case=9205%2F2569,prototype\03_secgen\05_detail_approval-review_9205-2569.png
+03_secgen,เลขาธิการ,หน้าข้างใน (สำนวน),ลงนามคำสั่งและรายงาน | E-CMIS,chairman-agenda.html?case=0001%2F2569,prototype\03_secgen\06_detail_chairman-agenda_0001-2569.png
+03_secgen,เลขาธิการ,หน้าข้างใน (สำนวน),คณะอนุกลั่นกรองฯ คณะที่ 1–8 | E-CMIS,subcommittee-screening.html?case=0001%2F2569,prototype\03_secgen\07_detail_subcommittee-screening_0001-2569.png
+03_secgen,เลขาธิการ,หน้าข้างใน (สำนวน),ทะเบียนสำนวน | E-CMIS,case-register.html?case=0005%2F2569,prototype\03_secgen\08_detail_case-register_0005-2569.png
+03_secgen,เลขาธิการ,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. | E-CMIS,board-resolution.html?case=3027%2F2569,prototype\03_secgen\09_detail_board-resolution_3027-2569.png
+03_secgen,เลขาธิการ,หน้าข้างใน (สำนวน),รายงานวินิจฉัยชี้มูล | E-CMIS,ruling-report.html?case=1119%2F2565,prototype\03_secgen\10_detail_ruling-report_1119-2565.png
+03_secgen,เลขาธิการ,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. (วินิจฉัยชี้มูล) | E-CMIS,resolution-72.html?case=1402%2F2565,prototype\03_secgen\11_detail_resolution-72_1402-2565.png
+03_secgen,เลขาธิการ,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. | E-CMIS,resolution.html?case=9423%2F2569,prototype\03_secgen\12_detail_resolution_9423-2569.png
+03_secgen,เลขาธิการ,หน้าข้างใน (สำนวน),คณะอนุกรรมการสนับสนุนเลขาธิการฯ กลั่นกรองสำนวนซับซ้อน | E-CMIS,support-subcommittee.html?case=0921%2F2569,prototype\03_secgen\13_detail_support-subcommittee_0921-2569.png
+03_secgen,เลขาธิการ,หน้าข้างใน (สำนวน),คำร้องขอบรรจุวาระด่วน | E-CMIS,urgent-agenda.html?case=1177%2F2566,prototype\03_secgen\14_detail_urgent-agenda_1177-2566.png
+04_dir_case,ผอ.กบค.,หน้าแรก (Work Inbox),รายการงาน ผอ.กบค. | E-CMIS,inbox.html,prototype\04_dir_case\01_home_inbox.png
+04_dir_case,ผอ.กบค.,เมนู,ทะเบียนสำนวน | E-CMIS,case-register.html,prototype\04_dir_case\02_menu_case-register.png
+04_dir_case,ผอ.กบค.,หน้าข้างใน (สำนวน),รับรองเหตุผลเร่งด่วน (ผอ.กบค.) | E-CMIS,approval-review.html?case=9303%2F2569,prototype\04_dir_case\03_detail_approval-review_9303-2569.png
+04_dir_case,ผอ.กบค.,หน้าข้างใน (สำนวน),คำร้องขอบรรจุวาระด่วน | E-CMIS,urgent-agenda.html?case=1155%2F2566,prototype\04_dir_case\04_detail_urgent-agenda_1155-2566.png
+05_support_sub,คณะอนุกรรมการสนับสนุนเลขาธิการ,หน้าแรก (Work Inbox),รายการสำนวนรอกลั่นกรอง | คณะอนุกรรมการสนับสนุนเลขาธิการฯ | E-CMIS,support-subcommittee-inbox.html,prototype\05_support_sub\01_home_support-subcommittee-inbox.png
+05_support_sub,คณะอนุกรรมการสนับสนุนเลขาธิการ,เมนู,ทะเบียนสำนวน | E-CMIS,case-register.html,prototype\05_support_sub\02_menu_case-register.png
+05_support_sub,คณะอนุกรรมการสนับสนุนเลขาธิการ,เมนู,ทะเบียนวาระการประชุม | E-CMIS,agenda-registry.html,prototype\05_support_sub\03_menu_agenda-registry.png
+05_support_sub,คณะอนุกรรมการสนับสนุนเลขาธิการ,หน้าข้างใน (สำนวน),คณะอนุกรรมการสนับสนุนเลขาธิการฯ กลั่นกรองสำนวนซับซ้อน | E-CMIS,support-subcommittee.html?case=9602%2F2569,prototype\05_support_sub\04_detail_support-subcommittee_9602-2569.png
+05_support_sub,คณะอนุกรรมการสนับสนุนเลขาธิการ,หน้าข้างใน (สำนวน),รายละเอียดวาระการประชุม | E-CMIS,agenda-detail.html?meet=ALL,prototype\05_support_sub\05_detail_agenda-detail.png
+05_support_sub,คณะอนุกรรมการสนับสนุนเลขาธิการ,หน้าข้างใน (สำนวน),ทะเบียนสำนวน | E-CMIS,case-register.html?case=0005%2F2569,prototype\05_support_sub\06_detail_case-register_0005-2569.png
+05_support_sub,คณะอนุกรรมการสนับสนุนเลขาธิการ,หน้าข้างใน (สำนวน),ทะเบียนวาระการประชุม | E-CMIS,agenda-registry.html?case=1525%2F2558,prototype\05_support_sub\07_detail_agenda-registry_1525-2558.png
+06_subcommittee,คณะอนุกรรมการกลั่นกรอง,หน้าแรก (Work Inbox),รายการสำนวนรอกลั่นกรอง | คณะอนุกรรมการกลั่นกรองฯ | E-CMIS,subcommittee-inbox.html,prototype\06_subcommittee\01_home_subcommittee-inbox.png
+06_subcommittee,คณะอนุกรรมการกลั่นกรอง,เมนู,ทะเบียนสำนวน | E-CMIS,case-register.html,prototype\06_subcommittee\02_menu_case-register.png
+06_subcommittee,คณะอนุกรรมการกลั่นกรอง,หน้าข้างใน (สำนวน),คณะอนุกลั่นกรองฯ คณะที่ 1–8 | E-CMIS,subcommittee-screening.html?case=0001%2F2569,prototype\06_subcommittee\03_detail_subcommittee-screening_0001-2569.png
+06_subcommittee,คณะอนุกรรมการกลั่นกรอง,หน้าข้างใน (สำนวน),ทะเบียนสำนวน | E-CMIS,case-register.html?case=0005%2F2569,prototype\06_subcommittee\04_detail_case-register_0005-2569.png
+07_chairman,ประธานกรรมการ ป.ป.ท.,หน้าแรก (Work Inbox),รายการพิจารณาสั่งการและบรรจุวาระ (ประธานกรรมการ ป.ป.ท.) | E-CMIS,inbox.html,prototype\07_chairman\01_home_inbox.png
+07_chairman,ประธานกรรมการ ป.ป.ท.,เมนู,ทะเบียนสำนวน | E-CMIS,case-register.html,prototype\07_chairman\02_menu_case-register.png
+07_chairman,ประธานกรรมการ ป.ป.ท.,เมนู,Dashboard ติดตามผลมติ | E-CMIS,followup-dashboard.html,prototype\07_chairman\03_menu_followup-dashboard.png
+07_chairman,ประธานกรรมการ ป.ป.ท.,เมนู,Dashboard สถิติมติคณะกรรมการ ป.ป.ท. | E-CMIS,dashboard.html,prototype\07_chairman\04_menu_dashboard.png
+07_chairman,ประธานกรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),เลขาธิการฯ พิจารณา / ลงนาม | E-CMIS,approval-review.html?case=9205%2F2569,prototype\07_chairman\05_detail_approval-review_9205-2569.png
+07_chairman,ประธานกรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),ลงนามคำสั่งและรายงาน | E-CMIS,chairman-agenda.html?case=0001%2F2569,prototype\07_chairman\06_detail_chairman-agenda_0001-2569.png
+07_chairman,ประธานกรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),คำร้องขอบรรจุวาระด่วน | E-CMIS,urgent-agenda.html?case=9607%2F2569,prototype\07_chairman\07_detail_urgent-agenda_9607-2569.png
+07_chairman,ประธานกรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),ฟอร์มคัดกรองสำนวน | E-CMIS,affairs-case-detail.html?case=9605%2F2569,prototype\07_chairman\08_detail_affairs-case-detail_9605-2569.png
+07_chairman,ประธานกรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),รายงานวินิจฉัยชี้มูล | E-CMIS,ruling-report.html?case=1344%2F2566,prototype\07_chairman\09_detail_ruling-report_1344-2566.png
+07_chairman,ประธานกรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),ทะเบียนสำนวน | E-CMIS,register.html?case=0982%2F2568,prototype\07_chairman\10_detail_register_0982-2568.png
+07_chairman,ประธานกรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),คณะอนุกลั่นกรองฯ คณะที่ 1–8 | E-CMIS,subcommittee-screening.html?case=0001%2F2569,prototype\07_chairman\11_detail_subcommittee-screening_0001-2569.png
+07_chairman,ประธานกรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),ทะเบียนสำนวน | E-CMIS,case-register.html?case=0005%2F2569,prototype\07_chairman\12_detail_case-register_0005-2569.png
+07_chairman,ประธานกรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. | E-CMIS,board-resolution.html?case=3027%2F2569,prototype\07_chairman\13_detail_board-resolution_3027-2569.png
+07_chairman,ประธานกรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. (วินิจฉัยชี้มูล) | E-CMIS,resolution-72.html?case=1402%2F2565,prototype\07_chairman\14_detail_resolution-72_1402-2565.png
+07_chairman,ประธานกรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. | E-CMIS,resolution.html?case=9423%2F2569,prototype\07_chairman\15_detail_resolution_9423-2569.png
+07_chairman,ประธานกรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),คณะอนุกรรมการสนับสนุนเลขาธิการฯ กลั่นกรองสำนวนซับซ้อน | E-CMIS,support-subcommittee.html?case=0921%2F2569,prototype\07_chairman\16_detail_support-subcommittee_0921-2569.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,หน้าแรก (Work Inbox),ทะเบียนวาระการประชุม | E-CMIS,agenda-registry.html,prototype\08_board_sec\01_home_agenda-registry.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,เมนู,ทะเบียนสำนวน | E-CMIS,case-register.html,prototype\08_board_sec\02_menu_case-register.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,เมนู,รายการจัดทำมติ | E-CMIS,resolution-inbox.html,prototype\08_board_sec\03_menu_resolution-inbox.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,เมนู,จัดทำรายงานมติการประชุม | E-CMIS,meeting-report.html,prototype\08_board_sec\04_menu_meeting-report.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,เมนู,Dashboard ติดตามผลมติ | E-CMIS,followup-dashboard.html,prototype\08_board_sec\05_menu_followup-dashboard.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,เมนู,Dashboard สถิติมติคณะกรรมการ ป.ป.ท. | E-CMIS,dashboard.html,prototype\08_board_sec\06_menu_dashboard.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน (สำนวน),เลขาธิการฯ พิจารณา / ลงนาม | E-CMIS,approval-review.html?case=9205%2F2569,prototype\08_board_sec\07_detail_approval-review_9205-2569.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน (สำนวน),ลงนามคำสั่งและรายงาน | E-CMIS,chairman-agenda.html?case=0001%2F2569,prototype\08_board_sec\08_detail_chairman-agenda_0001-2569.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน (สำนวน),ทะเบียนวาระการประชุม | E-CMIS,agenda-registry.html?case=0012%2F2565,prototype\08_board_sec\09_detail_agenda-registry_0012-2565.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. | E-CMIS,board-resolution.html?case=0012%2F2565,prototype\08_board_sec\10_detail_board-resolution_0012-2565.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน (สำนวน),รายงานวินิจฉัยชี้มูล | E-CMIS,ruling-report.html?case=1344%2F2566,prototype\08_board_sec\11_detail_ruling-report_1344-2566.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน (สำนวน),ทะเบียนสำนวน | E-CMIS,register.html?case=0982%2F2568,prototype\08_board_sec\12_detail_register_0982-2568.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน (สำนวน),คณะอนุกลั่นกรองฯ คณะที่ 1–8 | E-CMIS,subcommittee-screening.html?case=0001%2F2569,prototype\08_board_sec\13_detail_subcommittee-screening_0001-2569.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน (สำนวน),ทะเบียนสำนวน | E-CMIS,case-register.html?case=0005%2F2569,prototype\08_board_sec\14_detail_case-register_0005-2569.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. (วินิจฉัยชี้มูล) | E-CMIS,resolution-72.html?case=1402%2F2565,prototype\08_board_sec\15_detail_resolution-72_1402-2565.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. | E-CMIS,resolution.html?case=9423%2F2569,prototype\08_board_sec\16_detail_resolution_9423-2569.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน (สำนวน),คณะอนุกรรมการสนับสนุนเลขาธิการฯ กลั่นกรองสำนวนซับซ้อน | E-CMIS,support-subcommittee.html?case=0921%2F2569,prototype\08_board_sec\17_detail_support-subcommittee_0921-2569.png
+08_board_sec,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน (สำนวน),คำร้องขอบรรจุวาระด่วน | E-CMIS,urgent-agenda.html?case=1177%2F2566,prototype\08_board_sec\18_detail_urgent-agenda_1177-2566.png
+09_board,กรรมการ ป.ป.ท.,หน้าแรก (Work Inbox),รอบการประชุมและอ่านวาระล่วงหน้า | คณะกรรมการ ป.ป.ท. | E-CMIS,board-inbox.html,prototype\09_board\01_home_board-inbox.png
+09_board,กรรมการ ป.ป.ท.,เมนู,ทะเบียนสำนวน | E-CMIS,case-register.html,prototype\09_board\02_menu_case-register.png
+09_board,กรรมการ ป.ป.ท.,เมนู,ทะเบียนวาระการประชุม | E-CMIS,agenda-registry.html,prototype\09_board\03_menu_agenda-registry.png
+09_board,กรรมการ ป.ป.ท.,เมนู,Dashboard ติดตามผลมติ | E-CMIS,followup-dashboard.html,prototype\09_board\04_menu_followup-dashboard.png
+09_board,กรรมการ ป.ป.ท.,เมนู,Dashboard สถิติมติคณะกรรมการ ป.ป.ท. | E-CMIS,dashboard.html,prototype\09_board\05_menu_dashboard.png
+09_board,กรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),เลขาธิการฯ พิจารณา / ลงนาม | E-CMIS,approval-review.html?case=9205%2F2569,prototype\09_board\06_detail_approval-review_9205-2569.png
+09_board,กรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),ลงนามคำสั่งและรายงาน | E-CMIS,chairman-agenda.html?case=0001%2F2569,prototype\09_board\07_detail_chairman-agenda_0001-2569.png
+09_board,กรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),ทะเบียนวาระการประชุม | E-CMIS,agenda-registry.html?case=0012%2F2565,prototype\09_board\08_detail_agenda-registry_0012-2565.png
+09_board,กรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),รายละเอียดวาระการประชุม | E-CMIS,agenda-detail.html?meet=ALL,prototype\09_board\09_detail_agenda-detail.png
+09_board,กรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),รายงานวินิจฉัยชี้มูล | E-CMIS,ruling-report.html?case=1344%2F2566,prototype\09_board\10_detail_ruling-report_1344-2566.png
+09_board,กรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),ทะเบียนสำนวน | E-CMIS,register.html?case=0982%2F2568,prototype\09_board\11_detail_register_0982-2568.png
+09_board,กรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),คณะอนุกลั่นกรองฯ คณะที่ 1–8 | E-CMIS,subcommittee-screening.html?case=0001%2F2569,prototype\09_board\12_detail_subcommittee-screening_0001-2569.png
+09_board,กรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),ทะเบียนสำนวน | E-CMIS,case-register.html?case=0005%2F2569,prototype\09_board\13_detail_case-register_0005-2569.png
+09_board,กรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. | E-CMIS,board-resolution.html?case=3027%2F2569,prototype\09_board\14_detail_board-resolution_3027-2569.png
+09_board,กรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. (วินิจฉัยชี้มูล) | E-CMIS,resolution-72.html?case=1402%2F2565,prototype\09_board\15_detail_resolution-72_1402-2565.png
+09_board,กรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. | E-CMIS,resolution.html?case=9423%2F2569,prototype\09_board\16_detail_resolution_9423-2569.png
+09_board,กรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),คณะอนุกรรมการสนับสนุนเลขาธิการฯ กลั่นกรองสำนวนซับซ้อน | E-CMIS,support-subcommittee.html?case=0921%2F2569,prototype\09_board\17_detail_support-subcommittee_0921-2569.png
+09_board,กรรมการ ป.ป.ท.,หน้าข้างใน (สำนวน),คำร้องขอบรรจุวาระด่วน | E-CMIS,urgent-agenda.html?case=1177%2F2566,prototype\09_board\18_detail_urgent-agenda_1177-2566.png
+10_case_admin,กองบริหารคดี,หน้าแรก (Work Inbox),รายการคดี | กองบริหารคดี | E-CMIS,case-admin-inbox.html,prototype\10_case_admin\01_home_case-admin-inbox.png
+10_case_admin,กองบริหารคดี,เมนู,ทะเบียนสำนวน | E-CMIS,case-register.html,prototype\10_case_admin\02_menu_case-register.png
+10_case_admin,กองบริหารคดี,เมนู,Dashboard ติดตามผลมติ | E-CMIS,followup-dashboard.html,prototype\10_case_admin\03_menu_followup-dashboard.png
+10_case_admin,กองบริหารคดี,เมนู,Dashboard สถิติมติคณะกรรมการ ป.ป.ท. | E-CMIS,dashboard.html,prototype\10_case_admin\04_menu_dashboard.png
+10_case_admin,กองบริหารคดี,หน้าข้างใน (สำนวน),เลขาธิการฯ พิจารณา / ลงนาม | E-CMIS,approval-review.html?case=9205%2F2569,prototype\10_case_admin\05_detail_approval-review_9205-2569.png
+10_case_admin,กองบริหารคดี,หน้าข้างใน (สำนวน),รายละเอียดคดี | กองบริหารคดี | E-CMIS,case-admin-detail.html?case=9606%2F2569,prototype\10_case_admin\06_detail_case-admin-detail_9606-2569.png
+10_case_admin,กองบริหารคดี,หน้าข้างใน (สำนวน),ลงนามคำสั่งและรายงาน | E-CMIS,chairman-agenda.html?case=0001%2F2569,prototype\10_case_admin\07_detail_chairman-agenda_0001-2569.png
+10_case_admin,กองบริหารคดี,หน้าข้างใน (สำนวน),รายงานวินิจฉัยชี้มูล | E-CMIS,ruling-report.html?case=1344%2F2566,prototype\10_case_admin\08_detail_ruling-report_1344-2566.png
+10_case_admin,กองบริหารคดี,หน้าข้างใน (สำนวน),ทะเบียนสำนวน | E-CMIS,register.html?case=0982%2F2568,prototype\10_case_admin\09_detail_register_0982-2568.png
+10_case_admin,กองบริหารคดี,หน้าข้างใน (สำนวน),คณะอนุกลั่นกรองฯ คณะที่ 1–8 | E-CMIS,subcommittee-screening.html?case=0001%2F2569,prototype\10_case_admin\10_detail_subcommittee-screening_0001-2569.png
+10_case_admin,กองบริหารคดี,หน้าข้างใน (สำนวน),ทะเบียนสำนวน | E-CMIS,case-register.html?case=0005%2F2569,prototype\10_case_admin\11_detail_case-register_0005-2569.png
+10_case_admin,กองบริหารคดี,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. | E-CMIS,board-resolution.html?case=3027%2F2569,prototype\10_case_admin\12_detail_board-resolution_3027-2569.png
+10_case_admin,กองบริหารคดี,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. (วินิจฉัยชี้มูล) | E-CMIS,resolution-72.html?case=1402%2F2565,prototype\10_case_admin\13_detail_resolution-72_1402-2565.png
+10_case_admin,กองบริหารคดี,หน้าข้างใน (สำนวน),บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. | E-CMIS,resolution.html?case=9423%2F2569,prototype\10_case_admin\14_detail_resolution_9423-2569.png
+10_case_admin,กองบริหารคดี,หน้าข้างใน (สำนวน),คณะอนุกรรมการสนับสนุนเลขาธิการฯ กลั่นกรองสำนวนซับซ้อน | E-CMIS,support-subcommittee.html?case=0921%2F2569,prototype\10_case_admin\15_detail_support-subcommittee_0921-2569.png
+10_case_admin,กองบริหารคดี,หน้าข้างใน (สำนวน),คำร้องขอบรรจุวาระด่วน | E-CMIS,urgent-agenda.html?case=1177%2F2566,prototype\10_case_admin\16_detail_urgent-agenda_1177-2566.png
+11_mock_case_summary,เลขาธิการ (mock),หน้า mock การ์ดสำนวน,เลขาธิการฯ พิจารณา / ลงนาม (Mock เรื่องทั่วไป 7.3 · ข้อมูลยังมาไม่ครบ) | E-CMIS,approval-review-mock-01.html,prototype\11_mock_case_summary\01_approval-review-mock-01.png
+11_mock_case_summary,เลขาธิการ (mock),หน้า mock การ์ดสำนวน,เลขาธิการฯ พิจารณา / ลงนาม (Mock เรื่องทั่วไป 7.3 · ข้อมูลมาครบ) | E-CMIS,approval-review-mock-02.html,prototype\11_mock_case_summary\02_approval-review-mock-02.png
+11_mock_case_summary,เลขาธิการ (mock),หน้า mock การ์ดสำนวน,เลขาธิการฯ พิจารณา / ลงนาม (Mock ไต่สวน 213 · ข้อมูลยังมาไม่ครบ) | E-CMIS,approval-review-mock-03.html,prototype\11_mock_case_summary\03_approval-review-mock-03.png
+11_mock_case_summary,เลขาธิการ (mock),หน้า mock การ์ดสำนวน,เลขาธิการฯ พิจารณา / ลงนาม (Mock ไต่สวน 213 · ข้อมูลมาครบ) | E-CMIS,approval-review-mock-04.html,prototype\11_mock_case_summary\04_approval-review-mock-04.png
+11_mock_case_summary,เลขาธิการ (mock),หน้า mock การ์ดสำนวน,เลขาธิการฯ พิจารณา / ลงนาม (Mock วินิจฉัยชี้มูล 644 · ข้อมูลยังมาไม่ครบ) | E-CMIS,approval-review-mock-05.html,prototype\11_mock_case_summary\05_approval-review-mock-05.png
+11_mock_case_summary,เลขาธิการ (mock),หน้า mock การ์ดสำนวน,เลขาธิการฯ พิจารณา / ลงนาม (Mock วินิจฉัยชี้มูล 644 · ข้อมูลมาครบ) | E-CMIS,approval-review-mock-06.html,prototype\11_mock_case_summary\06_approval-review-mock-06.png
+11_mock_case_summary,เลขาธิการ (mock),หน้า mock การ์ดสำนวน,เลขาธิการฯ พิจารณา / ลงนาม (Mock ตัวอย่างความเห็นเลขาฯ: 7.1 กองปราบ) | E-CMIS,approval-review-mock-07.html,prototype\11_mock_case_summary\07_approval-review-mock-07.png
+11_mock_case_summary,เลขาธิการ (mock),หน้า mock การ์ดสำนวน,เลขาธิการฯ พิจารณา / ลงนาม (Mock ตัวอย่างความเห็นเลขาฯ: มีใบด่วนแนบ) | E-CMIS,approval-review-mock-08.html,prototype\11_mock_case_summary\08_approval-review-mock-08.png
+11_mock_case_summary,เลขาธิการ (mock),หน้า mock การ์ดสำนวน,เลขาธิการฯ พิจารณา / ลงนาม (Mock ตัวอย่างความเห็นเลขาฯ: ความเห็นไม่ตรงกัน) | E-CMIS,approval-review-mock-09.html,prototype\11_mock_case_summary\09_approval-review-mock-09.png
+11_mock_case_summary,เลขาธิการ (mock),หน้า mock การ์ดสำนวน,เลขาธิการฯ พิจารณา / ลงนาม (Mock ตัวอย่างความเห็นเลขาฯ: รอบที่ 2) | E-CMIS,approval-review-mock-10.html,prototype\11_mock_case_summary\10_approval-review-mock-10.png
+14_other_pages,กรรมการ ป.ป.ท.,หน้าข้างใน/หน้าเพิ่มเติม,รายละเอียดวาระการประชุม | คณะกรรมการ ป.ป.ท. | E-CMIS,board-detail.html?id=20,prototype/14_other_pages/01_board-detail.png
+14_other_pages,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน/หน้าเพิ่มเติม,จัดทำเอกสารการประชุม | E-CMIS,agenda-meeting-docs.html,prototype/14_other_pages/03_agenda-meeting-docs.png
+14_other_pages,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน/หน้าเพิ่มเติม,รายละเอียดวาระการประชุม | E-CMIS,agenda-registry-detail.html,prototype/14_other_pages/04_agenda-registry-detail.png
+14_other_pages,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน/หน้าเพิ่มเติม,บรรจุระเบียบวาระการประชุม | E-CMIS,agenda-set.html?case=0012%2F2565,prototype/14_other_pages/05_agenda-set.png
+14_other_pages,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน/หน้าเพิ่มเติม,บรรจุระเบียบวาระการประชุม | E-CMIS,agenda.html?case=0012%2F2565,prototype/14_other_pages/06_agenda.png
+14_other_pages,ประธานกรรมการ ป.ป.ท.,หน้าข้างใน/หน้าเพิ่มเติม,ศูนย์ลงนามคำสั่งและรายงาน — ประธานกรรมการ ป.ป.ท. | E-CMIS,chairman.html?case=0001%2F2569,prototype/14_other_pages/07_chairman.png
+14_other_pages,กลุ่มงานกิจการคณะกรรมการ,หน้าข้างใน/หน้าเพิ่มเติม,ออกคำสั่งแต่งตั้งคณะไต่สวน ม.24 | E-CMIS,order-m24.html?case=0012%2F2565,prototype/14_other_pages/08_order-m24.png
+14_other_pages,คณะอนุกรรมการกลั่นกรอง,หน้าข้างใน/หน้าเพิ่มเติม,คณะอนุกลั่นกรองฯ คณะที่ 1–8 | E-CMIS,screening.html?case=0001%2F2569,prototype/14_other_pages/09_screening.png
+14_other_pages,รองเลขาธิการ,หน้าข้างใน/หน้าเพิ่มเติม,เลขาธิการฯ พิจารณา / ลงนาม | E-CMIS,review.html,prototype/14_other_pages/10_review.png
+14_other_pages,ผอ.กบค.,หน้าข้างใน/หน้าเพิ่มเติม,ออกเลขทะเบียนคุม — 9205/2569 | E-CMIS,dir-case-support-assign.html?case=9205%2F2569,prototype/14_other_pages/11_dir-case-support-assign.png
+14_other_pages,เลขาธิการ,หน้าข้างใน/หน้าเพิ่มเติม,ECMIS Flow รายกิจกรรม,ECMIS%20Flow%20%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%81%E0%B8%B4%E0%B8%88%E0%B8%81%E0%B8%A3%E0%B8%A3%E0%B8%A1.html,prototype/14_other_pages/12_ECMIS_Flow_รายกิจกรรม.png
+14_other_pages,ฝ่ายเลขานุการคณะกรรมการ,หน้าข้างใน/หน้าเพิ่มเติม,จัดทำเอกสารการประชุม | E-CMIS,meeting-docs.html,prototype/14_other_pages/02_meeting-docs.png

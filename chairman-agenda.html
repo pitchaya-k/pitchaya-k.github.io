@@ -775,16 +775,30 @@
                         const is72 = ECMIS.isCase72(kase);
                         const fromStatus = kase.status;
                         const retStatus = is72 ? 'RETURNED_72' : 'RETURNED';
+                        const reason = document.getElementById('swal-note')?.value?.trim() || '';
                         ECMIS.pushCaseHistory(kase, {
                             from: fromStatus, to: retStatus,
                             event: is72 ? 'CHAIRMAN_RETURN_72' : 'CHAIRMAN_RETURN',
                             actor: 'chairman',
-                            note: document.getElementById('swal-note')?.value?.trim() || ''
+                            note: reason
                         });
-                        kase.status = retStatus;
-                        ECMIS.saveCases();
-                        ECMIS.toastOk('ตีกลับสำนวนเรียบร้อยแล้ว');
-                        setTimeout(() => location.href = ECMIS.homeHref(role.id), 1200);
+                        /* เดิมเปลี่ยนสถานะแค่ในเบราว์เซอร์ (kase.status + saveCases) — Supabase ยังค้างสถานะเดิม
+                           จึงเขียนผ่าน updateCaseStatus เหมือน return_screening ด้านล่าง */
+                        (async () => {
+                            if (kase.trr_id && sb) {
+                                const merged = Object.assign({}, kase.resolutionData || {}, { chairmanReturnReason: reason });
+                                try { await sb.from('tbl_res_request').update({ trr_resolution_data: merged }).eq('trr_id', kase.trr_id); } catch (e) { }
+                                kase.resolutionData = merged;
+                            }
+                            await ECMIS.updateCaseStatus(kase, retStatus, sb);
+                            if (kase.trr_id && sb) {
+                                ECMIS.logRequestEvent(kase.trr_id, fromStatus, retStatus, {
+                                    type: 'RETURNED', actorRole: 'chairman', data: { reason }
+                                });
+                            }
+                            ECMIS.toastOk('ตีกลับสำนวนเรียบร้อยแล้ว');
+                            ECMIS.goAfterSaves(ECMIS.homeHref(role.id));
+                        })();
                     }
                 });
                 return;

@@ -1,0 +1,76 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9">
+  <diagram name="ภาพรวมกระบวนงาน กจ.7" id="ov7">
+    <mxGraphModel dx="1232" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c2" value="ภาพรวมกระบวนการพิจารณาและดำเนินการตามมติคณะกรรมการ ป.ป.ท. (กิจกรรมที่ 7)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=13;fontFamily=Sarabun;" parent="1" vertex="1">
+          <mxGeometry y="10" width="700" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9E9E9E;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry y="70" width="1092" height="1075" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="สำนักงาน ป.ป.ท." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAEBF7;strokeColor=#8FA3B0;strokeWidth=1;fontStyle=1;fontSize=13;horizontal=0;fontFamily=Sarabun;" parent="1" vertex="1">
+          <mxGeometry y="70" width="50" height="894" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" value="หน่วยงานต้นเรื่อง/เจ้าของเรื่อง" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D0CCF2;strokeColor=#8FA3B0;strokeWidth=1;fontStyle=1;fontSize=13;horizontal=0;fontFamily=Sarabun;" parent="1" vertex="1">
+          <mxGeometry y="964" width="50" height="181" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#C8C8C8;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="964" width="1042" height="0.01" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" value="1 รับเรื่องที่เสนอพิจารณา" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;strokeWidth=1;fontSize=13;align=center;verticalAlign=middle;fontFamily=Sarabun;" parent="1" vertex="1">
+          <mxGeometry x="223" y="104" width="272" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" value="2 จำแนก ตรวจสอบ และกลั่นกรองเรื่อง" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;strokeWidth=1;fontSize=13;align=center;verticalAlign=middle;fontFamily=Sarabun;" parent="1" vertex="1">
+          <mxGeometry x="223" y="254" width="272" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="c9" value="3 จัดทำและบริหารวาระการประชุม" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;strokeWidth=1;fontSize=13;align=center;verticalAlign=middle;fontFamily=Sarabun;" parent="1" vertex="1">
+          <mxGeometry x="223" y="404" width="272" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="c10" value="4 พิจารณาเรื่องและบันทึกมติที่ประชุม" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;strokeWidth=1;fontSize=13;align=center;verticalAlign=middle;fontFamily=Sarabun;" parent="1" vertex="1">
+          <mxGeometry x="223" y="554" width="272" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="c11" value="5 จัดทำ ตรวจสอบเอกสารมติผลการประชุม" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;strokeWidth=1;fontSize=13;align=center;verticalAlign=middle;fontFamily=Sarabun;" parent="1" vertex="1">
+          <mxGeometry x="223" y="704" width="272" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="c12" value="6 แจ้งผลมติ ส่งต่อ" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;strokeWidth=1;fontSize=13;align=center;verticalAlign=middle;fontFamily=Sarabun;" parent="1" vertex="1">
+          <mxGeometry x="223" y="854" width="272" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="c13" value="เริ่ม" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;strokeWidth=1;fontSize=11;fontFamily=Sarabun;" parent="1" vertex="1">
+          <mxGeometry x="100" y="121" width="38" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="c14" style="edgeStyle=none;html=1;rounded=0;endArrow=block;endFill=1;endSize=4;strokeColor=#000000;strokeWidth=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" parent="1" source="c13" target="c7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c15" style="edgeStyle=none;html=1;rounded=0;endArrow=block;endFill=1;endSize=4;strokeColor=#000000;strokeWidth=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" parent="1" source="c7" target="c8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c16" style="edgeStyle=none;html=1;rounded=0;endArrow=block;endFill=1;endSize=4;strokeColor=#000000;strokeWidth=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" parent="1" source="c8" target="c9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c17" style="edgeStyle=none;html=1;rounded=0;endArrow=block;endFill=1;endSize=4;strokeColor=#000000;strokeWidth=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" parent="1" source="c9" target="c10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c18" style="edgeStyle=none;html=1;rounded=0;endArrow=block;endFill=1;endSize=4;strokeColor=#000000;strokeWidth=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" parent="1" source="c10" target="c11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c19" style="edgeStyle=none;html=1;rounded=0;endArrow=block;endFill=1;endSize=4;strokeColor=#000000;strokeWidth=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" parent="1" source="c11" target="c12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c20" value="7. รับทราบผลมติ" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;strokeWidth=1;fontSize=13;align=center;verticalAlign=middle;fontFamily=Sarabun;" parent="1" vertex="1">
+          <mxGeometry x="223" y="1019" width="272" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="c21" style="edgeStyle=none;html=1;rounded=0;endArrow=block;endFill=1;endSize=4;strokeColor=#000000;strokeWidth=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" parent="1" source="c12" target="c20" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c22" value="สิ้นสุด" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;strokeWidth=1;fontSize=11;fontFamily=Sarabun;" parent="1" vertex="1">
+          <mxGeometry x="635" y="1036" width="38" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="c23" style="edgeStyle=none;html=1;rounded=0;endArrow=block;endFill=1;endSize=4;strokeColor=#000000;strokeWidth=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" parent="1" source="c20" target="c22" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

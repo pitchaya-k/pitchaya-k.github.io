@@ -1479,9 +1479,73 @@
           <div class="card-body" id="chairNoteBody"></div>
         </div>
         <div class="ws-card mb-3">
-          <div class="card-header"><i class="fa-solid fa-signature"></i> สถานะการลงนามดิจิทัล (Digital Signature)</div>
+          <div class="card-header"><i class="fa-solid fa-signature"></i> การลงนามรายงานวินิจฉัยชี้มูล</div>
           <div class="card-body" id="chairSigBody"></div>
         </div>`;
+    }
+
+    /* A7-15/A7-16: วิธีลงนามรายงานวินิจฉัยชี้มูลของประธานฯ 2 แบบ
+       ① ลงลายเซ็นในระบบ (ลงนามดิจิทัลเดิม) ② เซ็นจริง แล้วอัปโหลดรายงานไต่สวนชี้มูลฉบับลงนาม (PDF / PNG บังคับแนบก่อนบันทึก)
+       สมมติฐาน (ยังรอยืนยันตามคำถาม A7-15): มติครั้งที่ 10 ให้ลงนามสด จึงตั้งค่าเริ่มต้นเป็น ② และคงแบบ ① ไว้เป็นทางเลือก
+       เก็บค่าที่เลือกไว้นอก renderChairView() เพราะการ์ดถูกวาดใหม่ได้หลายครั้ง */
+    let chairSignMethod = 'wet';
+    let chairSignedFile = null;
+    const SIGNED_FILE_TYPES = ['application/pdf', 'image/png'];
+    function isSignedFileOk(f) {
+      return !!f && (SIGNED_FILE_TYPES.includes(f.type) || /\.(pdf|png)$/i.test(f.name || ''));
+    }
+    function signMethodHtml(esc) {
+      const opt = (val, title, sub) => `<label class="list-group-item d-flex gap-2 align-items-start">
+          <input class="form-check-input mt-1" type="radio" name="chairSignMethod" value="${val}" ${chairSignMethod === val ? 'checked' : ''}>
+          <span><strong>${title}</strong><br><small class="text-muted">${sub}</small></span></label>`;
+      return `<label class="form-label fw-semibold">วิธีลงนาม</label>
+        <div class="list-group mb-2">
+          ${opt('digital', '① ลงลายเซ็นในระบบ', 'ลงนามดิจิทัลบนรายงานในระบบ E-CMIS')}
+          ${opt('wet', '② เซ็นจริง แล้วอัปโหลดรายงานไต่สวนชี้มูลฉบับลงนาม', 'ลงนามสดบนเอกสาร แล้วสแกนอัปโหลด (PDF / PNG)')}
+        </div>
+        <div id="chairWetUpload" class="${chairSignMethod === 'wet' ? '' : 'd-none'} mb-3">
+          <label class="form-label field-req" for="chairSignedFile">รายงานไต่สวนชี้มูลฉบับลงนาม</label>
+          <input type="file" class="form-control form-control-sm" id="chairSignedFile" accept=".pdf,.png,application/pdf,image/png">
+          <div class="small mt-1 ${chairSignedFile ? 'text-success' : 'text-muted'}" id="chairSignedFileName">${chairSignedFile
+            ? `<i class="fa-solid fa-paperclip me-1"></i>ไฟล์ที่เลือก: ${esc(chairSignedFile.name)}`
+            : '<i class="fa-solid fa-circle-info me-1"></i>รับไฟล์ PDF / PNG · ต้องแนบก่อนบันทึกการลงนาม'}</div>
+        </div>`;
+    }
+    function bindSignMethod() {
+      document.querySelectorAll('input[name="chairSignMethod"]').forEach(r => r.addEventListener('change', () => {
+        chairSignMethod = r.value;
+        document.getElementById('chairWetUpload')?.classList.toggle('d-none', chairSignMethod !== 'wet');
+      }));
+      document.getElementById('chairSignedFile')?.addEventListener('change', e => {
+        const f = e.target.files[0] || null;
+        const label = document.getElementById('chairSignedFileName');
+        if (f && !isSignedFileOk(f)) {
+          chairSignedFile = null;
+          e.target.value = '';
+          ECMIS.toastWarn('รับเฉพาะไฟล์ PDF หรือ PNG');
+        } else {
+          chairSignedFile = f;
+        }
+        if (label) {
+          label.className = `small mt-1 ${chairSignedFile ? 'text-success' : 'text-muted'}`;
+          label.innerHTML = chairSignedFile
+            ? `<i class="fa-solid fa-paperclip me-1"></i>ไฟล์ที่เลือก: ${ECMIS.escapeHtml(chairSignedFile.name)}`
+            : '<i class="fa-solid fa-circle-info me-1"></i>รับไฟล์ PDF / PNG · ต้องแนบก่อนบันทึกการลงนาม';
+        }
+      });
+    }
+    /* อัปโหลดฉบับลงนามเข้าเอกสารแนบของสำนวน (bucket/ตารางเดียวกับไฟล์แนบอื่นในระบบ) */
+    async function uploadSignedRuling(file) {
+      if (!sb || !kase.tcc_id) return { name: file.name, size: file.size, type: file.type, path: null };
+      const path = `${kase.tcc_id}/${Date.now()}_${file.name}`;
+      const { error: upErr } = await sb.storage.from('case-documents').upload(path, file);
+      if (upErr) throw upErr;
+      const { error: insErr } = await sb.from('tbl_res_attachment').insert({
+        tcc_id: kase.tcc_id, trat_filename: file.name, trat_storage_path: path,
+        trat_mime_type: file.type, trat_size_bytes: file.size, trat_uploaded_by_role: role.id
+      });
+      if (insErr) throw insErr;
+      return { name: file.name, size: file.size, type: file.type, path };
     }
 
     function renderChairView() {
@@ -1505,12 +1569,16 @@
       const prevNote = document.getElementById('chairNote');
       const noteVal = prevNote ? prevNote.value : '';
       const signedDate = signedAt ? ECMIS.thaiDate(ECMIS.toBuddhistFakeIso(signedAt)) : '';
+      const rdSign = kase.resolutionData || {};
+      const wetSigned = rdSign.signedRulingMethod === 'wet';
       const sigBox = isSigned
         ? `<div class="sig-box signed">
             <i class="fa-solid fa-circle-check fa-2x mb-2" style="color:var(--ws-success, #22704a)"></i>
             <div class="sig-name">${esc(chair.name || '')}</div>
             <div class="sig-meta">${esc(chair.title || 'ประธานกรรมการ ป.ป.ท.')}</div>
-            <div class="sig-meta" style="color:var(--ws-success, #22704a);margin-top:4px"><i class="fa-solid fa-shield-halved me-1"></i>ลงนามดิจิทัลแล้ว${signedDate ? `เมื่อ ${esc(signedDate)}` : ''}</div>
+            <div class="sig-meta" style="color:var(--ws-success, #22704a);margin-top:4px"><i class="fa-solid ${wetSigned ? 'fa-file-signature' : 'fa-shield-halved'} me-1"></i>${wetSigned
+              ? `เซ็นจริงและอัปโหลดฉบับลงนามแล้ว${(rdSign.signedRulingFile || {}).name ? ` (${esc(rdSign.signedRulingFile.name)})` : ''}`
+              : 'ลงนามดิจิทัลแล้ว'}${signedDate ? ` เมื่อ ${esc(signedDate)}` : ''}</div>
           </div>`
         : `<div class="sig-box">
             <i class="fa-solid fa-file-signature fa-2x mb-2" style="color:#7C8CA3"></i>
@@ -1532,7 +1600,8 @@
         row('ฐานความผิด', esc(offense))
       ].join('');
       document.getElementById('chairNoteBody').innerHTML = noteBody;
-      document.getElementById('chairSigBody').innerHTML = sigBox;
+      document.getElementById('chairSigBody').innerHTML = (isPending && maySign ? signMethodHtml(esc) : '') + sigBox;
+      if (isPending && maySign) bindSignMethod();
     }
 
     if (!mayView) {
@@ -2296,9 +2365,36 @@
 
       const btnSignRuling = document.getElementById('btnSignRuling');
       if (btnSignRuling) btnSignRuling.addEventListener('click', async () => {
+        /* A7-15/A7-16: แบบ ② เซ็นจริง ต้องแนบฉบับลงนาม (PDF / PNG) ก่อนบันทึก — ไม่เปิดกล่องลงนามดิจิทัล */
+        const wet = isChairView && chairSignMethod === 'wet';
+        if (wet && !chairSignedFile) {
+          ECMIS.toastWarn('กรุณาแนบรายงานไต่สวนชี้มูลฉบับลงนาม (PDF / PNG) ก่อนบันทึก');
+          document.getElementById('chairSignedFile')?.focus();
+          return;
+        }
         if (!await persistFormToSupabase()) return;
-        const signed = await ECMIS.signDialog('รายงานวินิจฉัยชี้มูล', ECMIS.getRole('chairman').name);
-        if (!signed.isConfirmed) return;
+        let signed, signedFileInfo = null;
+        if (wet) {
+          const ok = await ECMIS.confirmAction({
+            title: 'ยืนยันบันทึกรายงานฉบับเซ็นจริง',
+            html: `<p class="mb-1">ลงนามโดย <strong>${ECMIS.escapeHtml(ECMIS.getRole('chairman').name)}</strong> (เซ็นจริง)</p>
+                   <p class="mb-0">ไฟล์ฉบับลงนาม: <strong>${ECMIS.escapeHtml(chairSignedFile.name)}</strong></p>`,
+            confirmText: 'ยืนยันบันทึก'
+          });
+          if (!ok || !ok.isConfirmed) return;
+          try {
+            signedFileInfo = await uploadSignedRuling(chairSignedFile);
+          } catch (e) {
+            console.error('อัปโหลดรายงานฉบับลงนามไม่สำเร็จ:', e);
+            ECMIS.toastWarn('อัปโหลดไฟล์ฉบับลงนามไม่สำเร็จ ลองใหม่อีกครั้ง');
+            return;
+          }
+          if (ECMIS.refreshAttachmentCard) ECMIS.refreshAttachmentCard();
+          signed = { isConfirmed: true, value: { mode: 'wet-upload' } };
+        } else {
+          signed = await ECMIS.signDialog('รายงานวินิจฉัยชี้มูล', ECMIS.getRole('chairman').name);
+          if (!signed.isConfirmed) return;
+        }
         const chairNote = (document.getElementById('chairNote')?.value || '').trim();
 
         ECMIS.Model.SignatureStore.create({
@@ -2320,7 +2416,7 @@
             await ECMIS.updateCaseStatus(kase, patch.status, sb);
             await ECMIS.logRequestEvent(kase.trr_id, fromStatus, patch.status, {
               type: 'SIGNED', actorRole: 'chairman',
-              data: { docType: 'รายงานวินิจฉัยชี้มูล', signerName: ECMIS.getRole('chairman').name, method: signed.value.mode, note: chairNote }
+              data: { docType: 'รายงานวินิจฉัยชี้มูล', signerName: ECMIS.getRole('chairman').name, method: signed.value.mode, note: chairNote, signedFile: signedFileInfo }
             });
           } catch (e) {
             console.error('บันทึกลงนามรายงานลง Supabase ไม่สำเร็จ:', e);
@@ -2328,7 +2424,8 @@
         }
         /* signedRulingAt ลงฐานข้อมูลด้วย — ใช้นับกรอบ 15 วัน (ม.32 / ม.19) ในขั้นปิดงาน (Task 177) */
         if (kase.trr_id && sb) {
-          const rdSigned = Object.assign({}, kase.resolutionData || {}, { signedRulingAt: patch.signedRulingAt, chairNoteRuling: chairNote });
+          const rdSigned = Object.assign({}, kase.resolutionData || {}, { signedRulingAt: patch.signedRulingAt, chairNoteRuling: chairNote,
+            signedRulingMethod: wet ? 'wet' : 'digital', signedRulingFile: signedFileInfo });
           const { error: sErr } = await sb.from('tbl_res_request').update({ trr_resolution_data: rdSigned }).eq('trr_id', kase.trr_id);
           if (sErr) console.error('บันทึกวันที่ลงนามรายงานไม่สำเร็จ:', sErr); else kase.resolutionData = rdSigned;
         }

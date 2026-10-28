@@ -1,0 +1,1641 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" pages="3">
+  <diagram id="_VeLh1amGifHivsWEQB3" name="ระบบการจัดทำทะเบียนคุมรายงานไต่สวนเบื้องต้น">
+    <mxGraphModel dx="2660" dy="1930" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="uD6vOARKq8M3u7xpSCge-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="2550" y="3460" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="2550" y="3300" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="800" x="1630" y="3780" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="800" x="1630" y="3620" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="320" width="800" x="1630" y="3300" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;คณะกรรมการ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="1590" y="3620" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ระบบ E-CMIS&lt;/b&gt;" vertex="1">
+          <mxGeometry height="320" width="40" x="1590" y="3300" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;กลุ่มงานคำวินิจฉัยและมติคณะกรรมการ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="1590" y="3780" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="800" x="710" y="3780" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-10" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fontSize=14;" value="D006&lt;br&gt;มติอื่นๆ?" vertex="1">
+          <mxGeometry height="100" width="160" x="1750" y="3810" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="800" x="710" y="1220" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ผู้อำนวยการกองบริหารคดี (ผอ.กบค.)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="670" y="1220" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="320" width="840" x="670" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span&gt;&lt;b&gt;ระบบ E-CMIS&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="320" width="40" x="670" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="320" width="800" x="710" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;เลขาธิการคณะกรรมการ ป.ป.ท.&lt;/b&gt;" vertex="1">
+          <mxGeometry height="320" width="40" x="670" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-17" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;&lt;span&gt;RES001&lt;/span&gt;&lt;/div&gt;แสดงรายการไต่สวน" vertex="1">
+          <mxGeometry height="80" width="160" x="1030" y="940" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-19" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES004&lt;/div&gt;พิจารณาความซับซ้อนยุ่งยากของสำนวน" vertex="1">
+          <mxGeometry height="80" width="160" x="1030" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-21" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-22" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-65">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-23" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fontSize=14;" value="&lt;span&gt;D002&lt;br&gt;สำนวนมีประเด็นซับซ้อนยุ่งยาก?&lt;/span&gt;" vertex="1">
+          <mxGeometry height="100" width="160" x="1230" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-24" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ใช่" vertex="1">
+          <mxGeometry height="20" width="20" x="1310" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-25" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ไม่" vertex="1">
+          <mxGeometry height="20" width="20" x="1390" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-26" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-27" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" value="เรื่มต้น" vertex="1">
+          <mxGeometry height="60" width="60" x="730" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-28" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES009" vertex="1">
+          <mxGeometry height="60" width="60" x="1430" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-29" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES005&lt;/div&gt;ส่งให้คณะอนุกรรมการสนับสนุนเลขาธิการฯกลั่นกรองสำนวนที่ซับซ้อนยุ่งยาก" vertex="1">
+          <mxGeometry height="80" width="160" x="1230" y="940" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-31" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;span&gt;เลขาธิการให้ความเห็นและลงนามในรายงานการไต่สวนเบื้องต้น - Part 1&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="480" x="670" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-32" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=30;fillColor=#f8cecc;strokeColor=#b85450;" value="Swimlane ไต่ต้น" vertex="1">
+          <mxGeometry height="80" width="2480" x="670" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-33" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1040" y="980" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-34" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-35" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fontSize=14;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;D001&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;แนบใบด่วนมาแล้ว?&lt;/span&gt;" vertex="1">
+          <mxGeometry height="100" width="160" x="830" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-36" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ใช่" vertex="1">
+          <mxGeometry height="20" width="20" x="910" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-37" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ไม่" vertex="1">
+          <mxGeometry height="20" width="20" x="990" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-38" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-39" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;&lt;span&gt;RES002&lt;/span&gt;&lt;/div&gt;แสดงรายการไต่สวนเร่งด่วน" vertex="1">
+          <mxGeometry height="80" width="160" x="830" y="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-40" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-67">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-41" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;&lt;span&gt;RES003&lt;/span&gt;&lt;/div&gt;ลงความเห็นใบด่วน" vertex="1">
+          <mxGeometry height="80" width="160" x="830" y="1260" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-42" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span&gt;&lt;b&gt;ระบบ E-CMIS&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="1590" y="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-43" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;เลขาธิการคณะกรรมการ ป.ป.ท.&lt;/b&gt;" vertex="1">
+          <mxGeometry height="480" width="40" x="1590" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-44" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="480" width="880" x="1630" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-45" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="880" x="1630" y="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-46" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-47" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-60">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1824.9999999999998" y="740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-48" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fontSize=14;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;D003&lt;br&gt;เลขาธิการพิจารณาว่าเร่งด่วน?&lt;/span&gt;" vertex="1">
+          <mxGeometry height="100" width="160" x="1750" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-49" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-50" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-51" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fontSize=14;" value="D004&lt;br&gt;สำนวนกองปราบ?" vertex="1">
+          <mxGeometry height="100" width="160" x="2230" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-52" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;" value="สิ้นสุด" vertex="1">
+          <mxGeometry height="60" width="60" x="1950" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-53" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES014" vertex="1">
+          <mxGeometry height="60" width="60" x="2430" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-54" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES016" vertex="1">
+          <mxGeometry height="60" width="60" x="2430" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-55" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ใช่" vertex="1">
+          <mxGeometry height="20" width="20" x="1830" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-56" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ใช่" vertex="1">
+          <mxGeometry height="20" width="20" x="2310" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-57" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ไม่" vertex="1">
+          <mxGeometry height="20" width="20" x="1910" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-58" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ไม่" vertex="1">
+          <mxGeometry height="20" width="20" x="2390" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-59" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-60" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES006&lt;/div&gt;ส่งสำนวนกลับไป กจ.5 เพื่อแนบใบด่วน" vertex="1">
+          <mxGeometry height="80" width="160" x="1750" y="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-61" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-62" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES007&lt;/div&gt;ให้ความเห็นและลงนามในรายงานการไต่สวนเบื้องต้น" vertex="1">
+          <mxGeometry height="80" width="160" x="2030" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-63" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-193">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2230.0000000000114" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-64" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES008&lt;/div&gt;ลงนามใบด่วน" vertex="1">
+          <mxGeometry height="80" width="160" x="2030" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-65" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป D03" vertex="1">
+          <mxGeometry height="60" width="60" x="1430" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-66" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;span&gt;เลขาธิการให้ความเห็นและลงนามในรายงานการไต่สวนเบื้องต้น - Part 2&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="480" x="1590" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-67" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES008" vertex="1">
+          <mxGeometry height="60" width="60" x="1430" y="1270" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-68" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-69" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก D02" vertex="1">
+          <mxGeometry height="60" width="60" x="1650" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-70" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-64">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-71" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES003" vertex="1">
+          <mxGeometry height="60" width="60" x="1930" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-72" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="800" x="710" y="1780" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-73" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="800" x="710" y="1460" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-74" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;คณะอนุกรรมการสนับสนุนเลขาธิการฯ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="670" y="1460" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-75" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-83">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-76" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES013&lt;/div&gt;กลั่นกรองสำนวนที่ซับซ้อนยุ่งยากและพิจารณาตามความเห็นของอนุกรรมการฯ" vertex="1">
+          <mxGeometry height="80" width="160" x="1230" y="1500" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-77" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span&gt;&lt;b&gt;ระบบ E-CMIS&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="670" y="1620" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-78" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="800" x="710" y="1620" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-79" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-82">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-80" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES005" vertex="1">
+          <mxGeometry height="60" width="60" x="730" y="1670" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-81" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-82" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-89">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-82" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES009&lt;/div&gt;แสดงรายการรอกลั่นกรองสำนวนที่ซับซ้อนยุ่งยาก" vertex="1">
+          <mxGeometry height="80" width="160" x="830" y="1660" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-83" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES007" vertex="1">
+          <mxGeometry height="60" width="60" x="1430" y="1510" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-84" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="คณะอนุกรรมการสนับสนุนฯพิจารณาสำนวนซับซ้อน" vertex="1">
+          <mxGeometry height="40" width="400" x="670" y="1420" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-85" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ผู้อำนวยการกองบริหารคดี (ผอ.กบค.)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="670" y="1780" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-86" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-91">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-87" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES011&lt;/div&gt;จ่ายงานให้กลุ่มอนุกรรมการสนับสนุนเลขาธิการ" vertex="1">
+          <mxGeometry height="80" width="160" x="1030" y="1820" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-88" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-89" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-87">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-89" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES010&lt;/div&gt;สร้างใบบันทึกซับซ้อน" vertex="1">
+          <mxGeometry height="80" width="160" x="1030" y="1660" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-90" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-91" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-76">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-91" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES012&lt;/div&gt;สร้างใบบันทึกความเห็นอนุกรรมการสนับสนุนเลขาธิการ" vertex="1">
+          <mxGeometry height="80" width="160" x="1230" y="1660" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-92" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-93" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-93" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES013" vertex="1">
+          <mxGeometry height="60" width="60" x="2080" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-94" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="760" x="710" y="2340" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-95" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="760" x="710" y="2500" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-96" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;fontStyle=0" value="&lt;div style=&quot;text-align: center;&quot;&gt;คณะอนุกรรมการกลั่นกรองฯพิจารณาเสนอมติ&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="480" x="670" y="1980" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-97" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="760" x="710" y="2020" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-98" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span&gt;&lt;b&gt;ระบบ E-CMIS&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="670" y="2180" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-99" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="760" x="710" y="2180" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-100" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ประธานกรรมการ ป.ป.ท.&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="670" y="2020" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-101" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-102" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-104">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-102" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก D04 (ใช่)" vertex="1">
+          <mxGeometry height="60" width="60" x="730" y="2230" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-103" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-106">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-104" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES014&lt;/div&gt;แสดงรายการสำนวนไต่สวนเบื้องต้นที่ กจ.5 แนบใบบันทึกปราบมาแล้ว" vertex="1">
+          <mxGeometry height="80" width="160" x="830" y="2220" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-105" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-106" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-110">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-106" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES015&lt;/div&gt;ลงนามในบันทึกปราบ" vertex="1">
+          <mxGeometry height="80" width="160" x="990" y="2060" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-107" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES019" vertex="1">
+          <mxGeometry height="60" width="60" x="1390" y="2550" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-108" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;กบค. (กลุ่มงานบริหารคดีและ&lt;span style=&quot;text-align: start;&quot;&gt;บริหารทั่วไป&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;)&lt;/span&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="670" y="2340" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-109" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0); text-align: start;&quot;&gt;คณะอนุกรรมการ&lt;/b&gt;&lt;div&gt;&lt;b style=&quot;color: rgb(0, 0, 0); text-align: start;&quot;&gt;กลั่นกรองฯ&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="670" y="2500" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-110" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES016&lt;/div&gt;ส่งเรื่องเข้าสู่คณะอนุกรรมการกลั่นกรองฯ เพื่อพิจารณาเสนอมติ" vertex="1">
+          <mxGeometry height="80" width="160" x="990" y="2380" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-111" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-115">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-112" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-113" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-107">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-113" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES018&lt;/div&gt;ทำการพิจารณาเสนอมติและเอกสารที่เกี่ยวข้อง" vertex="1">
+          <mxGeometry height="80" width="160" x="1190" y="2540" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-114" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-115" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-113">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-115" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES017&lt;/div&gt;สร้างใบบันทึกมติอนุกรรมการกลั่นกรองฯ" vertex="1">
+          <mxGeometry height="80" width="160" x="1190" y="2220" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-116" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-117" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-110">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-117" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก D04 (ไม่)" vertex="1">
+          <mxGeometry height="60" width="60" x="730" y="2390" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-118" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="710" y="2740" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-119" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span&gt;&lt;b&gt;ระบบ E-CMIS&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="670" y="2900" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-120" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="710" y="2900" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-121" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ประธานกรรมการ ป.ป.ท.&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="670" y="2740" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-122" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;ประธานกรรมการ ป.ป.ท.&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;ลงนามบรรจุวาระการประชุมคณะกรรมการ ป.ป.ท.&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="560" x="670" y="2700" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-123" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-124" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-126">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-124" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES008" vertex="1">
+          <mxGeometry height="60" width="60" x="730" y="2910" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-125" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-126" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-128">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-126" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES019&lt;/div&gt;แสดงรายการรอลงนามบรรจุวาระการประชุมคณะกรรมการ ป.ป.ท." vertex="1">
+          <mxGeometry height="80" width="160" x="830" y="2940" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-127" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-128" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-135">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-128" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES020&lt;/div&gt;ลงนามบรรจุวาระการประชุมคณะกรรมการ ป.ป.ท." vertex="1">
+          <mxGeometry height="80" width="160" x="1030" y="2780" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-129" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="710" y="3060" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-130" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;กลุ่มงานวินิจฉัยและมติคณะกรรมการ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="670" y="3060" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-131" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-132" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-133">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1190" y="3120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-132" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES022&lt;/div&gt;สร้างวาระการประชุม" vertex="1">
+          <mxGeometry height="80" width="160" x="1030" y="3100" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-133" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES023" vertex="1">
+          <mxGeometry height="60" width="60" x="1230" y="3110" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-134" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-135" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-132">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-135" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES021&lt;/div&gt;สร้างปกวาระ" vertex="1">
+          <mxGeometry height="80" width="160" x="1030" y="2940" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-136" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;คณะกรรมการ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="670" y="3620" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-137" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="800" x="710" y="3620" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-138" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="320" width="800" x="710" y="3300" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-139" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ระบบ E-CMIS&lt;/b&gt;" vertex="1">
+          <mxGeometry height="320" width="40" x="670" y="3300" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-140" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;กลุ่มงานคำวินิจฉัยและมติคณะกรรมการ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="670" y="3780" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-141" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-142" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-154">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-142" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES026&lt;/div&gt;จัดทำมติตามความเห็นของคณะกรรมการ" vertex="1">
+          <mxGeometry height="80" width="160" x="1030" y="3820" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-143" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;" value="สิ้นสุด" vertex="1">
+          <mxGeometry height="60" width="60" x="2350" y="3350" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-144" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;คณะกรรมการ ป.ป.ท.&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;พิจารณารายงานไต่สวนเบื้องต้นตามระเบียบวาระ - Part 1&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="560" x="670" y="3260" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-145" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-146" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-148">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-146" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES022" vertex="1">
+          <mxGeometry height="60" width="60" x="730" y="3350" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-147" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-148" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-168">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-148" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES023&lt;/div&gt;แสดงรายการสำนวน&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;ไต่สวนเบื้องต้นรอลงมติ&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="830" y="3340" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-149" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-151" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-170">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-150" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-151" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-174">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2110" y="3840" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-151" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fontSize=14;" value="D007&lt;br&gt;มีมติรับไว้ไต่สวน?" vertex="1">
+          <mxGeometry height="100" width="160" x="1950" y="3810" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-152" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-154" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-157">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-153" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-154" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-181">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-154" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fontSize=14;" value="D005&lt;br&gt;มีมติส่ง ป.ป.ช.?" vertex="1">
+          <mxGeometry height="100" width="160" x="1230" y="3810" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-155" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;" value="สิ้นสุด" vertex="1">
+          <mxGeometry height="60" width="60" x="1430" y="3350" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-156" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-157" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-155">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-157" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES027&lt;/div&gt;ส่งมติและเอกสารคืนผู้รับผิดชอบ&amp;nbsp;เพื่อทำหนังสือส่งเรื่องไปยังสำนักงาน ป.ป.ช." vertex="1">
+          <mxGeometry height="80" width="160" x="1230" y="3340" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-158" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-159" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-178">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-159" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES030&lt;/div&gt;คำสั่งแต่งตั้งคณะอนุกรรมการไต่สวน&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;และ/หรือ&amp;nbsp;&lt;/span&gt;พนักงานไต่สวน" vertex="1">
+          <mxGeometry height="80" width="160" x="2670" y="3500" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-160" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;" value="สิ้นสุด" vertex="1">
+          <mxGeometry height="60" width="60" x="3070" y="3510" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-161" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-162" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-160">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-162" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES032&lt;/div&gt;ส่งคำสั่งไต่สวนให้สำนักฯ ที่รับผิดชอบ&amp;nbsp;ดำเนินการไต่สวนตามอำนาจหน้าที่" vertex="1">
+          <mxGeometry height="80" width="160" x="2870" y="3500" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-163" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ใช่" vertex="1">
+          <mxGeometry height="20" width="20" x="1310" y="3790" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-164" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ใช่" vertex="1">
+          <mxGeometry height="20" width="20" x="1830" y="3790" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-165" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ไม่" vertex="1">
+          <mxGeometry height="20" width="20" x="1390" y="3840" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-166" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ไม่" vertex="1">
+          <mxGeometry height="20" width="20" x="1910" y="3840" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-167" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-168" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-180">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-168" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES024&lt;/div&gt;สร้างใบมติกรรมการและใบบันทึกนำมติ" vertex="1">
+          <mxGeometry height="80" width="160" x="1030" y="3340" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-169" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-170" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-143">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-170" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES028&lt;/div&gt;ส่งมติและเอกสารคืนสำนักฯ ที่รับผิดชอบ/ส่งคำสั่งไต่สวนให้สำนักฯ ที่รับผิดชอบ" vertex="1">
+          <mxGeometry height="80" width="160" x="2150" y="3340" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-171" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-151">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-172" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-170">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-173" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-174" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-185">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-174" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES029&lt;/div&gt;สร้างใบบันทึกนำและใบคำสั่งแต่งตั้ง" vertex="1">
+          <mxGeometry height="80" width="160" x="2150" y="3460" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-175" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ใช่" vertex="1">
+          <mxGeometry height="20" width="20" x="2110" y="3840" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-176" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ไม่" vertex="1">
+          <mxGeometry height="20" width="20" x="2030" y="3790" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-177" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-178" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-162">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-178" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES031&lt;/div&gt;สร้างใบส่งคำสั่งแต่งตั้ง" vertex="1">
+          <mxGeometry height="80" width="160" x="2870" y="3340" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-179" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-180" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="uD6vOARKq8M3u7xpSCge-142">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-180" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES025&lt;/div&gt;ลงมติ" vertex="1">
+          <mxGeometry height="80" width="160" x="1030" y="3660" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-181" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป D006" vertex="1">
+          <mxGeometry height="60" width="60" x="1430" y="3830" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-182" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก D005" vertex="1">
+          <mxGeometry height="60" width="60" x="1650" y="3830" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-183" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-182" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.05;entryY=0.509;entryDx=0;entryDy=0;entryPerimeter=0;" target="uD6vOARKq8M3u7xpSCge-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-184" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;คณะกรรมการ ป.ป.ท.&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;พิจารณารายงานไต่สวนเบื้องต้นตามระเบียบวาระ - Part 2&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="560" x="1590" y="3260" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-185" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES030" vertex="1">
+          <mxGeometry height="60" width="60" x="2350" y="3470" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-186" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;กลุ่มงานกิจการคณะกรรมการ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="2510" y="3460" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-187" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ระบบ E-CMIS&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="2510" y="3300" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-188" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-189" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-159">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-189" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES029" vertex="1">
+          <mxGeometry height="60" width="60" x="2570" y="3510" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-190" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;คณะกรรมการ ป.ป.ท.&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;พิจารณารายงานไต่สวนเบื้องต้นตามระเบียบวาระ - Part 3&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="560" x="2510" y="3260" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-191" edge="1" parent="1" source="uD6vOARKq8M3u7xpSCge-192" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uD6vOARKq8M3u7xpSCge-126">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-192" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES018" vertex="1">
+          <mxGeometry height="60" width="60" x="730" y="2990" as="geometry" />
+        </mxCell>
+        <mxCell id="uD6vOARKq8M3u7xpSCge-193" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES019" vertex="1">
+          <mxGeometry height="60" width="60" x="2230" y="870" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="wldNFprd5hWJKqQCwgJE" name="ระบบจัดทำทะเบียนคุมรายงานไต่สวนวินิจฉัยชี้มูล">
+    <mxGraphModel dx="765" dy="83" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="y7YfAcJ012BGBSpsXPE0-3" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="780" y="530" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5P5doTR40sAe7jwBmXsB-1" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="840" y="620" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOMHQ5PEdiWErFkiUFiK-2" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1000" y="620" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AYMmxrU0iB61yzy3vXOl-1" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1160" y="620" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XiK9FKCY8OEvy9xaPtHd-1" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1380" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AYMmxrU0iB61yzy3vXOl-3" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1260" y="580" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XiK9FKCY8OEvy9xaPtHd-2" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1440" y="500" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PQTssnP0zLg8DVyeKPJe-5" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="540" y="850" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PQTssnP0zLg8DVyeKPJe-7" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="1020" />
+              <mxPoint x="700" y="820" />
+            </Array>
+            <mxPoint x="600" y="1020" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PQTssnP0zLg8DVyeKPJe-9" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="540" y="940" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PQTssnP0zLg8DVyeKPJe-10" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="900" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="320" width="600" x="1760" y="4600" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="1760" y="4440" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="1760" y="4280" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="680" x="960" y="4920" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="320" width="680" x="960" y="4600" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="680" x="960" y="4440" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="680" x="960" y="4280" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="240" y="3320" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="610" x="230" y="3160" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="240" y="3000" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ระบบ E-CMIS&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="200" y="3000" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;กบค. (กลุ่มงานบริหารคดีและ&lt;span style=&quot;text-align: start;&quot;&gt;บริหารทั่วไป&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;)&lt;/span&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="200" y="2600" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0); text-align: start;&quot;&gt;คณะอนุกรรมการกลั่นกรอง&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="200" y="2760" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="920" x="240" y="2600" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="920" x="240" y="2760" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="920" x="240" y="2440" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="920" x="240" y="2280" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=30;fillColor=#f8cecc;strokeColor=#b85450;" value="Swimlane ไต่ชี้มูล" vertex="1">
+          <mxGeometry height="80" width="2480" x="200" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="800" x="240" y="1480" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ผู้อำนวยการกองบริหารคดี (ผอ.กบค.)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="200" y="1480" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="320" width="840" x="200" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span&gt;&lt;b&gt;ระบบ E-CMIS&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="320" width="40" x="200" y="1160" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="320" width="800" x="240" y="1160" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-24" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;เลขาธิการคณะกรรมการ ป.ป.ท.&lt;/b&gt;" vertex="1">
+          <mxGeometry height="320" width="40" x="200" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-25" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;&lt;span&gt;RES101&lt;/span&gt;&lt;/div&gt;แสดงรายการไต่สวน" vertex="1">
+          <mxGeometry height="80" width="160" x="560" y="1200" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-27" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES104&lt;/div&gt;พิจารณาความซับซ้อนยุ่งยากของสำนวน" vertex="1">
+          <mxGeometry height="80" width="160" x="560" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-29" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-30" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-66">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-31" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fontSize=14;" value="&lt;span&gt;D102&lt;br&gt;สำนวนมีประเด็นซับซ้อนยุ่งยาก?&lt;/span&gt;" vertex="1">
+          <mxGeometry height="100" width="160" x="760" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-32" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ใช่" vertex="1">
+          <mxGeometry height="20" width="20" x="840" y="970" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-33" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ไม่" vertex="1">
+          <mxGeometry height="20" width="20" x="920" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-34" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-35" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" value="เรื่มต้น" vertex="1">
+          <mxGeometry height="60" width="60" x="260" y="1210" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-36" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES109" vertex="1">
+          <mxGeometry height="60" width="60" x="960" y="1210" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-37" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-38" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES105&lt;/div&gt;ส่งให้คณะอนุกรรมการสนับสนุนเลขาธิการฯกลั่นกรองสำนวนที่ซับซ้อนยุ่งยาก" vertex="1">
+          <mxGeometry height="80" width="160" x="760" y="1200" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-39" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;span&gt;เลขาธิการให้ความเห็นและลงนามในรายงานการไต่สวนชี้มูล - Part 1&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="480" x="200" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-40" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="1240" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-41" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-42" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fontSize=14;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;D101&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;แนบใบด่วนมาแล้ว?&lt;/span&gt;" vertex="1">
+          <mxGeometry height="100" width="160" x="360" y="1190" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-43" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ใช่" vertex="1">
+          <mxGeometry height="20" width="20" x="440" y="1290" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-44" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ไม่" vertex="1">
+          <mxGeometry height="20" width="20" x="520" y="1220" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-45" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-46" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;&lt;span&gt;RES102&lt;/span&gt;&lt;/div&gt;แสดงรายการไต่สวนเร่งด่วน" vertex="1">
+          <mxGeometry height="80" width="160" x="360" y="1320" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-47" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-68">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="960" y="1560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-48" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;&lt;span&gt;RES103&lt;/span&gt;&lt;/div&gt;ลงความเห็นใบด่วน" vertex="1">
+          <mxGeometry height="80" width="160" x="360" y="1520" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-49" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=16;" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span&gt;&lt;b&gt;ระบบ E-CMIS&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="1120" y="1160" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-50" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=16;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;เลขาธิการคณะกรรมการ ป.ป.ท.&lt;/b&gt;" vertex="1">
+          <mxGeometry height="320" width="40" x="1120" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-51" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="320" width="680" x="1160" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-52" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="680" x="1160" y="1160" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-53" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-63">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-54" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-61">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1354.9999999999998" y="1000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-55" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fontSize=14;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;D103&lt;br&gt;เลขาธิการพิจารณาว่าเร่งด่วน?&lt;/span&gt;" vertex="1">
+          <mxGeometry height="100" width="160" x="1280" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-56" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;" value="สิ้นสุด" vertex="1">
+          <mxGeometry height="60" width="60" x="1480" y="1210" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-57" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES114" vertex="1">
+          <mxGeometry height="60" width="60" x="1760" y="890" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-58" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ใช่" vertex="1">
+          <mxGeometry height="20" width="20" x="1360" y="970" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-59" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ไม่" vertex="1">
+          <mxGeometry height="20" width="20" x="1440" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-60" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-56">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-61" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES106&lt;/div&gt;ส่งสำนวนกลับไป กจ.5 เพื่อแนบใบด่วน" vertex="1">
+          <mxGeometry height="80" width="160" x="1280" y="1200" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-62" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-57">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1760" y="920" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-63" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES107&lt;/div&gt;ให้ความเห็นและลงนามในรายงานการไต่สวนเบื้องต้น" vertex="1">
+          <mxGeometry height="80" width="160" x="1560" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-64" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-204">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-65" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES108&lt;/div&gt;ลงนามใบด่วน" vertex="1">
+          <mxGeometry height="80" width="160" x="1560" y="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-66" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป D103" vertex="1">
+          <mxGeometry height="60" width="60" x="960" y="890" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-67" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;span&gt;เลขาธิการให้ความเห็นและลงนามในรายงานการไต่สวน&lt;/span&gt;ชี้มูล&lt;span&gt;&amp;nbsp;- Part 2&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="480" x="1120" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-68" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES108" vertex="1">
+          <mxGeometry height="60" width="60" x="960" y="1530" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-69" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-55">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-70" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก D102" vertex="1">
+          <mxGeometry height="60" width="60" x="1180" y="890" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-71" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-65">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-72" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES103" vertex="1">
+          <mxGeometry height="60" width="60" x="1460" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-73" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-63">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-74" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES113" vertex="1">
+          <mxGeometry height="60" width="60" x="1460" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-75" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="800" x="240" y="2040" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-76" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="800" x="240" y="1720" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-77" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;คณะอนุกรรมการสนับสนุนเลขาธิการฯ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="200" y="1720" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-78" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-86">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-79" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES113&lt;/div&gt;กลั่นกรองสำนวนที่ซับซ้อนยุ่งยากและพิจารณาตามความเห็นของอนุกรรมการฯ" vertex="1">
+          <mxGeometry height="80" width="160" x="760" y="1760" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-80" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span&gt;&lt;b&gt;ระบบ E-CMIS&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="200" y="1880" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-81" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="800" x="240" y="1880" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-82" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-85">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-83" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES105" vertex="1">
+          <mxGeometry height="60" width="60" x="260" y="1930" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-84" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-92">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-85" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES109&lt;/div&gt;แสดงรายการรอกลั่นกรองสำนวนที่ซับซ้อนยุ่งยาก" vertex="1">
+          <mxGeometry height="80" width="160" x="360" y="1920" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-86" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES107" vertex="1">
+          <mxGeometry height="60" width="60" x="960" y="1770" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-87" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="คณะอนุกรรมการสนับสนุนฯพิจารณาสำนวนซับซ้อน" vertex="1">
+          <mxGeometry height="40" width="400" x="200" y="1680" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-88" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ผู้อำนวยการกองบริหารคดี (ผอ.กบค.)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="200" y="2040" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-89" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-94">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-90" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES111&lt;/div&gt;จ่ายงานให้กลุ่มอนุกรรมการสนับสนุนเลขาธิการ" vertex="1">
+          <mxGeometry height="80" width="160" x="560" y="2080" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-91" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-92" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-90">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-92" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES110&lt;/div&gt;สร้างใบบันทึกซับซ้อน" vertex="1">
+          <mxGeometry height="80" width="160" x="560" y="1920" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-93" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-94" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-94" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES112&lt;/div&gt;สร้างใบบันทึกความเห็นอนุกรรมการสนับสนุนเลขาธิการ" vertex="1">
+          <mxGeometry height="80" width="160" x="760" y="1920" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-95" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ระบบ E-CMIS&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="200" y="2280" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-96" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;fontStyle=0" value="&lt;div style=&quot;text-align: center;&quot;&gt;คณะอนุกรรมการกลั่นกรองฯพิจารณาเสนอมติ&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="320" x="200" y="2240" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-97" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-98" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-101">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-98" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES107" vertex="1">
+          <mxGeometry height="60" width="60" x="260" y="2490" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-99" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ประธานกรรมการ ป.ป.ท.&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="200" y="2440" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-100" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-104">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-101" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES114&lt;/div&gt;&lt;span&gt;ลงรับและคัดกรองสำนวน&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="360" y="2480" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-102" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-108">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-103" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-126">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-104" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fontSize=14;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;D104&lt;br&gt;&lt;/span&gt;&lt;span&gt;ซับซ้อนยุ่งยาก&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;?&lt;/span&gt;" vertex="1">
+          <mxGeometry height="100" width="160" x="560" y="2470" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-105" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ใช่" vertex="1">
+          <mxGeometry height="20" width="20" x="640" y="2570" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-106" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ไม่" vertex="1">
+          <mxGeometry height="20" width="20" x="720" y="2500" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-107" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-108" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-112">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="860" y="2680" />
+              <mxPoint x="860" y="2360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-108" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES115&lt;/div&gt;&lt;span&gt;ลงรับและคัดกรองสำนวน&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="560" y="2640" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-109" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-113">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-110" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES117&lt;/div&gt;ทำการพิจารณาเสนอมติและเอกสารที่เกี่ยวข้อง" vertex="1">
+          <mxGeometry height="80" width="160" x="880" y="2800" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-111" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="HiGzWp-Ug-tniUUgluTK-110">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-112" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES116&lt;/div&gt;สร้างใบบันทึกมติอนุกรรมการกลั่นกรองฯ" vertex="1">
+          <mxGeometry height="80" width="160" x="880" y="2320" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-113" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES121" vertex="1">
+          <mxGeometry height="60" width="60" x="1080" y="2810" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-114" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;กองบริหารคดี (กลุ่มงานกิจการคณะกรรมการ&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;)&lt;/span&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="200" y="3320" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-115" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-116" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-122">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-116" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES120&lt;/div&gt;&lt;span&gt;ทำความเห็นเสนอ&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="560" y="3360" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-117" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ประธานกรรมการ ป.ป.ท.&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="200" y="3160" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-118" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-119" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-124">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-119" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES118&lt;/div&gt;&lt;span&gt;ลงนามมอบหมาย&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="360" y="3200" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-120" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-121" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-119">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-121" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก D104" vertex="1">
+          <mxGeometry height="60" width="60" x="260" y="3210" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-122" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES121" vertex="1">
+          <mxGeometry height="60" width="60" x="760" y="3370" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-123" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-124" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-116">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-124" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontColor=default;" value="&lt;div&gt;RES119&lt;/div&gt;&lt;span&gt;สร้าง&lt;/span&gt;&lt;span style=&quot;text-align: left;&quot;&gt;ใบบันทึกความเห็นกลุ่มกิจ&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="560" y="3040" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-125" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;fontStyle=0" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;กลุ่มงานกิจการคณะกรรมการ&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;ทำความเห็นเสนอประธานกรรมการ&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="440" x="200" y="2960" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-126" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES118" vertex="1">
+          <mxGeometry height="60" width="60" x="760" y="2490" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-127" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="240" y="3560" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-128" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span&gt;&lt;b&gt;ระบบ E-CMIS&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="320" width="40" x="200" y="3720" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-129" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="320" width="600" x="240" y="3720" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-130" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ประธานกรรมการ ป.ป.ท.&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="200" y="3560" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-131" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;ประธานกรรมการ ป.ป.ท.&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;ลงนามบรรจุวาระการประชุมคณะกรรมการ ป.ป.ท.&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="560" x="200" y="3520" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-132" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-133" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-135">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-133" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES108" vertex="1">
+          <mxGeometry height="60" width="60" x="260" y="3770" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-134" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-135" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-137">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-135" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES121&lt;/div&gt;แสดงรายการรอลงนามบรรจุวาระการประชุมคณะกรรมการ ป.ป.ท." vertex="1">
+          <mxGeometry height="80" width="160" x="360" y="3840" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-136" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-137" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-144">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-137" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES122&lt;/div&gt;ลงนามบรรจุวาระการประชุมคณะกรรมการ ป.ป.ท." vertex="1">
+          <mxGeometry height="80" width="160" x="560" y="3600" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-138" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="240" y="4040" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-139" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;กลุ่มงานวินิจฉัยและมติคณะกรรมการ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="200" y="4040" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-140" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-141" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-142">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="720" y="4100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-141" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES124&lt;/div&gt;สร้างวาระการประชุม" vertex="1">
+          <mxGeometry height="80" width="160" x="560" y="4080" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-142" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES125" vertex="1">
+          <mxGeometry height="60" width="60" x="760" y="4090" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-143" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-144" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-141">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-144" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES123&lt;/div&gt;สร้างปกวาระ" vertex="1">
+          <mxGeometry height="80" width="160" x="560" y="3840" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-145" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-146" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-135">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-146" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES117" vertex="1">
+          <mxGeometry height="60" width="60" x="260" y="3850" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-147" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="240" y="4600" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-148" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;กลุ่มงานคำวินิจฉัยและมติคณะกรรมการ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="200" y="4600" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-149" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="240" y="4440" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-150" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;คณะกรรมการ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="200" y="4440" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-151" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="240" y="4280" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-152" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ระบบ E-CMIS&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="200" y="4280" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-153" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-154" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-156">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="4350" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-154" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES125&lt;/div&gt;แสดงรายการสำนวน&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;ไต่สวนชี้มูลรอลงมติ&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="360" y="4320" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-155" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-156" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-172">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-156" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES126&lt;/div&gt;สร้างใบมติกรรมการและใบบันทึกนำมติ" vertex="1">
+          <mxGeometry height="80" width="160" x="560" y="4320" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-157" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-159" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-163">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-158" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-159" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-176">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-159" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fontSize=14;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;D105&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;ชี้มูลความผิด?&lt;/span&gt;" vertex="1">
+          <mxGeometry height="100" width="160" x="1080" y="4630" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-160" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-161" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-189">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-161" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES128&lt;/div&gt;จัดทำมติตามความเห็นของคณะกรรมการ" vertex="1">
+          <mxGeometry height="80" width="160" x="560" y="4640" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-162" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-163" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-167">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-163" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES129&lt;/div&gt;ส่งรายงานการไต่สวนและวินิจฉัยชี้มูล มติ และเอกสารที่เกี่ยวข้องคืน" vertex="1">
+          <mxGeometry height="80" width="160" x="1080" y="4760" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-164" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;" value="สิ้นสุด" vertex="1">
+          <mxGeometry height="60" width="60" x="2280" y="4660" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-165" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ไม่" vertex="1">
+          <mxGeometry height="20" width="20" x="1160" y="4730" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-166" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ใช่" vertex="1">
+          <mxGeometry height="20" width="20" x="1160" y="4610" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-167" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;" value="สิ้นสุด" vertex="1">
+          <mxGeometry height="60" width="60" x="1280" y="4770" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-168" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;คณะกรรมการ ป.ป.ท. &lt;/span&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;พิจารณารายงานไต่สวนชี้มูลตามระเบียบวาระ - Part 1&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="600" x="200" y="4240" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-169" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-170" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-154">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-170" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES124" vertex="1">
+          <mxGeometry height="60" width="60" x="260" y="4330" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-171" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-172" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-161">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-172" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES127&lt;/div&gt;ลงมติ" vertex="1">
+          <mxGeometry height="80" width="160" x="560" y="4480" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-173" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-174" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-181">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-174" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES132&lt;/div&gt;ลงนามวินิจฉัยชี้มูล" vertex="1">
+          <mxGeometry height="80" width="160" x="1880" y="4480" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-175" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-176" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-178">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-176" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES130&lt;/div&gt;สร้างใบบันทึกนำมติ และรายงานวินิจฉัยชี้มูล และรายงานวินัย" vertex="1">
+          <mxGeometry height="80" width="160" x="1360" y="4320" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-177" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-178" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-196">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-178" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES131&lt;/div&gt;จัดทำรายงานวินิจฉัยชี้มูล เสนอคณะกรรมการ ป.ป.ท. ลงนาม" vertex="1">
+          <mxGeometry height="80" width="160" x="1360" y="4960" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-179" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-181" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-184">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-180" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-181" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-186">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-181" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fontSize=14;" value="D106&lt;br&gt;สายอาญา?" vertex="1">
+          <mxGeometry height="100" width="160" x="1880" y="4640" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-182" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-183" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-164">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-183" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES134&lt;/div&gt;จัดทำหนังสือลงโทษทางวินัย" vertex="1">
+          <mxGeometry height="80" width="160" x="2080" y="4650" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-184" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;" value="สิ้นสุด" vertex="1">
+          <mxGeometry height="60" width="60" x="2280" y="4770" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-185" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-186" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=14;" target="HiGzWp-Ug-tniUUgluTK-183">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-186" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES133&lt;/div&gt;สร้างใบบันทึกส่งวินัย และใบติดตาม" vertex="1">
+          <mxGeometry height="80" width="160" x="2080" y="4320" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-187" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ไม่" vertex="1">
+          <mxGeometry height="20" width="20" x="2040" y="4670" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-188" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ใช่" vertex="1">
+          <mxGeometry height="20" width="20" x="1960" y="4740" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-189" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป D105" vertex="1">
+          <mxGeometry height="60" width="60" x="760" y="4650" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-190" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;กลุ่มงานคำวินิจฉัยและมติคณะกรรมการ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="320" width="40" x="920" y="4600" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-191" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;คณะกรรมการ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="920" y="4440" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-192" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ระบบ E-CMIS&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="920" y="4280" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-193" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;กองบริหารคดี (กลุ่มงานกิจการคณะกรรมการ&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;)&lt;/span&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="920" y="4920" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-194" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-195" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-159">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-195" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES128" vertex="1">
+          <mxGeometry height="60" width="60" x="990" y="4650" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-196" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES132" vertex="1">
+          <mxGeometry height="60" width="60" x="1560" y="4970" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-197" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;คณะกรรมการ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="1720" y="4440" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-198" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ระบบ E-CMIS&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="1720" y="4280" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-199" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;กองบริหารคดี (กลุ่มงานกิจการคณะกรรมการ&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;)&lt;/span&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="320" width="40" x="1720" y="4600" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-200" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-201" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-174">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-201" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES131" vertex="1">
+          <mxGeometry height="60" width="60" x="1780" y="4490" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-202" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;คณะกรรมการ ป.ป.ท. &lt;/span&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;พิจารณารายงานไต่สวนชี้มูลตามระเบียบวาระ - Part 2&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="600" x="920" y="4240" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-203" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;คณะกรรมการ ป.ป.ท. &lt;/span&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;พิจารณารายงานไต่สวนชี้มูลตามระเบียบวาระ - Part 3&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="600" x="1720" y="4240" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-204" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES121" vertex="1">
+          <mxGeometry height="60" width="60" x="1760" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-205" edge="1" parent="1" source="HiGzWp-Ug-tniUUgluTK-206" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HiGzWp-Ug-tniUUgluTK-135">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HiGzWp-Ug-tniUUgluTK-206" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES120" vertex="1">
+          <mxGeometry height="60" width="60" x="260" y="3930" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ZFqkyx517jT2OQwVQWzw" name="ระบบการจัดทำทะเบียนคุมรายงานมติเรื่องทั่วไป">
+    <mxGraphModel dx="3023" dy="1654" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="E5nwzpYPi48Y8ilRAp4S-9" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="919.9999999999998" y="140" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E5nwzpYPi48Y8ilRAp4S-10" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="859.9999999999998" y="180" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E5nwzpYPi48Y8ilRAp4S-19" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="919.9999999999998" y="340" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E5nwzpYPi48Y8ilRAp4S-22" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1240" y="140" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E5nwzpYPi48Y8ilRAp4S-23" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1180" y="180" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="440" y="2601" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="440" y="2440" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="-280" y="2600" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="-280" y="2440" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="-280" y="2760" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="-280" y="1640" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="-280" y="1240" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ผู้อำนวยการกองบริหารคดี (ผอ.กบค.)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="-320" y="1240" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="320" width="640" x="-320" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span&gt;&lt;b&gt;ระบบ E-CMIS&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="480" width="40" x="-320" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="480" width="600" x="-280" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;เลขาธิการคณะกรรมการ ป.ป.ท.&lt;/b&gt;" vertex="1">
+          <mxGeometry height="320" width="40" x="-320" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-13" edge="1" parent="1" source="u21juEbnRj2RJokt73km-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="u21juEbnRj2RJokt73km-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;&lt;span&gt;RES201&lt;/span&gt;&lt;/div&gt;แสดงรายการมติเรื่องทั่วไป" vertex="1">
+          <mxGeometry height="80" width="160" x="-160" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-15" edge="1" parent="1" source="u21juEbnRj2RJokt73km-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="u21juEbnRj2RJokt73km-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES204&lt;/div&gt;พิจารณาความซับซ้อนยุ่งยากของสำนวน" vertex="1">
+          <mxGeometry height="80" width="160" x="40" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-17" edge="1" parent="1" source="u21juEbnRj2RJokt73km-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="u21juEbnRj2RJokt73km-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-18" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" value="เรื่มต้น" vertex="1">
+          <mxGeometry height="60" width="60" x="-260" y="970" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;span&gt;เลขาธิการให้ความเห็นและลงนามในรายงานการมติเรื่องทั่วไป&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="480" x="-320" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-20" edge="1" parent="1" source="u21juEbnRj2RJokt73km-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="u21juEbnRj2RJokt73km-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-21" edge="1" parent="1" source="u21juEbnRj2RJokt73km-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="u21juEbnRj2RJokt73km-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-22" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fontSize=14;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;D201&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;แนบใบด่วนมาแล้ว?&lt;/span&gt;" vertex="1">
+          <mxGeometry height="100" width="160" x="-160" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-23" edge="1" parent="1" source="u21juEbnRj2RJokt73km-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="u21juEbnRj2RJokt73km-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;&lt;span&gt;RES202&lt;/span&gt;&lt;/div&gt;แสดงรายการมติเร่องทัวไปเร่งด่วน" vertex="1">
+          <mxGeometry height="80" width="160" x="-160" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-25" edge="1" parent="1" source="u21juEbnRj2RJokt73km-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="u21juEbnRj2RJokt73km-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;&lt;span&gt;RES203&lt;/span&gt;&lt;/div&gt;ลงความเห็นใบด่วน" vertex="1">
+          <mxGeometry height="80" width="160" x="-160" y="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-27" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES206" vertex="1">
+          <mxGeometry height="60" width="60" x="240" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-28" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=30;fillColor=#f8cecc;strokeColor=#b85450;" value="Swimlane มติเรื่องทั่วไป" vertex="1">
+          <mxGeometry height="80" width="1280" x="-320" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-29" edge="1" parent="1" source="u21juEbnRj2RJokt73km-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="u21juEbnRj2RJokt73km-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES205&lt;/div&gt;ลงนามใบด่วน" vertex="1">
+          <mxGeometry height="80" width="160" x="40" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-31" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="-280" y="1480" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-32" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span&gt;&lt;b&gt;ระบบ E-CMIS&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="-320" y="1640" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-33" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ประธานกรรมการ ป.ป.ท.&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="-320" y="1480" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-34" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;ประธานกรรมการ ป.ป.ท.&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;มอบหมาย/สั่งการหน่วยงานที่เกี่ยวข้อง&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="560" x="-320" y="1440" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-35" edge="1" parent="1" source="u21juEbnRj2RJokt73km-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-36" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES204" vertex="1">
+          <mxGeometry height="60" width="60" x="-260" y="1690" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-37" edge="1" parent="1" source="u21juEbnRj2RJokt73km-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-59">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="1560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-38" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES206&lt;/div&gt;แสดงรายการมติเรื่องทั่วไปที่เลขาธิการลงนามแล้ว" vertex="1">
+          <mxGeometry height="80" width="160" x="-160" y="1680" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-39" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="-280" y="1880" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-40" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span&gt;&lt;b&gt;ระบบ E-CMIS&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="-320" y="2040" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-41" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="-280" y="2040" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-42" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;ประธานกรรมการ ป.ป.ท.&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="-320" y="1880" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-43" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;ประธานกรรมการ ป.ป.ท.&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;ลงนามบรรจุวาระการประชุมคณะกรรมการ ป.ป.ท.&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="560" x="-320" y="1840" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-44" edge="1" parent="1" source="u21juEbnRj2RJokt73km-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-45" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก D202" vertex="1">
+          <mxGeometry height="60" width="60" x="-260" y="2090" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-46" edge="1" parent="1" source="u21juEbnRj2RJokt73km-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-47" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES208&lt;/div&gt;แสดงรายการรอลงนามบรรจุวาระการประชุมคณะกรรมการ ป.ป.ท." vertex="1">
+          <mxGeometry height="80" width="160" x="-160" y="2080" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-48" edge="1" parent="1" source="u21juEbnRj2RJokt73km-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-56">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-49" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES209&lt;/div&gt;ลงนามบรรจุวาระการประชุมคณะกรรมการ ป.ป.ท." vertex="1">
+          <mxGeometry height="80" width="160" x="40" y="1920" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-50" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="160" width="600" x="-280" y="2200" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-51" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;กลุ่มงานวินิจฉัยและมติคณะกรรมการ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="-320" y="2200" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-52" edge="1" parent="1" source="u21juEbnRj2RJokt73km-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-54">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="2260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-53" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES211&lt;/div&gt;สร้างวาระการประชุม" vertex="1">
+          <mxGeometry height="80" width="160" x="40" y="2240" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-54" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES212" vertex="1">
+          <mxGeometry height="60" width="60" x="240" y="2250" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-55" edge="1" parent="1" source="u21juEbnRj2RJokt73km-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-56" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES210&lt;/div&gt;สร้างปกวาระ" vertex="1">
+          <mxGeometry height="80" width="160" x="40" y="2080" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-57" edge="1" parent="1" source="u21juEbnRj2RJokt73km-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="u21juEbnRj2RJokt73km-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-58" edge="1" parent="1" source="u21juEbnRj2RJokt73km-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="u21juEbnRj2RJokt73km-67">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-59" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fontSize=14;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;D202&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;text-align: left;&quot;&gt;มอบหมาย/สั่งการหน่วยงานที่เกี่ยวข้อง&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;?&lt;/span&gt;" vertex="1">
+          <mxGeometry height="100" width="160" x="40" y="1510" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-60" edge="1" parent="1" source="u21juEbnRj2RJokt73km-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="u21juEbnRj2RJokt73km-62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-61" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;RES207&lt;/div&gt;มอบหมาย/สั่งการไปยังหน่วยงานที่เกี่ยวข้อง" vertex="1">
+          <mxGeometry height="80" width="160" x="40" y="1680" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-62" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;" value="สิ้นสุด" vertex="1">
+          <mxGeometry height="60" width="60" x="240" y="1690" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-63" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ใช่" vertex="1">
+          <mxGeometry height="20" width="20" x="-80" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-64" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ไม่" vertex="1">
+          <mxGeometry height="20" width="20" x="-80" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-65" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ใช่" vertex="1">
+          <mxGeometry height="20" width="20" x="120" y="1610" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-66" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ไม่" vertex="1">
+          <mxGeometry height="20" width="20" x="200" y="1540" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-67" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป RES208" vertex="1">
+          <mxGeometry height="60" width="60" x="240" y="1530" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-68" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;กลุ่มงานคำวินิจฉัยและมติคณะกรรมการ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="-320" y="2760" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-69" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span&gt;&lt;b&gt;ระบบ E-CMIS&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="-320" y="2440" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-70" edge="1" parent="1" source="u21juEbnRj2RJokt73km-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-71" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;&lt;span&gt;RES212&lt;/span&gt;&lt;/div&gt;แสดงรายการรอมติ" vertex="1">
+          <mxGeometry height="80" width="160" x="-160" y="2480" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-72" edge="1" parent="1" source="u21juEbnRj2RJokt73km-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-71">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-200" y="2500" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-73" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontStyle=0;fontSize=16;" value="&lt;span style=&quot;text-align: center;&quot;&gt;คณะกรรมการ ป.ป.ท.&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: center;&quot;&gt;ประชุมพิจารณาวาระเรื่องทั่วไป - Part 1&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="520" x="-320" y="2400" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-74" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES211" vertex="1">
+          <mxGeometry height="60" width="60" x="-260" y="2490" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-75" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;คณะกรรมการ ป.ป.ท.&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="-320" y="2600" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-76" edge="1" parent="1" source="u21juEbnRj2RJokt73km-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-77" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;&lt;span&gt;RES214&lt;/span&gt;&lt;/div&gt;ลงมติเรื่องทั่วไป" vertex="1">
+          <mxGeometry height="80" width="160" x="40" y="2640" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-78" edge="1" parent="1" source="u21juEbnRj2RJokt73km-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-98">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="240" y="2840" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-79" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;&lt;span&gt;RES215&lt;/span&gt;&lt;/div&gt;&lt;span&gt;จัดทำมติตามความเห็นของคณะกรรมการ&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="40" y="2800" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-80" edge="1" parent="1" source="u21juEbnRj2RJokt73km-81" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-77">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-81" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;&lt;span&gt;RES213&lt;/span&gt;&lt;/div&gt;สร้างใบบันทึกนำและใบมติ" vertex="1">
+          <mxGeometry height="80" width="160" x="40" y="2480" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-82" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;กบค. (กลุ่มงานกิจการคณะรรมการ)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="400" y="2600" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-83" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;textDirection=vertical-rl;rotation=-180;fontSize=14;" value="&lt;b style=&quot;color: rgb(0, 0, 0);&quot;&gt;กลุ่มงานคำวินิจฉัยและมติคณะกรรมการ&lt;/b&gt;" vertex="1">
+          <mxGeometry height="160" width="40" x="400" y="2440" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-84" edge="1" parent="1" source="u21juEbnRj2RJokt73km-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="u21juEbnRj2RJokt73km-88">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-85" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="จาก RES215" vertex="1">
+          <mxGeometry height="60" width="60" x="460" y="2490" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-86" edge="1" parent="1" source="u21juEbnRj2RJokt73km-88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-90">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-87" edge="1" parent="1" source="u21juEbnRj2RJokt73km-88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-95">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-88" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fontStyle=0;fontSize=14;" value="&lt;span&gt;D203&lt;br&gt;มติอื่นๆ?&lt;/span&gt;" vertex="1">
+          <mxGeometry height="102" width="160" x="560" y="2470" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-89" edge="1" parent="1" source="u21juEbnRj2RJokt73km-90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-92">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-90" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;&lt;span&gt;RES216&lt;/span&gt;&lt;/div&gt;&lt;span&gt;จัดทำคำสั่งแต่งตั้งคณะอนุกรรมการไต่สวน / คณะพนักงานไต่สวน&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="560" y="2641" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-91" edge="1" parent="1" source="u21juEbnRj2RJokt73km-92" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-95">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-92" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;&lt;span&gt;RES217&lt;/span&gt;&lt;/div&gt;&lt;span&gt;จัดทำรายงานการไต่สวนเพิ่มเติมตามมติคณะกรรมการ ป.ป.ท.&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="760" y="2641" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-93" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;" value="สิ้นสุด" vertex="1">
+          <mxGeometry height="60" width="60" x="960" y="2491" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-94" edge="1" parent="1" source="u21juEbnRj2RJokt73km-95" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" target="u21juEbnRj2RJokt73km-93">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-95" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" value="&lt;div&gt;&lt;span&gt;RES218&lt;/span&gt;&lt;/div&gt;&lt;span&gt;ส่งเอกสารที่เกี่ยวข้องให้ผู้รับผิดชอบสำนวนดำเนินการตามอำนาจหน้าที่&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="760" y="2481" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-96" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ใช่" vertex="1">
+          <mxGeometry height="20" width="20" x="640" y="2572" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-97" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="ไม่" vertex="1">
+          <mxGeometry height="20" width="20" x="720" y="2501" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-98" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ไป D206" vertex="1">
+          <mxGeometry height="60" width="60" x="240" y="2810" as="geometry" />
+        </mxCell>
+        <mxCell id="u21juEbnRj2RJokt73km-99" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontStyle=0;fontSize=16;" value="&lt;span style=&quot;text-align: center;&quot;&gt;คณะกรรมการ ป.ป.ท.&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: center;&quot;&gt;ประชุมพิจารณาวาระเรื่องทั่วไป - Part 2&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="520" x="400" y="2400" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
