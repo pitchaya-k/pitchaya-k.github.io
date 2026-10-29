@@ -46,6 +46,17 @@ td a{color:var(--navy-2)}
 .pill{display:inline-block;padding:0 8px;border-radius:999px;font-size:.8rem;font-weight:600;color:#fff;white-space:nowrap}
 .p71{background:#2b6cb0}.p72{background:#a5322a}.p73{background:#2f855a}
 footer{text-align:center;color:var(--muted);font-size:.85rem;padding:0 16px 30px}
+.diagram g.sample-node{cursor:pointer}
+.diagram g.sample-node:hover rect,.diagram g.sample-node:hover polygon,.diagram g.sample-node:focus rect,.diagram g.sample-node:focus polygon{stroke-width:3px;filter:drop-shadow(0 2px 4px rgba(10,38,71,.35))}
+.diagram g.sample-node:focus{outline:none}
+.diagram g.sample-drift rect,.diagram g.sample-drift polygon{stroke:#a5322a !important;stroke-width:3px;stroke-dasharray:6 3}
+.sample-summary{margin:0 0 12px;padding:8px 12px;border-radius:6px;background:#e1f2e3;color:#1c4532;font-weight:600}
+.sample-summary.warn{background:#f7dcd9;color:#742a2a}
+.sample-tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.mini-btn{font:600 .82rem var(--sans);color:var(--navy);background:#fff;border:1px solid var(--navy);border-radius:999px;padding:2px 12px;cursor:pointer}
+.mini-btn:hover:not(:disabled),.mini-btn:focus-visible{background:var(--navy);color:#fff;outline:none}
+.mini-btn:disabled{opacity:.35;cursor:default}
+tr.row-drift td{background:#fbeceb !important}
 </style>
 </head>
 <body>
@@ -53,7 +64,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:0 16px 30px
 <header>
   <div class="wrap">
     <h1>ภาพรวมกระบวนงาน กิจกรรมที่ 7 (E-CMIS)</h1>
-    <p>การพิจารณาและดำเนินการตามมติคณะกรรมการ ป.ป.ท. — ทุกขั้น ทุกทางแยก พร้อมหน้าจอ prototype ที่ใช้ (คลิกกล่องเพื่อเปิดหน้า)</p>
+    <p>การพิจารณาและดำเนินการตามมติคณะกรรมการ ป.ป.ท. — ทุกขั้น ทุกทางแยก พร้อมหน้าจอ prototype ที่ใช้ — คลิกกล่องเพื่อเปิดหน้าจริงด้วยเคสตัวอย่าง (เข้าระบบเป็นบทบาทของขั้นนั้นให้อัตโนมัติ)</p>
   </div>
 </header>
 
@@ -64,6 +75,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:0 16px 30px
   <a href="#flow72">สาย 7.2</a>
   <a href="#status">ตารางสถานะ</a>
   <a href="#pages">หน้าจอตาม role</a>
+  <a href="#samples">เคสตัวอย่าง</a>
 </nav>
 
 <main>
@@ -115,7 +127,7 @@ flowchart LR
 <section id="flow71">
   <h2>1 · สาย 7.1 / 7.3 — จากรับเรื่องถึงที่ประชุม <small>รหัสสถานะ 000–026</small></h2>
   <p class="lead">7.1 กับ 7.3 ใช้ทางเดียวกันจนถึงประธานฯ — 7.3 ไม่มีคณะอนุกลั่นกรองฯ จึงตรงเข้าบรรจุวาระ</p>
-  <div class="diagram"><pre class="mermaid">
+  <div class="diagram" data-flow="f71"><pre class="mermaid">
 flowchart TD
   D0["000 ร่างรายงาน 213<br/><i>เจ้าของสำนวน (กจ.5)</i>"]:::up --> D2["002 หัวหน้ากลุ่มงาน"]:::up --> D3["003 ผอ.กอง / ผอ.เขต"]:::up
   D3 --> DEP["004 รอรองเลขาฯ พิจารณา<br/><i>รองเลขาฯ · approval-review</i>"]:::sec
@@ -164,20 +176,6 @@ flowchart TD
   classDef chair fill:#fbf1d3,stroke:#c9a227,color:#5f4b0b
   classDef board fill:#e1f2e3,stroke:#2f855a,color:#1c4532
   classDef dec fill:#fff,stroke:#20262e,color:#20262e
-  click DEP "approval-review.html" "เปิดหน้า"
-  click SG "approval-review.html" "เปิดหน้า"
-  click SA "dir-case-support-assign.html" "เปิดหน้า"
-  click SS "support-subcommittee.html" "เปิดหน้า"
-  click UR "approval-review.html" "เปิดหน้า"
-  click UC "approval-review.html" "เปิดหน้า"
-  click CH "chairman-agenda.html" "เปิดหน้า"
-  click SCR "subcommittee-screening.html" "เปิดหน้า"
-  click MI "subcommittee-screening.html" "เปิดหน้า"
-  click SGA "chairman-agenda.html" "เปิดหน้า"
-  click AG "agenda-registry.html" "เปิดหน้า"
-  click MT "board-resolution.html" "เปิดหน้า"
-  click DF "board-resolution.html" "เปิดหน้า"
-  click RS "#after71"
   </pre></div>
   <ul class="notes">
     <li>รองเลขาฯ / เลขาฯ ส่งคืน: ใส่เหตุผล + แนบไฟล์ (ไม่บังคับ) → ระบบแจ้งเตือนผู้รับผิดชอบสำนวน (A7-13)</li>
@@ -190,7 +188,7 @@ flowchart TD
 <section id="after71">
   <h2>2 · หลังมติ สาย 7.1 / 7.3 <small>015 → 016 / 017 / 018–020</small></h2>
   <p class="lead">ทางแยกตามชนิดมติ — 7.1 ทำที่ order.html / board-resolution · 7.3 ทำที่ resolution.html</p>
-  <div class="diagram"><pre class="mermaid">
+  <div class="diagram" data-flow="a71"><pre class="mermaid">
 flowchart TD
   RS["015 มีมติแล้ว"]:::board --> L{"สาย?"}:::dec
   L -->|"7.1"| R1{"มติบอร์ด?"}:::dec
@@ -221,13 +219,6 @@ flowchart TD
   classDef dec fill:#fff,stroke:#20262e,color:#20262e
   classDef fin fill:#f7dcd9,stroke:#a5322a,color:#742a2a
   classDef red fill:#a5322a,stroke:#742a2a,color:#fff
-  click RS "board-resolution.html" "เปิดหน้า"
-  click OR "order.html" "เปิดหน้า"
-  click OC "order.html" "เปิดหน้า"
-  click OS "order.html" "เปิดหน้า"
-  click DS "order.html" "เปิดหน้า"
-  click LG "resolution.html" "เปิดหน้า"
-  click AG "agenda-registry.html" "เปิดหน้า"
   click G72 "#flow72"
   </pre></div>
 </section>
@@ -236,7 +227,7 @@ flowchart TD
 <section id="flow72">
   <h2>3 · สาย 7.2 — รายงานวินิจฉัยชี้มูล <small>รหัสสถานะ 100–124</small></h2>
   <p class="lead">เริ่มเมื่อคณะไต่สวนตาม ม.24 เสนอรายงาน — ผ่านสายบังคับบัญชาใหม่ทั้งสาย แล้วแยกซับซ้อน / ด่วน / ปกติ</p>
-  <div class="diagram"><pre class="mermaid">
+  <div class="diagram" data-flow="f72"><pre class="mermaid">
 flowchart TD
   ST(["คณะไต่สวน ม.24 เสนอรายงานไต่สวนชี้มูล"]):::up --> S0["100 หัวหน้ากลุ่มงาน<br/><i>approval-review</i>"]:::up
   S0 -->|"เสนอ"| S1["101 ผอ.กอง / ผอ.เขต"]:::up
@@ -302,31 +293,6 @@ flowchart TD
   classDef board fill:#e1f2e3,stroke:#2f855a,color:#1c4532
   classDef dec fill:#fff,stroke:#20262e,color:#20262e
   classDef fin fill:#f7dcd9,stroke:#a5322a,color:#742a2a
-  click S0 "approval-review.html" "เปิดหน้า"
-  click S1 "approval-review.html" "เปิดหน้า"
-  click S2 "approval-review.html" "เปิดหน้า"
-  click SG "approval-review.html" "เปิดหน้า"
-  click RT "approval-review.html" "เปิดหน้า"
-  click SA "dir-case-support-assign.html" "เปิดหน้า"
-  click SS "support-subcommittee.html" "เปิดหน้า"
-  click UR "urgent-agenda.html" "เปิดหน้า"
-  click UC "urgent-agenda.html" "เปิดหน้า"
-  click CU "urgent-agenda.html" "เปิดหน้า"
-  click CS "affairs-case-detail.html" "เปิดหน้า"
-  click AO "affairs-opinion.html" "เปิดหน้า"
-  click CA "chairman-agenda.html" "เปิดหน้า"
-  click C72 "chairman-agenda.html" "เปิดหน้า"
-  click SCR "subcommittee-screening.html" "เปิดหน้า"
-  click MI "subcommittee-screening.html" "เปิดหน้า"
-  click SGA "chairman-agenda.html" "เปิดหน้า"
-  click INV "agenda-registry.html" "เปิดหน้า"
-  click MT "resolution-72.html" "เปิดหน้า"
-  click RP "ruling-report.html" "เปิดหน้า"
-  click SR "ruling-report.html" "เปิดหน้า"
-  click AN "ruling-report.html" "เปิดหน้า"
-  click NC "ruling-report.html" "เปิดหน้า"
-  click GU "ruling-report.html" "เปิดหน้า"
-  click CL "ruling-report.html" "เปิดหน้า"
   </pre></div>
   <ul class="notes">
     <li>ลงนามรายงานวินิจฉัยชี้มูล: ค่าเริ่มต้น ② เซ็นจริง + อัปโหลด (ตามมติครั้งที่ 10) — ① ยังเป็นทางเลือก (A7-15/16)</li>
@@ -363,6 +329,21 @@ flowchart TD
       <tr><td>กองบริหารคดี (case_admin)</td><td><a href="case-admin-inbox.html">case-admin-inbox.html</a></td><td><a href="case-admin-detail.html">case-admin-detail.html</a></td></tr>
       <tr><td>ทุก role</td><td colspan="2"><a href="login.html">login.html</a> · <a href="case-register.html">case-register.html</a> (ทะเบียนสำนวน) · <a href="dashboard.html">dashboard.html</a> · <a href="followup-dashboard.html">followup-dashboard.html</a> (ติดตามผลมติ) · <a href="m38-inbox.html">m38-inbox.html</a> / <a href="m38-review.html">m38-review.html</a> (รายงานผล ม.38)</td></tr>
     </tbody>
+  </table></div>
+</section>
+
+<!-- ───────────── 6. เคสตัวอย่าง ───────────── -->
+<section id="samples">
+  <h2>6 · เคสตัวอย่างของแต่ละกล่อง <small>9801–9850/2569</small></h2>
+  <p class="lead">สร้างโดย <code>node scripts/seed-flow-samples.mjs --apply</code> (โคลนจากเคสจริง ไม่แตะเคสเดิม) — ถ้ามีคนกดดำเนินการในเคสตัวอย่าง สถานะจะเลื่อนไป กดรีเซ็ตเพื่อคืนค่าตั้งต้น</p>
+  <p id="sampleSummary" class="sample-summary">กำลังตรวจสถานะเคสตัวอย่าง…</p>
+  <div class="sample-tools">
+    <button type="button" id="refreshLive" class="mini-btn">ตรวจสถานะใหม่</button>
+    <button type="button" id="resetAll" class="mini-btn">รีเซ็ตเคสที่เพี้ยนทั้งหมด</button>
+  </div>
+  <div class="table-wrap"><table id="sampleTable">
+    <thead><tr><th>กล่อง</th><th>เคส</th><th>เปิดในบทบาท</th><th>หน้า</th><th>สถานะตั้งต้น</th><th>สถานะตอนนี้</th><th></th></tr></thead>
+    <tbody></tbody>
   </table></div>
 </section>
 
@@ -478,6 +459,7 @@ flowchart TD
   });
 })();
 </script>
+<script src="assets/overall-flow.js"></script>
 <script type="module">
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
 mermaid.initialize({

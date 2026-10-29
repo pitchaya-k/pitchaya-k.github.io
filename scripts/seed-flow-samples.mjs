@@ -38,7 +38,9 @@ async function sb(p, opt = {}) {
   return { ok: r.ok, data };
 }
 
-const GENERAL_73 = { cc: { tcc_doc_type: 'GENERAL', tcc_legal_base: 'ม.33' }, rd: { procType: '7.3' } };
+/* CHECK constraint ของ tbl_cmp_case ไม่รับ doc_type 'GENERAL' / legal_base 'ม.33' — ใช้ procType ใน
+   trr_resolution_data แทน (supabaseRowToCase spread เข้า kase → isCase73() เป็นจริง) */
+const GENERAL_73 = { rd: { procType: '7.3' } };
 
 /* key = <ผัง>.<id กล่อง> ตรงกับ overall-flow.html
    [key, สถานะ (trr_status), เคสต้นแบบ, role ที่ใช้เปิด, หน้า, ค่าที่ปรับเพิ่ม] */
@@ -62,12 +64,12 @@ const SPEC = [
   ['f71.DF',  '013', '3008/2569', 'affairs',      'board-resolution.html'],
   ['f71.RS',  '015', '1189/2569', 'board_sec',    'board-resolution.html'],
 
-  ['a71.OC',  '018', '3030/2569', 'chairman',     'order.html'],
+  ['a71.OC',  '018', '3030/2569', 'secgen',       'order.html'],
   ['a71.OS',  '019', '3030/2569', 'secgen',       'order.html'],
   ['a71.UI',  '020', '3030/2569', 'secgen',       'order.html'],
   ['a71.DS',  '016', '1189/2569', 'affairs',      'order.html'],
   ['a71.CL',  '017', '1189/2569', 'affairs',      'board-resolution.html'],
-  ['a71.RS3', '015', '1189/2569', 'affairs',      'resolution.html', GENERAL_73],
+  ['a71.RS3', '015', '1189/2569', 'board_sec',    'resolution.html', GENERAL_73],
   ['a71.LG',  '016', '1189/2569', 'affairs',      'resolution.html', GENERAL_73],
 
   ['f72.S0',  '100', '1210/2566', 'secgen',       'approval-review.html'],

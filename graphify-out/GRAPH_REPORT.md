@@ -1,16 +1,16 @@
 # Graph Report - pitchaya-k.github.io  (2026-10-28)
 
 ## Corpus Check
-- 57 files · ~11,377,594 words
+- 61 files · ~11,526,578 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1438 nodes · 3745 edges · 104 communities (77 shown, 27 thin omitted)
-- Extraction: 83% EXTRACTED · 17% INFERRED · 0% AMBIGUOUS · INFERRED: 647 edges (avg confidence: 0.84)
+- 1686 nodes · 4271 edges · 107 communities (91 shown, 16 thin omitted)
+- Extraction: 85% EXTRACTED · 15% INFERRED · 0% AMBIGUOUS · INFERRED: 647 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c64ca023`
+- Built from commit: `d4ef6f02`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -116,6 +116,8 @@
 - [[_COMMUNITY_Community 100|Community 100]]
 - [[_COMMUNITY_Community 101|Community 101]]
 - [[_COMMUNITY_Community 102|Community 102]]
+- [[_COMMUNITY_Community 104|Community 104]]
+- [[_COMMUNITY_Community 105|Community 105]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `h()` - 145 edges
@@ -123,11 +125,11 @@
 3. `_()` - 104 edges
 4. `Qe()` - 49 edges
 5. `t()` - 46 edges
-6. `o()` - 44 edges
-7. `o()` - 41 edges
-8. `s()` - 36 edges
-9. `renderShell()` - 35 edges
-10. `n()` - 32 edges
+6. `trr_resolution_data` - 44 edges
+7. `o()` - 44 edges
+8. `o()` - 41 edges
+9. `s()` - 36 edges
+10. `renderShell()` - 35 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `13. หน้าจอ Mock ตัวอย่างการ์ดความเห็นของเลขาฯ (ข้อมูลจำลอง)` --references--> `mockSecgenRoute()`  [INFERRED]
@@ -141,7 +143,7 @@
 - `14. ผลตรวจเคสทั้งหมดในหน้าจอเดิม approval-review.html (22 ต.ค. 2569)` --references--> `nextStates()`  [INFERRED]
   docs/secgen-urgent-complex.md → assets/ecmis-app.js
 
-## Communities (104 total, 27 thin omitted)
+## Communities (107 total, 16 thin omitted)
 
 ### Community 0 - "Minified Vendor Lib A"
 Cohesion: 0.06
@@ -152,16 +154,16 @@ Cohesion: 0.08
 Nodes (63): addItem(), addMeeting(), agendaLookupFromCase(), boardMeetings(), boardMeetingView(), caseChip(), CATEGORY_CLASS, CATEGORY_LABEL (+55 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.12
-Nodes (25): applyNotifReadToItem(), confirmAction(), ensureNotificationSupabase(), exportDocToDocx(), handleNotifLinkClick(), initBulkActions(), getChecked(), refreshToolbar() (+17 more)
+Cohesion: 0.13
+Nodes (23): confirmAction(), exportDocToDocx(), initBulkActions(), getChecked(), refreshToolbar(), initCardCollapse(), initDocEditor(), setDocEditMode() (+15 more)
 
 ### Community 3 - "Roles & Notifications"
-Cohesion: 0.08
-Nodes (41): actionBar(), applyDeadlineNotifRefresh(), buildDeadlineNotifItems(), can(), canAccessPage(), canEditMaster(), canViewCase(), caseRouteChainHtml() (+33 more)
+Cohesion: 0.07
+Nodes (46): actionBar(), applyDeadlineNotifRefresh(), applyNotifReadToItem(), buildDeadlineNotifItems(), can(), canAccessPage(), canEditMaster(), canViewCase() (+38 more)
 
 ### Community 4 - "E-CMIS App Core"
-Cohesion: 0.05
-Nodes (36): act7Badge(), boardQuorum(), canRecall(), caseAdminLaw(), computeResolutionStage(), currentUsername(), daysUntil(), forwardTarget() (+28 more)
+Cohesion: 0.04
+Nodes (76): act7Badge(), applyLiveCase(), boardQuorum(), bothTracksDone72(), canRecall(), canTransition(), caseAdminLaw(), caseByRef() (+68 more)
 
 ### Community 5 - "Junction Bridge A7"
 Cohesion: 0.21
@@ -169,7 +171,7 @@ Nodes (35): applyLinkedCase(), baseResult(), choose(), disciplineFollowUp(), ecm
 
 ### Community 6 - "Minified Vendor Lib B"
 Cohesion: 0.02
-Nodes (99): ACT7_SECTIONS, ACT7_STAGE_72, ACT7_STATUSES, ACT7_STATUSES_72, AFFAIRS_COMPLEXITY_STATUSES, APPROVAL_CHAIN, ATTACH_EXTS, ATTACH_SKIP_PAGES (+91 more)
+Nodes (121): ACT7_SECTIONS, ACT7_STAGE_72, ACT7_STATUSES, ACT7_STATUSES_72, addBusinessDays(), AFFAIRS_COMPLEXITY_STATUSES, APPROVAL_CHAIN, assetUrl() (+113 more)
 
 ### Community 7 - "Minified Vendor Lib C"
 Cohesion: 0.11
@@ -212,8 +214,8 @@ Cohesion: 0.25
 Nodes (22): beforeDraw(), centerTextPlugin, chartRegistry, createBarTooltipConfig(), createDonutTooltipConfig(), destroyAllCharts(), destroyChart(), exportChartImage() (+14 more)
 
 ### Community 17 - "Case Reference Helpers"
-Cohesion: 0.15
-Nodes (16): caseByRef(), caseNo(), caseNoListHtml(), caseRefText(), caseSearchText(), dash(), fakeTodayIso(), hasNoCaseNumber() (+8 more)
+Cohesion: 0.16
+Nodes (63): request, request, request, request, request, request, request, request (+55 more)
 
 ### Community 18 - "Seed Scenario Cases"
 Cohesion: 0.11
@@ -245,7 +247,7 @@ Nodes (13): initMultiSelectCombo(), closeDropdown(), commit(), openDropdown(), r
 
 ### Community 25 - "Board Resolution Sync"
 Cohesion: 0.17
-Nodes (18): ref_node_path, args, copyDirRecursive(), DEFAULT_SOURCE, DEST_DIR, destAssetsDir, destFile, destHtmlFiles (+10 more)
+Nodes (18): ref_node_url, args, copyDirRecursive(), DEFAULT_SOURCE, DEST_DIR, destAssetsDir, destFile, destHtmlFiles (+10 more)
 
 ### Community 26 - "Secgen Rules Tests"
 Cohesion: 0.25
@@ -256,8 +258,8 @@ Cohesion: 0.08
 Nodes (36): esc(), hasSupport(), init(), isRegional(), linkBtn(), mockSecgenRoute(), mountOpinionCard(), render() (+28 more)
 
 ### Community 28 - "Minified Vendor Lib E"
-Cohesion: 0.18
-Nodes (14): addDaysToDateStr(), addYearsToDateStr(), autoMountAttachmentCard(), buildChainOpinions(), cacheLiveCases(), chainStepsDone(), fetchCasesByNos(), getCase() (+6 more)
+Cohesion: 0.13
+Nodes (19): addDaysToDateStr(), addYearsToDateStr(), autoMountAttachmentCard(), buildChainOpinions(), cacheLiveCases(), chainStepsDone(), daysUntilFakeIso(), fakeTodayIso() (+11 more)
 
 ### Community 29 - "Case Closure"
 Cohesion: 0.30
@@ -276,12 +278,12 @@ Cohesion: 0.15
 Nodes (6): CaseStore, find(), makeRecordStore(), RoundStore, SignatureStore, StatusStore
 
 ### Community 33 - "Resolution Rules Tests"
-Cohesion: 0.08
-Nodes (28): ref_node_assert, ref_node_fs, ref_node_url, ref_node_vm, atEdge, base, below, broken (+20 more)
+Cohesion: 0.10
+Nodes (19): atEdge, base, below, broken, codes, dismiss, exceptional, external (+11 more)
 
 ### Community 34 - "Case Status Transitions"
-Cohesion: 0.22
-Nodes (9): applyLiveCase(), canTransition(), logRequestEvent(), logRequestEventNow(), saveCases(), trackSave(), transitionsBetween(), updateCaseStatus() (+1 more)
+Cohesion: 0.13
+Nodes (19): ACC_SKIP, appJs, APPLY, buildRows(), cache, CC_SKIP, enc(), GENERAL_73 (+11 more)
 
 ### Community 35 - "M38 Reports"
 Cohesion: 0.32
@@ -292,8 +294,8 @@ Cohesion: 0.17
 Nodes (11): Caveats, code:block1 ([ Wave 1: Parallel ] ──────────► [ Wave 2: Parallel ] ──────), code:bash (bash activity7/scripts/run_pipeline_parallel.sh), code:bash (python activity7/scripts/run_pipeline_parallel.py), Correcting the CLI syntax, Option 1: Bash (Claude Code CLI, Git Bash/WSL/macOS/Linux), Option 2: Python asyncio runner, Option 3: IDE with split chat/terminal panes (Cursor / VS Code / Windsurf) (+3 more)
 
 ### Community 37 - "SLA Badges"
-Cohesion: 0.29
-Nodes (7): effectiveSlaLimit(), fakeSlaUsed(), secgenSlaLimit(), slaBadge(), slaClass(), slaLabel(), slaUsedLimit()
+Cohesion: 0.22
+Nodes (14): bindButtons(), cell(), confirmReset(), isDrifted(), markDrift(), nodeIdOf(), openSample(), refreshLive() (+6 more)
 
 ### Community 38 - "Prototype Fill"
 Cohesion: 0.26
@@ -308,36 +310,68 @@ Cohesion: 0.50
 Nodes (6): asyncio, pathlib, main(), E-CMIS Activity 7 - Parallel Sub-Agent Pipeline Runner (3-Wave).  Requires the C, run_agent(), str
 
 ### Community 41 - "Business Day Utils"
-Cohesion: 0.50
-Nodes (5): addBusinessDays(), businessDaysBetween(), isWeekend(), parseIsoToDate(), resolutionSlaInfo()
+Cohesion: 0.20
+Nodes (9): caseNo, page, role, status, subTeam, template, generatedAt, samples (+1 more)
 
 ### Community 42 - "Community 42"
 Cohesion: 0.20
 Nodes (17): attachBadge(), attachExt(), attachSize(), attachStageOf(), attachWhen(), initAttachmentCard(), fadeOutRow(), handleFiles() (+9 more)
 
 ### Community 43 - "Track Status 72"
-Cohesion: 0.83
-Nodes (4): bothTracksDone72(), hasCriminalTrack72(), hasDisciplineTrack72(), trackStatus72()
+Cohesion: 0.20
+Nodes (10): screeningMemo, issuedAt, issuedBy, issuedByName, manual, no, prefix, seq (+2 more)
 
 ### Community 44 - "Community 44"
 Cohesion: 0.67
 Nodes (4): initRichTextBox(), plainTextToHtml(), sanitizeRichPaste(), walk()
 
 ### Community 45 - "Community 45"
-Cohesion: 0.50
-Nodes (4): isScreeningLocked(), mapSubOutcome(), slaIsOnHold(), subScreeningStatus()
+Cohesion: 0.20
+Nodes (9): ref_node_assert, ref_node_fs, ref_node_path, ref_node_vm, here, P(), q(), T() (+1 more)
 
 ### Community 46 - "Community 46"
 Cohesion: 0.28
 Nodes (6): buildCase(), buildScenario(), CASES, OPINION_EXAMPLES, SCENARIOS, STATE_LABEL
 
+### Community 47 - "Community 47"
+Cohesion: 0.22
+Nodes (9): caseNo, page, role, status, subTeam, tccId, template, trrId (+1 more)
+
+### Community 48 - "Community 48"
+Cohesion: 0.22
+Nodes (9): caseNo, page, role, status, subTeam, tccId, template, trrId (+1 more)
+
 ### Community 49 - "Community 49"
 Cohesion: 0.20
 Nodes (8): A7-10 · เอาตัวเลือก "สั่งรับเรื่อง" (ม.28) ออก, A7-13 · แจ้งเตือนเมื่อส่งคืน, A7-15 / A7-16 · วิธีลงนามรายงานวินิจฉัยชี้มูลของประธานฯ, กจ.7 · ปรับ Prototype ตามรายการปรับแก้ mockup A7 (28 ต.ค. 2569), การทดสอบ (stub คำขอเขียน Supabase ทั้งหมด), ประเด็นที่ไม่เคลียร์: solution + assumption, สถานะรายการ, เอกสารที่อัปเดตรอบนี้
 
+### Community 50 - "Community 50"
+Cohesion: 0.22
+Nodes (9): caseNo, page, role, status, subTeam, tccId, template, trrId (+1 more)
+
+### Community 51 - "Community 51"
+Cohesion: 0.22
+Nodes (9): caseNo, page, role, status, subTeam, tccId, template, trrId (+1 more)
+
 ### Community 52 - "Community 52"
 Cohesion: 0.43
 Nodes (7): paginateDoc(), measure(), prefixFor(), processBlock(), pushPage(), topLevelChildren(), paginateResolutionDoc()
+
+### Community 53 - "Community 53"
+Cohesion: 0.22
+Nodes (9): caseNo, page, role, status, subTeam, tccId, template, trrId (+1 more)
+
+### Community 54 - "Community 54"
+Cohesion: 0.22
+Nodes (9): caseNo, page, role, status, subTeam, tccId, template, trrId (+1 more)
+
+### Community 55 - "Community 55"
+Cohesion: 0.22
+Nodes (9): caseNo, page, role, status, subTeam, tccId, template, trrId (+1 more)
+
+### Community 56 - "Community 56"
+Cohesion: 0.22
+Nodes (9): caseNo, page, role, status, subTeam, tccId, template, trrId (+1 more)
 
 ### Community 60 - "Community 60"
 Cohesion: 0.33
@@ -346,6 +380,10 @@ Nodes (5): userflow update 26102026 — User Flow กิจกรรมที่
 ### Community 61 - "Community 61"
 Cohesion: 0.33
 Nodes (6): userflow update 26102026/README - วิธีเปิดและตรวจสอบ.md, userflow update 26102026 — User Flow กิจกรรมที่ 7 V1.0.3, ข้อควรทราบเมื่อเปิดไฟล์, วิธีอ่านผัง, หน้าในไฟล์ drawio, ไฟล์ในโฟลเดอร์นี้
+
+### Community 62 - "Community 62"
+Cohesion: 0.22
+Nodes (9): caseNo, page, role, status, subTeam, tccId, template, trrId (+1 more)
 
 ### Community 63 - "Community 63"
 Cohesion: 0.40
@@ -416,8 +454,8 @@ Cohesion: 0.50
 Nodes (3): Activity 7 Multi-Agent Pipeline Prompts, Key references used across prompts, Notes
 
 ### Community 84 - "Community 84"
-Cohesion: 0.83
-Nodes (4): mountDocEditFontSize(), applySize(), convertMarks(), syncSelect()
+Cohesion: 0.22
+Nodes (9): caseNo, page, role, status, subTeam, tccId, template, trrId (+1 more)
 
 ### Community 85 - "Community 85"
 Cohesion: 0.50
@@ -439,25 +477,41 @@ Nodes (3): code:powershell (@'), code:block21 (Graph complete. Outputs in PATH_T
 Cohesion: 0.67
 Nodes (3): code:powershell (@'), code:block4 (Corpus: X files · ~Y words), Step 2 - Detect files
 
+### Community 97 - "Community 97"
+Cohesion: 0.22
+Nodes (9): caseNo, page, role, status, subTeam, tccId, template, trrId (+1 more)
+
+### Community 98 - "Community 98"
+Cohesion: 0.22
+Nodes (9): caseNo, page, role, status, subTeam, tccId, template, trrId (+1 more)
+
+### Community 104 - "Community 104"
+Cohesion: 0.22
+Nodes (9): caseNo, page, role, status, subTeam, tccId, template, trrId (+1 more)
+
+### Community 105 - "Community 105"
+Cohesion: 0.22
+Nodes (9): caseNo, page, role, status, subTeam, tccId, template, trrId (+1 more)
+
 ## Knowledge Gaps
-- **366 isolated node(s):** `version`, `configurations`, `PreToolUse`, `allow`, `MEETINGS` (+361 more)
+- **535 isolated node(s):** `version`, `configurations`, `PreToolUse`, `allow`, `MEETINGS` (+530 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **27 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **16 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `m()` connect `Minified Vendor Lib A` to `Case Reference Helpers`, `Resolution Split`?**
-  _High betweenness centrality (0.179) - this node is a cross-community bridge._
+- **Why does `m()` connect `Minified Vendor Lib A` to `E-CMIS App Core`, `Resolution Split`?**
+  _High betweenness centrality (0.131) - this node is a cross-community bridge._
 - **Why does `h()` connect `Minified Vendor Lib A` to `Junction Bridge A7`?**
-  _High betweenness centrality (0.097) - this node is a cross-community bridge._
-- **Why does `renderSecgenReportDoc()` connect `Case Reference Helpers` to `Minified Vendor Lib A`, `Roles & Notifications`, `E-CMIS App Core`, `Minified Vendor Lib B`?**
-  _High betweenness centrality (0.087) - this node is a cross-community bridge._
+  _High betweenness centrality (0.064) - this node is a cross-community bridge._
+- **Why does `renderSecgenReportDoc()` connect `E-CMIS App Core` to `Minified Vendor Lib A`, `Roles & Notifications`, `Minified Vendor Lib B`?**
+  _High betweenness centrality (0.063) - this node is a cross-community bridge._
 - **Are the 41 inferred relationships involving `h()` (e.g. with `Ge()` and `i()`) actually correct?**
   _`h()` has 41 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 45 inferred relationships involving `e()` (e.g. with `g()` and `Dr()`) actually correct?**
   _`e()` has 45 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 10 inferred relationships involving `_()` (e.g. with `e()` and `a()`) actually correct?**
   _`_()` has 10 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 34 inferred relationships involving `Qe()` (e.g. with `d()` and `a()`) actually correct?**
+- **Are the 34 inferred relationships involving `Qe()` (e.g. with `Ve()` and `e()`) actually correct?**
   _`Qe()` has 34 INFERRED edges - model-reasoned connections that need verification._
