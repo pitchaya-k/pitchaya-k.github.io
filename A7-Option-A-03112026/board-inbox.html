@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>รอบการประชุมและอ่านวาระล่วงหน้า | คณะกรรมการ ป.ป.ท. | E-CMIS</title>
+  <link rel="icon" type="image/png" href="assets/pacc_logo.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <link href="assets/ecmis-app.css" rel="stylesheet">
+  <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <style>
+    :root {
+      --board-navy: #0F2A62;
+      --board-navy-dark: #081B3E;
+      --board-navy-light: #1E3A8A;
+      --board-gold: #D0A830;
+      --board-gold-hover: #B89224;
+      --board-gold-light: #FEF9E7;
+      --board-bg-soft: #F8FAFC;
+      --board-border: #E2E8F0;
+    }
+
+    body {
+      background-color: #F1F5F9;
+      font-family: 'Prompt', 'Noto Sans Thai', sans-serif;
+    }
+
+    /* Dashboard KPI & Banner */
+    .kpi-card {
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border-radius: 10px;
+      border: 1px solid #E2E8F0;
+      background: #FFFFFF;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(15, 42, 98, 0.12);
+    }
+
+    .next-meet-banner {
+      background: linear-gradient(135deg, #0F2A62 0%, #1E3A8A 60%, #081B3E 100%);
+      color: #FFFFFF;
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      box-shadow: 0 10px 25px -5px rgba(15, 42, 98, 0.25);
+      border-bottom: 3px solid var(--board-gold);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .next-meet-banner::after {
+      content: '\f0e3';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      right: 20px;
+      bottom: -15px;
+      font-size: 8.5rem;
+      opacity: 0.05;
+      pointer-events: none;
+      color: #FFFFFF;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #E5B83B 0%, #D0A830 100%);
+      color: #081B3E !important;
+      font-weight: 700;
+      border: 1px solid #B89224;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #D0A830 0%, #B89224 100%);
+      color: #081B3E !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(208, 168, 48, 0.35);
+    }
+
+    .btn-navy {
+      background-color: var(--board-navy) !important;
+      color: #FFFFFF !important;
+      border-color: var(--board-navy-dark) !important;
+      font-weight: 600;
+    }
+
+    .btn-navy:hover {
+      background-color: var(--board-navy-dark) !important;
+      color: #FFFFFF !important;
+    }
+  </style>
+</head>
+
+<body class="ws-std">
+
+  <main class="app-main">
+
+    <!-- Page Header & Flow Reference -->
+    <div class="page-head d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+      <div>
+        <h1><i class="fa-solid fa-gavel me-2" style="color:#0F2A62"></i><span>รอบการประชุมและอ่านวาระล่วงหน้า</span></h1>
+      </div>
+      <div class="d-flex align-items-center gap-2 ms-auto">
+        <span class="flow-ref"><i class="fa-solid fa-shield-halved me-1 text-warning"></i>สิทธิ์อ่านวาระล่วงหน้า 3 วัน (ม.๒๐)</span>
+      </div>
+    </div>
+
+    <!-- Active Reading Banner (Hero Highlight Announcement) -->
+    <div class="next-meet-banner mb-4 d-none" id="nextMeetingBanner">
+      <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
+        <span class="badge bg-warning text-dark px-2.5 py-1 fw-bold">
+          <i class="fa-solid fa-calendar-check me-1"></i>เปิดให้อ่านวาระล่วงหน้า (3 วัน)
+        </span>
+        <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 fw-semibold">
+          <i class="fa-solid fa-unlock-keyhole me-1"></i>เข้าถึงสำนวนระดับกรรมการ ป.ป.ท.
+        </span>
+      </div>
+      <h4 class="fw-bold text-white mb-2" id="bannerMeetingTitle"></h4>
+      <div class="d-flex align-items-center gap-3 text-light opacity-90 small flex-wrap" id="bannerMeetingDetails"></div>
+    </div>
+
+    <!-- 3 Summary KPI Cards Row -->
+    <div class="row g-3 mb-4" id="kpiCardsRow">
+      <div class="col-12 col-sm-6 col-md-4 col-xl">
+        <div class="card card-ecmis kpi-card a7-kpi h-100 border-2 shadow-sm" role="button" tabindex="0" aria-pressed="true" data-filter="ALL">
+          <div class="card-body"><div class="a7-kpi-num" id="kpiTotalMeetings">0</div><div class="a7-kpi-label">รอบการประชุมทั้งหมด</div></div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-xl">
+        <div class="card card-ecmis kpi-card a7-kpi h-100" role="button" tabindex="0" aria-pressed="false" data-filter="PENDING">
+          <div class="card-body"><div class="a7-kpi-num" id="kpiPendingMeetings">0</div><div class="a7-kpi-label">กำหนดการแล้ว — รอประชุม</div></div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-xl">
+        <div class="card card-ecmis kpi-card a7-kpi h-100" role="button" tabindex="0" aria-pressed="false" data-filter="CLOSED">
+          <div class="card-body"><div class="a7-kpi-num" id="kpiClosedMeetings">0</div><div class="a7-kpi-label">ประชุมเสร็จสิ้นแล้ว</div></div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-xl d-none" id="kpiCancelledCol">
+        <div class="card card-ecmis kpi-card a7-kpi h-100" role="button" tabindex="0" aria-pressed="false" data-filter="CANCELLED">
+          <div class="card-body"><div class="a7-kpi-num" id="kpiCancelledMeetings">0</div><div class="a7-kpi-label">ยกเลิก/เลื่อน</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Card -->
+    <div class="card card-ecmis mb-4">
+      <div class="card-body p-3">
+        <div class="row g-3 align-items-end">
+          <div class="col-md-6">
+            <label class="form-label fw-semibold text-dark small mb-1">ค้นหาครั้งที่ประชุม หรือเรื่องวาระ</label>
+            <div class="input-group input-group-sm">
+              <span class="input-group-text bg-white"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+              <input type="text" id="searchInput" class="form-control"
+                placeholder="ครั้งที่ประชุม เช่น 57/2569, วันที่ประชุม หรือเรื่องวาระ...">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label fw-semibold text-dark small mb-1"><i
+                class="fa-solid fa-filter me-1 text-muted"></i>สถานะรอบการประชุม</label>
+            <select id="statusFilter" class="form-select form-select-sm">
+              <option value="ALL">ทั้งหมด</option>
+              <option value="PENDING">กำหนดการแล้ว — รอประชุม</option>
+              <option value="CLOSED">ประชุมเสร็จสิ้นแล้ว</option>
+              <option value="CANCELLED">ยกเลิก/เลื่อน</option>
+            </select>
+          </div>
+          <div class="col-md-2 text-end">
+            <button type="button" class="btn btn-sm btn-outline-secondary py-1 px-3 w-100" id="btnClearFilter">
+              <i class="fa-solid fa-rotate-left me-1"></i>ล้างตัวกรอง
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Meeting Rounds Table Card -->
+    <div class="card card-ecmis mb-4">
+      <div class="card-header d-flex align-items-center flex-wrap gap-2">
+        <i class="fa-solid fa-calendar-days text-primary"></i>
+        <span class="fw-bold">ตารางรายการรอบการประชุมคณะกรรมการ ป.ป.ท.</span>
+        <span class="ms-auto small text-muted">แสดงรอบการประชุมที่เปิดสิทธิ์ให้อ่านล่วงหน้า 3 วัน</span>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover tbl-ecmis mb-0 align-middle">
+            <colgroup>
+              <col style="width:160px">
+              <col>
+              <col style="width:130px">
+              <col style="width:220px">
+              <col style="width:240px">
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="sortable-header" data-sort="name" style="cursor:pointer">ครั้งที่ประชุม <i
+                    class="fa-solid fa-sort-down ms-1 text-primary" id="sortIcon_name" style="font-size:0.75rem"></i></th>
+                <th class="sortable-header" data-sort="date" style="cursor:pointer">วัน/เวลาประชุม <i
+                    class="fa-solid fa-sort ms-1 text-muted" id="sortIcon_date" style="font-size:0.75rem"></i></th>
+                <th class="text-center sortable-header" data-sort="agendas" style="cursor:pointer">จำนวนวาระ <i
+                    class="fa-solid fa-sort ms-1 text-muted" id="sortIcon_agendas" style="font-size:0.75rem"></i></th>
+                <th>สถานะการประชุม</th>
+                <th class="text-end">ดำเนินการ</th>
+              </tr>
+            </thead>
+            <tbody id="meetingsTableBody">
+              <!-- Populated via JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="px-3 py-2 border-top d-flex align-items-center justify-content-between flex-wrap gap-2">
+          <div class="small text-muted" id="summaryText"></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
+  <script src="../cases.js"></script>
+  <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+<script src="../shared-assets/handoff.js"></script>
+<script src="../shared-assets/junctions.js"></script>
+<script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
+  <script src="assets/ecmis-model.js"></script>
+  <script src="assets/agenda-registry-data.js?v=20261005-board-real"></script>
+  <script>
+    // Initialize standard system navigation shell & role authentication
+    ECMIS.renderShell('board-inbox.html');
+
+    /* รอบประชุมจริงจาก tbl_res_calendar เฉพาะครั้งที่จัดวาระแล้ว (Task 236) — ดู AgendaRegistry.boardMeetings() */
+    const AR = window.AgendaRegistry;
+    let BOARD_MEETINGS = [];
+    let loadState = 'loading';
+
+    let currentFilter = 'ALL';
+    let currentSortCol = 'date';
+    let currentSortDir = 'desc';
+
+    const STATUS_BADGE = {
+      CLOSED: '<span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1"><i class="fa-solid fa-circle-check me-1"></i>ประชุมเสร็จสิ้นแล้ว</span>',
+      CANCELLED: '<span class="badge bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle px-2 py-1"><i class="fa-solid fa-circle-xmark me-1"></i>ยกเลิก/เลื่อน</span>',
+      SCHEDULED: '<span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-1"><i class="fa-solid fa-clock me-1"></i>กำหนดการแล้ว — รอประชุม</span>'
+    };
+
+    /* แบนเนอร์: ครั้งที่ใกล้ที่สุดที่ยังไม่ประชุมและเปิดให้อ่านล่วงหน้าแล้ว — ไม่มีก็ซ่อน */
+    function renderBanner() {
+      const next = BOARD_MEETINGS.filter(m => m.status === 'SCHEDULED' && m.readOpen)
+        .sort((a, b) => a.date.localeCompare(b.date))[0];
+      const banner = document.getElementById('nextMeetingBanner');
+      if (!next) { banner.classList.add('d-none'); return; }
+      $('#bannerMeetingTitle').text(`การประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${next.name}`);
+      $('#bannerMeetingDetails').html(`
+        <span><i class="fa-regular fa-clock me-1 text-warning"></i>${ECMIS.escapeHtml(ECMIS.thaiDate(next.date))}${next.time !== '—' ? ` (${ECMIS.escapeHtml(next.time)})` : ''}</span>
+        <span><i class="fa-solid fa-list-ol me-1 text-warning"></i>บรรจุ ${next.agendaCount} วาระ</span>
+        <a href="board-detail.html?id=${next.id}" class="btn btn-sm btn-warning fw-semibold px-3"><i class="fa-solid fa-book-open-reader me-1"></i>เปิดห้องอ่านสำนวน</a>`);
+      banner.classList.remove('d-none');
+    }
+
+    function renderOverviewKPI() {
+      const count = st => BOARD_MEETINGS.filter(m => m.status === st).length;
+      $('#kpiTotalMeetings').text(BOARD_MEETINGS.length);
+      $('#kpiPendingMeetings').text(count('SCHEDULED'));
+      $('#kpiClosedMeetings').text(count('CLOSED'));
+      $('#kpiCancelledMeetings').text(count('CANCELLED'));
+      $('#kpiCancelledCol').toggleClass('d-none', !count('CANCELLED'));
+    }
+
+    function meetingSearchText(m) {
+      const topics = AR.itemsOf(m.id).map(it => `${it.trci_number} ${it.trci_topic} ${ECMIS.caseRefText(it.case_ref, 'full')}`).join(' ');
+      return `${m.name} ${ECMIS.thaiDate(m.date)} ${topics}`.toLowerCase();
+    }
+
+    function renderMeetingsTable() {
+      const tbody = document.getElementById('meetingsTableBody');
+      if (loadState !== 'ready') {
+        tbody.innerHTML = `<tr><td colspan="5" class="text-center text-muted py-4">${loadState === 'loading'
+          ? '<i class="fa-solid fa-spinner fa-spin me-1"></i>กำลังโหลดรอบการประชุม…'
+          : '<i class="fa-solid fa-triangle-exclamation text-danger me-1"></i>โหลดรอบการประชุมไม่สำเร็จ — ลองรีเฟรชหน้า'}</td></tr>`;
+        $('#summaryText').text('');
+        return;
+      }
+      const q = ($('#searchInput').val() || '').trim().toLowerCase();
+      const st = $('#statusFilter').val() || currentFilter;
+
+      const filtered = BOARD_MEETINGS.filter(m => (st === 'ALL' || m.status === st) && (!q || meetingSearchText(m).includes(q)));
+
+      const key = { name: m => m.id, date: m => m.date, agendas: m => m.agendaCount }[currentSortCol];
+      filtered.sort((a, b) => {
+        const valA = key(a), valB = key(b);
+        if (valA < valB) return currentSortDir === 'asc' ? -1 : 1;
+        if (valA > valB) return currentSortDir === 'asc' ? 1 : -1;
+        return 0;
+      });
+
+      ['name', 'date', 'agendas'].forEach(col => {
+        const iconEl = $(`#sortIcon_${col}`);
+        if (col === currentSortCol) {
+          iconEl.removeClass('fa-sort fa-sort-up fa-sort-down text-muted').addClass(currentSortDir === 'asc' ? 'fa-sort-up text-primary' : 'fa-sort-down text-primary');
+        } else {
+          iconEl.removeClass('fa-sort-up fa-sort-down text-primary').addClass('fa-sort text-muted');
+        }
+      });
+
+      $('#summaryText').text(filtered.length ? `แสดง 1 ถึง ${filtered.length} จาก ${filtered.length} รายการ` : '');
+
+      if (!filtered.length) {
+        tbody.innerHTML = `<tr><td colspan="5" class="text-center text-muted py-4">${BOARD_MEETINGS.length
+          ? 'ไม่พบรอบการประชุมตามเงื่อนไข' : 'ยังไม่มีรอบการประชุมที่ฝ่ายเลขานุการจัดวาระแล้ว'}</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(m => `
+        <tr>
+          <td class="fw-bold text-navy">ครั้งที่ ${ECMIS.escapeHtml(m.name)}</td>
+          <td>
+            <div class="fw-semibold text-dark">${ECMIS.escapeHtml(ECMIS.thaiDate(m.date))}</div>
+            <small class="text-muted"><i class="fa-regular fa-clock me-1"></i>${ECMIS.escapeHtml(m.time)}</small>
+          </td>
+          <td class="text-center">
+            <span class="badge px-2.5 py-1 fw-bold" style="background-color: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; font-size: 0.82rem;">
+              ${m.agendaCount} วาระ
+            </span>
+          </td>
+          <td>${STATUS_BADGE[m.status]}</td>
+          <td class="text-end">
+            ${m.readOpen
+              ? `<a href="board-detail.html?id=${m.id}" class="btn btn-sm btn-navy px-3 text-decoration-none">
+                   <i class="fa-solid fa-book-open-reader me-1 text-warning"></i>เปิดห้องอ่านสำนวน
+                 </a>`
+              : `<span class="badge bg-light text-muted border px-2 py-1" title="อ่านวาระล่วงหน้าได้ ${AR.BOARD_READ_AHEAD_DAYS} วันก่อนวันประชุม (ม.๒๐)">
+                   <i class="fa-solid fa-lock me-1"></i>เปิดให้อ่าน ${ECMIS.escapeHtml(ECMIS.thaiDate(m.readOpenDate))}
+                 </span>`}
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    /* Document Ready */
+    $(document).ready(function () {
+      renderOverviewKPI();
+      renderMeetingsTable();
+      AR.ready.then(() => {
+        BOARD_MEETINGS = AR.boardMeetings();
+        loadState = 'ready';
+      }).catch(err => {
+        console.error('โหลดรอบการประชุมไม่สำเร็จ:', err);
+        loadState = 'failed';
+      }).then(() => { renderBanner(); renderOverviewKPI(); renderMeetingsTable(); });
+
+      // Sort Click Handlers
+      $('.sortable-header').on('click', function () {
+        const col = $(this).data('sort');
+        if (currentSortCol === col) {
+          currentSortDir = (currentSortDir === 'asc' ? 'desc' : 'asc');
+        } else {
+          currentSortCol = col;
+          currentSortDir = 'desc';
+        }
+        renderMeetingsTable();
+      });
+
+      // Filter events
+      $('#searchInput').on('input', renderMeetingsTable);
+      $('#statusFilter').on('change', function () {
+        currentFilter = $(this).val();
+        ECMIS.setActiveKpi(document.getElementById('kpiCardsRow'), $(`.kpi-card[data-filter="${currentFilter}"]`)[0]);
+        renderMeetingsTable();
+      });
+
+      $('.kpi-card').on('click', function () {
+        ECMIS.setActiveKpi(document.getElementById('kpiCardsRow'), this);
+        currentFilter = $(this).data('filter');
+        $('#statusFilter').val(currentFilter);
+        renderMeetingsTable();
+      });
+
+      $('#btnClearFilter').on('click', function () {
+        $('#searchInput').val('');
+        $('#statusFilter').val('ALL');
+        currentFilter = 'ALL';
+        ECMIS.setActiveKpi(document.getElementById('kpiCardsRow'), $('.kpi-card[data-filter="ALL"]')[0]);
+        renderMeetingsTable();
+      });
+    });
+  </script>
+
+<script src="../shared-assets/case-bar.js"></script>
+<script src="../shared-assets/pipe-buttons.js"></script>
+<script src="../shared-assets/case-inbox.js"></script>
+</body>
+
+</html>

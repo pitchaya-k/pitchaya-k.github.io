@@ -1,0 +1,373 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9">
+  <diagram id="Bz5VQFNagag1g2bmLWpb" name="3.1 Context Diagram (Level 0)">
+    <mxGraphModel dx="3920" dy="1891" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="mKPV_CFn_f79UBCYbWop-1" value="DFD LEVEL 0" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="-160" y="-90" width="1800" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-2" value="&lt;div&gt;&lt;span style=&quot;text-align: left;&quot;&gt;E1&lt;/span&gt;&lt;/div&gt;&lt;span&gt;เลขาธิการคณะกรรมการ ป.ป.ท. (หรือรองเลขาฯ ปฏิบัติหน้าที่แทน)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="120" y="70" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-3" value="&lt;span&gt;รายงานการไต่สวนฯ&lt;/span&gt;ที่ลงนามแล้ว" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="480" y="130" width="190" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-4" value="สำนวนไต่สวนฯ/มติเรื่องทั่วไป" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="310" y="70" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-5" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;&quot;&gt;E2&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;&quot;&gt;คณะอนุกรรมการสนับสนุนเลขาธิการฯ&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="190" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-6" value="&lt;span&gt;สำนวนไต่สวนฯที่มีประเด็นซับซ้อนยุ่งยาก&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="430" y="190" width="240" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-7" value="&lt;span style=&quot;text-align: center;&quot;&gt;สำนวนไต่สวนฯที่กลั่นกรองและพิจารณาความเห็นแล้ว&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="360" y="210" width="310" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-8" value="&lt;span&gt;รายงานการไต่สวนฯเร่งด่วนที่ ผอ.กบค. ให้ความเห็นแล้ว&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="350" y="110" width="320" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-9" value="&lt;span&gt;รายงานการไต่สวนฯที่เห็นว่าซับซ้อนยุ่งยาก&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="420" y="90" width="250" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-10" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="mKPV_CFn_f79UBCYbWop-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="90" as="sourcePoint" />
+            <mxPoint x="730" y="40" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-11" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.4;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="mKPV_CFn_f79UBCYbWop-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="110" as="sourcePoint" />
+            <mxPoint x="730" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-12" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.163;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="130" as="sourcePoint" />
+            <mxPoint x="679.6800000000001" y="128.67999999999984" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-13" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.001;entryY=0.22;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="150" as="sourcePoint" />
+            <mxPoint x="679.8399999999999" y="149.19999999999982" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-14" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="210" as="sourcePoint" />
+            <mxPoint x="280.1" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-15" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.001;entryY=0.445;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="230" as="sourcePoint" />
+            <mxPoint x="679.8399999999999" y="230.19999999999982" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-16" value="&lt;div style=&quot;&quot;&gt;&lt;div&gt;E3&lt;/div&gt;ประธานกรรมการ ป.ป.ท.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="270" width="160" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-17" value="&lt;span&gt;ลงนามบรรจุวาระการประชุมคณะกรรมการ ป.ป.ท.&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="380" y="350" width="290" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-18" value="&lt;span style=&quot;background-color: transparent;&quot;&gt;ลงนามใน&lt;/span&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;บันทึกที่กองกราบฯเสนอมา&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="460" y="330" width="210" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-19" value="&lt;span&gt;ลงนามมอบหมาย/สั่งการผู้รับผิดชอบ&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="450" y="370" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-20" value="&lt;span&gt;บันทึกกองปราบฯเสนอนำเรียนต่อประธานกรรมการ ป.ป.ท.&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="310" y="290" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-21" value="&lt;span style=&quot;white-space: nowrap; background-color: rgb(255, 255, 255);&quot;&gt;สำนวนไต่สวนชี้มูลที่ไม่ซับซ้อนยุ่งยาก&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="420" y="310" width="250" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-22" value="สำนวนไต่สวนฯ/มติเรื่องทั่วไปที่เลขาฯลงนามแล้ว" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="310" y="270" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-23" value="&lt;span style=&quot;white-space: nowrap; background-color: rgb(255, 255, 255);&quot;&gt;พิจารณาความซับซ้อนยุ่งยากของสำนวนไต่สวนเพื่อชี้มูล&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="350" y="390" width="320" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-24" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.006;entryY=0.125;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="mKPV_CFn_f79UBCYbWop-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="290" as="sourcePoint" />
+            <mxPoint x="290" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-25" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" target="mKPV_CFn_f79UBCYbWop-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="310" as="sourcePoint" />
+            <mxPoint x="290" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-26" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.002;entryY=0.371;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="mKPV_CFn_f79UBCYbWop-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="330" as="sourcePoint" />
+            <mxPoint x="290" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-27" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.776;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="510.1399999999999" as="sourcePoint" />
+            <mxPoint x="679.6800000000001" y="509.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-28" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.834;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="370" as="sourcePoint" />
+            <mxPoint x="679.6800000000001" y="370.2399999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-29" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.005;entryY=0.888;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="390" as="sourcePoint" />
+            <mxPoint x="679.2" y="389.67999999999984" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-30" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.944;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="410" as="sourcePoint" />
+            <mxPoint x="680" y="409.84000000000015" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-31" value="&lt;div&gt;E4&lt;/div&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;กองบริหารคดี&lt;/span&gt; (กลุ่มงานคำวินิจฉัยและมติคณะกรรมการ)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="450" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-32" value="&lt;span&gt;จัดทำระเบียบวาระการประชุมและหนังสือเชิญประชุม&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="350" y="510" width="320" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-33" value="&lt;span&gt;ข้อมูลวาระการประชุม&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="350" y="470" width="320" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-34" value="รายงานมติการประชุม" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="350" y="490" width="320" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-35" value="&lt;span&gt;มติที่ประชุม&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="350" y="450" width="320" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-36" value="E-CMIS&lt;div&gt;&lt;span style=&quot;text-align: left;&quot;&gt;กิจกรรมที่ ๗&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left;&quot;&gt;ระบบบริหารจัดการกระบวนงานพิจารณาและดำเนินการตามมติคณะกรรมการ ป.ป.ท.&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="680" y="70" width="160" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-37" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.006;entryY=0.125;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="470" as="sourcePoint" />
+            <mxPoint x="281" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-38" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.006;entryY=0.125;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="490" as="sourcePoint" />
+            <mxPoint x="281" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-39" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.776;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="350.6399999999999" as="sourcePoint" />
+            <mxPoint x="689.6800000000001" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-40" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.776;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="530.6399999999999" as="sourcePoint" />
+            <mxPoint x="679.6800000000001" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-41" value="&lt;div&gt;E5&lt;/div&gt;&lt;div&gt;คณะกรรมการ ป.ป.ท.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="570" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-42" value="&lt;span&gt;ข้อมูลวาระการประชุม&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="325" y="570" width="345" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-43" value="&lt;span&gt;มติที่ประชุม&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="480" y="590" width="190" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-44" value="&lt;span&gt;รายงานวินิจฉัยชี้มูล&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="515" y="610" width="155" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-45" value="&lt;span&gt;ลงนามในรายงานวินิจฉัยชี้มูล&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="430" y="630" width="240" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-46" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.006;entryY=0.125;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="590" as="sourcePoint" />
+            <mxPoint x="281" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-47" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.776;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280.32" y="610.6399999999999" as="sourcePoint" />
+            <mxPoint x="680" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-48" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.776;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280.32" y="630.6399999999999" as="sourcePoint" />
+            <mxPoint x="680" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-49" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.776;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="650.6399999999999" as="sourcePoint" />
+            <mxPoint x="679.6800000000001" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-50" value="E-CMIS&lt;div&gt;&lt;span style=&quot;text-align: left;&quot;&gt;กิจกรรมที่ ๗&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left;&quot;&gt;ระบบบริหารจัดการกระบวนงานพิจารณาและดำเนินการตามมติคณะกรรมการ ป.ป.ท.&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="680" y="710" width="160" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-51" value="&lt;div style=&quot;&quot;&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;E6&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;กองบริหารคดี&lt;/span&gt; (กลุ่มงานกิจการคณะกรรมการ)&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="710" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-52" value="&lt;span&gt;จัดทำคำสั่งแต่งตั้งคณะอนุกรรมการไต่สวน&lt;/span&gt;&lt;span&gt;/คณะพนักงานไต่สวน&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="305" y="730" width="365" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-53" value="&lt;span&gt;รายการมติ&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="130" y="710" width="540" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-54" value="&lt;span style=&quot;text-align: center;&quot;&gt;จัดทำรายงานการไต่สวนเพิ่มเติมตามมติคณะกรรมการ ป.ป.ท.&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="305" y="770" width="365" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-55" value="&lt;span&gt;จัดทำรายงานวินิจฉัยชี้มูล เสนอคณะกรรมการ&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="360" y="750" width="310" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-56" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.006;entryY=0.125;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="679" y="730" as="sourcePoint" />
+            <mxPoint x="280" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-57" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.776;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="750.2199999999998" as="sourcePoint" />
+            <mxPoint x="679.6800000000001" y="749.5799999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-58" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.776;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="770.6399999999999" as="sourcePoint" />
+            <mxPoint x="679.6800000000001" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-59" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.776;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="790.6399999999999" as="sourcePoint" />
+            <mxPoint x="679.6800000000001" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-60" value="&lt;div style=&quot;&quot;&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;E7&lt;/span&gt;&lt;/div&gt;&lt;div&gt;ผู้อำนวยการกองบริหารคดี (ผอ.กบค.)&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="830" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-61" value="&lt;span style=&quot;text-align: center;&quot;&gt;สำนวนมีประเด็นซับซ้อนยุ่งยาก&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="470" y="830" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-62" value="&lt;span style=&quot;text-align: center;&quot;&gt;จ่ายงานให้กลุ่ม&lt;/span&gt;&lt;span lang=&quot;TH&quot;&gt;คณะอนุกรรมการสนับสนุนเลขาธิการฯ&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="360" y="870" width="310" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-63" value="&lt;span style=&quot;text-align: center;&quot;&gt;เรื่องเร่งด่วน&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="470" y="850" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-64" value="&lt;span style=&quot;text-align: center;&quot;&gt;ความเห็นกำกับมาด้วยเสมอว่าเหตุใดจึงเป็นเรื่องเร่งด่วน&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="340" y="890" width="330" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-65" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.006;entryY=0.125;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="679" y="850" as="sourcePoint" />
+            <mxPoint x="280" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-66" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.006;entryY=0.125;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="679" y="870" as="sourcePoint" />
+            <mxPoint x="280" y="870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-67" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.776;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="890.6399999999999" as="sourcePoint" />
+            <mxPoint x="679.6800000000001" y="890" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-68" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.776;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280.32" y="910.6399999999999" as="sourcePoint" />
+            <mxPoint x="680" y="910" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-69" value="&lt;div style=&quot;&quot;&gt;&lt;div&gt;E8&lt;/div&gt;หน่วยงานต้นเรื่อง/เจ้าของเรื่อง&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="950" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-70" value="&lt;span style=&quot;text-align: center;&quot;&gt;สำนวนไต่สวนฯ/มติเรื่องทั่วไป&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="305" y="970" width="365" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-71" value="&lt;span style=&quot;text-align: center;&quot;&gt;สำนวนไต่สวนฯ (กรณีเร่งด่วน)&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="305" y="990" width="365" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-72" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;มติคณะกรรมการ ป.ป.ท.&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="430" y="950" width="240" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-73" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.006;entryY=0.125;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="679" y="970" as="sourcePoint" />
+            <mxPoint x="280" y="970" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-74" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.776;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="990.3" as="sourcePoint" />
+            <mxPoint x="679.6800000000001" y="989.6600000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-75" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.776;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="1010.3" as="sourcePoint" />
+            <mxPoint x="679.6800000000001" y="1009.6600000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-76" value="&lt;div style=&quot;&quot;&gt;&lt;div&gt;E9&lt;/div&gt;กองบริหารคดี (กลุ่มงานบริหารคดีและ&lt;span style=&quot;text-align: start;&quot;&gt;บริหารทั่วไป&lt;/span&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;)&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1050" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-77" value="&lt;div&gt;E10&lt;/div&gt;&lt;span style=&quot;text-align: start;&quot;&gt;คณะอนุกรรมการกลั่นกรองเรื่องไต่สวนข้อเท็จจริง&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;fontSize=12;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="120" y="1130" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-78" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.006;entryY=0.125;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="679" y="1070" as="sourcePoint" />
+            <mxPoint x="280" y="1070" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-79" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.776;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280.32" y="1090.2199999999998" as="sourcePoint" />
+            <mxPoint x="680" y="1089.58" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-80" value="สำนวนไต่สวนฯที่ได้รับมอบหมาย" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="320" y="1050" width="350" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-81" value="มอบหมายสำนวนไต่สวนฯให้อนุกรรมการกลั่นกรองฯ" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="320" y="1070" width="350" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-82" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.006;entryY=0.125;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="679" y="1150" as="sourcePoint" />
+            <mxPoint x="280" y="1150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-83" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.776;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="1170.2199999999998" as="sourcePoint" />
+            <mxPoint x="679.6800000000001" y="1169.58" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-84" value="&lt;div&gt;&lt;span&gt;จัดทำหนังสือส่งมติของคณะอนุกรรมการฯ พร้อมสำนวนคดี&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="320" y="1150" width="350" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mKPV_CFn_f79UBCYbWop-85" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;สำนวนไต่สวนฯที่ได้รับมอบหมาย&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="320" y="1130" width="350" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

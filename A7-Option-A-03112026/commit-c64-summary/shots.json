@@ -1,0 +1,212 @@
+[
+  {
+    "file": "01-approval-review-secgen.png",
+    "path": "approval-review.html?case=9990%2F2569",
+    "user": "Apichat.S",
+    "status": "PENDING_SECGEN",
+    "final": "approval-review.html?case=9990%2F2569",
+    "role": "secgen",
+    "kase": [
+      "9990/2569",
+      "PENDING_SECGEN",
+      "7.1",
+      false
+    ],
+    "stored": "PENDING_SECGEN",
+    "found": [
+      {
+        "sel": "#summaryCard",
+        "ok": true
+      },
+      {
+        "sel": "#urgentBox72",
+        "ok": true
+      },
+      {
+        "sel": "#g1Box",
+        "ok": true
+      },
+      {
+        "sel": "#g1Outcome",
+        "ok": true
+      }
+    ],
+    "noPermission": []
+  },
+  {
+    "file": "02-approval-review-secgen-expanded.png",
+    "path": "approval-review.html?case=9990%2F2569",
+    "user": "Apichat.S",
+    "status": "PENDING_SECGEN",
+    "final": "approval-review.html?case=9990%2F2569",
+    "role": "secgen",
+    "kase": [
+      "9990/2569",
+      "PENDING_SECGEN",
+      "7.1",
+      false
+    ],
+    "stored": "PENDING_SECGEN",
+    "found": [
+      {
+        "sel": "#summaryCard",
+        "ok": true
+      }
+    ],
+    "noPermission": []
+  },
+  {
+    "file": "03-approval-review-deputy.png",
+    "path": "approval-review.html?case=9990%2F2569",
+    "user": "Prasert.T",
+    "status": "PENDING_DEPUTY",
+    "final": "approval-review.html?case=9990%2F2569",
+    "role": "deputy",
+    "kase": [
+      "9990/2569",
+      "PENDING_DEPUTY",
+      "7.1",
+      false
+    ],
+    "stored": "PENDING_DEPUTY",
+    "found": [
+      {
+        "sel": "#summaryCard",
+        "ok": true
+      }
+    ],
+    "noPermission": []
+  },
+  {
+    "file": "04-review-secgen.png",
+    "path": "review.html?case=9990%2F2569",
+    "user": "Apichat.S",
+    "status": "PENDING_SECGEN",
+    "final": "review.html?case=9990%2F2569",
+    "role": "secgen",
+    "kase": [
+      "9990/2569",
+      "PENDING_SECGEN",
+      "7.1",
+      false
+    ],
+    "stored": "PENDING_SECGEN",
+    "found": [
+      {
+        "sel": "#g1Box",
+        "ok": true
+      },
+      {
+        "sel": "#urgentBox72",
+        "ok": true
+      },
+      {
+        "sel": "#g1Outcome",
+        "ok": true
+      }
+    ],
+    "noPermission": []
+  },
+  {
+    "file": "05-ruling-report-chairman.png",
+    "path": "ruling-report.html?case=9990%2F2569",
+    "user": "Wichai.Y",
+    "status": "PENDING_SIGN_RULING_72",
+    "final": "ruling-report.html?case=9990%2F2569",
+    "role": "chairman",
+    "kase": [
+      "9990/2569",
+      "PENDING_SIGN_RULING_72",
+      "7.2",
+      false
+    ],
+    "stored": "PENDING_SIGN_RULING_72",
+    "found": [
+      {
+        "sel": "#chairSigBody",
+        "ok": true
+      }
+    ],
+    "noPermission": []
+  },
+  {
+    "file": "06-inbox-secgen.png",
+    "path": "inbox.html",
+    "user": "Apichat.S",
+    "status": "PENDING_SECGEN",
+    "final": "inbox.html",
+    "role": "secgen",
+    "kase": "n/a",
+    "stored": "PENDING_SECGEN",
+    "found": [
+      {
+        "sel": "#mockSummaryLinks",
+        "ok": true
+      }
+    ],
+    "noPermission": []
+  },
+  {
+    "file": "07-mock-01-7.3-partial.png",
+    "path": "approval-review-mock-01.html",
+    "user": "Apichat.S",
+    "status": null,
+    "final": "approval-review-mock-01.html",
+    "role": "secgen",
+    "kase": "n/a",
+    "stored": "n/a",
+    "found": [
+      {
+        "sel": "#mockSwitch",
+        "ok": true
+      },
+      {
+        "sel": "#summaryCard",
+        "ok": true
+      }
+    ],
+    "noPermission": []
+  },
+  {
+    "file": "08-mock-02-7.3-full.png",
+    "path": "approval-review-mock-02.html",
+    "user": "Apichat.S",
+    "status": null,
+    "final": "approval-review-mock-02.html",
+    "role": "secgen",
+    "kase": "n/a",
+    "stored": "n/a",
+    "found": [
+      {
+        "sel": "#summaryCard",
+        "ok": true
+      }
+    ],
+    "noPermission": []
+  },
+  {
+    "file": "09-mock-09-secgen-scenario.png",
+    "path": "approval-review-mock-09.html",
+    "user": "Apichat.S",
+    "status": null,
+    "final": "approval-review-mock-09.html",
+    "role": "secgen",
+    "kase": "n/a",
+    "stored": "n/a",
+    "found": [
+      {
+        "sel": "#mockSwitch",
+        "ok": true
+      },
+      {
+        "sel": ".text-danger.mt-2",
+        "ok": true
+      },
+      {
+        "sel": "#mockOutcome",
+        "ok": true
+      }
+    ],
+    "noPermission": []
+  }
+]

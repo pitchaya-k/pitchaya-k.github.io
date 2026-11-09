@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สรุปสำนวน (Mock วินิจฉัยชี้มูล 644 · ข้อมูลยังมาไม่ครบ) | E-CMIS</title>
+  <link rel="icon" type="image/png" href="assets/pacc_logo.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <link href="assets/ecmis-app.css" rel="stylesheet">
+  <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
+  <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+</head>
+
+<!-- หน้าจอ Mock การ์ดสรุปสำนวนของ approval-review.html — วินิจฉัยชี้มูล 644 · ข้อมูลยังมาไม่ครบ (ข้อมูลจำลอง ไม่เชื่อม API ไม่บันทึกข้อมูล)
+     ข้อมูล: assets/case-summary-mock-data.js · การ์ด: assets/case-summary-card.js · ตัวควบคุมหน้า: assets/case-summary-mock-page.js -->
+<body class="ws-std">
+
+  <main class="app-main">
+    <div class="page-head">
+      <div>
+        <h1><i class="fa-solid fa-user-check me-2"></i>สรุปสำนวน</h1>
+      </div>
+      <div class="ms-auto text-end">
+        <span class="flow-ref"></span>
+        <div class="mt-1" id="stBadge"></div>
+      </div>
+    </div>
+
+    <div class="ws-callout mb-3">
+      <i class="fa-solid fa-flask me-1"></i><strong>หน้าจอ Mock (Prototype) — วินิจฉัยชี้มูล 644 · ข้อมูลยังมาไม่ครบ</strong>
+      ข้อมูลในหน้านี้เป็นข้อมูลจำลองสำหรับทดลองหน้าตาการ์ดเท่านั้น ไม่ใช่ข้อมูลจริง ไม่เชื่อม API และไม่บันทึกข้อมูล
+    </div>
+
+    <div class="ws-card mb-3">
+      <div class="card-body" id="mockSwitch"></div>
+    </div>
+
+    <div class="ws-card mb-3" id="summaryCard" style="max-width:960px">
+      <div class="card-header"><i class="fa-solid fa-folder-open"></i> สรุปสำนวน</div>
+      <div class="card-body"></div>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
+  <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+  <script src="assets/case-summary-card.js?v=20261022d"></script>
+  <script src="assets/case-summary-mock-data.js?v=20261022d"></script>
+  <script src="assets/secgen-route-text.js?v=20261022d"></script>
+  <script>window.A7_MOCK_PAGE = { type: '644', state: 'partial' };</script>
+  <script src="assets/case-summary-mock-page.js?v=20261022d"></script>
+</body>
+
+</html>
