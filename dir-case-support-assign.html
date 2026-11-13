@@ -15,6 +15,7 @@
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <link href="assets/ecmis-livedoc.css?v=20261113" rel="stylesheet">
   <style>
     .team-option { border: 1px solid #d4ddeb; border-radius: 10px; padding: .7rem .85rem; cursor: pointer; transition: border-color .15s, background .15s; }
     .team-option:hover { border-color: #0F2A62; }
@@ -134,14 +135,15 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-livedoc.js?v=20261113"></script>
   <script src="../shared-assets/handoff.js"></script>
   <script src="../shared-assets/junctions.js"></script>
   <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
   <script src="assets/ecmis-model.js"></script>
   <script>
     /* ผอ.กบค. ออกเลขทะเบียนคุม + มอบหมายคณะอนุกรรมการสนับสนุนเลขาธิการฯ สำหรับสำนวนซับซ้อน (สาย 7.1/7.2)
-       ดู docs/memory/plans/2026-09-28-complex-case-dir-case-assign.md — ไม่มีทางตีกลับ เพราะอำนาจวินิจฉัย
+       ดู docs/memory/plans/2026-09-28-complex-case-dir-case-assign.md — ไม่มีทางปฏิเสธการรับ เพราะอำนาจวินิจฉัย
        ความซับซ้อนเป็นของเลขาธิการฯ ตาม ม.24 วรรคสาม ผอ.กบค. ทำหน้าที่ปฏิบัติการ (ออกเลข/จ่ายงาน) เท่านั้น */
     ECMIS.renderShell('dir-case-support-assign.html');
 
@@ -348,7 +350,7 @@
       <div class="doc-h mt-3">การดำเนินการของกองบริหารคดี</div>
       <div class="doc-body-indent">
         <div class="doc-row"><span class="k">เลขทะเบียนคุม</span> ${M(kase.supportControlNo ? T(kase.supportControlNo) : '', '(ออกเลขเมื่อ ผอ.กบค. ยืนยัน)')}</div>
-        <div class="doc-row"><span class="k">มอบหมาย</span> ${M(teamShown ? 'คณะอนุกรรมการสนับสนุนเลขาธิการฯ ' + T(teamShown) : '')}</div>
+        <div class="doc-row"><span class="k">มอบหมาย</span> ${M(teamShown ? 'คณะอนุกรรมการสนับสนุนเลขาธิการฯ ' + T(teamShown) : '', '', 'supportTeam')}</div>
         <div class="doc-row"><span class="k">วันที่มอบหมาย</span> ${M(assignedDate)}</div>
       </div>
       <div class="doc-sign">(${M(kase.supportControlNo ? dirCase.name : '')})<br>${M(dirCase.title)}</div>

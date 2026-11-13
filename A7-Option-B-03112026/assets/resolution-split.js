@@ -42,21 +42,23 @@
   /* ข้อความมติรายคน (HTML — ค่าที่ผู้ใช้พิมพ์ผ่าน M ซึ่ง escape แล้ว) */
   function personText(kind, p, ctx) {
     const M = ctx.M;
+    /* bind = id ช่องรายคนในฟอร์ม (rs{kind}_{idx}_reason / _law) ให้เอกสารขวา sync กับฟอร์มซ้าย */
+    const B = k => (ctx.idx == null ? undefined : `rs${kind}_${ctx.idx}_${k}`);
     if (kind === '71') {
       if (p.status === 'ACCEPT') return acceptText(ctx.acceptVariant);
       if (p.status === 'NO_GROUND') {
         return `ข้อกล่าวหาไม่มีมูล ให้ข้อกล่าวหานั้นเป็นอันตกไป ตามมาตรา ๓๒ แห่ง${ACT_LAW} และให้แจ้งผู้ถูกกล่าวหาทราบไม่ช้ากว่าสิบห้าวันนับแต่วันที่คณะกรรมการ ป.ป.ท. มีมติ`;
       }
-      return `ไม่รับไว้ไต่สวน เนื่องจาก ${M(p.reason, '……………………')} ตาม${ACT_LAW} มาตรา ${M(p.law, '…………')}`;
+      return `ไม่รับไว้ไต่สวน เนื่องจาก ${M(p.reason, '……………………', B('reason'))} ตาม${ACT_LAW} มาตรา ${M(p.law, '…………', B('law'))}`;
     }
     if (p.status === 'KKM_NO_APPEAL') {
       return 'เห็นชอบไม่อุทธรณ์คำพิพากษาของศาลอาญาคดีทุจริตและประพฤติมิชอบภาค 2 ตามความเห็นของพนักงานอัยการ เนื่องจากศาลได้มีคำพิพากษาลงโทษจำเลย เป็นไปตามฟ้องของพนักงานอัยการและสอดคล้องกับมติของคณะกรรมการ ป.ป.ท. ที่วินิจฉัยชี้มูลความผิดโดยชอบด้วยข้อเท็จจริงและข้อกฎหมายแล้ว';
     }
     if (p.status === 'KKM_NO_DIKA') return `เห็นชอบไม่ฎีกาคำพิพากษาของศาลอุทธรณ์ ตามความเห็นของพนักงานอัยการ เนื่องจาก ${M(p.reason, '……………………')}`;
     if (p.status === 'KKM_DISAGREE_AG') {
-      return `ไม่เห็นพ้องด้วยกับความเห็นของพนักงานอัยการ ${M(p.reason, '……………………')} และส่งเรื่องให้อัยการสูงสุด พิจารณาตามมาตรา 43 แห่ง${ACT_LAW} ต่อไป`;
+      return `ไม่เห็นพ้องด้วยกับความเห็นของพนักงานอัยการ ${M(p.reason, '……………………', B('reason'))} และส่งเรื่องให้อัยการสูงสุด พิจารณาตามมาตรา 43 แห่ง${ACT_LAW} ต่อไป`;
     }
-    return M(p.reason, '……………………………………');
+    return M(p.reason, '……………………………………', B('reason'));
   }
 
   function create(opts) {
@@ -221,14 +223,14 @@
       labelOf: s => cfg.statuses[s] || s,
       /* ส่วน "มติที่ประชุม" ข้อ ๑ ของเอกสารโหมดแยก */
       resolutionHtml(voteText, M) {
-        const ctx = { M, acceptVariant };
+        const ctx = { M, acceptVariant, idx: null };
         const one = activeIdx !== null ? perAccused[activeIdx] : null;
         if (one) {
           return `<div>๑. คณะกรรมการ ป.ป.ท. มีมติ${voteText}ในส่วนของ${M(one.name)}</div>
-          <div style="padding-left:1.5em">- ${personText(kind, one, ctx)}</div>`;
+          <div style="padding-left:1.5em">- ${personText(kind, one, { ...ctx, idx: activeIdx })}</div>`;
         }
         return `<div>๑. คณะกรรมการ ป.ป.ท. มีมติ${voteText}${kind === '73' ? 'รายจำเลย/ผู้ถูกกล่าวหา' : 'รายผู้ถูกกล่าวหา'} ดังนี้</div>
-          ${perAccused.map((p, i) => `<div style="padding-left:1.5em">(${M(String(i + 1))}) ${M(p.name)} — ${personText(kind, p, ctx)}</div>`).join('')}`;
+          ${perAccused.map((p, i) => `<div style="padding-left:1.5em">(${M(String(i + 1))}) ${M(p.name)} — ${personText(kind, p, { ...ctx, idx: i })}</div>`).join('')}`;
       },
       /* ตรวจก่อนบันทึก — คืนข้อความเตือน หรือ '' ถ้าผ่าน */
       validate() {

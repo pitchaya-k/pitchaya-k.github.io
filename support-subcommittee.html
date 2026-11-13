@@ -15,6 +15,7 @@
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <link href="assets/ecmis-livedoc.css?v=20261113" rel="stylesheet">
 </head>
 
 <body class="ws-std">
@@ -234,7 +235,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-livedoc.js?v=20261113"></script>
   <script src="assets/saraban-no.js?v=20261015-a7-saraban-off"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
@@ -621,15 +623,15 @@
             <div class="doc-indent">${M(kase.allegation)}</div>
 
             <div class="doc-h">ผลการพิจารณากลั่นกรองของคณะอนุกรรมการสนับสนุนเลขาธิการฯ</div>
-            <div class="doc-indent"><strong>${M(DEC_TXT[dec])}</strong></div>
+            <div class="doc-indent"><strong>${M(DEC_TXT[dec], '', 'supportDecision')}</strong></div>
 
             ${dec === 'DIFFER' ? `
             <div class="doc-h text-danger">ข้อกฎหมายและเหตุผลในการแย้งความเห็น</div>
-            ${lawTxt ? `<div class="doc-indent text-danger"><strong>ฐานกฎหมายอ้างอิง:</strong> ${M(lawTxt)}</div>` : ''}
-            <div class="doc-indent text-danger">${M(dissent, '…………………………………… (ระบุเหตุผลแย้งโดยละเอียด)')}</div>` : ''}
+            ${lawTxt ? `<div class="doc-indent text-danger"><strong>ฐานกฎหมายอ้างอิง:</strong> ${M(lawTxt, '', 'supportLaw')}</div>` : ''}
+            <div class="doc-indent text-danger">${M(dissent, '…………………………………… (ระบุเหตุผลแย้งโดยละเอียด)', 'dissentReason')}</div>` : ''}
 
             <div class="doc-h">ความเห็นและข้อสังเกตประกอบ</div>
-            <div class="doc-indent">${M(opinion, '…………………………………… (ระบุความเห็นกลั่นกรอง)')}</div>
+            <div class="doc-indent">${M(opinion, '…………………………………… (ระบุความเห็นกลั่นกรอง)', 'supportOpinion')}</div>
           </div>
 
           <div class="doc-sign" style="margin-top:2rem">
@@ -741,7 +743,7 @@
         }
         ECMIS.confirmAction({
           title: 'ส่งคืนสายงานต้นทาง (กจ.5)',
-          html: `<p>สำนวน <strong>${ECMIS.caseNo(kase)}</strong> จะถูกตีกลับไปยังหน่วยงานต้นทาง</p>`,
+          html: `<p>สำนวน <strong>${ECMIS.caseNo(kase)}</strong> จะถูกปฏิเสธการรับไปยังหน่วยงานต้นทาง</p>`,
           confirmText: 'ยืนยันส่งคืน'
         }).then(async res => {
           if (!res.isConfirmed) return;

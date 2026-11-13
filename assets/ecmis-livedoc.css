@@ -1,0 +1,66 @@
+/* E-CMIS Live Document — สไตล์โครงสองฝั่ง + จุดที่ผูกกับฟอร์ม (ไม่แตะขนาด/ระยะขอบของกระดาษเอกสาร) */
+
+/* ---- เส้นแบ่งฟอร์ม | เอกสาร ---- */
+@media (min-width: 1101px) {
+  .document-workspace.ld-split:not(.pane-collapsed):not(.ld-full-form):not(.ld-full-doc) {
+    grid-template-columns: minmax(380px, var(--ld-left, 1fr)) 16px minmax(380px, var(--ld-right, 1fr));
+    column-gap: .25rem;
+  }
+  .document-workspace.ld-split.ld-full-form:not(.pane-collapsed) { grid-template-columns: minmax(0, 1fr) 16px; column-gap: .25rem; }
+  .document-workspace.ld-split.ld-full-form:not(.pane-collapsed) > .ws-doc-pane { display: none; }
+  .document-workspace.ld-split.ld-full-doc:not(.pane-collapsed) { grid-template-columns: 16px minmax(0, 1fr); column-gap: .25rem; }
+  .document-workspace.ld-split.ld-full-doc:not(.pane-collapsed) > .ld-form-pane { display: none; }
+  .document-workspace.ld-split.ld-full-doc:not(.pane-collapsed) > .ld-divider { grid-column: 1; }
+}
+.ld-divider {
+  position: sticky; top: calc(var(--topbar-h, 56px) + 14px);
+  align-self: start; height: min(70vh, 520px);
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  gap: .4rem; padding: .25rem 0; cursor: col-resize; user-select: none; touch-action: none;
+  border-radius: 8px; transition: background .15s;
+}
+.ld-divider:hover, .ld-divider:focus-visible, .document-workspace.ld-dragging .ld-divider { background: rgba(8, 43, 80, .07); outline: none; }
+.ld-divider:focus-visible { box-shadow: 0 0 0 3px #c9a227; }
+.ld-divider .ld-grip { flex: 1; width: 4px; border-radius: 3px; background: #c4ced9; min-height: 40px; }
+.ld-divider:hover .ld-grip, .document-workspace.ld-dragging .ld-grip { background: #082b50; }
+.ld-divider .ld-exp {
+  display: grid; place-items: center; width: 22px; height: 22px; padding: 0; flex: none;
+  border: 1px solid #c9d3dd; border-radius: 6px; background: #f7f9fb; color: #44586c; font-size: .7rem; cursor: pointer;
+}
+.ld-divider .ld-exp:hover, .ld-divider .ld-exp.is-on { background: #082b50; border-color: #082b50; color: #fff; }
+.ld-divider .ld-exp:focus-visible { outline: 3px solid #c9a227; outline-offset: 1px; }
+.document-workspace.ld-dragging { cursor: col-resize; user-select: none; }
+.document-workspace.ld-dragging .ws-paper-stage { pointer-events: none; }
+@media (max-width: 1100px) { .ld-divider { display: none; } }
+
+/* ---- แถบสถานะซิงก์บนแผงเอกสาร ---- */
+.ld-sync-bar {
+  display: flex; align-items: center; gap: .5rem; margin: 0 0 .4rem; padding: .3rem .6rem;
+  border: 1px solid #dbe5d6; border-radius: 8px; background: #f3f9f0; color: #2f5d1f; font-size: .76rem; line-height: 1.35;
+}
+.ld-sync-bar i { flex: none; }
+.ld-sync-bar b { font-weight: 700; }
+
+/* ---- จุดที่ผูกกับฟอร์มในเอกสาร ---- */
+.ws-doc-pane .ld-bind { white-space: pre-wrap; border-radius: 2px; transition: background .15s, box-shadow .15s; }
+.ws-doc-pane .ld-bind.is-editable {
+  cursor: text; outline: none; background: rgba(250, 204, 21, .12); border-bottom: 1px dashed rgba(161, 98, 7, .75);
+}
+.ws-doc-pane .ld-bind.is-editable:hover { background: rgba(250, 204, 21, .26); }
+.ws-doc-pane .ld-bind.is-editable:focus { background: rgba(250, 204, 21, .32); box-shadow: 0 0 0 2px rgba(202, 166, 49, .55); }
+.ws-doc-pane .ld-bind.is-editable:empty { display: inline-block; min-width: 8em; vertical-align: bottom; }
+.ws-doc-pane .ld-bind.is-editable:empty::before { content: attr(data-ph); color: #8a97a6; font-size: .8em; font-style: italic; pointer-events: none; }
+.ws-doc-pane .ld-bind.is-linked:not(.is-editable) { cursor: pointer; border-bottom: 1px dotted rgba(11, 58, 111, .45); }
+.ws-doc-pane .ld-bind.is-linked:not(.is-editable):hover { background: rgba(11, 58, 111, .08); }
+.ws-doc-pane .ld-bind.is-linked:not(.is-editable):empty { display: inline-block; min-width: 6em; vertical-align: bottom; }
+.ws-doc-pane .ld-bind.is-focus-linked { background: #fff3bf !important; box-shadow: 0 0 0 2px #f59f00; }
+.ld-flash { animation: ldFlash 1.2s ease-out; }
+@keyframes ldFlash { 0% { background-color: #ffe08a; box-shadow: 0 0 0 3px rgba(245, 159, 0, .55); } 100% { box-shadow: 0 0 0 0 rgba(245, 159, 0, 0); } }
+@media (prefers-reduced-motion: reduce) { .ld-flash { animation: none; } }
+
+/* ---- พิมพ์ / ส่งออก: ไม่แสดงเส้นประและตัวช่วย ---- */
+@media print {
+  .ld-divider, .ld-sync-bar { display: none !important; }
+  .ws-doc-pane .ld-bind { background: none !important; border: 0 !important; box-shadow: none !important; }
+  .ws-doc-pane .ld-bind:empty::before { content: none !important; }
+}

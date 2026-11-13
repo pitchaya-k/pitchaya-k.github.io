@@ -15,6 +15,7 @@
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <link href="assets/ecmis-livedoc.css?v=20261113" rel="stylesheet">
   <style>
     /* Task 274: 7.3 หลังมีมติ — ซ้ายเหลือการ์ดแจ้งมติ/ปิดเรื่อง, เอกสารอ่านอย่างเดียว, ไม่มีแถบล่าง */
     body.res-closure-view #formCol > :not(#closurePanel):not(#closureExtras) { display: none !important; }
@@ -279,7 +280,8 @@
   <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3/build/docxtemplater.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-livedoc.js?v=20261113"></script>
   <script src="assets/resolution-split.js?v=20261014-a7-split2"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
@@ -919,7 +921,7 @@
       function runningHeaderHtml(pageNo) {
         return `
     <div class="doc-run-title">มติการประชุมคณะกรรมการ ป.ป.ท.${splitOne ? ` (${M(splitOne.p.name)})` : ''}<br>
-      ครั้งที่ ${M(meetNo)} วันที่ ${M(meetDate)}<br>วาระที่ ${M(agendaNo)}</div>
+      ครั้งที่ ${M(meetNo, '', 'meetNo')} วันที่ ${M(meetDate, '', 'meetDate')}<br>วาระที่ ${M(agendaNo, '', 'agendaNo')}</div>
     <div class="doc-secret">ลับ</div>
     <div class="doc-run-page">- ${ECMIS.toThaiDigits(pageNo)} -</div>`;
       }
@@ -934,12 +936,12 @@
       <div class="doc-title-l1">มติการประชุม</div>
       <div class="doc-title-l2">คณะกรรมการป้องกันและปราบปรามการทุจริตในภาครัฐ</div>
     </div>
-    <div class="doc-sub">ครั้งที่ ${M(meetNo)} วันที่ ${M(meetDate)}<br>วาระที่ ${M(agendaNo)}</div>
+    <div class="doc-sub">ครั้งที่ ${M(meetNo, '', 'meetNo')} วันที่ ${M(meetDate, '', 'meetDate')}<br>วาระที่ ${M(agendaNo, '', 'agendaNo')}</div>
 
-    <div class="doc-row"><span class="k">เรื่อง</span> ${M(curSubject)}</div>
-    <div class="doc-row"><span class="k">ผู้รับผิดชอบ</span> ${M(curOwners)}</div>
-    <div class="doc-row"><span class="k">สังกัด</span> ${M(ownerOrg)}</div>
-    <div class="doc-row"><span class="k">ผู้ชี้แจง</span> ${M(presenter)}</div>
+    <div class="doc-row"><span class="k">เรื่อง</span> ${M(curSubject, '', 'caseSubject')}</div>
+    <div class="doc-row"><span class="k">ผู้รับผิดชอบ</span> ${M(curOwners, '', 'caseOwnersField')}</div>
+    <div class="doc-row"><span class="k">สังกัด</span> ${M(ownerOrg, '', 'ownerOrgField')}</div>
+    <div class="doc-row"><span class="k">ผู้ชี้แจง</span> ${M(presenter, '', 'presenter')}</div>
     <div class="doc-row"><span class="k">เอกสารอ้างอิง</span> หนังสือหน่วยงานที่รับผิดชอบตามเอกสาร
       ${M(kase.docRef !== '—' ? kase.docRef : '', 'ที่ ปป …………/……… ลงวันที่ ……………')} และเอกสารประกอบการประชุม</div>`;
 
@@ -956,8 +958,8 @@
     </div>
     <div class="doc-sign" style="margin-top:14px">
       <span class="doc-dots"></span><br>
-      (${M(signerName)})<br>
-      ${M(signerTitle)}
+      (${M(signerName, '', 'signerName')})<br>
+      ${M(signerTitle, '', 'signerTitle')}
     </div>
     <div class="doc-sign" style="margin-top:14px">
       <span class="doc-dots"></span><br>
@@ -973,9 +975,9 @@
          มติที่ประชุม + รับรองมติ (ข้อ ๒ เสมอ ไม่มีเงื่อนไข ม.62/ม.65 แบบ 7.1) */
       const flowBlocks = (resKind === 'legal73' || resKind === 'general73') ? [
         bi(`<div class="doc-indent" style="margin-top:4px">
-        ${M(presenter)} ${M(ownerOrg)} กล่าวต่อที่ประชุมว่า
+        ${M(presenter, '', 'presenter')} ${M(ownerOrg, '', 'ownerOrgField')} กล่าวต่อที่ประชุมว่า
       </div>`),
-        bi(`<div class="doc-indent" style="margin-top:6px">${M(agendaDetails, curSubject)}</div>`),
+        bi(`<div class="doc-indent" style="margin-top:6px">${M(agendaDetails, curSubject, 'agendaDetails')}</div>`),
         bi(`<div class="doc-h">มติที่ประชุม</div>
     ${split ? resSplit.resolutionHtml(M(unanimous ? 'เป็นเอกฉันท์' : `ด้วยคะแนนเสียงข้างมาก ${t.forV} ต่อ ${t.againstV} เสียง`), M)
       : `<div>๑. คณะกรรมการ ป.ป.ท. มีมติ${M(unanimous ? 'เป็นเอกฉันท์' : `ด้วยคะแนนเสียงข้างมาก ${t.forV} ต่อ ${t.againstV} เสียง`)} ${M(resText)}</div>`}`),
@@ -983,17 +985,17 @@
       (มีกรรมการเห็นแย้ง ${t.againstV} ท่าน — บันทึกความเห็นแย้งพร้อมเหตุผลไว้ในรายงานการประชุมตาม ม.๑๖)</div>`)] : []),
         ...(t.recused > 0 ? [bi(`<div style="padding-left:1.5em;color:#6b3fa0">
       (กรรมการที่ขอถอนตัวจากการพิจารณาวาระนี้ตาม ม.๒๐ จำนวน ${t.recused} ท่าน)</div>`)] : []),
-        bi(`<div style="margin-top:3px">๒. รับรองมติการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meetNo)}
-      วันที่ ${M(meetDate)} วาระที่ ${M(agendaNo)}</div>`)
+        bi(`<div style="margin-top:3px">๒. รับรองมติการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meetNo, '', 'meetNo')}
+      วันที่ ${M(meetDate, '', 'meetDate')} วาระที่ ${M(agendaNo, '', 'agendaNo')}</div>`)
       ] : [
         bi(kase.subCommittee ? `<div class="doc-indent" style="margin-top:4px">
-        ${M(presenter)} ในฐานะฝ่ายเลขานุการคณะอนุกรรมการกลั่นกรอง เรื่อง รายงานผลการรวบรวมพยานหลักฐาน
+        ${M(presenter, '', 'presenter')} ในฐานะฝ่ายเลขานุการคณะอนุกรรมการกลั่นกรอง เรื่อง รายงานผลการรวบรวมพยานหลักฐาน
         ไต่สวนเบื้องต้นและรายงานการไต่สวนเพื่อวินิจฉัยชี้มูลเพื่อเสนอคณะกรรมการ ป.ป.ท. ${M(kase.subCommittee)}
         เสนอรายงานการไต่สวนเบื้องต้นที่ผ่านการพิจารณาของคณะอนุกรรมการกลั่นกรอง เรื่อง รายงานผลการรวบรวม
         พยานหลักฐานไต่สวนเบื้องต้นและรายงานการไต่สวนเพื่อวินิจฉัยชี้มูลเพื่อเสนอคณะกรรมการ ป.ป.ท. ${M(kase.subCommittee)}
         ต่อที่ประชุมคณะกรรมการ ป.ป.ท. ดังนี้
       </div>` : `<div class="doc-indent" style="margin-top:4px">
-        ${M(presenter)} ${M(ownerOrg)} เสนอรายงานการไต่สวนเบื้องต้นที่ผ่านการพิจารณา
+        ${M(presenter, '', 'presenter')} ${M(ownerOrg, '', 'ownerOrgField')} เสนอรายงานการไต่สวนเบื้องต้นที่ผ่านการพิจารณา
         เลขาธิการคณะกรรมการ ป.ป.ท. ต่อที่ประชุมคณะกรรมการ ป.ป.ท. ดังนี้
       </div>`),
         bi(`<div style="margin-top:4px">๑. เรื่องที่ ${M(ECMIS.caseNo(kase))}${splitOne ? `/${ECMIS.toThaiDigits(splitOne.idx + 1)}` : ''}
@@ -1008,10 +1010,10 @@
         ...(split ? resSplit.docAccused() : kase.accused).map(a => bi(`<div>${a.no}. ${M(a.name)} ${M(a.pos)} ${M(a.agency)}</div>`)),
         bi(`<div class="doc-h">ข้อกล่าวหา</div><div class="doc-indent">${M(kase.allegation)}</div>`),
         bi(`<div class="doc-h">การชี้แจงเพิ่มเติม</div>
-      <div class="doc-indent">ผู้ชี้แจง (${M(presenter)}) ชี้แจงเพิ่มเติมว่า
-        ${M(presenterNote, '………………………………………………………………………………………………')}</div>`),
+      <div class="doc-indent">ผู้ชี้แจง (${M(presenter, '', 'presenter')}) ชี้แจงเพิ่มเติมว่า
+        ${M(presenterNote, '………………………………………………………………………………………………', 'presenterNote')}</div>`),
         bi(`<div class="doc-indent" style="margin-top:3px">
-        ในการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meetNo)} วันที่ ${M(meetDate)}
+        ในการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meetNo, '', 'meetNo')} วันที่ ${M(meetDate, '', 'meetDate')}
         คณะกรรมการ ป.ป.ท. ที่มาประชุม จำนวน ${attendees.length} คน ประกอบด้วย</div>`),
         bi(`<div class="doc-indent">${attendees.map((b, i) => `${i + 1}. ${M(b.n)} ${M(b.r)}`).join('<br>')}</div>`),
         ...(recusedList.length ? [
@@ -1031,7 +1033,7 @@
         ] : []),
         bi(`<div class="doc-h">ความเห็นที่ประชุม</div>
       <div class="doc-indent">คณะกรรมการ ป.ป.ท. พิจารณาแล้วเห็นว่า
-        ${M(opinion, '………………………………………………………………………………………………')}</div>`),
+        ${M(opinion, '………………………………………………………………………………………………', 'boardOpinion')}</div>`),
         ...(kase.subCommittee ? [bi(`<div class="doc-indent" style="margin-top:3px">
         เหตุผลในการวินิจฉัยคณะกรรมการ ป.ป.ท. มีความเห็นสอดคล้องกับผู้รับผิดชอบสำนวนและคณะอนุกรรมการกลั่นกรอง
         เรื่อง รายงานผลการรวบรวมพยานหลักฐานไต่สวนเบื้องต้นและรายงานการไต่สวนเพื่อวินิจฉัยชี้มูล
@@ -1045,8 +1047,8 @@
         ...(t.recused > 0 ? [bi(`<div style="padding-left:1.5em;color:#6b3fa0">
       (กรรมการที่ขอถอนตัวจากการพิจารณาวาระนี้ตาม ม.๒๐ จำนวน ${t.recused} ท่าน)</div>`)] : []),
         ...(s65 ? [bi(s65)] : []),
-        bi(`<div style="margin-top:3px">${lastNo}. รับรองมติการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meetNo)}
-      วันที่ ${M(meetDate)} วาระที่ ${M(agendaNo)}</div>`)
+        bi(`<div style="margin-top:3px">${lastNo}. รับรองมติการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meetNo, '', 'meetNo')}
+      วันที่ ${M(meetDate, '', 'meetDate')} วาระที่ ${M(agendaNo, '', 'agendaNo')}</div>`)
       ];
 
       ECMIS.paginateResolutionDoc(document.getElementById('docPaper'),
@@ -1065,7 +1067,7 @@
       syncForwardFromRes(); toggleBoxes(); renderOutcome(); renderDoc();
     });
     syncForwardFromRes();
-    ['meetNo', 'meetDate', 'agendaNo', 'boardOpinion', 'ownerOrgField', 'presenter', 'presenterNote', 'signerName', 'signerTitle', 'rejectLaw', 'moreTask', 'moreOwner', 'moreDue', 'forwardTo', 'forwardToOther', 'otherResText']
+    ['meetNo', 'meetDate', 'agendaNo', 'boardOpinion', 'caseOwnersField', 'ownerOrgField', 'presenter', 'presenterNote', 'signerName', 'signerTitle', 'rejectLaw', 'moreTask', 'moreOwner', 'moreDue', 'forwardTo', 'forwardToOther', 'otherResText']
       .forEach(id => {
         const el = document.getElementById(id); if (el) {
           el.addEventListener('input', () => { renderOutcome(); renderDoc(); });

@@ -16,6 +16,7 @@
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <link href="assets/ecmis-livedoc.css?v=20261113" rel="stylesheet">
   <style>
     .meet-confirmed{display:inline-flex;align-items:center;gap:.25rem;padding:.15rem .5rem;border-radius:999px;font-size:.68rem;font-weight:600;color:#1e6141;background:#dff0e7}
     .doc-memo-hdr{font-size:16pt;line-height:1.25;margin:3pt 0 0}
@@ -200,7 +201,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-livedoc.js?v=20261113"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
@@ -439,13 +441,13 @@
         <img src="assets/doc_logo.jpg" alt="ตราครุฑ" style="position:absolute;top:0;left:0;height:52px">
         <div class="doc-title" style="font-size:22px;margin-top:0">บันทึกข้อความ</div>
       </div>
-      <div class="doc-memo-hdr"><span class="doc-memo-lbl">ส่วนราชการ</span> ${org} โทร. ${M(contactTel, '……………')}</div>
-      <div class="doc-memo-hdr"><span class="doc-memo-lbl">ที่</span> ${M(inviteNo, 'ปป ๐๐๐๔/……')}&nbsp;&nbsp;&nbsp;&nbsp;<span class="doc-memo-lbl" style="min-width:auto">วันที่</span> ${M(inviteDateThai, '……………………')}</div>
+      <div class="doc-memo-hdr"><span class="doc-memo-lbl">ส่วนราชการ</span> ${org} โทร. ${M(contactTel, '……………', 'contactTel')}</div>
+      <div class="doc-memo-hdr"><span class="doc-memo-lbl">ที่</span> ${M(inviteNo, 'ปป ๐๐๐๔/……', 'inviteNo')}&nbsp;&nbsp;&nbsp;&nbsp;<span class="doc-memo-lbl" style="min-width:auto">วันที่</span> ${M(inviteDateThai, '……………………', 'inviteDate')}</div>
       <div class="doc-memo-hdr"><span class="doc-memo-lbl">เรื่อง</span> ${subject}</div>`;
 
         const openLine = `ด้วยคณะกรรมการ ป.ป.ท. ได้มีมติให้มีการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meeting.trc_name)}
-        ในวันที่ ${M(meetDate)} เวลา ${M(meetTime, '……… น.')} เป็นต้นไป โดยเป็นการประชุม
-        ณ ${M(meetPlace, 'ห้องประชุมสำนักงาน ป.ป.ท.')}`;
+        ในวันที่ ${M(meetDate)} เวลา ${M(meetTime, '……… น.', 'meetTime')} เป็นต้นไป โดยเป็นการประชุม
+        ณ ${M(meetPlace, 'ห้องประชุมสำนักงาน ป.ป.ท.', 'meetPlace')}`;
 
         const runningHeader = subjectLine => pageNo => `
       <div class="doc-run-title">${subjectLine} (ต่อ)</div>
@@ -460,8 +462,8 @@
       <div class="doc-title" style="margin-bottom:0">ระเบียบวาระ</div>
       <div class="doc-sub" style="margin-bottom:0">การประชุมคณะกรรมการ ป.ป.ท.</div>
       <div class="doc-sub" style="margin-bottom:0">ครั้งที่ ${M(meeting.trc_name)}</div>
-      <div class="doc-sub" style="margin-bottom:0">วัน${dayName}ที่ ${M(meetDate)} เวลา ${M(meetTime, '……… น.')} เป็นต้นไป</div>
-      <div class="doc-sub" style="margin-bottom:0">ณ ${M(meetPlace, 'ห้องประชุมสำนักงาน ป.ป.ท.')}</div>
+      <div class="doc-sub" style="margin-bottom:0">วัน${dayName}ที่ ${M(meetDate)} เวลา ${M(meetTime, '……… น.', 'meetTime')} เป็นต้นไป</div>
+      <div class="doc-sub" style="margin-bottom:0">ณ ${M(meetPlace, 'ห้องประชุมสำนักงาน ป.ป.ท.', 'meetPlace')}</div>
       <div class="doc-sub">การประชุมผ่านสื่ออิเล็กทรอนิกส์ (Web Conference)</div>
 
       <div class="doc-h" style="margin-top:16px">ระเบียบวาระที่ 1&emsp;เรื่องที่ประธานแจ้งให้ที่ประชุมทราบ</div>
@@ -483,7 +485,7 @@
           const signBlock = `
       <div class="doc-h" style="margin-top:16px">ระเบียบวาระที่ 6&emsp;เรื่องอื่น ๆ</div>
       <div class="doc-indent" style="text-indent:2em">พิจารณากำหนดวัน เวลา ในการประชุมครั้งต่อไป</div>
-      <div style="text-align:right;margin-top:28px">(${M(signerName)})<br>${signerTitle}</div>`;
+      <div style="text-align:right;margin-top:28px">(${M(signerName, '', 'signerName')})<br>${M(signerTitle, '', 'signerTitle')}</div>`;
           ECMIS.paginateDoc(docPaperEl, {
             introBlock, flowBlocks, signBlock,
             runningHeaderHtml: runningHeader(`ระเบียบวาระการประชุม ครั้งที่ ${M(meeting.trc_name)}`)
@@ -502,13 +504,13 @@
             `<div class="doc-indent" style="margin-top:8px">
         ในการนี้ เพื่อให้เป็นไปตามระเบียบคณะกรรมการป้องกันและปราบปรามการทุจริตในภาครัฐ ว่าด้วยการประชุมคณะกรรมการ ป.ป.ท.
         และที่แก้ไขเพิ่มเติม กองบริหารคดีจึงขอเสนอระเบียบวาระการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meeting.trc_name)}
-        ในวันที่ ${M(meetDate)} เวลา ${M(meetTime, '……… น.')} รายละเอียดปรากฏตามระเบียบวาระการประชุมที่แนบมาพร้อมนี้
+        ในวันที่ ${M(meetDate)} เวลา ${M(meetTime, '……… น.', 'meetTime')} รายละเอียดปรากฏตามระเบียบวาระการประชุมที่แนบมาพร้อมนี้
       </div>`
           ];
           const signBlock = `
       <div class="doc-indent" style="margin-top:8px">จึงเรียนมาเพื่อโปรดพิจารณา</div>
       <div class="doc-sign">
-        <span class="doc-dots"></span><br>(${M(signerName)})<br>${signerTitle}
+        <span class="doc-dots"></span><br>(${M(signerName, '', 'signerName')})<br>${M(signerTitle, '', 'signerTitle')}
       </div>
       <div class="doc-row" style="margin-top:20px;font-size:.85rem;color:#666">
         → เรียน เลขาธิการคณะกรรมการ ป.ป.ท. เพื่อโปรดพิจารณาให้ความเห็นชอบระเบียบวาระการประชุมข้างต้น
@@ -535,7 +537,7 @@
           const signBlock = `
       <div class="doc-indent" style="margin-top:8px">จึงเรียนมาเพื่อโปรดพิจารณา และขอเรียนเชิญเข้าร่วมประชุมตามวัน และเวลาดังกล่าว</div>
       <div class="doc-sign">
-        <span class="doc-dots"></span><br>(${M(signerName)})<br>${signerTitle}
+        <span class="doc-dots"></span><br>(${M(signerName, '', 'signerName')})<br>${M(signerTitle, '', 'signerTitle')}
       </div>`;
           ECMIS.paginateDoc(docPaperEl, { introBlock, flowBlocks, signBlock, runningHeaderHtml: runningHeader(subject) });
 
@@ -544,9 +546,9 @@
           const subject = `ขอเรียนเชิญประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meeting.trc_name)}`;
           const introBlock = `
       <div style="text-align:center;margin-bottom:8px"><img src="assets/doc_logo.jpg" alt="ตราครุฑ" style="height:60px"></div>
-      <div class="doc-row" style="text-align:right">${M(inviteNo, 'ที่ ปป .../...')} สำนักงาน ป.ป.ท.</div>
+      <div class="doc-row" style="text-align:right">${M(inviteNo, 'ที่ ปป .../...', 'inviteNo')} สำนักงาน ป.ป.ท.</div>
       <div class="doc-row" style="text-align:right">อาคารซอฟต์แวร์ปาร์ค ถนนแจ้งวัฒนะ ตำบลคลองเกลือ อำเภอปากเกร็ด</div>
-      <div class="doc-row" style="text-align:right;margin-bottom:10px">จังหวัดนนทบุรี ๑๑๑๒๐&nbsp;&nbsp;&nbsp;&nbsp;${M(inviteDateThai, '……………………')}</div>
+      <div class="doc-row" style="text-align:right;margin-bottom:10px">จังหวัดนนทบุรี ๑๑๑๒๐&nbsp;&nbsp;&nbsp;&nbsp;${M(inviteDateThai, '……………………', 'inviteDate')}</div>
       <div class="doc-row"><span class="k">เรื่อง</span> ${subject}</div>
       <div class="doc-row"><span class="k">เรียน</span> เลขาธิการคณะกรรมการ ป.ป.ช. ในฐานะกรรมการ ป.ป.ท.</div>
       <div class="doc-row"><span class="k">สิ่งที่ส่งมาด้วย</span> ระเบียบวาระการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meeting.trc_name)}</div>`;
@@ -561,10 +563,10 @@
       <div class="doc-indent" style="margin-top:8px">จึงเรียนมาเพื่อโปรดพิจารณา และขอเรียนเชิญเข้าร่วมประชุมตามวัน และเวลาดังกล่าว</div>
       <div class="doc-sign" style="margin-top:24px">
         ขอแสดงความนับถือ<br><br>
-        <span class="doc-dots"></span><br>(${M(signerName)})<br>${signerTitle}
+        <span class="doc-dots"></span><br>(${M(signerName, '', 'signerName')})<br>${M(signerTitle, '', 'signerTitle')}
       </div>
       <div class="doc-row" style="margin-top:24px;font-size:.85rem">กองบริหารคดี สำนักงาน ป.ป.ท.</div>
-      <div class="doc-row" style="font-size:.85rem">โทร. ${M(contactTel, '0 2502 6670 ต่อ 4313')}</div>`;
+      <div class="doc-row" style="font-size:.85rem">โทร. ${M(contactTel, '0 2502 6670 ต่อ 4313', 'contactTel')}</div>`;
           ECMIS.paginateDoc(docPaperEl, { introBlock, flowBlocks, signBlock, runningHeaderHtml: runningHeader(subject) });
 
         } else if (docTab === 'invite-dept') {
@@ -572,7 +574,7 @@
           const subject = `ขอเรียนเชิญประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meeting.trc_name)}`;
           const introBlock = `
       ${memoHead('กองบริหารคดี กลุ่มงานคำวินิจฉัยและมติคณะกรรมการ', subject)}
-      <div class="doc-memo-hdr" style="margin-top:6px"><span class="doc-memo-lbl">เรียน</span> ผู้อำนวยการกอง/เขต ${M(deptRecipient, '............................')}</div>`;
+      <div class="doc-memo-hdr" style="margin-top:6px"><span class="doc-memo-lbl">เรียน</span> ผู้อำนวยการกอง/เขต ${M(deptRecipient, '............................', 'deptRecipient')}</div>`;
           const flowBlocks = [
             `<div class="doc-indent" style="margin-top:10px">${openLine}</div>`,
             `<div class="doc-indent" style="margin-top:8px">
@@ -584,7 +586,7 @@
           const signBlock = `
       <div class="doc-indent" style="margin-top:8px">จึงเรียนมาเพื่อโปรดทราบ และพิจารณาดำเนินการต่อไป</div>
       <div class="doc-sign">
-        <span class="doc-dots"></span><br>(${M(signerName)})<br>${signerTitle}
+        <span class="doc-dots"></span><br>(${M(signerName, '', 'signerName')})<br>${M(signerTitle, '', 'signerTitle')}
       </div>`;
           ECMIS.paginateDoc(docPaperEl, { introBlock, flowBlocks, signBlock, runningHeaderHtml: runningHeader(subject) });
 
@@ -608,7 +610,7 @@
           const signBlock = `
       <div class="doc-indent" style="margin-top:8px">จึงเรียนมาเพื่อโปรดพิจารณาดำเนินการต่อไป</div>
       <div class="doc-sign">
-        <span class="doc-dots"></span><br>(${M(signerName)})<br>${signerTitle}
+        <span class="doc-dots"></span><br>(${M(signerName, '', 'signerName')})<br>${M(signerTitle, '', 'signerTitle')}
       </div>`;
           ECMIS.paginateDoc(docPaperEl, { introBlock, flowBlocks, signBlock, runningHeaderHtml: runningHeader(subject) });
         }

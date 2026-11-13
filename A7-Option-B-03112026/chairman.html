@@ -15,6 +15,7 @@
     <link href="assets/ecmis-app.css" rel="stylesheet">
     <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
     <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <link href="assets/ecmis-livedoc.css?v=20261113" rel="stylesheet">
     <style>
         .document-workspace {
             display: grid !important;
@@ -224,7 +225,8 @@
     <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3/build/docxtemplater.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
     <script src="../cases.js"></script>
-    <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+    <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-livedoc.js?v=20261113"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
@@ -476,7 +478,7 @@
                 ];
             }
             return [
-                { act: 'return', label: 'ตีกลับให้แก้ไข', icon: 'fa-arrow-left-long', cls: 'btn-outline-danger' },
+                { act: 'return', label: 'ปฏิเสธการรับให้แก้ไข', icon: 'fa-arrow-left-long', cls: 'btn-outline-danger' },
                 { act: 'sign', label: ECMIS.isUrgentAgendaCase(kase) ? 'ลงนามสั่งบรรจุวาระด่วน' : 'ลงนามดิจิทัลคำสั่ง (2-Step)', icon: 'fa-signature', cls: 'btn-gold' }
             ];
         }
@@ -513,15 +515,15 @@
             }
             if (act === 'return') {
                 ECMIS.confirmAction({
-                    title: 'ตีกลับให้แก้ไข', danger: true, icon: 'warning',
-                    html: `<label class="form-label">เหตุผลการตีกลับสำนวน <span style="color:#DB2626">*</span></label>
+                    title: 'ปฏิเสธการรับให้แก้ไข', danger: true, icon: 'warning',
+                    html: `<label class="form-label">เหตุผลการปฏิเสธการรับสำนวน <span style="color:#DB2626">*</span></label>
                            <textarea id="swal-note" class="form-control" rows="3" placeholder="ระบุเหตุผลและข้อสั่งการให้ฝ่ายต้นทางหรือเลขาธิการฯ แก้ไข"></textarea>`,
-                    confirmText: 'ยืนยันตีกลับ'
+                    confirmText: 'ยืนยันปฏิเสธการรับ'
                 }).then(r => {
                     if (r.isConfirmed) {
                         kase.status = 'RETURNED';
                         ECMIS.saveCases();
-                        ECMIS.toastOk('ตีกลับสำนวนเรียบร้อยแล้ว');
+                        ECMIS.toastOk('ปฏิเสธการรับสำนวนเรียบร้อยแล้ว');
                         setTimeout(() => location.href = ECMIS.homeHref(role.id), 1200);
                     }
                 });

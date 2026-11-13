@@ -15,6 +15,7 @@
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <link href="assets/ecmis-livedoc.css?v=20261113" rel="stylesheet">
 </head>
 
 <body class="ws-std">
@@ -276,10 +277,11 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
+  <script src="assets/ecmis-livedoc.js?v=20261113"></script>
   <script src="assets/ecmis-model.js"></script>
   <script src="assets/case-summary-card.js?v=20261022d"></script>
   <script src="assets/case-summary-prototype-fill.js?v=20261022d"></script>
@@ -351,7 +353,7 @@
       ECMIS.saveCases();
     }
 
-    /* ไฟล์แนบสำนวนจริง (TOR ๗.๑.๑) — เดิม input type="file" ในไดอะล็อกตีกลับเป็น mock ล้วนๆ
+    /* ไฟล์แนบสำนวนจริง (TOR ๗.๑.๑) — เดิม input type="file" ในไดอะล็อกปฏิเสธการรับเป็น mock ล้วนๆ
        (preConfirm ไม่เคยอ่านค่าไฟล์เลย) แก้ให้ upload จริงไปที่ Storage bucket "case-documents"
        แล้วบันทึก metadata ลง tbl_res_attachment ผูกกับ tcc_id ของสำนวนนี้ */
     async function uploadAttachment(tccId, file, roleId) {
@@ -615,7 +617,7 @@
 
     /* โหมดรองเลขาธิการฯ (Task 190 — Plan_A7_Deputy_Role) — ขั้นแรกของ กจ.7 ทุกสาย 7.1/7.2/7.3
        ใช้รูปแบบเดียวกับ initUrgentGateScreen(): แทนเฉพาะคอลัมน์ซ้าย แล้วแสดงเอกสารแบบอ่านอย่างเดียวในแผงเดิม
-       รองเลขาฯ ทำได้ 2 อย่าง: ลงความเห็น (บังคับ + ลงนามดิจิทัล) แล้วเสนอเลขาธิการฯ หรือตีกลับต้นทาง กจ.5
+       รองเลขาฯ ทำได้ 2 อย่าง: ลงความเห็น (บังคับ + ลงนามดิจิทัล) แล้วเสนอเลขาธิการฯ หรือปฏิเสธการรับต้นทาง กจ.5
        ไม่มีการชี้ซับซ้อน / เร่งด่วน / ลงนามแทนเลขาธิการฯ — role อื่นที่เปิดหน้านี้เห็นแบบอ่านอย่างเดียว */
     function initDeputyScreen() {
       const deputy = ECMIS.getRole('deputy');
@@ -699,7 +701,7 @@
           <div class="doc-indent">${M(kase.allegation)}</div>
           <div class="doc-h">ความเห็นตามสายอนุมัติ</div>
           <div class="doc-indent">${prior || '<span class="text-muted">— ยังไม่มีข้อมูล —</span>'}
-            <div>${deputy.title}: ${M(op, '……………………………………')}</div></div>
+            <div>${deputy.title}: ${M(op, '……………………………………', isActor ? 'deputyOpinion' : undefined)}</div></div>
           <div class="doc-sign" id="docSign">
             ${kase.deputySignedAt
               ? `<span style="color:#166434"><i class="fa-solid fa-signature"></i> ลงนามดิจิทัลแล้ว</span><br>`
@@ -790,20 +792,20 @@
               </div>
               <label class="form-label">ส่งคืนไปยังชั้นใดของสายงานต้นทาง <span style="color:#DB2626">*</span></label>
               <div class="list-group mb-2">${scopeOpts}</div>
-              <label class="form-label" for="swal-reason">เหตุผลการตีกลับ <span style="color:#DB2626">*</span></label>
+              <label class="form-label" for="swal-reason">เหตุผลการปฏิเสธการรับ <span style="color:#DB2626">*</span></label>
               <select id="swal-reason" class="form-select mb-2"><option value="">— เลือกเหตุผล —</option>${opts}</select>
               <label class="form-label" for="swal-note">รายละเอียดเพิ่มเติม <span style="color:#DB2626">*</span></label>
               <textarea id="swal-note" class="form-control" rows="3" placeholder="ระบุสิ่งที่ต้องแก้ไขให้ชัดเจน"></textarea>
               <label class="form-label mt-2" for="swal-file">แนบไฟล์ประกอบเหตุผล (ไม่บังคับ)</label>
               <input type="file" id="swal-file" class="form-control form-control-sm" accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg,.zip">
             </div>`,
-            showCancelButton: true, confirmButtonText: 'ยืนยันตีกลับ', cancelButtonText: 'ยกเลิก',
+            showCancelButton: true, confirmButtonText: 'ยืนยันปฏิเสธการรับ', cancelButtonText: 'ยกเลิก',
             confirmButtonColor: '#DB2626', cancelButtonColor: '#7C8CA3', reverseButtons: true, width: 640,
             preConfirm() {
               const r = document.getElementById('swal-reason').value;
               const n = document.getElementById('swal-note').value.trim();
               const s = document.querySelector('input[name="swal-scope"]:checked').value;
-              if (!r) { Swal.showValidationMessage('กรุณาเลือกเหตุผลการตีกลับ'); return false; }
+              if (!r) { Swal.showValidationMessage('กรุณาเลือกเหตุผลการปฏิเสธการรับ'); return false; }
               if (n.length < 10) { Swal.showValidationMessage('กรุณาระบุรายละเอียดอย่างน้อย 10 ตัวอักษร'); return false; }
               return { r, n, s, f: document.getElementById('swal-file').files[0] || null };
             }
@@ -826,11 +828,11 @@
             ECMIS.saveCases();
             notice = await notifyOwnerOnReturn(kase, { reason: ret.reason, reasonLabel: returnReasonLabel(ret.reasonCode), fileName: res.value.f ? res.value.f.name : null });
           } catch (err) {
-            console.error('ตีกลับไม่สำเร็จ:', err);
+            console.error('ปฏิเสธการรับไม่สำเร็จ:', err);
             ECMIS.toastWarn('บันทึกลงฐานข้อมูลไม่สำเร็จ ลองใหม่อีกครั้ง');
             return;
           }
-          ECMIS.toastOk(`ตีกลับเรียบร้อย — ส่งคืนผู้รับผิดชอบสำนวน (${sourceProcessLabel(kase)}) แล้ว`, notice ? returnNoticeText(notice) : '');
+          ECMIS.toastOk(`ปฏิเสธการรับเรียบร้อย — ส่งคืนผู้รับผิดชอบสำนวน (${sourceProcessLabel(kase)}) แล้ว`, notice ? returnNoticeText(notice) : '');
           setTimeout(() => location.href = ECMIS.homeHref(role.id), 1600);
         }
       }
@@ -1241,9 +1243,9 @@
         rrBoxEl.innerHTML = `
     <div class="rule ${canReturn ? 'pass' : ''} mb-2">
       <i class="fa-solid ${canReturn ? 'fa-circle-check' : 'fa-circle-minus'}"></i>
-      <span><strong>Return (ตีกลับ)</strong> — ${canReturn
-            ? 'บทบาทนี้ตีกลับได้ โดยระบบ<strong>บังคับเลือก Reason Code</strong>'
-            : 'บทบาทนี้ไม่ได้ถือคิวสำนวนนี้จึงตีกลับไม่ได้'}</span>
+      <span><strong>Return (ปฏิเสธการรับ)</strong> — ${canReturn
+            ? 'บทบาทนี้ปฏิเสธการรับได้ โดยระบบ<strong>บังคับเลือก Reason Code</strong>'
+            : 'บทบาทนี้ไม่ได้ถือคิวสำนวนนี้จึงปฏิเสธการรับไม่ได้'}</span>
     </div>
     <div class="rule ${ECMIS.canRecall(kase, role.id) ? 'pass' : ''}">
       <i class="fa-solid ${ECMIS.canRecall(kase, role.id) ? 'fa-circle-check' : 'fa-circle-minus'}"></i>
@@ -1343,7 +1345,7 @@
         }
 
         document.getElementById('docOpinions').innerHTML =
-          prior + supportTxt + `<div>${role.title}: ${M(mine, '……………………………………')}</div>`;
+          prior + supportTxt + `<div>${role.title}: ${M(mine, '……………………………………', 'myOpinion')}</div>`;
         updatePaginationUI();
         applyZoom();
       }
@@ -1570,7 +1572,7 @@
         <label class="form-label">ส่งคืนไปยังชั้นใดของสายงานต้นทาง <span style="color:#DB2626">*</span></label>
         <div class="list-group mb-2">${scopeOpts}</div>
 
-        <label class="form-label">เหตุผลการตีกลับ (Reason Code) <span style="color:#DB2626">*</span></label>
+        <label class="form-label">เหตุผลการปฏิเสธการรับ (Reason Code) <span style="color:#DB2626">*</span></label>
         <select id="swal-reason" class="form-select mb-2"><option value="">— เลือกเหตุผล —</option>${opts}</select>
         <div class="d-flex align-items-center mb-1 mt-2">
           <label class="form-label mb-0">รายละเอียดเพิ่มเติม <span style="color:#DB2626">*</span></label>
@@ -1612,13 +1614,13 @@
                 }
                 notice = await notifyOwnerOnReturn(kase, { reason: res.value.n, reasonLabel: returnReasonLabel(res.value.r), fileName: res.value.f ? res.value.f.name : null });
               } catch (err) {
-                console.error('ตีกลับไม่สำเร็จ:', err);
+                console.error('ปฏิเสธการรับไม่สำเร็จ:', err);
                 ECMIS.toastWarn('บันทึกลงฐานข้อมูลไม่สำเร็จ ลองใหม่อีกครั้ง');
                 return;
               }
               const dest = sourceProcessLabel(kase) !== 'กระบวนการไต่สวน' ? sourceProcessLabel(kase)
                 : res.value.s === 'TO_OWNER' ? 'เจ้าของสำนวน' : 'ผอ.กอง / ผอ.สำนักงานคณะกรรมการป้องกันและปราบปรามการทุจริตในภาครัฐ เขต';
-              ECMIS.toastOk(`ตีกลับเรียบร้อย — ส่งคืน${dest} และ Pause กำหนดเวลาแล้ว`, notice ? returnNoticeText(notice) : '');
+              ECMIS.toastOk(`ปฏิเสธการรับเรียบร้อย — ส่งคืน${dest} และ Pause กำหนดเวลาแล้ว`, notice ? returnNoticeText(notice) : '');
               setTimeout(() => location.href = ECMIS.homeHref(role.id), 1600);
             }
           });
@@ -1894,7 +1896,7 @@
         const usedNote = usedDays != null ? ` · ใช้ไป ${ECMIS.toThaiDigits(usedDays)} วัน` : '';
         let cls = '', note = 'รอคิว';
         if (isReturned) {
-          cls = 'rej'; note = 'ถูกตีกลับ — รอเจ้าของสำนวนแก้ไขและเสนอใหม่ทั้งสาย';
+          cls = 'rej'; note = 'ถูกปฏิเสธการรับ — รอเจ้าของสำนวนแก้ไขและเสนอใหม่ทั้งสาย';
         } else if (curIdx === -1) {
           cls = 'ok'; note = `ผ่านขั้นตอนนี้แล้ว${usedNote}`;
         } else if (i === curIdx) {
@@ -1924,7 +1926,7 @@
 
       /* opinionCard แสดงต่างกัน 3 แบบตามบทบาท:
          - เลขาธิการฯ: ซ่อนช่องความเห็น (myOpinionBox) ทั้งชุด แสดง g1Box+urgentBox72 แทน
-         - สายอนุมัติ 3 ชั้น ที่สำนวนถูกตีกลับ: แสดง returnedCard72 แทน myOpinionBox
+         - สายอนุมัติ 3 ชั้น ที่สำนวนถูกปฏิเสธการรับ: แสดง returnedCard72 แทน myOpinionBox
          - สายอนุมัติ 3 ชั้น ปกติ: แสดง myOpinionBox ตามเดิม                        */
       const myOpinionBoxEl = document.getElementById('myOpinionBox');
       const returnedCardEl = document.getElementById('returnedCard72');
@@ -1944,7 +1946,7 @@
         if (isReturned && returnedCardEl) {
           const reasonObj = ECMIS.RETURN_REASONS.find(r => r.code === kase.returnReason72);
           returnedCardEl.querySelector('.mb-0').innerHTML = `
-            <strong><i class="fa-solid fa-circle-exclamation me-1"></i>สำนวนนี้ถูกตีกลับให้แก้ไข</strong><br>
+            <strong><i class="fa-solid fa-circle-exclamation me-1"></i>สำนวนนี้ถูกปฏิเสธการรับให้แก้ไข</strong><br>
             เหตุผล: <strong>${reasonObj ? reasonObj.label : '—'}</strong><br>
             รายละเอียด: ${kase.returnNote72 || '—'}
             <div class="mt-2" style="font-size:.8rem">เมื่อแก้ไขสำนวนเรียบร้อยแล้ว กดปุ่ม "เสนอใหม่" ด้านล่างเพื่อส่งกลับเข้าสายอนุมัติ 3 ชั้นอีกครั้ง (เริ่มที่หัวหน้ากลุ่มงาน)</div>`;
@@ -2037,8 +2039,8 @@
           ${role.id === 'secgen' ? `
           <div class="doc-h">ความเห็นของเลขาธิการฯ</div>
           <div class="doc-indent">
-            ${complexYes() ? `เห็นว่าสำนวนนี้มีประเด็นซับซ้อนยุ่งยาก — ${M(complexReasonEl ? complexReasonEl.value.trim() : '', '……………')}<br>` : ''}
-            ${urgentYes() ? `เห็นว่าเป็นกรณีเร่งด่วน — ${M(urgentReasonEl ? urgentReasonEl.value.trim() : '', '……………')}` : ''}
+            ${complexYes() ? `เห็นว่าสำนวนนี้มีประเด็นซับซ้อนยุ่งยาก — ${M(complexReasonEl ? complexReasonEl.value.trim() : '', '……………', 'complexReason')}<br>` : ''}
+            ${urgentYes() ? `เห็นว่าเป็นกรณีเร่งด่วน — ${M(urgentReasonEl ? urgentReasonEl.value.trim() : '', '……………', 'urgentReason72')}` : ''}
             ${(!complexYes() && !urgentYes()) ? 'เห็นควรพิจารณาตามเส้นทางปกติ ส่งคณะอนุกรรมการกลั่นกรองเรื่องไต่สวนข้อเท็จจริงต่อไป' : ''}
           </div>` : ''}
           <div class="doc-sign" id="docSign">
@@ -2053,6 +2055,7 @@
 
       if (role.id === 'secgen') { renderRouteOutcome(); }
       renderDoc();
+      ['complexReason', 'urgentReason72'].forEach(id => document.getElementById(id)?.addEventListener('input', renderDoc));
       ECMIS.initDocEditor({ stageId: 'docPaper', mayEdit: ECMIS.canAct(kase, role.id) });
 
       function updateSigBoxUI(isSigned) {
@@ -2093,7 +2096,7 @@
         }
         if (isReturned) return [{ act: 'resubmit', label: 'เสนอใหม่', icon: 'fa-paper-plane', cls: 'btn-navy' }];
         return [
-          { act: 'return', label: 'ตีกลับ', icon: 'fa-arrow-rotate-left', cls: 'btn-outline-danger' },
+          { act: 'return', label: 'ปฏิเสธการรับ', icon: 'fa-arrow-rotate-left', cls: 'btn-outline-danger' },
           { act: 'propose', label: `เสนอ — ${nextRoleTitle()}`, icon: 'fa-check', cls: 'btn-navy' }
         ];
       }
@@ -2143,24 +2146,24 @@
         if (act === 'return') {
           const opts = ECMIS.RETURN_REASONS.map(r => `<option value="${r.code}">${r.label}</option>`).join('');
           Swal.fire({
-            title: 'ตีกลับรายงานการไต่สวนวินิจฉัยชี้มูล',
+            title: 'ปฏิเสธการรับรายงานการไต่สวนวินิจฉัยชี้มูล',
             html: `<div class="text-start" style="font-size:.9rem">
               <div style="background:#fdecea;border-left:4px solid #DB2626;padding:.6rem .8rem;border-radius:0 6px 6px 0;margin-bottom:.8rem">
-                การตีกลับจะส่งสำนวนคืนให้เจ้าของสำนวนแก้ไข แล้วต้องเสนอใหม่ทั้งสายอนุมัติ ระบบ<strong>บังคับ</strong>ระบุเหตุผล
+                การปฏิเสธการรับจะส่งสำนวนคืนให้เจ้าของสำนวนแก้ไข แล้วต้องเสนอใหม่ทั้งสายอนุมัติ ระบบ<strong>บังคับ</strong>ระบุเหตุผล
               </div>
-              <label class="form-label">เหตุผลการตีกลับ (Reason Code) <span style="color:#DB2626">*</span></label>
+              <label class="form-label">เหตุผลการปฏิเสธการรับ (Reason Code) <span style="color:#DB2626">*</span></label>
               <select id="swal-reason" class="form-select mb-2"><option value="">— เลือกเหตุผล —</option>${opts}</select>
               <label class="form-label">รายละเอียดเพิ่มเติม <span style="color:#DB2626">*</span></label>
               <textarea id="swal-note" class="form-control" rows="3" placeholder="ระบุสิ่งที่ต้องแก้ไขให้ชัดเจน"></textarea>
               <label class="form-label mt-2" for="swal-file">แนบไฟล์ประกอบเหตุผล (ไม่บังคับ)</label>
               <input type="file" id="swal-file" class="form-control form-control-sm" accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg,.zip">
             </div>`,
-            showCancelButton: true, confirmButtonText: 'ยืนยันตีกลับ', cancelButtonText: 'ยกเลิก',
+            showCancelButton: true, confirmButtonText: 'ยืนยันปฏิเสธการรับ', cancelButtonText: 'ยกเลิก',
             confirmButtonColor: '#DB2626', cancelButtonColor: '#7C8CA3', reverseButtons: true, width: 560,
             preConfirm() {
               const r = document.getElementById('swal-reason').value;
               const n = document.getElementById('swal-note').value.trim();
-              if (!r) { Swal.showValidationMessage('กรุณาเลือกเหตุผลการตีกลับ'); return false; }
+              if (!r) { Swal.showValidationMessage('กรุณาเลือกเหตุผลการปฏิเสธการรับ'); return false; }
               if (n.length < 10) { Swal.showValidationMessage('กรุณาระบุรายละเอียดอย่างน้อย 10 ตัวอักษร'); return false; }
               return { r, n, f: document.getElementById('swal-file').files[0] || null };
             }
@@ -2176,14 +2179,14 @@
               }
               notice = await notifyOwnerOnReturn(kase, { reason: res.value.n, reasonLabel: returnReasonLabel(res.value.r), fileName: res.value.f ? res.value.f.name : null });
             } catch (err) {
-              console.error('ตีกลับไม่สำเร็จ:', err);
+              console.error('ปฏิเสธการรับไม่สำเร็จ:', err);
               ECMIS.toastWarn('บันทึกลงฐานข้อมูลไม่สำเร็จ ลองใหม่อีกครั้ง');
               return;
             }
             kase.returnReason72 = res.value.r;
             kase.returnNote72 = res.value.n;
             kase.returnedBy72 = role.id;
-            ECMIS.toastOk('ตีกลับเรียบร้อย — ส่งคืนเจ้าของสำนวนแล้ว', notice ? returnNoticeText(notice) : '');
+            ECMIS.toastOk('ปฏิเสธการรับเรียบร้อย — ส่งคืนเจ้าของสำนวนแล้ว', notice ? returnNoticeText(notice) : '');
             setTimeout(() => location.href = ECMIS.homeHref(role.id), 1400);
           });
           return;

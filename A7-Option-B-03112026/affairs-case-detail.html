@@ -15,6 +15,7 @@
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <link href="assets/ecmis-livedoc.css?v=20261113" rel="stylesheet">
   <style>
     .kv .k { color: var(--ecmis-muted); font-weight: 600; }
     .is-invalid-ecmis { border-color: #DB2626 !important; box-shadow: 0 0 0 .15rem rgba(219,38,38,.15); }
@@ -179,7 +180,8 @@
   <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3/build/docxtemplater.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-livedoc.js?v=20261113"></script>
   <script src="../shared-assets/handoff.js"></script>
   <script src="../shared-assets/junctions.js"></script>
   <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
@@ -271,7 +273,7 @@
           <div style="margin-top:12px;font-size:16pt;">เรียน&nbsp; กบค.กลุ่มงานบริหารคดีและบริหารทั่วไป</div>
           <div class="doc-indent" style="${DOC_P}">${intro}</div>
           <div class="doc-indent" style="${DOC_P}">ประธานกรรมการ ป.ป.ท. ได้คัดกรองสำนวนแล้ว เห็นว่าเป็นเรื่องสำคัญหรือมีความซับซ้อน
-            ${M(f.reason, '……………………………………')} ${f.opinion ? ' ทั้งนี้ ' + M(f.opinion) : ''}</div>
+            ${M(f.reason, '……………………………………', 'complexReason')} ${f.opinion ? ' ทั้งนี้ ' + M(f.opinion, '', 'caOpinion') : ''}</div>
           <div class="doc-indent" style="${DOC_P}">จึงมอบหมายให้กองบริหารคดีส่งสำนวนดังกล่าวเข้าสู่การพิจารณาของคณะอนุกรรมการกลั่นกรองเรื่องไต่สวนข้อเท็จจริง คณะที่ ๑ – ๘
             ตามหลักเกณฑ์การกระจายสำนวน เพื่อกลั่นกรองและเสนอความเห็นต่อคณะกรรมการ ป.ป.ท. ต่อไป (มาตรา ๒๔ วรรคสาม)</div>
           ${sign}`;

@@ -15,6 +15,7 @@
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <link href="assets/ecmis-livedoc.css?v=20261113" rel="stylesheet">
 
   <!-- Mammoth.js for Word document extraction in browser -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
@@ -274,7 +275,7 @@
     .chair-sum-row:last-child { border-bottom: 0; }
     .chair-sum-row > span { color: var(--ws-muted, #687789); font-size: .8rem; font-weight: 600; }
     .chair-sum-row > div { min-width: 0; overflow-wrap: anywhere; }
-    /* Task 284/285: ไอคอนจำลอง กจ.8 ตีกลับ — ซ่อนแบบจาง ๆ ต่อท้ายชื่อการ์ดส่ง ป.วินัย */
+    /* Task 284/285: ไอคอนจำลอง กจ.8 ปฏิเสธการรับ — ซ่อนแบบจาง ๆ ต่อท้ายชื่อการ์ดส่ง ป.วินัย */
     .sim-return-btn { margin-left:.35rem; border:0; background:transparent; color:#9aabba; opacity:.45; padding:.15rem .4rem; border-radius:6px; line-height:1; font-size:.85rem; }
     .sim-return-btn:hover, .sim-return-btn:focus-visible { opacity:1; color:var(--ws-navy, #082b50); background:#edf2f6; }
     .sim-return-btn:focus-visible { outline:3px solid rgba(202,166,49,.35); }
@@ -634,7 +635,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-livedoc.js?v=20261113"></script>
   <script src="assets/saraban-no.js?v=20261015-a7-saraban-off"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
@@ -1447,7 +1449,7 @@
         if (st === 'N/A') return '';
         const sent = st === 'DISPATCHED';
         const returned = st === 'RETURNED';
-        const suffix = afterSign ? (sent ? ' · ส่งแล้ว' : returned ? ' · ตีกลับ' : ' · รอส่ง') : '';
+        const suffix = afterSign ? (sent ? ' · ส่งแล้ว' : returned ? ' · ปฏิเสธการรับ' : ' · รอส่ง') : '';
         const style = sent ? 'background:#dff0e7;color:#1e6141' : returned ? 'background:#f9e1df;color:#8c261f' : 'background:#f7edcb;color:#654b08';
         return ` <span class="chip ms-1" style="${style}"><i class="fa-solid ${icon} me-1"></i>${label}${suffix}</span>`;
       };
@@ -1890,9 +1892,9 @@
           <div class="doc-row"><span class="k" style="font-weight:bold;">วันที่</span> ${M(meetDateThai)}</div>
 
           <div class="doc-indent" style="margin-top:6px">
-            ในคราวการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meetNo)} เมื่อวันที่ ${M(meetDateThai)}
+            ในคราวการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meetNo, '', 'meetNo')} เมื่อวันที่ ${M(meetDateThai)}
             เพื่อพิจารณาและวินิจฉัยชี้มูลความผิด เรื่องที่ ${M(ECMIS.caseNo(kase))} ของคณะอนุกรรมการไต่สวน/
-            คณะพนักงานไต่สวน ตามคำสั่งคณะกรรมการ ป.ป.ท./สำนักงาน ป.ป.ท. ลับ ที่ ${M(orderNo, '.../...')}
+            คณะพนักงานไต่สวน ตามคำสั่งคณะกรรมการ ป.ป.ท./สำนักงาน ป.ป.ท. ลับ ที่ ${M(orderNo, '.../...', 'orderNo')}
             ลงวันที่ ${M(meetDateThai)} กรณีกล่าวหา <strong>${M(targetName)}</strong> ผู้ถูกกล่าวหา
           </div>
 
@@ -1911,16 +1913,18 @@
 
         const chargesText = selectedChargesText(targetAccused);
 
-        function createFlowSection(title, content, subNote = '') {
+        function createFlowSection(title, content, subNote = '', bindId = '') {
           const blocks = [];
           const paras = content ? String(content).split(/\n\s*\n|\r\n\r\n/).filter(p => p.trim()) : [];
 
+          /* live doc: ผูกกับช่องฟอร์มเฉพาะเมื่อเนื้อหาเป็นย่อหน้าเดียว (หลายย่อหน้าแก้ในเอกสารแล้วเขียนกลับไม่ครบทั้งช่อง) */
+          const b1 = paras.length <= 1 ? bindId : '';
           if (title && paras.length > 0) {
             const firstPara = paras[0];
             blocks.push(`
               <div class="doc-h" style="margin-top:6px">${title}</div>
               ${subNote ? `<div class="doc-indent" style="color:#64748b;font-size:.84rem;margin-bottom:2px">${subNote}</div>` : ''}
-              <div class="doc-indent" style="margin-bottom:4px;">${M(firstPara)}</div>
+              <div class="doc-indent" style="margin-bottom:4px;">${M(firstPara, '', b1)}</div>
             `);
             for (let i = 1; i < paras.length; i++) {
               blocks.push(`<div class="doc-indent" style="margin-bottom:4px;">${M(paras[i])}</div>`);
@@ -1929,12 +1933,12 @@
             blocks.push(`
               <div class="doc-h" style="margin-top:6px">${title}</div>
               ${subNote ? `<div class="doc-indent" style="color:#64748b;font-size:.84rem;margin-bottom:2px">${subNote}</div>` : ''}
-              ${content ? `<div class="doc-indent">${M(content)}</div>` : ''}
+              ${content ? `<div class="doc-indent">${M(content, '', b1)}</div>` : ''}
             `);
           } else if (paras.length > 0) {
-            paras.forEach(p => blocks.push(`<div class="doc-indent" style="margin-bottom:4px;">${M(p)}</div>`));
+            paras.forEach(p => blocks.push(`<div class="doc-indent" style="margin-bottom:4px;">${M(p, '', b1)}</div>`));
           } else if (content) {
-            blocks.push(`<div class="doc-indent">${M(content)}</div>`);
+            blocks.push(`<div class="doc-indent">${M(content, '', b1)}</div>`);
           }
           return blocks;
         }
@@ -1951,27 +1955,27 @@
           ),
           ...createFlowSection(
             'ประเด็นเกี่ยวกับอำนาจหน้าที่ของผู้ถูกกล่าวหา',
-            accusedAuthority
+            accusedAuthority, '', 'accusedAuthority'
           ),
           ...createFlowSection(
             'ประเด็นเกี่ยวกับการกระทำความผิดของผู้ถูกกล่าวหา',
-            effectiveFactSummary
+            effectiveFactSummary, '', decisionRows.length ? '' : 'factSummary'
           ),
           ...createFlowSection(
             'ประเด็นเกี่ยวกับความเสียหาย',
-            damageDetail
+            damageDetail, '', 'damageDetail'
           ),
           ...createFlowSection(
             'วัน เวลา สถานที่ เกิดเหตุ',
-            incidentDetail
+            incidentDetail, '', 'incidentDetail'
           ),
           ...createFlowSection(
             'อายุความ',
-            prescriptionNote
+            prescriptionNote, '', 'prescriptionNote'
           ),
           ...(meetingOpinion ? createFlowSection(
             'ความเห็นของที่ประชุม',
-            meetingOpinion
+            meetingOpinion, '', 'meetingOpinion'
           ) : []),
           `<div class="doc-indent" style="margin-top:6px">
             คณะกรรมการ ป.ป.ท. มีมติรายผู้ถูกกล่าวหา${isSingleAccused ? ` (${targetAccused.name})` : ''} ดังนี้
@@ -1986,12 +1990,12 @@
           ) : []),
           ...createFlowSection(
             'เหตุผลในการวินิจฉัย (การปรับข้อเท็จจริงประกอบเข้ากับข้อกฎหมาย)',
-            legalAnalysis
+            legalAnalysis, '', 'legalAnalysis'
           ),
           `<div class="doc-h" style="margin-top:6px">ความผิดทางอาญา</div>
-          <div class="doc-indent">${M(effectiveOffenseBasis, criminalFinding || 'ไม่มีมูลความผิดทางอาญา')}${chargesText ? `<br><small class="text-muted">ฐานความผิดและมาตรา: ${chargesText}</small>` : ''}</div>`,
+          <div class="doc-indent">${M(effectiveOffenseBasis, criminalFinding || 'ไม่มีมูลความผิดทางอาญา', decisionRows.length ? '' : 'criminalFinding')}${chargesText ? `<br><small class="text-muted">ฐานความผิดและมาตรา: ${chargesText}</small>` : ''}</div>`,
           `<div class="doc-h" style="margin-top:6px">ความผิดทางวินัย</div>
-          <div class="doc-indent">${M(disciplinaryFinding, 'ไม่มีมูลความผิดทางวินัย')}</div>`
+          <div class="doc-indent">${M(disciplinaryFinding, 'ไม่มีมูลความผิดทางวินัย', 'disciplinaryFinding')}</div>`
         ];
 
         /* ลายเซ็นเฉพาะกรรมการที่มาประชุมจริง เรียงชิดขวาตามแบบฟอร์ม ปปท. ๗-๐๒ ใน template docx */
@@ -2630,19 +2634,19 @@
       }
     }
 
-    /* Task 282: จำลอง กจ.8 ตีกลับ ป.วินัย — สายวินัยเป็น RETURNED (เก็บประวัติทุกรอบ)
+    /* Task 282: จำลอง กจ.8 ปฏิเสธการรับ ป.วินัย — สายวินัยเป็น RETURNED (เก็บประวัติทุกรอบ)
        ถ้าเคสปิดแล้วกลับไปรอส่ง (CLOSED_72 → PENDING_DISPATCH_GUILTY_72) ให้กลุ่มงานกิจการฯ แก้แล้วส่งใหม่ */
     const KKM8_RETURN_REASONS = ['เลข ป.วินัย ไม่ถูกต้อง', 'เอกสารประกอบไม่ครบ', 'ข้อมูลผู้ถูกกล่าวหาไม่ตรง', 'หน่วยงานผู้บังคับบัญชาไม่ถูกต้อง', 'อื่น ๆ'];
     async function simulateReturnFromKKM8() {
       const res = await Swal.fire({
-        title: 'จำลอง: กจ.8 ตีกลับ ป.วินัย',
+        title: 'จำลอง: กจ.8 ปฏิเสธการรับ ป.วินัย',
         html: `<div class="text-start">
-          <label class="form-label fw-semibold" for="kkm8Reason">เหตุผลที่ตีกลับ</label>
+          <label class="form-label fw-semibold" for="kkm8Reason">เหตุผลที่ปฏิเสธการรับ</label>
           <select class="form-select mb-2" id="kkm8Reason">${KKM8_RETURN_REASONS.map(r => `<option>${r}</option>`).join('')}</select>
           <label class="form-label fw-semibold" for="kkm8Note">หมายเหตุ</label>
           <textarea class="form-control" id="kkm8Note" rows="2" placeholder="รายละเอียดที่ กจ.8 ขอให้แก้ไข"></textarea>
         </div>`,
-        icon: 'warning', showCancelButton: true, confirmButtonText: 'บันทึกการตีกลับ', cancelButtonText: 'ยกเลิก',
+        icon: 'warning', showCancelButton: true, confirmButtonText: 'บันทึกการปฏิเสธการรับ', cancelButtonText: 'ยกเลิก',
         confirmButtonColor: '#a52c25', cancelButtonColor: '#6b7280', reverseButtons: true,
         preConfirm: () => {
           const reason = document.getElementById('kkm8Reason').value;
@@ -2659,7 +2663,7 @@
       if (sb && kase.trr_id) {
         const resolutionData = Object.assign({}, kase.resolutionData || {}, resPatch);
         const { error } = await sb.from('tbl_res_request').update({ trr_resolution_data: resolutionData }).eq('trr_id', kase.trr_id);
-        if (error) { console.error('บันทึกการตีกลับไม่สำเร็จ:', error); ECMIS.toastWarn('บันทึกลงฐานข้อมูลไม่สำเร็จ กรุณาลองใหม่'); return; }
+        if (error) { console.error('บันทึกการปฏิเสธการรับไม่สำเร็จ:', error); ECMIS.toastWarn('บันทึกลงฐานข้อมูลไม่สำเร็จ กรุณาลองใหม่'); return; }
         kase.resolutionData = resolutionData;
       }
       Object.assign(kase, resPatch);
@@ -2669,7 +2673,7 @@
       await ECMIS.logRequestEvent(kase.trr_id, fromStatus, kase.status, {
         type: 'DISCIPLINE_RETURNED_72', actorRole: role.id, note: entry.reason + (entry.note ? ' — ' + entry.note : ''), data: entry
       });
-      ECMIS.toastOk('บันทึกการตีกลับจาก กจ.8 แล้ว · ' + ECMIS.caseNo(kase), 'แก้ไขข้อมูล ป.วินัย แล้วส่งใหม่อีกครั้ง');
+      ECMIS.toastOk('บันทึกการปฏิเสธการรับจาก กจ.8 แล้ว · ' + ECMIS.caseNo(kase), 'แก้ไขข้อมูล ป.วินัย แล้วส่งใหม่อีกครั้ง');
       location.reload();
     }
 
@@ -2773,16 +2777,16 @@
           <div class="col-12"><span class="text-muted">ฐานความผิด</span><br><strong>${ECMIS.escapeHtml(offenseBasis) || '—'}</strong></div>
         </div>`;
 
-      /* Task 282: ประวัติการตีกลับจาก กจ.8 */
+      /* Task 282: ประวัติการปฏิเสธการรับจาก กจ.8 */
       const returns = track.returns || [];
       const lastReturn = returns[returns.length - 1];
       const returnNote = track.status === 'RETURNED' && lastReturn
-        ? `<div class="alert alert-danger py-2 px-3 mb-3" style="font-size:.9rem"><i class="fa-solid fa-rotate-left me-1"></i><strong>กจ.8 ตีกลับ:</strong> ${ECMIS.escapeHtml(lastReturn.reason)}${lastReturn.note ? ' · ' + ECMIS.escapeHtml(lastReturn.note) : ''} · ${ECMIS.thaiDate(ECMIS.toBuddhistFakeIso(String(lastReturn.at || '').slice(0, 10)))}
-            ${returns.length > 1 ? `<div class="small mt-1">ตีกลับมาแล้ว ${returns.length} ครั้ง</div>` : ''}<div class="small mt-1">แก้ไขข้อมูลด้านล่างและหนังสือลงโทษ แล้วกด "ส่ง ป.วินัย → กจ.8" อีกครั้ง</div></div>`
+        ? `<div class="alert alert-danger py-2 px-3 mb-3" style="font-size:.9rem"><i class="fa-solid fa-rotate-left me-1"></i><strong>กจ.8 ปฏิเสธการรับ:</strong> ${ECMIS.escapeHtml(lastReturn.reason)}${lastReturn.note ? ' · ' + ECMIS.escapeHtml(lastReturn.note) : ''} · ${ECMIS.thaiDate(ECMIS.toBuddhistFakeIso(String(lastReturn.at || '').slice(0, 10)))}
+            ${returns.length > 1 ? `<div class="small mt-1">ปฏิเสธการรับมาแล้ว ${returns.length} ครั้ง</div>` : ''}<div class="small mt-1">แก้ไขข้อมูลด้านล่างและหนังสือลงโทษ แล้วกด "ส่ง ป.วินัย → กจ.8" อีกครั้ง</div></div>`
         : '';
-      /* Task 284: ตัวจำลองเป็นไอคอนจาง ๆ ที่หัวการ์ด (ไม่มีข้อความบนหน้า) — ผลหลังตีกลับยังแสดงตามปกติ */
+      /* Task 284: ตัวจำลองเป็นไอคอนจาง ๆ ที่หัวการ์ด (ไม่มีข้อความบนหน้า) — ผลหลังปฏิเสธการรับยังแสดงตามปกติ */
       const simSlot = document.getElementById('simReturnSlot');
-      const simTip = 'จำลอง: กจ.8 ตีกลับ ป.วินัย — ใช้สาธิต ยังไม่มีระบบ กจ.8 ส่งผลกลับมาจริง';
+      const simTip = 'จำลอง: กจ.8 ปฏิเสธการรับ ป.วินัย — ใช้สาธิต ยังไม่มีระบบ กจ.8 ส่งผลกลับมาจริง';
       if (simSlot) {
         simSlot.innerHTML = dispatched && mayDispatchDiscipline
           ? `<button type="button" class="sim-return-btn" id="btnSimReturnKKM8" title="${simTip}" aria-label="${simTip}"><i class="fa-solid fa-flask" aria-hidden="true"></i></button>`
@@ -2795,7 +2799,7 @@
           <div class="alert alert-success py-2 px-3 mb-0" style="font-size:.9rem">
             <i class="fa-solid fa-circle-check me-1"></i>ส่ง ป.วินัย ให้ กจ.8 แล้วเมื่อ ${ECMIS.thaiDate((track.dispatchedAt || '').slice(0, 10))}
             <div class="mt-1">เลข ป.วินัย: <strong>${ECMIS.escapeHtml(track.pWinaiNo || '')}</strong> · เลขหนังสือส่งมติ: <strong>${ECMIS.escapeHtml(track.letterNo || '')}</strong> · ชุดข้อมูล: <strong>${ECMIS.escapeHtml(track.batchId || '')}</strong></div>
-          </div>` + (returns.length ? `<div class="small text-muted mt-2"><i class="fa-solid fa-clock-rotate-left me-1"></i>เคยถูก กจ.8 ตีกลับ ${returns.length} ครั้ง</div>` : '');
+          </div>` + (returns.length ? `<div class="small text-muted mt-2"><i class="fa-solid fa-clock-rotate-left me-1"></i>เคยถูก กจ.8 ปฏิเสธการรับ ${returns.length} ครั้ง</div>` : '');
         return;
       }
 

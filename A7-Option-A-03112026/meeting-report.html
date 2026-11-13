@@ -15,6 +15,7 @@
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <link href="assets/ecmis-livedoc.css?v=20261113" rel="stylesheet">
 </head>
 
 <body class="ws-std">
@@ -159,7 +160,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-livedoc.js?v=20261113"></script>
   <script src="assets/saraban-no.js?v=20261015-a7-saraban-off"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
@@ -354,7 +356,7 @@
 
       const introBlock = `
       <div class="doc-title">รายงานการประชุม<br>คณะกรรมการป้องกันและปราบปรามการทุจริตในภาครัฐ</div>
-      <div class="doc-sub">ครั้งที่ ${M(meetNo)} วันที่ ${M(meetDate)}</div>
+      <div class="doc-sub">ครั้งที่ ${M(meetNo)} วันที่ ${M(meetDate, '', 'meetDate')}</div>
       <div class="doc-row"><span class="k">ที่ (บันทึก)</span> ${M(ECMIS.sarabanThai(ECMIS.sarabanNoOf(items[0], 'minutesMemo')), 'ปป ๐๐๐๔.๕/......')}</div>
       <div class="doc-row"><span class="k">ที่ (หนังสือ)</span> ${M(ECMIS.sarabanThai(ECMIS.sarabanNoOf(items[0], 'minutesLetter')), 'ปป ๐๐๐๔/......')}</div>
 

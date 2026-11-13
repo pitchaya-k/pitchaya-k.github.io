@@ -15,6 +15,7 @@
     <link href="assets/ecmis-app.css" rel="stylesheet">
     <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
     <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <link href="assets/ecmis-livedoc.css?v=20261113" rel="stylesheet">
 </head>
 
 <body class="ws-std">
@@ -196,7 +197,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
     <script src="../cases.js"></script>
-    <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+    <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-livedoc.js?v=20261113"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
@@ -350,6 +352,10 @@
             const meetNo = active.meetNo;
             const meetDate = ECMIS.thaiDate(active.meetDate);
             const agendaNo = active.agendaNo;
+            const isNewMode = document.querySelector('input[name="agendaMode"]:checked').value !== 'EXISTING';
+            const bMeetNo = isNewMode ? 'meetNo' : 'meetingPick';
+            const bMeetDate = isNewMode ? 'meetDate' : 'meetingPick';
+            const bAgendaNo = isNewMode ? 'agendaNo' : 'meetingPick';
             const secrecy = document.getElementById('secrecy').value;
             const docPaperEl = document.getElementById('docPaper');
             if (!docPaperEl) return;
@@ -359,11 +365,11 @@
       <div class="doc-paper a4-paper active-page" id="docPaperPage">
         <div class="doc-secret">${secrecy === 'SECRET' ? 'ลับ' : ''}</div>
         <div class="doc-title">ระเบียบวาระการประชุม<br>คณะกรรมการป้องกันและปราบปรามการทุจริตในภาครัฐ</div>
-        <div class="doc-sub">ครั้งที่ ${M(meetNo)} วันที่ ${M(meetDate)}</div>
+        <div class="doc-sub">ครั้งที่ ${M(meetNo, '', bMeetNo)} วันที่ ${M(meetDate, '', bMeetDate)}</div>
 
         <div class="doc-h">ระเบียบวาระที่ 5 &nbsp; เรื่องเพื่อพิจารณา</div>
         <div style="margin-top:6px">
-          <div class="doc-row"><span class="k">วาระที่ ${M(agendaNo)}</span> ${M(kase.subject)}</div>
+          <div class="doc-row"><span class="k">วาระที่ ${M(agendaNo, '', bAgendaNo)}</span> ${M(kase.subject)}</div>
           <div style="padding-left:2em">
             <div class="doc-row"><span class="k">เรื่องที่</span> ${M(ECMIS.caseNo(kase))}</div>
             <div class="doc-row"><span class="k">ผู้รับผิดชอบ</span> ${M(kase.owner)}</div>
@@ -393,12 +399,12 @@
           <div class="doc-row"><span class="k">ส่วนราชการ</span> กองบริหารคดี สำนักงาน ป.ป.ท.</div>
           <div class="doc-row"><span class="k">ที่</span> ${M('', 'ปป …………/………')}
             <span class="k" style="margin-left:24px">วันที่</span> ${M('', '……………………')}</div>
-          <div class="doc-row"><span class="k">เรื่อง</span> ขอเรียนเชิญประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meetNo)}</div>
+          <div class="doc-row"><span class="k">เรื่อง</span> ขอเรียนเชิญประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meetNo, '', bMeetNo)}</div>
         </div>
         <div style="margin-top:12px">เรียน &nbsp; ประธานกรรมการและกรรมการป้องกันและปราบปรามการทุจริตในภาครัฐ ทุกท่าน</div>
         <div class="doc-indent" style="margin-top:12px">
           ด้วยสำนักงาน ป.ป.ท. กำหนดจัดประชุมคณะกรรมการป้องกันและปราบปรามการทุจริตในภาครัฐ
-          ครั้งที่ ${M(meetNo)} ในวันที่ ${M(meetDate)} เวลา ${M('', '……… น.')}
+          ครั้งที่ ${M(meetNo, '', bMeetNo)} ในวันที่ ${M(meetDate, '', bMeetDate)} เวลา ${M('', '……… น.')}
           ณ ห้องประชุมสำนักงาน ป.ป.ท.
         </div>
         <div class="doc-indent" style="margin-top:8px">

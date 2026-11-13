@@ -157,7 +157,7 @@
     return deputy ? [{ roleId: "deputy", type: "ACCEPT", mock: false, date: deputy.deputySourceAt, note: deputy.deputyOpinion, name: deputy.deputyName }] : [];
   }
   /* เรื่องที่รับผ่านทะเบียนกลางไม่ได้โหลดผ่าน supabaseRowToCase จึงทำรูปข้อมูลให้เหมือนกัน:
-     ค่าตีกลับใน resolutionData ยกขึ้นระดับบน (หน้ารายการรองเลขาฯ อ่าน c.deputyReturn)
+     ค่าปฏิเสธการรับใน resolutionData ยกขึ้นระดับบน (หน้ารายการรองเลขาฯ อ่าน c.deputyReturn)
      และลำดับความเห็นมีเฉพาะความเห็นจริง ไม่ใช้แถวตัวอย่างของสายไต่สวนจาก buildChainOpinions */
   function normalizeLinked(c){
     if (!c || !c.junction) return c;
@@ -416,7 +416,7 @@
   function publishReturn(kase, info){
     if (!kase || !text(info?.reason)) return null;
     if (text(kase.junction?.id).startsWith('J14:')) return sendRequestEvent(kase, 'J15', Object.assign(baseResult(kase, info), { kind: 'SOURCE_RETURN', reason: info.reason }));
-    /* ก10/ก8 ไม่มีเส้นตีกลับแยก จึงส่งทางเส้นผลมติเดิมพร้อม kind SOURCE_RETURN ให้ต้นทางแก้แล้วเสนอใหม่ */
+    /* ก10/ก8 ไม่มีเส้นปฏิเสธการรับแยก จึงส่งทางเส้นผลมติเดิมพร้อม kind SOURCE_RETURN ให้ต้นทางแก้แล้วเสนอใหม่ */
     if (kase.junction?.id === 'J12' || kase.junction?.id === 'J13') {
       var ret = Object.assign(baseResult(kase, info), { kind: 'SOURCE_RETURN', text: text(info.reason), reason: text(info.reason),
         reasonCode: text(info.reasonCode), returnScope: text(info.scope), by: text(info.by), returnedAt: new Date().toISOString(),

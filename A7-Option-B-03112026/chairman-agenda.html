@@ -15,6 +15,7 @@
     <link href="assets/ecmis-app.css" rel="stylesheet">
     <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
     <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <link href="assets/ecmis-livedoc.css?v=20261113" rel="stylesheet">
     <style>
         .document-workspace {
             display: grid !important;
@@ -253,7 +254,8 @@
     <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3/build/docxtemplater.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
     <script src="../cases.js"></script>
-    <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+    <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-livedoc.js?v=20261113"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
@@ -708,7 +710,7 @@
             }
             if (isDocketSignStep()) {
                 return [
-                    { act: 'return_screening', label: 'ตีกลับให้คณะอนุกลั่นกรองฯ ทบทวน', icon: 'fa-arrow-left-long', cls: 'btn-outline-danger' },
+                    { act: 'return_screening', label: 'ปฏิเสธการรับให้คณะอนุกลั่นกรองฯ ทบทวน', icon: 'fa-arrow-left-long', cls: 'btn-outline-danger' },
                     { act: 'sign_agenda', label: 'ลงนามสั่งบรรจุวาระ', icon: 'fa-signature', cls: 'btn-gold' }
                 ];
             }
@@ -717,7 +719,7 @@
                     ? 'ลงนามมอบหมาย → บรรจุวาระประชุม'
                     : 'ลงนามมอบหมาย → ส่งคณะอนุกลั่นกรองฯ';
                 return [
-                    { act: 'return', label: 'ตีกลับให้ผู้รับผิดชอบสำนวนแก้ไข', icon: 'fa-arrow-left-long', cls: 'btn-outline-danger' },
+                    { act: 'return', label: 'ปฏิเสธการรับให้ผู้รับผิดชอบสำนวนแก้ไข', icon: 'fa-arrow-left-long', cls: 'btn-outline-danger' },
                     { act: 'assign_screening', label: assignLabel, icon: 'fa-signature', cls: 'btn-gold' }
                 ];
             }
@@ -729,7 +731,7 @@
                 ];
             }
             return [
-                { act: 'return', label: 'ตีกลับให้แก้ไข', icon: 'fa-arrow-left-long', cls: 'btn-outline-danger' },
+                { act: 'return', label: 'ปฏิเสธการรับให้แก้ไข', icon: 'fa-arrow-left-long', cls: 'btn-outline-danger' },
                 { act: 'sign', label: ECMIS.isUrgentAgendaCase(kase) ? 'ลงนามสั่งบรรจุวาระด่วน' : 'ลงนามดิจิทัลคำสั่ง (2-Step)', icon: 'fa-signature', cls: 'btn-gold' }
             ];
         }
@@ -766,10 +768,10 @@
             }
             if (act === 'return') {
                 ECMIS.confirmAction({
-                    title: 'ตีกลับให้แก้ไข', danger: true, icon: 'warning',
-                    html: `<label class="form-label">เหตุผลการตีกลับสำนวน <span style="color:#DB2626">*</span></label>
+                    title: 'ปฏิเสธการรับให้แก้ไข', danger: true, icon: 'warning',
+                    html: `<label class="form-label">เหตุผลการปฏิเสธการรับสำนวน <span style="color:#DB2626">*</span></label>
                            <textarea id="swal-note" class="form-control" rows="3" placeholder="ระบุเหตุผลและข้อสั่งการให้ฝ่ายต้นทางหรือเลขาธิการฯ แก้ไข"></textarea>`,
-                    confirmText: 'ยืนยันตีกลับ'
+                    confirmText: 'ยืนยันปฏิเสธการรับ'
                 }).then(r => {
                     if (r.isConfirmed) {
                         const is72 = ECMIS.isCase72(kase);
@@ -796,7 +798,7 @@
                                     type: 'RETURNED', actorRole: 'chairman', data: { reason }
                                 });
                             }
-                            ECMIS.toastOk('ตีกลับสำนวนเรียบร้อยแล้ว');
+                            ECMIS.toastOk('ปฏิเสธการรับสำนวนเรียบร้อยแล้ว');
                             ECMIS.goAfterSaves(ECMIS.homeHref(role.id));
                         })();
                     }
@@ -960,14 +962,14 @@
                 return;
             }
             if (act === 'return_screening') {
-                // 7.1/7.2 — ประธานฯ ตีกลับให้คณะอนุกลั่นกรองฯ ทบทวนความเห็น (กลับ IN_SCREENING / IN_SCREENING_72)
+                // 7.1/7.2 — ประธานฯ ปฏิเสธการรับให้คณะอนุกลั่นกรองฯ ทบทวนความเห็น (กลับ IN_SCREENING / IN_SCREENING_72)
                 const backTo = kase.status === 'PENDING_SIGN_AGENDA_72' ? 'IN_SCREENING_72' : 'IN_SCREENING';
                 const backEvent = backTo === 'IN_SCREENING_72' ? 'CHAIRMAN_RETURN_SCREENING_72' : 'CHAIRMAN_RETURN_SCREENING';
                 ECMIS.confirmAction({
-                    title: 'ตีกลับให้คณะอนุกลั่นกรองฯ ทบทวน', danger: true, icon: 'warning',
+                    title: 'ปฏิเสธการรับให้คณะอนุกลั่นกรองฯ ทบทวน', danger: true, icon: 'warning',
                     html: `<label class="form-label">เหตุผล/ข้อสังเกตของประธานฯ <span style="color:#DB2626">*</span></label>
                            <textarea id="swal-note" class="form-control" rows="3" placeholder="ระบุประเด็นที่ต้องการให้คณะอนุกลั่นกรองฯ ทบทวน"></textarea>`,
-                    confirmText: 'ยืนยันตีกลับ'
+                    confirmText: 'ยืนยันปฏิเสธการรับ'
                 }).then(r => {
                     if (!r.isConfirmed) return;
                     const reason = document.getElementById('swal-note')?.value?.trim() || '';
@@ -979,7 +981,7 @@
                     });
                     (async () => {
                         if (kase.trr_id && sb) {
-                            // เก็บเหตุตีกลับใน trr_resolution_data (JSONB) เพื่อให้ subcommittee-screening.html แสดง banner ได้
+                            // เก็บเหตุปฏิเสธการรับใน trr_resolution_data (JSONB) เพื่อให้ subcommittee-screening.html แสดง banner ได้
                             const merged = Object.assign({}, kase.resolutionData || {}, { chairmanReturnReason72: reason });
                             try { await sb.from('tbl_res_request').update({ trr_resolution_data: merged }).eq('trr_id', kase.trr_id); } catch (e) { }
                             kase.resolutionData = merged;
@@ -990,7 +992,7 @@
                                 type: 'RETURNED', actorRole: 'chairman', data: { reason, chairmanReturnReason72: reason }
                             });
                         }
-                        ECMIS.toastOk('ตีกลับให้คณะอนุกลั่นกรองฯ ทบทวนเรียบร้อยแล้ว');
+                        ECMIS.toastOk('ปฏิเสธการรับให้คณะอนุกลั่นกรองฯ ทบทวนเรียบร้อยแล้ว');
                         setTimeout(() => location.href = ECMIS.resolvePage ? ECMIS.resolvePage('inbox.html') : 'inbox.html', 1200);
                     })();
                 });

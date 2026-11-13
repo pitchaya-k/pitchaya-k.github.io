@@ -15,6 +15,7 @@
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <link href="assets/ecmis-livedoc.css?v=20261113" rel="stylesheet">
 </head>
 
 <body class="ws-std">
@@ -119,7 +120,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-livedoc.js?v=20261113"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
@@ -258,7 +260,7 @@
       <label class="form-label">เหตุผลความเร่งด่วนที่เสนอ</label>
       <textarea class="form-control" rows="4" readonly>${kase.urgentReason || ''}</textarea>
       <label class="form-label mt-3">ความเห็น/เหตุผลของประธานฯ
-        <span class="text-muted">(บังคับกรอกเมื่อ "ส่งเข้าคณะอนุกลั่นกรองฯ" หรือ "ตีกลับให้แก้ไข")</span></label>
+        <span class="text-muted">(บังคับกรอกเมื่อ "ส่งเข้าคณะอนุกลั่นกรองฯ" หรือ "ปฏิเสธการรับให้แก้ไข")</span></label>
       <textarea class="form-control" id="chairUrgentNote" rows="3"
         placeholder="ระบุเหตุผล เช่น ยังไม่เร่งด่วนจริง มีประเด็นต้องตรวจสอบเพิ่มเติม / สำนวนยังไม่สมบูรณ์...">${kase.urgentRejectNote || kase.urgentReturnNote || ''}</textarea>
       <div class="val-msg val-err" data-for="chairUrgentNote">กรุณาระบุเหตุผลของประธานฯ ก่อนดำเนินการ</div>`;
@@ -303,7 +305,7 @@
         <div class="doc-indent">${M(kase.allegation)}</div>
 
         <div class="doc-h">เหตุผลความเร่งด่วน</div>
-        <div class="doc-indent">${M(reasonNow, '……………………………………………………………………………………')}</div>
+        <div class="doc-indent">${M(reasonNow, '……………………………………………………………………………………', isCertifyStep ? 'urgentReason' : undefined)}</div>
 
         <div class="doc-h">ผู้รับรองเหตุผลเร่งด่วน</div>
         <div class="doc-indent">${M(certifierShown)}</div>
@@ -360,7 +362,7 @@
       }
       if (isSignStep) {
         return [
-          { act: 'returnOwner', label: 'ตีกลับให้ผู้รับผิดชอบสำนวนแก้ไข', icon: 'fa-rotate-left', cls: 'btn-outline-danger' },
+          { act: 'returnOwner', label: 'ปฏิเสธการรับให้ผู้รับผิดชอบสำนวนแก้ไข', icon: 'fa-rotate-left', cls: 'btn-outline-danger' },
           { act: 'sendScreening', label: 'ส่งเข้าคณะอนุกลั่นกรองฯ (ยังไม่ด่วนจริง)', icon: 'fa-people-arrows', cls: 'btn-navy' },
           { act: 'sign', label: 'ลงนามมอบหมาย/บรรจุวาระด่วน', icon: 'fa-signature', cls: 'btn-gold' }
         ];
@@ -549,9 +551,9 @@
         }
 
         ECMIS.confirmAction({
-          title: 'ตีกลับให้ผู้รับผิดชอบสำนวนแก้ไข',
+          title: 'ปฏิเสธการรับให้ผู้รับผิดชอบสำนวนแก้ไข',
           html: `<p>สำนวน <strong>${ECMIS.caseNo(kase)}</strong> จะถูกส่งคืนผู้รับผิดชอบสำนวนเพื่อแก้ไขให้สมบูรณ์ แล้วเสนอกลับตามลำดับชั้น</p>`,
-          confirmText: 'ยืนยันตีกลับ'
+          confirmText: 'ยืนยันปฏิเสธการรับ'
         }).then(async res => {
           if (!res.isConfirmed) return;
           ECMIS.pushCaseHistory(kase, {
@@ -566,11 +568,11 @@
               history: kase.history
             });
           } catch (err) {
-            console.error('ตีกลับให้แก้ไขไม่สำเร็จ:', err);
+            console.error('ปฏิเสธการรับให้แก้ไขไม่สำเร็จ:', err);
             ECMIS.toastWarn('บันทึกลงฐานข้อมูลไม่สำเร็จ ลองใหม่อีกครั้ง');
             return;
           }
-          ECMIS.toastOk('ตีกลับให้ผู้รับผิดชอบสำนวนแก้ไขแล้ว');
+          ECMIS.toastOk('ปฏิเสธการรับให้ผู้รับผิดชอบสำนวนแก้ไขแล้ว');
           setTimeout(() => location.reload(), 1400);
         });
         return;

@@ -15,6 +15,7 @@
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <link href="assets/ecmis-livedoc.css?v=20261113" rel="stylesheet">
   <style>
     .kv .k { color: var(--ecmis-muted); font-weight: 600; }
     .is-invalid-ecmis { border-color: #DB2626 !important; box-shadow: 0 0 0 .15rem rgba(219,38,38,.15); }
@@ -154,7 +155,8 @@
   <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3/build/docxtemplater.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-livedoc.js?v=20261113"></script>
   <script src="../shared-assets/handoff.js"></script>
   <script src="../shared-assets/junctions.js"></script>
   <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
@@ -234,7 +236,7 @@
           <div class="doc-indent" style="${DOC_P}">ตามที่ประธานกรรมการ ป.ป.ท. ได้คัดกรองสำนวนเรื่องเสร็จที่ <strong>${M(ECMIS.caseNo(kase))}</strong> เรื่อง ${M(kase.subject)}
             ซึ่งมี ${M(kase.ownerOrg || '')} เป็นผู้รับผิดชอบสำนวน แล้วเห็นว่าไม่เป็นเรื่องยุ่งยากซับซ้อน${scr.opinion ? ' (' + M(scr.opinion) + ')' : ''}
             และมอบหมายให้กลุ่มงานกิจการคณะกรรมการทำความเห็นเสนอ นั้น</div>
-          <div class="doc-indent" style="${DOC_P}">กลุ่มงานกิจการคณะกรรมการพิจารณาแล้ว มีความเห็นว่า ${M(op, '……………………………………')}</div>
+          <div class="doc-indent" style="${DOC_P}">กลุ่มงานกิจการคณะกรรมการพิจารณาแล้ว มีความเห็นว่า ${M(op, '……………………………………', 'afOpinion')}</div>
           <div class="doc-indent" style="${DOC_P}">จึงเรียนมาเพื่อโปรดพิจารณาลงนามสั่งบรรจุเรื่องดังกล่าวเข้าระเบียบวาระการประชุมคณะกรรมการ ป.ป.ท. ต่อไป</div>
           <div style="margin-top:28px; width:60%; margin-left:auto; text-align:center; font-size:16pt; line-height:1.4;">
             <div>(ลงชื่อ)...................................................................</div>

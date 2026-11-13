@@ -5,7 +5,7 @@
 
 const ROLES = [
   /* รองเลขาธิการฯ — ขั้นแรกของทุกสาย 7.1/7.2/7.3 ก่อนเลขาธิการฯ (Plan_A7_Deputy_Role, Task 190):
-     ลงความเห็น (บังคับ + ลงนามดิจิทัล) แล้วเสนอเลขาธิการฯ หรือตีกลับต้นทาง กจ.5 — ไม่มีอำนาจชี้ซับซ้อน/เร่งด่วน */
+     ลงความเห็น (บังคับ + ลงนามดิจิทัล) แล้วเสนอเลขาธิการฯ หรือปฏิเสธการรับต้นทาง กจ.5 — ไม่มีอำนาจชี้ซับซ้อน/เร่งด่วน */
   { id:'deputy', login:'Prasert.T', row:1, group:'เลขาธิการฯ/รองเลขาธิการ', title:'รองเลขาธิการคณะกรรมการ ป.ป.ท.',
     name:'นายประเสริฐ ธรรมพิทักษ์', org:'สำนักงาน ป.ป.ท.', lane:'L1', flow:'S0 — ขั้นแรก กจ.7', act:'7.1, 7.2, 7.3',
     perms:['view.all','download','deputy.opinion','return'] },
@@ -213,7 +213,7 @@ const STATUS = {
   PENDING_SECTION_72:  { label:'รอหัวหน้ากลุ่มงาน (รายงานวินิจฉัยชี้มูล)',      cls:'st-pending', owner:'section_head' },
   PENDING_DIRECTOR_72: { label:'รอ ผอ.กอง / ผอ.เขต (รายงานวินิจฉัยชี้มูล)',      cls:'st-pending', owner:'director' },
   PENDING_DEPUTY_72:   { label:'รอรองเลขาธิการฯ พิจารณา (รายงานวินิจฉัยชี้มูล)', cls:'st-pending', owner:'deputy' },
-  RETURNED_72:         { label:'ตีกลับเจ้าของสำนวน (รายงานวินิจฉัยชี้มูล)',      cls:'st-returned', owner:'owner' },
+  RETURNED_72:         { label:'ปฏิเสธการรับเจ้าของสำนวน (รายงานวินิจฉัยชี้มูล)',      cls:'st-returned', owner:'owner' },
   PENDING_SECGEN_72:   { label:'รอเลขาธิการฯ พิจารณา / ลงนาม (วินิจฉัยชี้มูล)',   cls:'st-pending', owner:'secgen' },
   PENDING_SUPPORT_ASSIGN_72: { label:'รอ ผอ.กบค. ออกเลขทะเบียนคุม / มอบหมายคณะอนุสนับสนุน (วินิจฉัยชี้มูล)', cls:'st-pending', owner:'dir_case' },
   IN_SUPPORT_SUB_72:   { label:'ส่งคณะอนุสนับสนุนเลขาธิการฯ พิจารณาแล้ว',        cls:'st-review',  owner:'support_sub' },
@@ -274,7 +274,7 @@ const TRANSITIONS = [
     ref:'ลงความเห็นและเสนอเลขาธิการฯ', guard:k => !!String(k.deputyOpinion || '').trim(),
     note:'รองเลขาธิการฯ ลงความเห็น (บังคับ) และลงนามดิจิทัล แล้วเสนอเลขาธิการฯ' },
   { from:'PENDING_DEPUTY', to:'RETURNED', event:'DEPUTY_RETURN', actor:'deputy',
-    ref:'ตีกลับต้นทาง (กจ.5)', note:'รองเลขาธิการฯ ตีกลับสายงานต้นทางพร้อมเหตุผล' },
+    ref:'ปฏิเสธการรับต้นทาง (กจ.5)', note:'รองเลขาธิการฯ ปฏิเสธการรับสายงานต้นทางพร้อมเหตุผล' },
 
   { from:'PENDING_SECGEN', to:'PENDING_SUPPORT_ASSIGN', event:'SIGN_COMPLEX', actor:'secgen',
     ref:'เสนอเลขาธิการฯ', guard:k => g1Triggers(k).required,
@@ -292,7 +292,7 @@ const TRANSITIONS = [
 
   { from:'PENDING_SUPPORT_ASSIGN', to:'IN_SUPPORT_SUB', event:'ASSIGN_SUPPORT_SUB', actor:'dir_case',
     ref:'ออกเลขทะเบียนคุม / มอบหมายคณะอนุสนับสนุนฯ',
-    note:'ผอ.กบค. ออกเลขทะเบียนคุม (ทค.N/ปี) และเลือกคณะที่ 1/2 — ไม่มีทางตีกลับ (อำนาจวินิจฉัยความซับซ้อน ' +
+    note:'ผอ.กบค. ออกเลขทะเบียนคุม (ทค.N/ปี) และเลือกคณะที่ 1/2 — ไม่มีทางปฏิเสธการรับ (อำนาจวินิจฉัยความซับซ้อน ' +
          'เป็นของเลขาธิการฯ ตาม ม.24 วรรคสาม) ดู docs/memory/plans/2026-09-28-complex-case-dir-case-assign.md' },
 
   /* คณะอนุสนับสนุนฯ ส่งความเห็นคืนเลขาธิการฯ เสมอ (support-subcommittee.html เขียน PENDING_SECGEN ตรง) —
@@ -333,7 +333,7 @@ const TRANSITIONS = [
   { from:'PENDING_SIGN_AGENDA', to:'AGENDA_SET', event:'SIGN_AGENDA', actor:'chairman',
     ref:'ประธานฯ ลงนามสั่งบรรจุระเบียบวาระการประชุมคณะกรรมการ ป.ป.ท.' },
   { from:'PENDING_SIGN_AGENDA', to:'IN_SCREENING', event:'CHAIRMAN_RETURN_SCREENING', actor:'chairman',
-    ref:'ประธานฯ ตีกลับให้คณะอนุกลั่นกรองฯ ทบทวนความเห็น' },
+    ref:'ประธานฯ ปฏิเสธการรับให้คณะอนุกลั่นกรองฯ ทบทวนความเห็น' },
   { from:'IN_SCREENING', to:'SCREENING_MORE_INFO', event:'REQUEST_MORE_INFO', actor:'subcommittee',
     ref:'ขอข้อมูล/เอกสารเพิ่มเติมจากเจ้าของสำนวน', note:'หยุดนับ SLA จนกว่าเจ้าของสำนวนส่งข้อมูลกลับ' },
   { from:'SCREENING_MORE_INFO', to:'IN_SCREENING', event:'MORE_INFO_SUPPLIED', actor:'subcommittee',
@@ -391,14 +391,14 @@ const TRANSITIONS = [
   { from:'PENDING_DIRECTOR_72', to:'RETURNED_72', event:'RETURN_72', actor:'director', ref:'ส่งคืนเสนอตามลำดับชั้น' },
   { from:'PENDING_DEPUTY_72', to:'PENDING_SECGEN_72', event:'PROPOSE_72', actor:'deputy', ref:'ลงความเห็นและเสนอเลขาธิการฯ',
     guard:k => !!String(k.deputyOpinion || '').trim() },
-  { from:'PENDING_DEPUTY_72', to:'RETURNED_72', event:'RETURN_72', actor:'deputy', ref:'ตีกลับต้นทาง (กจ.5)' },
+  { from:'PENDING_DEPUTY_72', to:'RETURNED_72', event:'RETURN_72', actor:'deputy', ref:'ปฏิเสธการรับต้นทาง (กจ.5)' },
   { from:'RETURNED_72', to:'PENDING_SECTION_72', event:'RESUBMIT_72', actor:'owner', ref:'ส่งคืนแก้ไขและเสนอใหม่' },
 
   { from:'PENDING_SECGEN_72', to:'PENDING_SUPPORT_ASSIGN_72', event:'SIGN_COMPLEX_72', actor:'secgen',
     ref:'เสนอสำนวนซับซ้อน', guard:k => !!k.complex72,
     note:'สำนวนมีประเด็นซับซ้อนยุ่งยาก — ส่ง ผอ.กบค. ออกเลขทะเบียนคุม/มอบหมายคณะอนุสนับสนุนฯ ก่อน (2026-09-28)' },
   { from:'PENDING_SUPPORT_ASSIGN_72', to:'IN_SUPPORT_SUB_72', event:'ASSIGN_SUPPORT_SUB_72', actor:'dir_case',
-    ref:'ออกเลขทะเบียนคุม / มอบหมายคณะอนุสนับสนุนฯ', note:'เหมือน ASSIGN_SUPPORT_SUB ของสาย 7.1 — ไม่มีทางตีกลับ' },
+    ref:'ออกเลขทะเบียนคุม / มอบหมายคณะอนุสนับสนุนฯ', note:'เหมือน ASSIGN_SUPPORT_SUB ของสาย 7.1 — ไม่มีทางปฏิเสธการรับ' },
   { from:'PENDING_SECGEN_72', to:'PENDING_URGENT_72', event:'SIGN_URGENT_72', actor:'secgen',
     ref:'เสนอขอเพิ่มวาระด่วน', guard:k => !k.complex72 && !!k.urgent72 },
   { from:'PENDING_SECGEN_72', to:'PENDING_CASE_ADMIN_SCREEN_72', event:'SIGN_NORMAL_72', actor:'secgen',
@@ -421,7 +421,7 @@ const TRANSITIONS = [
     ref:'ประธานฯ เห็นว่ายังไม่ด่วนจริง — ส่งเข้าคณะอนุกลั่นกรองฯ',
     note:'ไม่บรรจุวาระด่วน — เข้าเส้นทางกลั่นกรองปกติ (กบค. กระจายเข้าคณะที่ ๑–๘)' },
   { from:'PENDING_CHAIRMAN_URGENT_72', to:'RETURNED_72', event:'URGENT_RETURN_OWNER_72', actor:'chairman',
-    ref:'ประธานฯ ตีกลับให้ผู้รับผิดชอบสำนวนแก้ไข',
+    ref:'ประธานฯ ปฏิเสธการรับให้ผู้รับผิดชอบสำนวนแก้ไข',
     note:'ส่งคืนเจ้าของสำนวน (RETURNED_72 owner=owner) — แก้ไขแล้วเสนอกลับตามสาย' },
 
   { from:'PENDING_CHAIRMAN_72', to:'IN_SCREENING_72', event:'ORDER_SCREENING_72', actor:'chairman',
@@ -444,7 +444,7 @@ const TRANSITIONS = [
     ref:'ประธานฯ ลงนามสั่งบรรจุวาระ', law:['M14','PR_AGENDA'],
     note:'ลงนามสั่งบรรจุวาระตามความเห็นของกลุ่มงานกิจการฯ — ข้าม PENDING_SIGN_AGENDA_72 ตรงไปยังจุดเดียวกับปลายทางฝั่งอนุกลั่นกรอง' },
   { from:'PENDING_CHAIRMAN_72', to:'RETURNED_72', event:'CHAIRMAN_RETURN_72', actor:'chairman',
-    ref:'ประธานฯ ตีกลับให้ผู้รับผิดชอบสำนวนแก้ไข',
+    ref:'ประธานฯ ปฏิเสธการรับให้ผู้รับผิดชอบสำนวนแก้ไข',
     note:'ส่งคืนเจ้าของสำนวน (RETURNED_72 owner=owner) — แก้ไขแล้วเสนอกลับตามสาย' },
 
   { from:'IN_SCREENING_72', to:'PENDING_SIGN_AGENDA_72', event:'SCREEN_DONE_72', actor:'subcommittee',
@@ -454,7 +454,7 @@ const TRANSITIONS = [
   { from:'PENDING_SIGN_AGENDA_72', to:'PENDING_INVITE_72', event:'SIGN_AGENDA_72', actor:'chairman',
     ref:'ประธานฯ ลงนามสั่งบรรจุระเบียบวาระการประชุมคณะกรรมการ ป.ป.ท. (วาระที่ ๕)' },
   { from:'PENDING_SIGN_AGENDA_72', to:'IN_SCREENING_72', event:'CHAIRMAN_RETURN_SCREENING_72', actor:'chairman',
-    ref:'ประธานฯ ตีกลับให้คณะอนุกลั่นกรองฯ ทบทวนความเห็น' },
+    ref:'ประธานฯ ปฏิเสธการรับให้คณะอนุกลั่นกรองฯ ทบทวนความเห็น' },
   { from:'IN_SCREENING_72', to:'SCREENING_MORE_INFO_72', event:'REQUEST_MORE_INFO_72', actor:'subcommittee',
     ref:'ขอข้อมูล/เอกสารเพิ่มเติมจากเจ้าของสำนวน', note:'หยุดนับ SLA จนกว่าเจ้าของสำนวนส่งข้อมูลกลับ' },
   { from:'SCREENING_MORE_INFO_72', to:'IN_SCREENING_72', event:'MORE_INFO_SUPPLIED_72', actor:'subcommittee',
@@ -489,10 +489,10 @@ const TRANSITIONS = [
     ref:'ส่งมอบสำนวนให้ ป.ป.ช. · ม.19(ข)(1)', guard:k => !!k.signedScanUploaded72,
     note:'ส่งเรื่องพร้อมสำนวนให้ ป.ป.ช. ภายใน 15 วันนับแต่วันที่ได้รับเรื่อง — ต้องอัปโหลดไฟล์สแกนฉบับนำส่งกลับ' },
 
-  /* Task 282: กจ.8 ตีกลับ ป.วินัย หลังปิดสำนวนแล้ว — กลับไปรอส่งให้กลุ่มงานกิจการฯ แก้แล้วส่งใหม่
+  /* Task 282: กจ.8 ปฏิเสธการรับ ป.วินัย หลังปิดสำนวนแล้ว — กลับไปรอส่งให้กลุ่มงานกิจการฯ แก้แล้วส่งใหม่
      (ยังไม่ปิด = สถานะคงเดิม เปลี่ยนเฉพาะ disciplinaryTrack72.status เป็น RETURNED) */
   { from:'CLOSED_72', to:'PENDING_DISPATCH_GUILTY_72', event:'DISCIPLINE_RETURNED_72', actor:'affairs',
-    ref:'กจ.8 ตีกลับ ป.วินัย — แก้ไขแล้วส่งใหม่', guard:k => hasDisciplineTrack72(k) },
+    ref:'กจ.8 ปฏิเสธการรับ ป.วินัย — แก้ไขแล้วส่งใหม่', guard:k => hasDisciplineTrack72(k) },
   { from:'PENDING_DISPATCH_GUILTY_72', to:'CLOSED_72', event:'CLOSE_GUILTY_72', actor:'affairs',
     ref:'ส่งเรื่องดำเนินการทางอาญาและวินัย · ม.38·ม.44', guard:k => bothTracksDone72(k),
     note:'ปิดสำนวนได้เมื่อสายอาญา (ถ้ามี) ส่งอัยการแล้ว และสายวินัย (ถ้ามี) ส่งหน่วยงานต้นสังกัดแล้ว' }
@@ -978,7 +978,7 @@ const PAGE_FOR_72 = {
   PENDING_AREA_NOTICE_72:'ruling-report.html',
   DISPATCHING_NACC_72:'ruling-report.html',
   PENDING_DISPATCH_GUILTY_72:'ruling-report.html',
-  /* Task 283: ปิดสำนวนแล้วเปิดที่รายงานวินิจฉัย — งานส่ง ป.วินัย/จำลอง กจ.8 ตีกลับ อยู่หน้านี้ */
+  /* Task 283: ปิดสำนวนแล้วเปิดที่รายงานวินิจฉัย — งานส่ง ป.วินัย/จำลอง กจ.8 ปฏิเสธการรับ อยู่หน้านี้ */
   CLOSED_72:'ruling-report.html'
 };
 function pageForCase72(kase){ return resolvePage(PAGE_FOR_72[kase.status] || 'case-register.html'); }
@@ -3561,7 +3561,7 @@ function trackStatus72(kase, kind){
   if(!active) return 'N/A';
   return (track && track.status) || 'PENDING';
 }
-/* สถานะสาย: PENDING / DISPATCHED / RETURNED (Task 282: กจ.8 ตีกลับ — นับเป็นยังไม่ส่ง) */
+/* สถานะสาย: PENDING / DISPATCHED / RETURNED (Task 282: กจ.8 ปฏิเสธการรับ — นับเป็นยังไม่ส่ง) */
 function bothTracksDone72(kase){
   const crimOk = !hasCriminalTrack72(kase) || trackStatus72(kase,'criminal') === 'DISPATCHED';
   const discOk = !hasDisciplineTrack72(kase) || trackStatus72(kase,'disciplinary') === 'DISPATCHED';
@@ -4360,7 +4360,7 @@ function openResetCaseDialog() {
 
 /* ---------- โหมดดูอย่างเดียว (Task 224) ----------
    หน้าที่เปิดดูเคส (?case=) ถ้าบทบาทที่เปิดไม่ใช่บทบาทของขั้นปัจจุบันในแถบขั้นตอน (STEP_ROLE_IDS ชุดเดียวกับป้ายใต้ขั้น)
-   หรือเคสปิด/ส่งไต่สวนแล้ว → ล็อกช่องกรอก/แก้เอกสาร/อัปโหลด และซ่อนปุ่มบันทึก/ส่ง/ลงนาม/ตีกลับ
+   หรือเคสปิด/ส่งไต่สวนแล้ว → ล็อกช่องกรอก/แก้เอกสาร/อัปโหลด และซ่อนปุ่มบันทึก/ส่ง/ลงนาม/ปฏิเสธการรับ
    ยังใช้แท็บเอกสาร ซูม เปลี่ยนหน้า พิมพ์ ส่งออก DOCX ดูไฟล์แนบ พับการ์ด กลับรายการ และ R×3 ได้ */
 const READONLY_DONE_ST = /^CLOSED/;
 function caseStepActorIds(kase){
@@ -4370,7 +4370,7 @@ function caseStepActorIds(kase){
   const step = steps.find(st => (st.match ? st.match(kase.status) : st.st.includes(kase.status)));
   if (step && STEP_ROLE_IDS[step.key]) return STEP_ROLE_IDS[step.key];
   const st = STATUS[kase.status];
-  return st && st.owner ? [st.owner] : null; // สถานะนอกแถบ (เช่น ตีกลับ) ใช้เจ้าของสถานะ
+  return st && st.owner ? [st.owner] : null; // สถานะนอกแถบ (เช่น ปฏิเสธการรับ) ใช้เจ้าของสถานะ
 }
 /* ขั้นปัจจุบันของเคสตามแถบขั้นตอน (Task 260 — ทะเบียนสำนวนอิงการไหลจริง)
    { step, idx, total, actorIds, holderTitle } — สถานะนอกแถบใช้เจ้าของสถานะ, ปิด/ส่งไต่สวนแล้ว holderTitle = '' */
@@ -4487,7 +4487,7 @@ function enforceCaseReadOnly(){
     const txt = (b.innerText || '').trim();
     if (READONLY_KEEP_BTN.test(txt)) return;
     const icon = (b.querySelector('i') || {}).className || '';
-    if (/แก้ไขเอกสาร|อัปโหลด|เพิ่ม|ลบ|บันทึก|ส่ง|ลงนาม|ตีกลับ|ยืนยัน/.test(txt) || READONLY_EDIT_ICON.test(icon)) { b.classList.add('d-none'); b.dataset.a7ro = '1'; }
+    if (/แก้ไขเอกสาร|อัปโหลด|เพิ่ม|ลบ|บันทึก|ส่ง|ลงนาม|ปฏิเสธการรับ|ยืนยัน/.test(txt) || READONLY_EDIT_ICON.test(icon)) { b.classList.add('d-none'); b.dataset.a7ro = '1'; }
   });
 }
 if (typeof document !== 'undefined') {
@@ -5667,11 +5667,14 @@ function escapeHtml(str){
     .replace(/'/g, '&#39;');
 }
 
-function mergeField(value, placeholder){
+/* bind (ไม่บังคับ) = id ของช่องในฟอร์มที่เป็นต้นทางของค่านี้ → assets/ecmis-livedoc.js ใช้ทำ sync สองทาง
+   (ฟอร์ม ↔ เอกสารขวา) ไม่ส่ง bind = ทำงานเหมือนเดิมทุกประการ */
+function mergeField(value, placeholder, bind){
+  const b = bind ? ` data-bind="${escapeHtml(bind)}"` : '';
   if(value === undefined || value === null || String(value).trim() === ''){
-    return `<span class="mergefield empty" title="ยังไม่มีข้อมูล — ต้องกรอกในฟอร์มด้านซ้าย"></span>`;
+    return `<span class="mergefield empty"${b} title="ยังไม่มีข้อมูล — ต้องกรอกในฟอร์มด้านซ้าย"></span>`;
   }
-  return `<span class="mergefield filled" title="Auto-fill จากฟอร์ม/ฐานข้อมูลกลาง E-CMIS">${escapeHtml(toThaiDigits(value))}</span>`;
+  return `<span class="mergefield filled"${b} title="Auto-fill จากฟอร์ม/ฐานข้อมูลกลาง E-CMIS">${escapeHtml(toThaiDigits(value))}</span>`;
 }
 
 /* จุดไข่ปลาแบบเดิมกระจายอยู่ในเทมเพลตเอกสารหลายชุด ทั้งข้อความคงที่และ
@@ -6339,7 +6342,7 @@ function signDialog(docName, signerName, cert, opts){
       <!-- Info Banner -->
       <div class="p-3 mb-3 rounded-3 d-flex align-items-center gap-2" style="background:#EFF6FF; border:1px solid #DBEAFE; color:#1E40AF; font-size:0.85rem;">
         <i class="fa-solid fa-user me-1"></i>
-        <span>ผู้ลงนามคือ <strong>${signerName || 'เจ้าหน้าที่ผู้จัดทำเอกสาร'}</strong> จึงมีเฉพาะการลงนามและไม่มีปุ่มไม่เห็นชอบ/ตีกลับ</span>
+        <span>ผู้ลงนามคือ <strong>${signerName || 'เจ้าหน้าที่ผู้จัดทำเอกสาร'}</strong> จึงมีเฉพาะการลงนามและไม่มีปุ่มไม่เห็นชอบ/ปฏิเสธการรับ</span>
       </div>
       ${signDestinationHtml(opts)}
 
@@ -6502,7 +6505,7 @@ function sequentialSignDialog(docName, signers, opts){
       <!-- Info Banner -->
       <div class="p-3 mb-3 rounded-3 d-flex align-items-center gap-2" style="background:#EFF6FF; border:1px solid #DBEAFE; color:#1E40AF; font-size:0.85rem;">
         <i class="fa-solid fa-user me-1"></i>
-        <span>ผู้ลงนามคือ <strong>${cur.name}</strong> (${cur.title}) จึงมีเฉพาะการลงนามและไม่มีปุ่มไม่เห็นชอบ/ตีกลับ</span>
+        <span>ผู้ลงนามคือ <strong>${cur.name}</strong> (${cur.title}) จึงมีเฉพาะการลงนามและไม่มีปุ่มไม่เห็นชอบ/ปฏิเสธการรับ</span>
       </div>
       ${signDestinationHtml(opts)}
 
@@ -8224,7 +8227,7 @@ function initWritingSuggestions() {
     }
 
     const parentText = (ta.parentNode ? ta.parentNode.innerText : '') + ' ' + (ta.placeholder || '') + ' ' + ta.id;
-    const isReasonBox = /เหตุผล|ส่งคืน|ตีกลับ|ยุติ|ไม่รับ/.test(parentText);
+    const isReasonBox = /เหตุผล|ส่งคืน|ปฏิเสธการรับ|ยุติ|ไม่รับ/.test(parentText);
 
     // จัดลำดับความเกี่ยวข้อง (เหตุผล vs คำแนะนำการเขียน)
     const primaryItems = isReasonBox ? data.reasons.concat(data.suggestions) : data.suggestions.concat(data.reasons);

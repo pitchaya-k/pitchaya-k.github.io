@@ -100,7 +100,7 @@
             <option value="ALL" id="stOptAll">ทั้งหมด</option>
             <option value="PENDING" id="stOptPending">รอเลขาพิจารณาลงนาม</option>
             <option value="SIGNED" id="stOptSigned">ลงนามแล้ว</option>
-            <option value="RETURNED" id="stOptReturned">ไม่ลงนาม / ตีกลับ</option>
+            <option value="RETURNED" id="stOptReturned">ไม่ลงนาม / ปฏิเสธการรับ</option>
             <option value="SCREENING">ส่งให้อนุกลั่นกรองพิจารณา</option>
           </select>
         </div>
@@ -342,7 +342,7 @@ function getSecgenStatusCategory(c) {
   return 'SIGNED';
 }
 
-/* รองเลขาธิการฯ (Task 190) — ขั้นแรกของ กจ.7: รอพิจารณา / เสนอเลขาธิการฯ แล้ว / ตีกลับต้นทางแล้ว
+/* รองเลขาธิการฯ (Task 190) — ขั้นแรกของ กจ.7: รอพิจารณา / เสนอเลขาธิการฯ แล้ว / ปฏิเสธการรับต้นทางแล้ว
    คืน null เมื่อสำนวนไม่เคยผ่านรองเลขาฯ (ไม่แสดงในรายการของรองเลขาฯ) */
 function getDeputyStatusCategory(c) {
   if (c.status === 'PENDING_DEPUTY' || c.status === 'PENDING_DEPUTY_72') return 'PENDING';
@@ -367,8 +367,8 @@ const DEFAULT_COPY = {
   flowRef:    'กระบวนงานไต่สวนเบื้องต้น',
   card1Title: 'รายการสำนวนพิจารณา/ลงนาม',
   colStatusHeader: 'สถานะเสนอ/ลงนาม',
-  kpiPending: 'รอเลขาพิจารณาลงนาม', kpiDone: 'ลงนามแล้ว', kpiReturned: 'ไม่ลงนาม / ตีกลับ',
-  stPending:  'รอเลขาพิจารณาลงนาม', stDone:  'ลงนามแล้ว', stReturned:  'ไม่ลงนาม / ตีกลับ'
+  kpiPending: 'รอเลขาพิจารณาลงนาม', kpiDone: 'ลงนามแล้ว', kpiReturned: 'ไม่ลงนาม / ปฏิเสธการรับ',
+  stPending:  'รอเลขาพิจารณาลงนาม', stDone:  'ลงนามแล้ว', stReturned:  'ไม่ลงนาม / ปฏิเสธการรับ'
 };
 
 const UPSTREAM_COPY = {
@@ -377,8 +377,8 @@ const UPSTREAM_COPY = {
   flowRef:    'ติดตามสถานะสำนวนของหน่วยงานตนเอง — บทบาทนี้อยู่นอกขอบเขตของระบบนี้ (อยู่ในกระบวนการไต่สวนข้อเท็จจริงต้นทาง)',
   card1Title: 'รายการสำนวนของหน่วยงาน และสถานะการพิจารณา',
   colStatusHeader: 'สถานะการพิจารณา',
-  kpiPending: 'อยู่ระหว่างพิจารณา', kpiDone: 'ลงนามแล้ว', kpiReturned: 'ตีกลับ / ส่งคืน',
-  stPending:  'อยู่ระหว่างพิจารณา', stDone:  'ลงนามแล้ว', stReturned:  'ตีกลับ / ส่งคืน'
+  kpiPending: 'อยู่ระหว่างพิจารณา', kpiDone: 'ลงนามแล้ว', kpiReturned: 'ปฏิเสธการรับ / ส่งคืน',
+  stPending:  'อยู่ระหว่างพิจารณา', stDone:  'ลงนามแล้ว', stReturned:  'ปฏิเสธการรับ / ส่งคืน'
 };
 
 const CHAIRMAN_COPY = {
@@ -387,8 +387,8 @@ const CHAIRMAN_COPY = {
   flowRef:    'ประธานกรรมการ ป.ป.ท. สั่งการบรรจุวาระและลงนามดิจิทัล (G4 / S7)',
   card1Title: 'รายการสำนวนในคิวพิจารณาและสั่งการของประธานกรรมการ ป.ป.ท.',
   colStatusHeader: 'สถานะสั่งการ/บรรจุวาระ',
-  kpiPending: 'รอสั่งการวาระปกติ', kpiDone: 'สั่งการแล้ว (รอบรรจุวาระ)', kpiReturned: 'ตีกลับให้แก้ไข',
-  stPending:  'รอประธานสั่งการ', stDone:  'สั่งการแล้ว', stReturned:  'ตีกลับให้แก้ไข'
+  kpiPending: 'รอสั่งการวาระปกติ', kpiDone: 'สั่งการแล้ว (รอบรรจุวาระ)', kpiReturned: 'ปฏิเสธการรับให้แก้ไข',
+  stPending:  'รอประธานสั่งการ', stDone:  'สั่งการแล้ว', stReturned:  'ปฏิเสธการรับให้แก้ไข'
 };
 
 const AFFAIRS_COPY = {
@@ -417,8 +417,8 @@ const DEPUTY_COPY = {
   flowRef:    'รองเลขาธิการฯ ลงความเห็นและลงนามดิจิทัลก่อนเสนอเลขาธิการฯ — ขั้นแรกของ กจ.7 ทุกสาย (7.1 / 7.2 / 7.3)',
   card1Title: 'รายการสำนวนรอรองเลขาธิการฯ พิจารณา',
   colStatusHeader: 'สถานะพิจารณา',
-  kpiPending: 'รอรองเลขาฯ พิจารณา', kpiDone: 'เสนอเลขาธิการฯ แล้ว', kpiReturned: 'ตีกลับต้นทางแล้ว',
-  stPending:  'รอรองเลขาฯ พิจารณา', stDone:  'เสนอเลขาธิการฯ แล้ว', stReturned:  'ตีกลับต้นทางแล้ว'
+  kpiPending: 'รอรองเลขาฯ พิจารณา', kpiDone: 'เสนอเลขาธิการฯ แล้ว', kpiReturned: 'ปฏิเสธการรับต้นทางแล้ว',
+  stPending:  'รอรองเลขาฯ พิจารณา', stDone:  'เสนอเลขาธิการฯ แล้ว', stReturned:  'ปฏิเสธการรับต้นทางแล้ว'
 };
 
 const ROLE_COPY = {
@@ -484,7 +484,7 @@ if(ECMIS.isUpstreamRole(role.id)){
       <option value="ALL">ทั้งหมด</option>
       <option value="PENDING">รอรองเลขาฯ พิจารณา</option>
       <option value="PROPOSED">เสนอเลขาธิการฯ แล้ว</option>
-      <option value="RETURNED">ตีกลับต้นทางแล้ว</option>
+      <option value="RETURNED">ปฏิเสธการรับต้นทางแล้ว</option>
     `;
   }
 } else if (role.id === 'dir_case') {
@@ -577,7 +577,7 @@ function renderKPICards() {
     const kpis = [
       { id:'ALL', n: allCasesCombined.length, l:'รายการทั้งหมด' },
       { id:'PENDING', n: cnt('PENDING'), l:'รอรองเลขาฯ พิจารณา' },
-      { id:'RETURNED', n: cnt('RETURNED'), l:'ตีกลับต้นทางแล้ว' },
+      { id:'RETURNED', n: cnt('RETURNED'), l:'ปฏิเสธการรับต้นทางแล้ว' },
       { id:'PROPOSED', n: cnt('PROPOSED'), l:'เสนอเลขาธิการฯ แล้ว' }
     ];
     document.getElementById('kpiRow').innerHTML = kpis.map(k => ECMIS.kpiCardHtml({
@@ -619,7 +619,7 @@ function renderKPICards() {
   const kpis = [
     { id:'ALL', n: allCasesCombined.length, l:'รายการทั้งหมด', i:'fa-folder-open', c:'#0F2A62' },
     { id:'PENDING', n: pendingCount, l:'รอเลขาพิจารณาลงนาม', i:'fa-hourglass-half', c:'#D0A830' },
-    { id:'RETURNED', n: returnedCount, l:'ไม่ลงนาม / ตีกลับ', i:'fa-circle-xmark', c:'#DB2626' },
+    { id:'RETURNED', n: returnedCount, l:'ไม่ลงนาม / ปฏิเสธการรับ', i:'fa-circle-xmark', c:'#DB2626' },
     { id:'SCREENING', n: screeningCount, l:'ส่งให้อนุกลั่นกรองพิจารณา', i:'fa-users-gear', c:'#0284C7' }
   ];
   if (role.id === 'secgen') {
@@ -668,7 +668,7 @@ function getSecgenActionBadge(c) {
     return `<span class="meet-badge meet-review"><i class="fa-solid fa-users-gear me-1"></i>ส่งให้อนุกลั่นกรองพิจารณา</span>`;
   }
   if (cat === 'RETURNED') {
-    return `<span class="meet-badge meet-returned"><i class="fa-solid fa-xmark me-1"></i>ไม่ลงนาม / ตีกลับ</span>`;
+    return `<span class="meet-badge meet-returned"><i class="fa-solid fa-xmark me-1"></i>ไม่ลงนาม / ปฏิเสธการรับ</span>`;
   }
   if (cat === 'SIGNED') {
     return `<span class="meet-badge meet-done"><i class="fa-solid fa-check me-1"></i>ลงนามแล้ว</span>`;
@@ -726,8 +726,8 @@ function getAffairsActionBadge(c) {
     /* Task 220: บอกสายที่ยังค้างส่งให้ตรง — อาญา / วินัย (ป.วินัย) / ทั้งสองสาย */
     const crimLeft = ECMIS.trackStatus72(c, 'criminal') === 'PENDING';
     const discSt = ECMIS.trackStatus72(c, 'disciplinary');
-    const discLeft = discSt === 'PENDING' || discSt === 'RETURNED'; // Task 282: กจ.8 ตีกลับ = ต้องส่งใหม่
-    if (discSt === 'RETURNED') return `<span class="meet-badge" style="background:#f9e1df;color:#8c261f"><i class="fa-solid fa-rotate-left me-1"></i>สายวินัยถูก กจ.8 ตีกลับ — แก้ไขแล้วส่งใหม่</span>`;
+    const discLeft = discSt === 'PENDING' || discSt === 'RETURNED'; // Task 282: กจ.8 ปฏิเสธการรับ = ต้องส่งใหม่
+    if (discSt === 'RETURNED') return `<span class="meet-badge" style="background:#f9e1df;color:#8c261f"><i class="fa-solid fa-rotate-left me-1"></i>สายวินัยถูก กจ.8 ปฏิเสธการรับ — แก้ไขแล้วส่งใหม่</span>`;
     const label = crimLeft && discLeft ? 'รอส่งสายอาญา + สายวินัย' : discLeft ? 'รอส่งสายวินัย (ป.วินัย)' : crimLeft ? 'รอส่งสายอาญา' : 'รอปิดสำนวน';
     return `<span class="meet-badge meet-review"><i class="fa-solid fa-paper-plane me-1"></i>${label}</span>`;
   }
@@ -756,7 +756,7 @@ function getDirCaseActionBadge(c) {
 function getDeputyActionBadge(c) {
   const cat = getDeputyStatusCategory(c);
   if (cat === 'PENDING') return `<span class="meet-badge meet-pending"><i class="fa-solid fa-hourglass-half me-1"></i>รอรองเลขาฯ พิจารณา</span>`;
-  if (cat === 'RETURNED') return `<span class="meet-badge meet-returned"><i class="fa-solid fa-rotate-left me-1"></i>ตีกลับต้นทางแล้ว</span>`;
+  if (cat === 'RETURNED') return `<span class="meet-badge meet-returned"><i class="fa-solid fa-rotate-left me-1"></i>ปฏิเสธการรับต้นทางแล้ว</span>`;
   if (cat === 'PROPOSED') return `<span class="meet-badge meet-done"><i class="fa-solid fa-check me-1"></i>เสนอเลขาธิการฯ แล้ว</span>`;
   return ECMIS.statusBadge(c.status);
 }

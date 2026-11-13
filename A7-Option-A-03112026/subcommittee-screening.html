@@ -15,6 +15,7 @@
     <link href="assets/ecmis-app.css" rel="stylesheet">
     <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
     <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <link href="assets/ecmis-livedoc.css?v=20261113" rel="stylesheet">
 </head>
 
 <body class="ws-std">
@@ -211,7 +212,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
     <script src="../cases.js"></script>
-    <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+    <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-livedoc.js?v=20261113"></script>
     <script src="assets/saraban-no.js?v=20261015-a7-saraban-off"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
@@ -320,12 +322,12 @@
             document.querySelector('.flow-ref').innerHTML = 'คณะอนุกลั่นกรองฯ พิจารณาและส่งต่อเพื่อเตรียมประชุม';
         }
 
-        /* ประธานฯ ตีกลับให้ทบทวนความเห็น (จากขั้น PENDING_SIGN_AGENDA_72) — แสดงเหตุผล, ฟอร์มปลดล็อคเอง
+        /* ประธานฯ ปฏิเสธการรับให้ทบทวนความเห็น (จากขั้น PENDING_SIGN_AGENDA_72) — แสดงเหตุผล, ฟอร์มปลดล็อคเอง
            (subScreeningStatus คืน 'PENDING' เมื่อ status = IN_SCREENING_72 → isScreeningLocked = false) */
         if ((kase.status === 'IN_SCREENING_72' || kase.status === 'IN_SCREENING') && (kase.chairmanReturnReason72 || '').trim()) {
             document.getElementById('stBadge').insertAdjacentHTML('afterend',
                 '<div class="alert alert-warning mt-2 mb-0 py-2 px-3 small">' +
-                '<i class="fa-solid fa-rotate-left me-1"></i><strong>ประธานฯ ตีกลับให้คณะอนุกลั่นกรองฯ ทบทวนความเห็น</strong>' +
+                '<i class="fa-solid fa-rotate-left me-1"></i><strong>ประธานฯ ปฏิเสธการรับให้คณะอนุกลั่นกรองฯ ทบทวนความเห็น</strong>' +
                 '<div class="mt-1">' + ECMIS.escapeHtml(kase.chairmanReturnReason72) + '</div></div>');
         }
 
@@ -406,7 +408,7 @@
                 subOutcomeLawRef: om ? om.lawRef : null,
                 subOutcomeAt: now, subOutcomeBy: role.id, subOutcomeTeam: team,
                 subCommittee: team || kase.subCommittee,
-                chairmanReturnReason72: '',  /* ล้างเหตุตีกลับของประธานฯ เมื่อคณะอนุฯ ส่งมติใหม่ (G3) */
+                chairmanReturnReason72: '',  /* ล้างเหตุปฏิเสธการรับของประธานฯ เมื่อคณะอนุฯ ส่งมติใหม่ (G3) */
                 status: targetStatus
             }, extraPatch || {});
             if (isRuling && om && om.docxTemplate) patch.rulingTemplate = om.docxTemplate; // 3 = ชี้มูล, 4 = ไม่ชี้มูล/ทำเพิ่ม/ตกไป
@@ -601,9 +603,9 @@
       <div class="doc-secret">ลับ</div>
       <div class="doc-title">
         <div class="doc-title-l1">มติการประชุม</div>
-        <div class="doc-title-l2">คณะอนุกรรมการกลั่นกรองเรื่องไต่สวนข้อเท็จจริง ${M(team)}</div>
+        <div class="doc-title-l2">คณะอนุกรรมการกลั่นกรองเรื่องไต่สวนข้อเท็จจริง ${M(team, '', 'manualTeam')}</div>
       </div>
-      <div class="doc-sub">ครั้งที่ ${M(meetNo)} วันที่ ${M(meetDate)}</div>
+      <div class="doc-sub">ครั้งที่ ${M(meetNo, '', 'subMeetNo')} วันที่ ${M(meetDate, '', 'subMeetDate')}</div>
 
       <div class="doc-row"><span class="k">ที่</span> ${M(ECMIS.sarabanThai(ECMIS.sarabanNoOf(kase, 'screeningMemo')), 'ปป ๐๐๐๔/......')}</div>
       <div class="doc-row"><span class="k">เรื่องที่</span> ${M(ECMIS.caseNo(kase))}</div>
@@ -619,18 +621,18 @@
         <div class="doc-indent">${M(kase.allegation)}</div>
 
         <div class="doc-h">ความเห็นและข้อสังเกตของคณะอนุกรรมการ</div>
-        <div class="doc-indent">${M(opinion, '……………………………………………………………………………………')}</div>
+        <div class="doc-indent">${M(opinion, '……………………………………………………………………………………', 'subOpinion')}</div>
       </div>
 
       <div class="doc-h">มติคณะอนุกรรมการ</div>
-      <div class="doc-indent">คณะอนุกรรมการกลั่นกรองเรื่องไต่สวนข้อเท็จจริง ${M(team)}
+      <div class="doc-indent">คณะอนุกรรมการกลั่นกรองเรื่องไต่สวนข้อเท็จจริง ${M(team, '', 'manualTeam')}
         พิจารณาแล้วมีมติ ${M(RES_TXT[res])}</div>
 
       <div class="doc-sign">
         ${signed && pendingSigData && pendingSigData.sig ? `<img class="doc-sig-img" src="${pendingSigData.sig}" alt="ลายมือชื่อ"><br>` : (signed ? `<span style="display:inline-block;padding:4px 8px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:4px;color:#065f46;font-size:0.8rem;margin-bottom:6px"><i class="fa-solid fa-certificate me-1"></i>Digital Signature Verified (${pendingSigData?.certCode || SIGNER_CERT})</span><br>` : '<span class="doc-dots"></span><br>')}
         (${SIGNER_NAME})<br>
         ${M(signer.title)}<br>
-        ${M(team)}
+        ${M(team, '', 'manualTeam')}
         ${signed ? `<br><span style="font-size:0.75rem;color:#16A34A"><i class="fa-solid fa-circle-check"></i> ลงนามดิจิทัลเมื่อ ${new Date().toLocaleString('th-TH')}</span>` : ''}
       </div>
       <div class="doc-secret-foot">ลับ</div>
@@ -904,9 +906,9 @@
       <div class="doc-secret">ลับ</div>
       <div class="doc-title">
         <div class="doc-title-l1">รายงานความเห็น</div>
-        <div class="doc-title-l2">คณะอนุกลั่นกรองเรื่องไต่สวนข้อเท็จจริง ${M(team)}</div>
+        <div class="doc-title-l2">คณะอนุกลั่นกรองเรื่องไต่สวนข้อเท็จจริง ${M(team, '', 'manualTeam')}</div>
       </div>
-      <div class="doc-sub">ครั้งที่ ${M(meetNo)} วันที่ ${M(meetDate)}</div>
+      <div class="doc-sub">ครั้งที่ ${M(meetNo, '', 'subMeetNo')} วันที่ ${M(meetDate, '', 'subMeetDate')}</div>
 
       <div class="doc-row"><span class="k">ที่</span> ${M(ECMIS.sarabanThai(ECMIS.sarabanNoOf(kase, 'screeningMemo')), 'ปป ๐๐๐๔/......')}</div>
       <div class="doc-row"><span class="k">เรื่องที่</span> ${M(ECMIS.caseNo(kase))}</div>
@@ -922,14 +924,14 @@
         <div class="doc-indent">${M(kase.allegation)}</div>
 
         <div class="doc-h">ความเห็นของคณะอนุกลั่นกรองเรื่องไต่สวนข้อเท็จจริง</div>
-        <div class="doc-indent">${M(opinion, '……………………………………………………………………………………')}</div>
+        <div class="doc-indent">${M(opinion, '……………………………………………………………………………………', 'subOpinion')}</div>
       </div>
 
       <div class="doc-sign">
         ${signed72 && pendingSigData72 && pendingSigData72.sig ? `<img class="doc-sig-img" src="${pendingSigData72.sig}" alt="ลายมือชื่อ"><br>` : (signed72 ? `<span style="display:inline-block;padding:4px 8px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:4px;color:#065f46;font-size:0.8rem;margin-bottom:6px"><i class="fa-solid fa-certificate me-1"></i>Digital Signature Verified (${pendingSigData72?.certCode || SIGNER_CERT72})</span><br>` : '<span class="doc-dots"></span><br>')}
         (${SIGNER_NAME72})<br>
         ${M(signer72.title)}<br>
-        ${M(team)}
+        ${M(team, '', 'manualTeam')}
         ${signed72 ? `<br><span style="font-size:0.75rem;color:#16A34A"><i class="fa-solid fa-circle-check"></i> ลงนามดิจิทัลเมื่อ ${new Date().toLocaleString('th-TH')}</span>` : ''}
       </div>
       <div class="doc-secret-foot">ลับ</div>

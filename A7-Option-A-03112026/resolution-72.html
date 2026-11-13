@@ -15,6 +15,7 @@
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <link href="assets/ecmis-livedoc.css?v=20261113" rel="stylesheet">
 </head>
 
 <body class="ws-std">
@@ -305,7 +306,8 @@
   <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3/build/docxtemplater.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-livedoc.js?v=20261113"></script>
   <script src="assets/saraban-no.js?v=20261015-a7-saraban-off"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
@@ -596,7 +598,7 @@
     }
 
     function personNoMeritText(p) {
-      if (p.noMeritReason === 'OTHER') return ECMIS.mergeField(p.noMeritOther, '……………………………………');
+      if (p.noMeritReason === 'OTHER') return ECMIS.mergeField(p.noMeritOther, '……………………………………', `pa${perAccused.indexOf(p)}_nmo`);
       return NO_MERIT_REASONS[p.noMeritReason](ECMIS.mergeField(p.name, '(ชื่อผู้ถูกกล่าวหา)'));
     }
 
@@ -605,6 +607,7 @@
       const M = ECMIS.mergeField;
       const one = rows.length === 1;
       const items = rows.map(({ p, n }, i) => {
+        const pi = perAccused.indexOf(p); // ใช้ผูก id ช่องรายคน pa{idx}_*
         const head = one ? '' : `<div class="doc-h" style="margin-top:3px">(${ECMIS.toThaiDigits(i + 1)}) ${M(p.name)}</div>`;
         if (p.status === 'WITNESS') {
           return `${head}<div class="doc-indent">ให้กัน${M(p.name)} ไว้เป็นพยาน — ไม่ส่งพนักงานอัยการดำเนินคดีอาญาและไม่แจ้งผู้บังคับบัญชาพิจารณาโทษทางวินัย</div>`;
@@ -613,12 +616,12 @@
           return `${head}<div class="doc-indent">ข้อกล่าวหาไม่มีมูล ให้ข้อกล่าวหาเป็นอันตกไป — ${personNoMeritText(p)}</div>`;
         }
         const crimHtml = p.crim ? `<div class="doc-indent">ความผิดทางอาญา: การกระทำของ${M(p.name)} เป็นความผิดตาม
-          ${M(p.criminalFinding, '(ฐานความผิด/กฎหมายและมาตรา)')} — ให้ส่งเรื่องพร้อมทั้งสำนวนการไต่สวน รายงาน เอกสาร และความเห็น
+          ${M(p.criminalFinding, '(ฐานความผิด/กฎหมายและมาตรา)', `pa${pi}_cf`)} — ให้ส่งเรื่องพร้อมทั้งสำนวนการไต่สวน รายงาน เอกสาร และความเห็น
           ของคณะกรรมการ ป.ป.ท. ให้พนักงานอัยการดำเนินคดีต่อไป ตามมาตรา ๔๔${p.flight
             ? ' และเนื่องจากมีเหตุอันควรเชื่อว่าผู้ถูกกล่าวหาจะหลบหนี ให้ดำเนินการขอให้ศาลที่มีเขตอำนาจออกหมายจับและควบคุมตัวผู้ถูกกล่าวหาไว้ตามมาตรา ๑๙/๒'
             : ''}</div>` : '';
         const discHtml = p.disc ? `<div class="doc-indent">ความผิดทางวินัย: การกระทำของ${M(p.name)} เป็นความผิดวินัยอย่างร้ายแรง ฐาน
-          ${M(p.disciplinaryFinding, '(ฐานความผิด/กฎหมายและมาตรา)')} ตามมาตรา ๓๘</div>` : '';
+          ${M(p.disciplinaryFinding, '(ฐานความผิด/กฎหมายและมาตรา)', `pa${pi}_df`)} ตามมาตรา ๓๘</div>` : '';
         return `${head}<div class="doc-indent">วินิจฉัยชี้มูลความผิด</div>${crimHtml}${discHtml}`;
       }).join('');
       return `<div class="doc-h">มติที่ประชุม</div>
@@ -850,7 +853,7 @@
       function runningHeaderHtml(pageNo) {
         return `
     <div class="doc-run-title">มติการประชุมคณะกรรมการ ป.ป.ท. — วินิจฉัยชี้มูล${splitOne ? ` (${M(splitOne.name)})` : ''}<br>
-      ครั้งที่ ${M(meetNo)} วันที่ ${M(meetDate)}<br>วาระที่ ${M(agendaNo)}</div>
+      ครั้งที่ ${M(meetNo, '', 'meetNo')} วันที่ ${M(meetDate, '', 'meetDate')}<br>วาระที่ ${M(agendaNo, '', 'agendaNo')}</div>
     <div class="doc-secret">ลับ</div>
     <div class="doc-run-page">- ${ECMIS.toThaiDigits(pageNo)} -</div>`;
       }
@@ -861,19 +864,19 @@
       <div class="doc-title-l1">มติการประชุม</div>
       <div class="doc-title-l2">คณะกรรมการป้องกันและปราบปรามการทุจริตในภาครัฐ</div>
     </div>
-    <div class="doc-sub">ครั้งที่ ${M(meetNo)} วันที่ ${M(meetDate)}<br>วาระที่ ${M(agendaNo)}</div>
+    <div class="doc-sub">ครั้งที่ ${M(meetNo, '', 'meetNo')} วันที่ ${M(meetDate, '', 'meetDate')}<br>วาระที่ ${M(agendaNo, '', 'agendaNo')}</div>
 
-    <div class="doc-row"><span class="k">เรื่อง</span> ${M(curSubject)}</div>
+    <div class="doc-row"><span class="k">เรื่อง</span> ${M(curSubject, '', 'caseSubject')}</div>
     <div class="doc-row"><span class="k">ผู้รับผิดชอบ</span> ${M(kase.owner)}</div>
     <div class="doc-row"><span class="k">สังกัด</span> ${M(kase.ownerOrg)}</div>
-    <div class="doc-row"><span class="k">ผู้ชี้แจง</span> ${M(presenter)}</div>
+    <div class="doc-row"><span class="k">ผู้ชี้แจง</span> ${M(presenter, '', 'presenter')}</div>
     <div class="doc-row"><span class="k">เอกสารอ้างอิง</span> หนังสือหน่วยงานที่รับผิดชอบตามเอกสาร
       ${M(kase.docRef !== '—' ? kase.docRef : '', 'ที่ ปป …………/……… ลงวันที่ ……………')} และเอกสารประกอบการประชุม</div>`;
 
       const bi = html => `<div class="doc-body-indent">${html}</div>`;
       const flowBlocks = [
         bi(`<div class="doc-indent" style="margin-top:4px">
-        ${M(presenter)} กล่าวต่อที่ประชุมว่า ${M(investigatorRef)} ขอรายงานผลการไต่สวน ดังต่อไปนี้
+        ${M(presenter, '', 'presenter')} กล่าวต่อที่ประชุมว่า ${M(investigatorRef, '', 'investigatorRef')} ขอรายงานผลการไต่สวน ดังต่อไปนี้
       </div>`),
         bi(`<div style="margin-top:4px">เรื่องที่ ${M(ECMIS.caseNo(kase))}${splitOne ? `/${ECMIS.toThaiDigits(activeSplitIdx + 1)}` : ''}
         (${M(kase.legalBase === 'ม.62'
@@ -885,15 +888,15 @@
         bi(`<div class="doc-h">ผู้กล่าวหา</div><div>${M(kase.complainant)}</div>`),
         bi(`<div class="doc-h">ผู้ถูกกล่าวหา</div>
       ${docAccused.map(a => `<div>${a.no}. ${M(a.name)} ${M(a.pos)} ${M(a.agency)}</div>`).join('')}`),
-        bi(`<div class="doc-h">พฤติการณ์ที่กล่าวหา</div><div class="doc-indent">${M(agendaDetails)}</div>`),
+        bi(`<div class="doc-h">พฤติการณ์ที่กล่าวหา</div><div class="doc-indent">${M(agendaDetails, '', 'agendaDetails')}</div>`),
         bi(`<div class="doc-h">คณะอนุกรรมการไต่สวน/คณะพนักงานไต่สวน แล้วแต่กรณี มีความเห็น ดังนี้</div>
-      <div class="doc-indent">${M(investigatorOpinion, '………………………………………………………………………………………………')}</div>`),
+      <div class="doc-indent">${M(investigatorOpinion, '………………………………………………………………………………………………', 'investigatorOpinion')}</div>`),
         bi(`<div class="doc-indent" style="margin-top:3px">
         เหตุผลในการวินิจฉัยรายละเอียดปรากฏตามรายงานการไต่สวนเพื่อวินิจฉัยชี้มูลของคณะอนุกรรมการไต่สวน/คณะพนักงานไต่สวน
         แล้วแต่กรณี ตามเอกสารประกอบการประชุม
       </div>`),
         bi(`<div class="doc-indent" style="margin-top:3px">
-        ในการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meetNo)} วันที่ ${M(meetDate)}
+        ในการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meetNo, '', 'meetNo')} วันที่ ${M(meetDate, '', 'meetDate')}
         คณะกรรมการ ป.ป.ท. ที่มาประชุม จำนวน ${attendees.length} คน ประกอบด้วย</div>`),
         bi(`<div class="doc-indent">${attendees.map((b, i) => `${i + 1}. ${M(b.n)} ${M(b.r)}`).join('<br>')}</div>`),
         ...(recusedList.length ? [
@@ -905,11 +908,11 @@
         เหตุผลในการวินิจฉัยคณะกรรมการ ป.ป.ท. มีความเห็นสอดคล้องกับคณะอนุกรรมการไต่สวน/คณะพนักงานไต่สวน แล้วแต่กรณี
       </div>`),
         bi(`<div class="doc-h">การชี้แจงเพิ่มเติม</div>
-      <div class="doc-indent">ผู้ชี้แจง (${M(presenter)}) ชี้แจงเพิ่มเติมว่า
-        ${M(presenterNote, '………………………………………………………………………………………………')}</div>`),
+      <div class="doc-indent">ผู้ชี้แจง (${M(presenter, '', 'presenter')}) ชี้แจงเพิ่มเติมว่า
+        ${M(presenterNote, '………………………………………………………………………………………………', 'presenterNote')}</div>`),
         bi(`<div class="doc-h">ความเห็นที่ประชุม</div>
       <div class="doc-indent">คณะกรรมการ ป.ป.ท. พิจารณาแล้วเห็นว่า
-        ${M(opinion, '………………………………………………………………………………………………')}</div>`),
+        ${M(opinion, '………………………………………………………………………………………………', 'boardOpinion')}</div>`),
         split
           ? bi(splitResolutionHtml(splitOne ? [{ p: splitOne, n: activeSplitIdx }] : perAccused.map((p, n) => ({ p, n })),
               M(unanimous ? 'เป็นเอกฉันท์' : `ด้วยคะแนนเสียงข้างมาก ${t.forV} ต่อ ${t.againstV} เสียง`)))
@@ -924,7 +927,7 @@
               : ''}</div>` : ''}
       ${disc ? `<div class="doc-h" style="margin-top:3px">ความผิดทางวินัย</div>
       <div class="doc-indent">การกระทำของ${M(kase.accused[0] ? kase.accused[0].name : '', '(ชื่อผู้ถูกกล่าวหา)')} เป็นความผิดวินัยอย่างร้ายแรง ฐาน
-        ${M(disciplinaryFinding, '(ฐานความผิด/กฎหมายและมาตรา)')} ตามมาตรา ๓๘</div>` : ''}`)
+        ${M(disciplinaryFinding, '(ฐานความผิด/กฎหมายและมาตรา)', 'disciplinaryFinding')} ตามมาตรา ๓๘</div>` : ''}`)
           : bi(`<div class="doc-h">มติที่ประชุม</div>
       <div>๑. คณะกรรมการ ป.ป.ท. มีมติ${M(unanimous ? 'เป็นเอกฉันท์' : `ด้วยคะแนนเสียงข้างมาก ${t.forV} ต่อ ${t.againstV} เสียง`)}</div>
       <div style="padding-left:1.5em">- ${M(resText)}</div>`),
@@ -933,8 +936,8 @@
         ...(t.recused > 0 ? [bi(`<div style="padding-left:1.5em;color:#6b3fa0">
       (กรรมการที่ถูกกันออกจากการพิจารณาวาระนี้ตาม ม.๒๐ จำนวน ${t.recused} ท่าน)</div>`)] : []),
         ...(s65 ? [bi(s65)] : []),
-        bi(`<div style="margin-top:3px">${lastNo}. รับรองมติการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meetNo)}
-      วันที่ ${M(meetDate)} วาระที่ ${M(agendaNo)}</div>`)
+        bi(`<div style="margin-top:3px">${lastNo}. รับรองมติการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meetNo, '', 'meetNo')}
+      วันที่ ${M(meetDate, '', 'meetDate')} วาระที่ ${M(agendaNo, '', 'agendaNo')}</div>`)
       ];
 
       const signBlock = `
