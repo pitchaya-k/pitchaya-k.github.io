@@ -7,11 +7,11 @@
   <title>ออกคำสั่งแต่งตั้งคณะไต่สวน ม.24 | E-CMIS</title>
   <link rel="icon" type="image/png" href="assets/pacc_logo.png">
   <link
-    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap"
+    href="assets/vendor/fonts/fonts.css"
     rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet">
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
@@ -87,6 +87,9 @@
               </div>
             </div>
           </div>
+
+          <!-- เลขหนังสือของขั้นนี้ (6.1.x คำสั่งคณะกรรมการ / 6.2.x คำสั่งสำนักงาน ตาม Check List สารบรรณ x Process 20/11/2569) -->
+          <div id="sarabanDocsHost" hidden data-a7ro-keep></div>
 
           <div class="ws-card mb-3">
             <div class="card-header"><i class="fa-solid fa-file-lines"></i> พฤติการณ์คดี</div>
@@ -435,15 +438,15 @@
     <div id="actionBarSlot"></div>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/pizzip@3/dist/pizzip.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3/build/docxtemplater.js"></script>
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="assets/vendor/supabase/supabase.js"></script>
+  <script src="assets/vendor/pizzip/pizzip.js"></script>
+  <script src="assets/vendor/docxtemplater/docxtemplater.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-app.js?v=20261121-a7-inq64"></script>
   <script src="assets/ecmis-livedoc.js?v=20261113"></script>
   <script src="assets/resolution-split.js?v=20261014-a7-split2"></script>
 <script src="../shared-assets/handoff.js"></script>
@@ -451,7 +454,9 @@
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
   <script src="assets/ecmis-model.js"></script>
   <script src="assets/order-memo-docs.js"></script>
-  <script src="assets/saraban-no.js?v=20261015-a7-saraban-off"></script>
+  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
+  <script src="assets/saraban-no.js?v=20261121-a7-saraban"></script>
+  <script src="assets/saraban-docs.js?v=20261121-a7-saraban"></script>
   <script src="assets/case-closure.js?v=20261015-a7-saraban-off"></script>
   <script>
     ECMIS.renderShell('order.html');
@@ -2337,6 +2342,14 @@
       field({ input: document.getElementById('amendNo'), slot: 'amendOrderNo', prefix: '' });
       field({ host: document.getElementById('orderNotifyLetterBox'), id: 'orderNotifyLetter', label: 'เลขหนังสือส่งคำสั่งแจ้งสำนัก/เขต',
         slot: 'orderNotifyLetter', prefix: 'ปป 0004/', readonly: !appointOrderAllowed(kase) });
+      /* การ์ดเลขหนังสือของขั้นนี้: คำสั่งคณะกรรมการ (isSub) = 6.1.1 / 6.1.4 / 6.1.5 · คำสั่งสำนักงาน = 6.2.1 / 6.2.2 / 6.2.3
+         slot memoNo ผูกกับช่อง "เลขที่บันทึกข้อความ" เดิม เลขที่ได้จึงลงในเอกสารด้วย */
+      if (ECMIS.mountSarabanDocs) sarabanFields.push(ECMIS.mountSarabanDocs({
+        host: document.getElementById('sarabanDocsHost'), kase, sb,
+        codes: () => (isSub ? ['6.1.1', '6.1.4', '6.1.5'] : ['6.2.1', '6.2.2', '6.2.3']),
+        readonly: !appointOrderAllowed(kase),
+        inputs: { memoNo: document.getElementById('memoNo') }, onChange: rerender
+      }));
     }
 
     function mountClosure() {

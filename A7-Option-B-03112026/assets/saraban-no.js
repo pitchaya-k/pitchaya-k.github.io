@@ -69,6 +69,8 @@
   function sarabanNoOf(kase, slot) { const r = sarabanRecord(kase, slot); return (r && r.no) || ''; }
 
   async function loadRows(sb) {
+    /* ไม่มีฐานข้อมูล (เปิดออฟไลน์) — ใช้สำนวนในหน่วยความจำแทน */
+    if (!sb) return (E().CASES || []).map(c => ({ trr_id: c.trr_id || c.id, trr_resolution_data: c.resolutionData || {} }));
     const rows = [];
     for (let from = 0; ; from += ROW_PAGE) {
       const { data, error } = await sb.from('tbl_res_request')
@@ -123,6 +125,7 @@
     kase.resolutionData = merged;
     const mem = (E().CASES || []).find(c => c.id === kase.id);
     if (mem) mem.resolutionData = merged;
+    if (!(sb && kase.trr_id) && E().saveCases) E().saveCases();   /* ไม่มีฐานข้อมูล: เก็บในเบราว์เซอร์ */
   }
 
   function actor() {
@@ -130,13 +133,23 @@
     return { issuedBy: role ? role.id : '', issuedByName: role ? (role.name || role.title || '') : '' };
   }
 
-  /* ออกเลขใหม่ให้เอกสาร slot ของเคส (kases = หลายเคสที่ใช้เลขเดียวกัน, group = ชื่อกลุ่ม) */
-  async function issueSarabanNo({ sb, kases, slot, prefix, group }) {
+  /* แก้ฟิลด์อื่นของ record เดิม (สถานะส่งต่อ แนบไฟล์ ปิดเรื่อง ประวัติ) โดยไม่ออกเลขใหม่ — ใช้โดย saraban-docs.js */
+  async function patchSarabanRecord({ sb, kases, slot, patch }) {
+    const client = sb === undefined ? E().getSupabaseClient() : sb;
+    const list = (kases || []).filter(Boolean);
+    const record = Object.assign({}, sarabanRecord(list[0], slot) || {}, patch);
+    for (const k of list) await writeRecord(client, k, slot, record);
+    return record;
+  }
+
+  /* ออกเลขใหม่ให้เอกสาร slot ของเคส (kases = หลายเคสที่ใช้เลขเดียวกัน, group = ชื่อกลุ่ม,
+     extra = ฟิลด์เพิ่มของ record เช่น docCode / reqId / ref / trace จากหน้าต่างขอเลข) */
+  async function issueSarabanNo({ sb, kases, slot, prefix, group, extra }) {
     const client = sb || E().getSupabaseClient();
     const list = (kases || []).filter(Boolean);
-    if (!client || !list.length) throw new Error('ไม่พบฐานข้อมูลหรือเคสที่จะออกเลข');
+    if (!list.length) throw new Error('ไม่พบเคสที่จะออกเลข');
     const year = currentYearBE();
-    const myKey = group || `${list[0].trr_id}:${slot}`;
+    const myKey = group || `${list[0].trr_id || list[0].id}:${slot}`;
     const prev = sarabanRecord(list[0], slot);
     const history = (prev && prev.no ? [{ no: prev.no, issuedAt: prev.issuedAt || '', manual: !!prev.manual }] : []).concat((prev && prev.history) || []);
     let seq = 0;
@@ -145,7 +158,7 @@
       const used = usedSeqs(await loadRows(client), prefix, year).map(x => x.seq);
       seq = Math.max(seq, (used.length ? Math.max(...used) : 0)) + 1;
       const record = Object.assign({ no: formatSarabanNo(prefix, seq, year), prefix, seq, year, issuedAt: new Date().toISOString(), manual: false },
-        actor(), group ? { group } : {}, history.length ? { history } : {});
+        actor(), group ? { group } : {}, history.length ? { history } : {}, extra || {});
       for (const k of list) await writeRecord(client, k, slot, record);
       /* อ่านซ้ำ: เอกสารอื่นที่ได้ลำดับเดียวกันและออกก่อน = ฝั่งนี้ขยับ */
       const clash = usedSeqs(await loadRows(client), prefix, year)
@@ -313,7 +326,8 @@
     };
   }
 
-  const api = { SARABAN_UI_ENABLED, nextSarabanNo, issueSarabanNo, saveManualSarabanNo, mountSarabanField, formatSarabanNo, parseSarabanSeq, sarabanNoOf, sarabanRecord, sarabanThai };
+  const api = { SARABAN_UI_ENABLED, nextSarabanNo, issueSarabanNo, saveManualSarabanNo, patchSarabanRecord, loadSarabanRows: loadRows,
+    mountSarabanField, formatSarabanNo, parseSarabanSeq, sarabanNoOf, sarabanRecord, sarabanThai };
   if (root.ECMIS) Object.assign(root.ECMIS, api);
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);

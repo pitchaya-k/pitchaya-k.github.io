@@ -114,14 +114,14 @@ function findingsHtml(k, accused) {
 /* A7-06: คุ้มครองพยาน — คำว่า "เปิดเรื่องใน กจ.6" แสดงเสมอในทุกสถานะ ต่างกันแค่ style
    กดได้ = มีเรื่องคุ้มครองพยานและต้นทางส่ง url มา (ลิงก์สีปกติ) · กดไม่ได้ = สีจาง ไม่มีลิงก์ พร้อมคำอธิบายเมื่อชี้
    (mockLink = ลิงก์ของหน้าจอ Mock ไม่พาไปไหน แสดงแจ้งเตือนว่าเป็นลิงก์จำลองแทน) */
-const A6_LINK_TEXT = 'เปิดเรื่องใน กจ.6';
+const A6_LINK_TEXT = 'เปิดเรื่องในระบบฐานข้อมูลการดำเนินการคุ้มครองพยาน';
 function witnessLinkHtml(wp) {
   if (wp && wp.has && wp.url) {
     return wp.mockLink
       ? `<a class="text-decoration-none" href="#" data-mock-link="${esc(wp.caseNo || '')}">${A6_LINK_TEXT}</a>`
       : `<a class="text-decoration-none" href="${esc(wp.url)}" target="_blank" rel="noopener">${A6_LINK_TEXT}</a>`;
   }
-  const why = wp && wp.has ? 'ยังไม่มีลิงก์จาก กจ.6' : 'ไม่มีเรื่องที่เชื่อมโยงใน กจ.6';
+  const why = wp && wp.has ? 'ยังไม่มีลิงก์จากระบบฐานข้อมูลการดำเนินการคุ้มครองพยาน' : 'ไม่มีเรื่องที่เชื่อมโยงในระบบฐานข้อมูลการดำเนินการคุ้มครองพยาน';
   return `<span class="text-muted" style="cursor:not-allowed;opacity:.6" aria-disabled="true" title="${why}">${A6_LINK_TEXT}</span>`;
 }
 function witnessHtml(k) {
@@ -176,7 +176,7 @@ function html(k, opts) {
       ${section('ฐานความผิดและข้อกล่าวหา', offenseInner)}
       ${section('ผู้ถูกกล่าวหา', accusedInner)}
       ${section('ความเห็นและมติ', opinionInner)}
-      ${section('เรื่องที่เกี่ยวข้องใน กจ.6', field('การคุ้มครองพยาน', witnessHtml(k)))}
+      ${section('เรื่องที่เกี่ยวข้องในระบบฐานข้อมูลการดำเนินการคุ้มครองพยาน', field('การคุ้มครองพยาน', witnessHtml(k)))}
     </div>${prototypeNoteHtml(k)}</div>`;
 }
 /* ช่องที่ assets/case-summary-prototype-fill.js เติมให้เคสเดิม — บอกชัดว่าเป็นตัวอย่างประกอบ ไม่ใช่ข้อมูลจริงจากต้นทาง */
@@ -241,7 +241,7 @@ function mountCollapse(card, k) {
     const a = e.target.closest('[data-mock-link]');
     if (!a) return;
     e.preventDefault();
-    ECMIS.toastOk('ลิงก์จำลอง (Prototype)', `ระบบจริงจะเปิดรายการ ${a.dataset.mockLink || ''} ในกิจกรรมที่ 6 (คุ้มครองพยาน)`);
+    ECMIS.toastOk('ลิงก์จำลอง (Prototype)', `ระบบจริงจะเปิดรายการ ${a.dataset.mockLink || ''} ในระบบฐานข้อมูลการดำเนินการคุ้มครองพยาน`);
   });
 }
 

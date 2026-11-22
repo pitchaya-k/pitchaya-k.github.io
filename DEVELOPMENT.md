@@ -115,8 +115,29 @@ python -m http.server 8765 --bind 127.0.0.1
 
 ### 5.5 ซิงก์ Option A/B
 Option A/B เป็นสำเนา ไม่ได้เชื่อมอัตโนมัติ — หลังแก้ในรากต้องคัดลอกไฟล์ที่เปลี่ยน (HTML + `assets/`) ไปทั้งสองโฟลเดอร์ด้วยมือ/สคริปต์ [ต้องยืนยัน] ว่าจะคงรูปแบบสำเนาต่อหรือรวมเป็นชุดเดียว
+ไฟล์เดียวที่ต้องต่างกันระหว่างโฟลเดอร์คือ `assets/a7-option.js` (`'AB'` ราก · `'A'` · `'B'`) และ `business-flow.html` / `report-07.html` ที่มีเฉพาะในโฟลเดอร์ Option — ห้ามคัดลอก `a7-option.js` ทับ
+
+### 5.6 เลขหนังสือสารบรรณ (ปรับ 21/11/2569)
+- รายการเอกสารที่ต้องขอเลข 18 รายการ (Option A 16 · Option B 18) อยู่ใน `SARABAN_DOCS` ของ `assets/saraban-docs.js` ตาม Check List สารบรรณ x Process 20/11/2569 พร้อมแฟ้มทะเบียนส่ง (ปป 0004 / .3 / .5 / ว / ป)
+- การ์ด "เลขหนังสือของขั้นนี้" = `ECMIS.mountSarabanDocs({ host, kase | kases, group, codes, inputs, readonly, onChange })` ใช้ใน ruling-report, order, board-resolution, resolution-72, meeting-report, meeting-docs
+- ลำดับในการ์ด: ขอเลข (หน้าต่าง 4 ขั้นตาม wireframe W1) → แนบไฟล์ฉบับลงนาม → ส่งต่อในระบบสารบรรณ หรือส่งไปรษณีย์ (EMS) → ปิดเรื่อง · กันเลขซ้ำด้วยรหัสอ้างอิง `E-CMIS|สำนวน|ขั้น|slot|vN` ใน doc_detail
+- ระบบงานสารบรรณ สำนักงาน ป.ป.ท. (e-office) ยังเป็นตัวจำลอง — สลับสถานะ API (ปกติ / 408 / 503) ได้ที่หน้า `number-registry.html` · ข้อมูลเก็บที่ `trr_resolution_data.sarabanNos[slot]` เหมือน Task 300 (เคสที่ไม่มี trr_id เก็บใน sessionStorage)
+- ช่องเลขสารบรรณแบบเดิม (Task 300) ยังปิดอยู่ (`SARABAN_UI_ENABLED = false`) เพื่อไม่ให้ซ้ำกับการ์ด
+- ต่อ API จริง: แทน `issueSarabanNo` / `checkPending` ใน saraban-docs.js ด้วยการเรียก Open API (POST …/1.0/document/internal) และค้นเอกสารด้วยรหัสอ้างอิงก่อนลองใหม่
+
+### 5.7 เปิดแบบออฟไลน์
+ไลบรารีและฟอนต์ทั้งหมดอยู่ใน `assets/vendor/` (เวอร์ชันใน `assets/vendor/VERSIONS.json`) — หน้าใหม่ให้อ้าง `assets/vendor/...` แทน CDN · ข้อมูลจาก Supabase ยังต้องใช้อินเทอร์เน็ต ถ้าไม่มีเน็ตจะใช้ข้อมูลจำลองใน `CASES`
 
 ---
+
+### 5.8 หน้าจอขั้น 6.4 รายงานการไต่สวนเพิ่มเติม (Option B, เพิ่ม 21/11/2569)
+
+- หน้า `additional-inquiry.html` (มีในราก และ `A7-Option-B-03112026/` เท่านั้น — Option A ไม่มีขั้นนี้ เมนูซ่อนตาม `window.ECMIS_A7_OPTION`)
+- ที่มา: User Flow V1.0.14 Option B หน้า 6-4 (RES217 จัดทำรายงานการไต่สวนเพิ่มเติมตามมติ → RES218 ส่งเอกสารให้ผู้รับผิดชอบสำนวน → สิ้นสุด), เล่ม 4.1 Option B (ไม่เกิน 15 วัน), DFD L2 B หน้า 4/4
+- ผู้จัดทำ: `affairs` (กลุ่มงานกิจการคณะกรรมการ) · `board_sec`, `case_admin` ดูได้อย่างเดียว
+- เรื่องที่เข้าขั้นนี้: เรื่องทั่วไป (`isCase73`) ที่สถานะ RESOLVED_PENDING / RESOLVED / DISPATCHING / CLOSED — กลุ่มงานกิจการเลือกเรื่องเองเพราะมติเรื่องทั่วไปเป็นข้อความอิสระ
+- **ไม่เปลี่ยนสถานะสำนวน** (ไม่แตะ TRANSITIONS / STATUS_CODE) เก็บความคืบหน้าใน `trr_resolution_data.additionalInquiry` {status DRAFT|SENT, issues, evidence, opinion, dueDays, note, docs, startedAt, sentAt, sentBy, to} และบันทึกเหตุการณ์ `ADDITIONAL_INQUIRY_SENT`
+- ไม่ขอเลขสารบรรณ (ไม่อยู่ใน Check List สารบรรณ x Process) · ช่อง "ระยะเวลาให้รายงานผลกลับ" เป็นข้อสมมติ รอยืนยัน
 
 ## 6. ข้อควรระวัง (พบในโค้ด)
 

@@ -7,11 +7,11 @@
   <title>บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. | E-CMIS</title>
   <link rel="icon" type="image/png" href="assets/pacc_logo.png">
   <link
-    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap"
+    href="assets/vendor/fonts/fonts.css"
     rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet">
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
@@ -189,6 +189,8 @@
         </div>
 
         <!-- Task 300: เลขบันทึกแจ้งมติ — กลุ่มงานวินิจฉัยฯ ยกร่างหลังบอร์ดมีมติ (ตารางออกเลข แถว 1–3) -->
+        <!-- เลขหนังสือของขั้นนี้ (5.3.1 / 5.3.3 ตาม Check List สารบรรณ x Process 20/11/2569) — assets/saraban-docs.js -->
+        <div id="sarabanDocsHost" hidden data-a7ro-keep></div>
         <div class="ws-card mb-3 d-none" id="resNotifyNoCard" data-a7ro-keep>
           <div class="card-header"><i class="fa-solid fa-hashtag"></i> เลขบันทึกแจ้งมติ</div>
           <div class="card-body">
@@ -275,18 +277,20 @@
     <div id="actionBarSlot"></div>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/pizzip@3/dist/pizzip.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3/build/docxtemplater.js"></script>
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="assets/vendor/supabase/supabase.js"></script>
+  <script src="assets/vendor/pizzip/pizzip.js"></script>
+  <script src="assets/vendor/docxtemplater/docxtemplater.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-app.js?v=20261121-a7-inq64"></script>
   <script src="assets/ecmis-livedoc.js?v=20261113"></script>
   <script src="assets/resolution-split.js?v=20261014-a7-split2"></script>
-  <script src="assets/saraban-no.js?v=20261015-a7-saraban-off"></script>
+  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
+  <script src="assets/saraban-no.js?v=20261121-a7-saraban"></script>
+  <script src="assets/saraban-docs.js?v=20261121-a7-saraban"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
@@ -853,33 +857,33 @@
         ACCEPT_S24P1: [
           ['เอกสารที่ระบบสร้าง', 'คำสั่งแต่งตั้งองค์คณะพนักงาน ป.ป.ท. (ปปท. ๕-๐๕)'],
           ['ผู้ลงนาม', 'เลขาธิการคณะกรรมการ ป.ป.ท. (ม.24 วรรคแรก)'],
-          ['ปลายทาง', 'ยิงมติ + คำสั่งกลับ กิจกรรมที่ 5 → เปลี่ยนสถานะเป็น "อยู่ระหว่างไต่สวน"'],
+          ['ปลายทาง', 'ส่งมติ + คำสั่งกลับระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา → เปลี่ยนสถานะเป็น "อยู่ระหว่างไต่สวน"'],
           ['กำหนดเวลา', 'ออกคำสั่ง 5 วันทำการ / ส่งคืนหน่วยงาน 3 วันทำการ']
         ],
         ACCEPT_S24P3: [
           ['เอกสารที่ระบบสร้าง', 'คำสั่งแต่งตั้งคณะอนุกรรมการไต่สวน (ปปท. ๕-๐๒)'],
           ['ผู้ลงนาม', 'ประธานกรรมการ ป.ป.ท. (ม.24 วรรคสาม — เฉพาะเรื่องสำคัญ/ซับซ้อน ตามข้อเสนอแนะเลขาธิการฯ)'],
-          ['ปลายทาง', 'ยิงมติ + คำสั่งกลับ กิจกรรมที่ 5'],
+          ['ปลายทาง', 'ส่งมติ + คำสั่งกลับระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา'],
           ['กำหนดเวลา', 'ออกคำสั่ง 5 วันทำการ / ส่งคืนหน่วยงาน 3 วันทำการ']
         ],
 
         NOT_ACCEPTED: [
           ['เอกสารที่ระบบสร้าง', 'หนังสือแจ้งผลการพิจารณา (ไม่รับเรื่องไว้พิจารณา)'],
           ['ฐานกฎหมาย', 'ม.25 — ห้ามรับไว้พิจารณาโดยเด็ดขาด / ม.26 — ดุลพินิจไม่รับเรื่องไว้พิจารณา'],
-          ['ปลายทาง', 'กิจกรรมที่ 5 → อัปเดตสถานะเป็น Closed Case'],
+          ['ปลายทาง', 'ระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา → อัปเดตสถานะเป็น Closed Case'],
           ['กำหนดเวลา', 'ไม่มีกรอบ 15 วันตาม ม.32 — ม.32 ใช้เฉพาะกรณีข้อกล่าวหาไม่มีมูล ใช้กำหนดเวลางานสารบรรณตามปกติ']
         ],
         DISMISS: [
           ['เอกสารที่ระบบสร้าง', 'หนังสือแจ้งคำสั่งจำหน่ายเรื่อง'],
           ['ฐานกฎหมาย', 'ม.26 (ประกอบ ม.28 ที่ให้สั่งได้ 3 ทาง: รับ / ไม่รับ / สั่งจำหน่ายเรื่อง)'],
-          ['ปลายทาง', 'กิจกรรมที่ 5 → อัปเดตสถานะเป็น Closed Case'],
+          ['ปลายทาง', 'ระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา → อัปเดตสถานะเป็น Closed Case'],
           ['กำหนดเวลา', 'ไม่มีกรอบ 15 วันตาม ม.32 — ใช้กำหนดเวลางานสารบรรณตามปกติ']
         ],
 
         NO_GROUND: [
           ['เอกสารที่ระบบสร้าง', 'หนังสือแจ้งผลการพิจารณาถึงผู้ถูกกล่าวหา'],
           ['ฐานกฎหมาย', 'ม.32 — บอร์ดมีมติว่าข้อกล่าวหาไม่มีมูล ข้อกล่าวหาเป็นอันตกไป'],
-          ['ปลายทาง', 'กิจกรรมที่ 5 → อัปเดตสถานะเป็น Closed Case'],
+          ['ปลายทาง', 'ระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา → อัปเดตสถานะเป็น Closed Case'],
           ['กำหนดเวลา', 'แจ้งผู้ถูกกล่าวหาไม่ช้ากว่า 15 วันนับแต่วันที่บอร์ดมีมติ (แจ้งเตือนล่วงหน้า 3 วัน และ 1 วัน)']
         ],
         MORE_INVESTIGATE: [
@@ -1710,6 +1714,9 @@
       field({ host: document.getElementById('resReturnLetterBox'), id: 'resReturnLetter71No', label: 'เลขหนังสือนำส่งพร้อมสำนวนคืนสำนัก/เขต', slot: 'resReturnLetter71', prefix: 'ปป 0004/' });
       document.getElementById('resList').addEventListener('change', syncResSaraban);
       syncResSaraban();
+      /* การ์ดเลขหนังสือของขั้นนี้ — ผู้ขอเลข = กลุ่มงานคำวินิจฉัยและมติคณะกรรมการ (board_sec) */
+      if (ECMIS.mountSarabanDocs) sarabanRes.push(ECMIS.mountSarabanDocs({
+        host: document.getElementById('sarabanDocsHost'), kase, sb, readonly, codes: ['5.3.1', '5.3.3'] }));
     }
     mountResSaraban();
 

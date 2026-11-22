@@ -21,8 +21,8 @@
 (function (global) {
   'use strict';
 
-  const XLSX_URL = 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
-  const PIZZIP_URL = 'https://cdn.jsdelivr.net/npm/pizzip@3/dist/pizzip.js';
+  const XLSX_URL = 'assets/vendor/xlsx/xlsx.full.min.js';
+  const PIZZIP_URL = 'assets/vendor/pizzip/pizzip.js';
   const DOCX_MIME = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
   const XLSX_MIME = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
 

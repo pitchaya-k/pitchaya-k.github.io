@@ -7,18 +7,18 @@
   <title>รายงานวินิจฉัยชี้มูล | E-CMIS</title>
   <link rel="icon" type="image/png" href="assets/pacc_logo.png">
   <link
-    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap"
+    href="assets/vendor/fonts/fonts.css"
     rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet">
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
   <link href="assets/ecmis-livedoc.css?v=20261113" rel="stylesheet">
 
   <!-- Mammoth.js for Word document extraction in browser -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
+  <script src="assets/vendor/mammoth/mammoth.browser.min.js"></script>
 
   <style>
     /* Section attachment & stats badges */
@@ -315,6 +315,9 @@
           </div>
         </div>
 
+        <!-- เลขหนังสือของขั้นนี้ (ขั้น 7.1.1–7.2.3 ตาม Check List สารบรรณ x Process 20/11/2569) — assets/saraban-docs.js -->
+        <div id="sarabanDocsHost" hidden data-a7ro-keep></div>
+
         <!-- 1. ข้อมูลรายงานวินิจฉัยชี้มูล (ปปท. 7-02) -->
         <div class="ws-card mb-3 ruling-form-card" id="rulingCard">
           <div class="card-header"><i class="fa-solid fa-file-lines"></i> ข้อมูลรายงานวินิจฉัยชี้มูล (ปปท. 7-02)</div>
@@ -501,7 +504,7 @@
 
         <!-- 5. ส่ง ป.วินัย ให้ กจ.8 (ติดตามผลทางวินัย) -->
         <div class="ws-card mb-3 d-none" id="dispatchDisciplineCard">
-          <div class="card-header"><i class="fa-solid fa-paper-plane"></i><span>ส่ง ป.วินัย ให้ กจ.8 <span class="text-nowrap">(ติดตามผลทางวินัย)<span id="simReturnSlot" data-a7ro-keep></span></span></span></div>
+          <div class="card-header"><i class="fa-solid fa-paper-plane"></i><span>ส่ง ป.วินัย ให้ระบบบริหารจัดการ การตรวจสอบประวัติบุคคลและกระบวนงานภายหลังที่คณะกรรมการ ป.ป.ท. มีมติ <span class="text-nowrap">(ติดตามผลทางวินัย)<span id="simReturnSlot" data-a7ro-keep></span></span></span></div>
           <div class="card-body" id="dispatchDisciplineBody"></div>
         </div>
       </div>
@@ -629,15 +632,17 @@
     <div id="actionBarSlot"></div>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="assets/vendor/supabase/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-app.js?v=20261121-a7-inq64"></script>
   <script src="assets/ecmis-livedoc.js?v=20261113"></script>
-  <script src="assets/saraban-no.js?v=20261015-a7-saraban-off"></script>
+  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
+  <script src="assets/saraban-no.js?v=20261121-a7-saraban"></script>
+  <script src="assets/saraban-docs.js?v=20261121-a7-saraban"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
@@ -2313,7 +2318,7 @@
         actions.push('<button class="btn btn-sm btn-success" id="btnSignRuling"><i class="fa-solid fa-signature me-1"></i>ลงนามรายงานวินิจฉัยชี้มูล</button>');
       }
       if (showDispatchAction) {
-        actions.push('<button class="btn btn-sm btn-navy" id="btnDispatchDiscipline"><i class="fa-solid fa-paper-plane me-1"></i>ส่ง ป.วินัย → กจ.8</button>');
+        actions.push('<button class="btn btn-sm btn-navy" id="btnDispatchDiscipline"><i class="fa-solid fa-paper-plane me-1"></i>ส่ง ป.วินัย ไปติดตามผลทางวินัย</button>');
       }
       const crimTrack = kase.criminalTrack72 || {};
       if (ECMIS.hasCriminalTrack72(kase) && mayDispatchDiscipline && kase.status === 'PENDING_DISPATCH_GUILTY_72' && crimTrack.status !== 'DISPATCHED') {
@@ -2552,7 +2557,7 @@
         title.textContent = 'ส่งเรื่องดำเนินคดีอาญา (สายอาญา)';
         if (track.status === 'DISPATCHED') {
           show(`<div class="alert alert-success py-2 mb-0"><i class="fa-solid fa-circle-check me-1"></i>ส่งสายอาญาแล้ว — ${esc(track.to || '')} หนังสือ ${esc(track.letterNo || '')} ลงวันที่ ${esc(kase.crimLetterDate ? ECMIS.thaiDate(ECMIS.toBuddhistFakeIso(kase.crimLetterDate)) : '—')} วันที่ส่ง ${esc(ECMIS.thaiDate(ECMIS.toBuddhistFakeIso(track.sentDate || '')))} · เลข EMS ${esc(kase.crimEmsNo || '—')}
-            ${ECMIS.hasDisciplineTrack72(kase) && !ECMIS.bothTracksDone72(kase) ? '<div class="small mt-1">รอส่งสายวินัย (ป.วินัย → กจ.8) จึงจะปิดสำนวน</div>' : ''}</div>`);
+            ${ECMIS.hasDisciplineTrack72(kase) && !ECMIS.bothTracksDone72(kase) ? '<div class="small mt-1">รอส่งสายวินัย (ส่ง ป.วินัย ไปติดตามผลทางวินัย) จึงจะปิดสำนวน</div>' : ''}</div>`);
           return;
         }
         show(`<div class="row g-2">
@@ -2579,7 +2584,7 @@
         if (kase.noticeSentDate72) lines.push(`แจ้งผล ม.32 วันที่ ${esc(ECMIS.thaiDate(ECMIS.toBuddhistFakeIso(kase.noticeSentDate72)))} หนังสือ ${esc(kase.noticeLetterNo72 || '-')}`);
         if (kase.signedScanUploaded72) lines.push(`ส่ง ป.ป.ช. หนังสือ ${esc(kase.naccLetterNo72 || '-')} (${esc(kase.signedScanName72 || '')})`);
         if (kase.criminalTrack72 && kase.criminalTrack72.status === 'DISPATCHED') lines.push(`สายอาญา: ส่ง ${esc(kase.criminalTrack72.to || '')} หนังสือ ${esc(kase.criminalTrack72.letterNo || '')} ลงวันที่ ${esc(kase.crimLetterDate ? ECMIS.thaiDate(ECMIS.toBuddhistFakeIso(kase.crimLetterDate)) : '—')} · EMS ${esc(kase.crimEmsNo || '—')}`);
-        if (kase.disciplinaryTrack72 && kase.disciplinaryTrack72.status === 'DISPATCHED') lines.push(`สายวินัย: ส่ง ${esc(kase.disciplinaryTrack72.pWinaiNo || '')} → กจ.8`);
+        if (kase.disciplinaryTrack72 && kase.disciplinaryTrack72.status === 'DISPATCHED') lines.push(`สายวินัย: ส่ง ${esc(kase.disciplinaryTrack72.pWinaiNo || '')} ไปติดตามผลทางวินัย`);
         show(`<div class="alert alert-success py-2 mb-0"><i class="fa-solid fa-circle-check me-1"></i>ดำเนินการหลังมติครบแล้ว${lines.length ? '<ul class="mb-0 mt-1 small">' + lines.map(l => `<li>${l}</li>`).join('') + '</ul>' : ''}</div>`);
         return;
       }
@@ -2639,12 +2644,12 @@
     const KKM8_RETURN_REASONS = ['เลข ป.วินัย ไม่ถูกต้อง', 'เอกสารประกอบไม่ครบ', 'ข้อมูลผู้ถูกกล่าวหาไม่ตรง', 'หน่วยงานผู้บังคับบัญชาไม่ถูกต้อง', 'อื่น ๆ'];
     async function simulateReturnFromKKM8() {
       const res = await Swal.fire({
-        title: 'จำลอง: กจ.8 ปฏิเสธการรับ ป.วินัย',
+        title: 'จำลอง: ระบบติดตามผลภายหลังมีมติ ปฏิเสธการรับ ป.วินัย',
         html: `<div class="text-start">
           <label class="form-label fw-semibold" for="kkm8Reason">เหตุผลที่ปฏิเสธการรับ</label>
           <select class="form-select mb-2" id="kkm8Reason">${KKM8_RETURN_REASONS.map(r => `<option>${r}</option>`).join('')}</select>
           <label class="form-label fw-semibold" for="kkm8Note">หมายเหตุ</label>
-          <textarea class="form-control" id="kkm8Note" rows="2" placeholder="รายละเอียดที่ กจ.8 ขอให้แก้ไข"></textarea>
+          <textarea class="form-control" id="kkm8Note" rows="2" placeholder="รายละเอียดที่ขอให้แก้ไข"></textarea>
         </div>`,
         icon: 'warning', showCancelButton: true, confirmButtonText: 'บันทึกการปฏิเสธการรับ', cancelButtonText: 'ยกเลิก',
         confirmButtonColor: '#a52c25', cancelButtonColor: '#6b7280', reverseButtons: true,
@@ -2673,7 +2678,7 @@
       await ECMIS.logRequestEvent(kase.trr_id, fromStatus, kase.status, {
         type: 'DISCIPLINE_RETURNED_72', actorRole: role.id, note: entry.reason + (entry.note ? ' — ' + entry.note : ''), data: entry
       });
-      ECMIS.toastOk('บันทึกการปฏิเสธการรับจาก กจ.8 แล้ว · ' + ECMIS.caseNo(kase), 'แก้ไขข้อมูล ป.วินัย แล้วส่งใหม่อีกครั้ง');
+      ECMIS.toastOk('บันทึกการปฏิเสธการรับ ป.วินัย แล้ว · ' + ECMIS.caseNo(kase), 'แก้ไขข้อมูล ป.วินัย แล้วส่งใหม่อีกครั้ง');
       location.reload();
     }
 
@@ -2688,7 +2693,7 @@
       const acc0 = (kase.accused && kase.accused[0]) || {};
       const accusedName = acc0.name || kase.discAccused72 || '';
       const confirmed = await ECMIS.confirmAction({
-        title: 'ยืนยันส่ง ป.วินัย ให้ กจ.8?',
+        title: 'ยืนยันส่ง ป.วินัย ให้ระบบบริหารจัดการ การตรวจสอบประวัติบุคคลและกระบวนงานภายหลังที่คณะกรรมการ ป.ป.ท. มีมติ?',
         html: `เลข ป.วินัย <strong>${ECMIS.escapeHtml(pWinaiNo)}</strong> ของผู้ถูกกล่าวหา <strong>${ECMIS.escapeHtml(accusedName)}</strong>`,
         confirmText: 'ส่ง'
       });
@@ -2727,7 +2732,7 @@
         });
       }
 
-      ECMIS.toastOk('ส่ง ป.วินัย ให้ กจ.8 เรียบร้อยแล้ว — ฝั่ง กจ.8 จะเห็นสถานะ "01 รอ ป.วินัยตัวจริง"');
+      ECMIS.toastOk('ส่ง ป.วินัย เรียบร้อยแล้ว — ระบบบริหารจัดการ การตรวจสอบประวัติบุคคลและกระบวนงานภายหลังที่คณะกรรมการ ป.ป.ท. มีมติ จะเห็นสถานะ "01 รอ ป.วินัยตัวจริง"');
       location.reload();
     }
 
@@ -2781,12 +2786,12 @@
       const returns = track.returns || [];
       const lastReturn = returns[returns.length - 1];
       const returnNote = track.status === 'RETURNED' && lastReturn
-        ? `<div class="alert alert-danger py-2 px-3 mb-3" style="font-size:.9rem"><i class="fa-solid fa-rotate-left me-1"></i><strong>กจ.8 ปฏิเสธการรับ:</strong> ${ECMIS.escapeHtml(lastReturn.reason)}${lastReturn.note ? ' · ' + ECMIS.escapeHtml(lastReturn.note) : ''} · ${ECMIS.thaiDate(ECMIS.toBuddhistFakeIso(String(lastReturn.at || '').slice(0, 10)))}
+        ? `<div class="alert alert-danger py-2 px-3 mb-3" style="font-size:.9rem"><i class="fa-solid fa-rotate-left me-1"></i><strong>ปฏิเสธการรับ ป.วินัย:</strong> ${ECMIS.escapeHtml(lastReturn.reason)}${lastReturn.note ? ' · ' + ECMIS.escapeHtml(lastReturn.note) : ''} · ${ECMIS.thaiDate(ECMIS.toBuddhistFakeIso(String(lastReturn.at || '').slice(0, 10)))}
             ${returns.length > 1 ? `<div class="small mt-1">ปฏิเสธการรับมาแล้ว ${returns.length} ครั้ง</div>` : ''}<div class="small mt-1">แก้ไขข้อมูลด้านล่างและหนังสือลงโทษ แล้วกด "ส่ง ป.วินัย → กจ.8" อีกครั้ง</div></div>`
         : '';
       /* Task 284: ตัวจำลองเป็นไอคอนจาง ๆ ที่หัวการ์ด (ไม่มีข้อความบนหน้า) — ผลหลังปฏิเสธการรับยังแสดงตามปกติ */
       const simSlot = document.getElementById('simReturnSlot');
-      const simTip = 'จำลอง: กจ.8 ปฏิเสธการรับ ป.วินัย — ใช้สาธิต ยังไม่มีระบบ กจ.8 ส่งผลกลับมาจริง';
+      const simTip = 'จำลอง: ปฏิเสธการรับ ป.วินัย — ใช้สาธิต ยังไม่มีระบบบริหารจัดการ การตรวจสอบประวัติบุคคลและกระบวนงานภายหลังที่คณะกรรมการ ป.ป.ท. มีมติ ส่งผลกลับมาจริง';
       if (simSlot) {
         simSlot.innerHTML = dispatched && mayDispatchDiscipline
           ? `<button type="button" class="sim-return-btn" id="btnSimReturnKKM8" title="${simTip}" aria-label="${simTip}"><i class="fa-solid fa-flask" aria-hidden="true"></i></button>`
@@ -2797,9 +2802,9 @@
       if (dispatched) {
         body.innerHTML = infoRows + `
           <div class="alert alert-success py-2 px-3 mb-0" style="font-size:.9rem">
-            <i class="fa-solid fa-circle-check me-1"></i>ส่ง ป.วินัย ให้ กจ.8 แล้วเมื่อ ${ECMIS.thaiDate((track.dispatchedAt || '').slice(0, 10))}
+            <i class="fa-solid fa-circle-check me-1"></i>ส่ง ป.วินัย ไปติดตามผลทางวินัยแล้วเมื่อ ${ECMIS.thaiDate((track.dispatchedAt || '').slice(0, 10))}
             <div class="mt-1">เลข ป.วินัย: <strong>${ECMIS.escapeHtml(track.pWinaiNo || '')}</strong> · เลขหนังสือส่งมติ: <strong>${ECMIS.escapeHtml(track.letterNo || '')}</strong> · ชุดข้อมูล: <strong>${ECMIS.escapeHtml(track.batchId || '')}</strong></div>
-          </div>` + (returns.length ? `<div class="small text-muted mt-2"><i class="fa-solid fa-clock-rotate-left me-1"></i>เคยถูก กจ.8 ปฏิเสธการรับ ${returns.length} ครั้ง</div>` : '');
+          </div>` + (returns.length ? `<div class="small text-muted mt-2"><i class="fa-solid fa-clock-rotate-left me-1"></i>เคยถูกปฏิเสธการรับ ป.วินัย ${returns.length} ครั้ง</div>` : '');
         return;
       }
 
@@ -3041,6 +3046,13 @@
       const memoNo72 = ECMIS.sarabanNoOf(kase, 'notifyMemo72');
       document.getElementById('notifyMemo72Info').textContent = 'เลขบันทึกข้อความแจ้งมติชี้มูล (กลุ่มงานวินิจฉัยฯ): ' + (memoNo72 || 'ยังไม่ออกเลข');
       field({ host: document.getElementById('notifyLetter72Box'), id: 'notifyLetter72No', label: 'เลขหนังสือภายในแจ้งสำนัก/เขต', slot: 'notifyLetter72', prefix: 'ปป 0004/', readonly: !mayDispatchDiscipline });
+      /* การ์ดเลขหนังสือของขั้นนี้: ขอเลข → แนบไฟล์ลงนาม → ส่งต่อ/ส่งไปรษณีย์ → ปิดเรื่อง (ผู้ขอเลข = กลุ่มงานกิจการฯ) */
+      if (ECMIS.mountSarabanDocs && !isChairView) ECMIS.mountSarabanDocs({
+        host: document.getElementById('sarabanDocsHost'), kase, sb,
+        codes: ['7.1.1', '7.1.2', '7.1.3', '7.2.1', '7.2.2', '7.2.3'],
+        inputs: () => ({ crimDispatchLetter72: document.getElementById('prCrimLetter'), discDispatchLetter72: document.getElementById('dispLetterNo') }),
+        onChange: () => renderDoc()
+      });
     });
 
     function _matraDigitsToArabic(s) {

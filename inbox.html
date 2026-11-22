@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>รายการพิจารณา/ลงนาม | E-CMIS</title>
 <link rel="icon" type="image/png" href="assets/pacc_logo.png">
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+<link href="assets/vendor/fonts/fonts.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+<link href="assets/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet">
 <link href="assets/ecmis-app.css" rel="stylesheet">
 <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
 <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
@@ -164,18 +164,19 @@
 
 </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
+<script src="assets/vendor/supabase/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
 <script src="../cases.js"></script>
-<script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+<script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
+<script src="assets/ecmis-app.js?v=20261121-a7-inq64"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
 <script src="assets/ecmis-model.js"></script>
-<script src="assets/case-summary-mock-data.js?v=20261022d"></script>
+<script src="assets/case-summary-mock-data.js?v=20261121-a7-saraban"></script>
 <script>
 ECMIS.renderShell('inbox.html');
 
@@ -414,7 +415,7 @@ const DIR_CASE_COPY = {
 const DEPUTY_COPY = {
   pageTitle:  'รายการพิจารณา/ลงความเห็น (รองเลขาธิการฯ)',
   pageIcon:   'fa-user-tie',
-  flowRef:    'รองเลขาธิการฯ ลงความเห็นและลงนามดิจิทัลก่อนเสนอเลขาธิการฯ — ขั้นแรกของ กจ.7 ทุกสาย (7.1 / 7.2 / 7.3)',
+  flowRef:    'รองเลขาธิการฯ ลงความเห็นและลงนามดิจิทัลก่อนเสนอเลขาธิการฯ — ขั้นแรกของกระบวนการพิจารณาทุกสาย (7.1 / 7.2 / 7.3)',
   card1Title: 'รายการสำนวนรอรองเลขาธิการฯ พิจารณา',
   colStatusHeader: 'สถานะพิจารณา',
   kpiPending: 'รอรองเลขาฯ พิจารณา', kpiDone: 'เสนอเลขาธิการฯ แล้ว', kpiReturned: 'ปฏิเสธการรับต้นทางแล้ว',
@@ -727,7 +728,7 @@ function getAffairsActionBadge(c) {
     const crimLeft = ECMIS.trackStatus72(c, 'criminal') === 'PENDING';
     const discSt = ECMIS.trackStatus72(c, 'disciplinary');
     const discLeft = discSt === 'PENDING' || discSt === 'RETURNED'; // Task 282: กจ.8 ปฏิเสธการรับ = ต้องส่งใหม่
-    if (discSt === 'RETURNED') return `<span class="meet-badge" style="background:#f9e1df;color:#8c261f"><i class="fa-solid fa-rotate-left me-1"></i>สายวินัยถูก กจ.8 ปฏิเสธการรับ — แก้ไขแล้วส่งใหม่</span>`;
+    if (discSt === 'RETURNED') return `<span class="meet-badge" style="background:#f9e1df;color:#8c261f"><i class="fa-solid fa-rotate-left me-1"></i><span title="ระบบบริหารจัดการ การตรวจสอบประวัติบุคคลและกระบวนงานภายหลังที่คณะกรรมการ ป.ป.ท. มีมติ">สายวินัยถูกปฏิเสธการรับจากระบบติดตามผลภายหลังมีมติ</span> — แก้ไขแล้วส่งใหม่</span>`;
     const label = crimLeft && discLeft ? 'รอส่งสายอาญา + สายวินัย' : discLeft ? 'รอส่งสายวินัย (ป.วินัย)' : crimLeft ? 'รอส่งสายอาญา' : 'รอปิดสำนวน';
     return `<span class="meet-badge meet-review"><i class="fa-solid fa-paper-plane me-1"></i>${label}</span>`;
   }

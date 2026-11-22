@@ -7,11 +7,11 @@
   <title>จัดทำเอกสารการประชุม | E-CMIS</title>
   <link rel="icon" type="image/png" href="assets/pacc_logo.png">
   <link
-    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap"
+    href="assets/vendor/fonts/fonts.css"
     rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet">
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
@@ -46,6 +46,9 @@
 
     <div class="document-workspace" id="docWorkspace">
       <div id="docLeftCol">
+
+        <!-- เลขหนังสือของขั้นนี้ (4.4.1 บันทึกเสนอ ผอ.กอง / 4.4.3 หนังสือเวียน ว) — เลขเดียวใช้ทุกสำนวนในครั้งประชุม -->
+        <div id="sarabanDocsHost" hidden data-a7ro-keep></div>
 
         <div class="ws-card mb-3">
           <div class="card-header"><i class="fa-solid fa-file-lines"></i> ข้อมูลหนังสือเชิญประชุม</div>
@@ -192,20 +195,23 @@
     <div id="actionBarSlot"></div>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.jsdelivr.net/npm/pizzip@3/dist/pizzip.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3/build/docxtemplater.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="assets/vendor/pizzip/pizzip.js"></script>
+  <script src="assets/vendor/docxtemplater/docxtemplater.js"></script>
+  <script src="assets/vendor/supabase/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-app.js?v=20261121-a7-inq64"></script>
   <script src="assets/ecmis-livedoc.js?v=20261113"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
   <script src="assets/agenda-registry-data.js?v=20261005-board-real"></script>
+  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
+  <script src="assets/saraban-no.js?v=20261121-a7-saraban"></script>
+  <script src="assets/saraban-docs.js?v=20261121-a7-saraban"></script>
   <script>
     ECMIS.renderShell('meeting-docs.html');
     const M = ECMIS.mergeField;
@@ -374,6 +380,15 @@
 
       /* ---------- ฟอร์มข้อมูลหนังสือเชิญประชุม — ผูกกับ meeting object และบันทึกผ่าน AR.save() ---------- */
       document.getElementById('inviteNo').value = meeting.trc_invite_no || '';
+      /* การ์ดเลขหนังสือของขั้นนี้ — ผู้ขอเลข = กลุ่มงานคำวินิจฉัยและมติคณะกรรมการ · เก็บเลขลงทุกสำนวนที่บรรจุในครั้งประชุมนี้
+         เลขหนังสือเวียน (ว) ใส่ช่อง "เลขที่หนังสือ" ของหนังสือเชิญประชุมให้ด้วย */
+      if (ECMIS.mountSarabanDocs) {
+        const meetCases = [...new Set(items.flatMap(it => String(it.case_ref || '').split(',').map(r => r.trim())).filter(r => r && r !== '-'))]
+          .map(ref => (ECMIS.CASES || []).find(c => c.id === ref)).filter(Boolean);
+        ECMIS.mountSarabanDocs({ host: document.getElementById('sarabanDocsHost'), kases: meetCases, sb: ECMIS.getSupabaseClient(),
+          group: `meeting:${meeting.trc_name}`, readonly: !mayEdit, codes: ['4.4.1', '4.4.3'],
+          inputs: { inviteCircular: document.getElementById('inviteNo') } });
+      }
       document.getElementById('inviteDate').value = meeting.trc_invite_date || '';
       document.getElementById('meetTime').value = meeting.trc_time || '';
       document.getElementById('meetPlace').value = meeting.trc_place || 'ห้องประชุมสำนักงาน ป.ป.ท.';

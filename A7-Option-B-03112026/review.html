@@ -7,11 +7,11 @@
   <title>เลขาธิการฯ พิจารณา / ลงนาม | E-CMIS</title>
   <link rel="icon" type="image/png" href="assets/pacc_logo.png">
   <link
-    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap"
+    href="assets/vendor/fonts/fonts.css"
     rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet">
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
@@ -40,7 +40,7 @@
 
         <div class="ws-card mb-3">
           <div class="card-header"><i class="fa-solid fa-list-ol"></i> ที่มาของสำนวน — การเสนอตามลำดับชั้นภายในกอง/เขต
-            (ต้นทาง กจ.5) <span class="chip ms-2" style="font-size:.7rem">ตัวอย่างประกอบ — ต้นทาง กจ.5</span></div>
+            (ต้นทางระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา) <span class="chip ms-2" style="font-size:.7rem">ตัวอย่างประกอบ — ระบบงานต้นทาง</span></div>
           <div class="card-body">
             <ul class="tl mb-0" id="chain"></ul>
           </div>
@@ -262,13 +262,14 @@
     <div id="actionBarSlot"></div>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="assets/vendor/supabase/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
+  <script src="assets/ecmis-app.js?v=20261121-a7-inq64"></script>
   <script src="assets/ecmis-livedoc.js?v=20261113"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
@@ -509,7 +510,7 @@
             : (dec === 'DIFFER'
               ? '<span class="badge bg-danger">เห็นต่าง / มีความเห็นแย้ง</span>'
               : (dec === 'RETURN'
-                ? '<span class="badge bg-secondary">ส่งคืนสายงานต้นทาง (กจ.5)</span>'
+                ? '<span class="badge bg-secondary">ส่งคืนสายงานต้นทาง</span>'
                 : '<span class="badge bg-info">ขอข้อมูลเพิ่มเติม</span>'));
 
           resBody.innerHTML = `
@@ -853,7 +854,7 @@
       }
 
       function buildButtons() {
-        const b = [{ act: 'return', label: 'ส่งคืนสายงานต้นทาง (กจ.5)', icon: 'fa-arrow-left-long', cls: 'btn-outline-danger' }];
+        const b = [{ act: 'return', label: 'ส่งคืนสายงานต้นทาง', icon: 'fa-arrow-left-long', cls: 'btn-outline-danger' }];
         if (role.id === 'secgen') {
           if (signed) {
             return [

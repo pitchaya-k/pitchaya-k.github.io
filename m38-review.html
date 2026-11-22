@@ -7,11 +7,11 @@
   <title>พิจารณารายงานผล ม.38 | E-CMIS</title>
   <link rel="icon" type="image/png" href="assets/pacc_logo.png">
   <link
-    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap"
+    href="assets/vendor/fonts/fonts.css"
     rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet">
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
@@ -40,7 +40,7 @@
         <h1><i class="fa-solid fa-file-circle-check me-2"></i><span id="m38PageTitle">พิจารณารายงานผล ม.38</span></h1>
       </div>
       <div class="ms-auto text-end">
-        <span class="flow-ref">รายงานผลการดำเนินการทางวินัยจาก กจ.8</span>
+        <span class="flow-ref">รายงานผลการดำเนินการทางวินัยจากระบบบริหารจัดการ การตรวจสอบประวัติบุคคลและกระบวนงานภายหลังที่คณะกรรมการ ป.ป.ท. มีมติ</span>
         <div class="mt-1" id="stBadge"></div>
       </div>
     </div>
@@ -49,13 +49,14 @@
 
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="assets/vendor/supabase/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
+  <script src="assets/ecmis-app.js?v=20261121-a7-inq64"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
@@ -73,7 +74,7 @@
     }
 
     const kv = (k, v) => `<div class="ws-readonly"><div class="k">${esc(k)}</div><div class="v">${esc(ECMIS.isBlankValue(v) ? '—' : v)}</div></div>`;
-    const actionLabel = a => a === 'APPROVE' ? 'อนุมัติและลงนาม' : 'ส่งคืน กจ.8 ให้แก้ไข';
+    const actionLabel = a => a === 'APPROVE' ? 'อนุมัติและลงนาม' : 'ส่งคืนให้แก้ไข';
     const isoThai = iso => ECMIS.thaiDate(iso.slice(0, 10).replace(/^(\d{4})/, y => String(Number(y) + 543)));
 
     function render() {
@@ -112,7 +113,7 @@
           </div>
         </section>
 
-        ${feedback ? `<div class="ws-callout mb-3"><i class="fa-solid fa-share me-1"></i><strong>สถานะที่ส่งกลับ กจ.8:</strong> ${esc(feedback)}</div>` : ''}
+        ${feedback ? `<div class="ws-callout mb-3"><i class="fa-solid fa-share me-1"></i><strong>สถานะที่ส่งกลับ:</strong> ${esc(feedback)}</div>` : ''}
 
         <div class="m38-layout">
           <div class="d-flex flex-column gap-3">
@@ -149,7 +150,7 @@
       /* แถบปุ่มกลางเดียวกับหน้าอื่น (ECMIS.actionBar) — ขั้นที่รออยู่ใช้สถานะ PENDING_DEPUTY/PENDING_SECGEN
          เพื่อให้ข้อความล็อกบอกผู้รับผิดชอบถูกคน; รายงานที่จบแล้วบอกผลที่ส่งกลับ กจ.8 แทน */
       const buttons = [
-        { act: 'm38_return', label: 'ส่งคืน กจ.8 ให้แก้ไข', icon: 'fa-rotate-left', cls: 'btn-outline-danger' },
+        { act: 'm38_return', label: 'ส่งคืนให้แก้ไข', icon: 'fa-rotate-left', cls: 'btn-outline-danger' },
         { act: 'm38_approve', label: 'อนุมัติและลงนาม', icon: 'fa-signature', cls: 'btn-navy' }
       ];
       let bar = ECMIS.actionBar({ id: r.reportNo, status: st.owner === 'deputy' ? 'PENDING_DEPUTY' : st.owner === 'secgen' ? 'PENDING_SECGEN' : '' },
@@ -161,7 +162,7 @@
       document.getElementById('actionBarSlot').innerHTML = bar.replace('ดำเนินการกับสำนวนนี้', 'ดำเนินการกับรายงานนี้');
 
       if (!mine) return;
-      const nextDest = role.id === 'deputy' ? 'พิจารณา / อนุมัติ (เลขาธิการคณะกรรมการ ป.ป.ท.)' : 'กจ.8 — ติดตามผลทางวินัย (รอเสนอคณะกรรมการ ป.ป.ท.)';
+      const nextDest = role.id === 'deputy' ? 'พิจารณา / อนุมัติ (เลขาธิการคณะกรรมการ ป.ป.ท.)' : 'ระบบบริหารจัดการ การตรวจสอบประวัติบุคคลและกระบวนงานภายหลังที่คณะกรรมการ ป.ป.ท. มีมติ — ติดตามผลทางวินัย (รอเสนอคณะกรรมการ ป.ป.ท.)';
       document.querySelector('#actionBarSlot [data-act="m38_approve"]').addEventListener('click', () => {
         ECMIS.signDialog(`รายงานผล ม.38 เลขที่ ${r.reportNo}`, `${role.name} — ${role.title}`, null, { destination: nextDest })
           .then(res => {
@@ -173,16 +174,16 @@
       });
       document.querySelector('#actionBarSlot [data-act="m38_return"]').addEventListener('click', () => {
         Swal.fire({
-          title: 'ส่งคืน กจ.8 ให้แก้ไข',
-          html: `<div class="text-start small mb-2">รายงานเลขที่ <strong>${esc(r.reportNo)}</strong> จะกลับไปที่ กจ.8 และไม่ส่งต่อในขั้นถัดไป</div>`,
-          input: 'textarea', inputLabel: 'เหตุผลที่ส่งคืน', inputPlaceholder: 'ระบุสิ่งที่ กจ.8 ต้องแก้ไข',
+          title: 'ส่งคืนให้แก้ไข',
+          html: `<div class="text-start small mb-2">รายงานเลขที่ <strong>${esc(r.reportNo)}</strong> จะกลับไปที่ระบบบริหารจัดการ การตรวจสอบประวัติบุคคลและกระบวนงานภายหลังที่คณะกรรมการ ป.ป.ท. มีมติ และไม่ส่งต่อในขั้นถัดไป</div>`,
+          input: 'textarea', inputLabel: 'เหตุผลที่ส่งคืน', inputPlaceholder: 'ระบุสิ่งที่ต้องแก้ไข',
           inputValidator: v => (!v || !v.trim()) ? 'กรุณาระบุเหตุผลที่ส่งคืน' : undefined,
           showCancelButton: true, confirmButtonText: 'ยืนยันส่งคืน', cancelButtonText: 'ยกเลิก',
           confirmButtonColor: '#a52c25', cancelButtonColor: '#7C8CA3', reverseButtons: true
         }).then(res => {
           if (!res.isConfirmed) return;
           ECMIS.m38Act(r.reportNo, role.id, 'RETURN', res.value.trim());
-          ECMIS.toastOk(`ส่งคืนรายงานผล ม.38 เรียบร้อย · ${r.reportNo}`, 'ส่งต่อไปยัง กจ.8 เพื่อแก้ไข');
+          ECMIS.toastOk(`ส่งคืนรายงานผล ม.38 เรียบร้อย · ${r.reportNo}`, 'ส่งกลับไปยังระบบบริหารจัดการ การตรวจสอบประวัติบุคคลและกระบวนงานภายหลังที่คณะกรรมการ ป.ป.ท. มีมติ เพื่อแก้ไข');
           ECMIS.goAfterSaves('m38-inbox.html');
         });
       });

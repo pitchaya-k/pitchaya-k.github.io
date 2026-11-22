@@ -7,11 +7,11 @@
   <title>รายการสำนวนรอกลั่นกรอง | คณะอนุกรรมการสนับสนุนเลขาธิการฯ | E-CMIS</title>
   <link rel="icon" type="image/png" href="assets/pacc_logo.png">
   <link
-    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap"
+    href="assets/vendor/fonts/fonts.css"
     rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet">
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
@@ -63,7 +63,7 @@
               <option value="ALL">ทั้งหมด</option>
               <option value="PENDING">รอกลั่นกรอง</option>
               <option value="MORE_INFO">ขอข้อมูลเพิ่มเติม</option>
-              <option value="RETURNED">ส่งคืนต้นทาง (กจ.5)</option>
+              <option value="RETURNED">ส่งคืนสายงานต้นทาง</option>
               <option value="DONE">กลั่นกรองแล้วเสร็จ</option>
             </select>
           </div>
@@ -126,13 +126,14 @@
 
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="assets/vendor/supabase/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261016-a7-inbox-ro"></script>
+  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
+  <script src="assets/ecmis-app.js?v=20261121-a7-inq64"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
@@ -218,7 +219,7 @@
             statusText = 'รอกลั่นกรอง';
           } else if (c.status === 'RETURNED' || c.status === 'RETURNED_72') {
             statusCat = 'RETURNED';
-            statusText = 'ส่งคืนต้นทาง (กจ.5)';
+            statusText = 'ส่งคืนสายงานต้นทาง';
           } else if (['PENDING_CHAIRMAN', 'PENDING_INVITE_72', 'PENDING_URGENT', 'PENDING_URGENT_72', 'AGENDA_SET', 'RESOLVED'].includes(c.status) ||
                      ((c.status === 'PENDING_SECGEN' || c.status === 'PENDING_SECGEN_72') && (c.supportOpinion || c.supportOpinion72 || c.supportDecision))) {
             statusCat = 'DONE';
@@ -233,7 +234,7 @@
           const isComplex = c.isComplex || supportTeam.length > 0 || (c.resolutionData && c.resolutionData.code === 'ACCEPT_S24P3');
           const triggerType = (statusCat === 'RETURNED') ? 'RETURN' : (statusCat === 'DONE' ? 'DONE' : (isComplex ? 'COMPLEX' : 'DIFFER'));
           const triggerBadgeText = (statusCat === 'RETURNED') ? 'ส่งคืนสายงานต้นทาง' : (statusCat === 'DONE' ? 'กลั่นกรองแล้วเสร็จ' : (isComplex ? 'ประเด็นซับซ้อน' : 'ความเห็นแย้งในสายงาน'));
-          const triggerText = (statusCat === 'RETURNED') ? 'ส่งคืนสายงานต้นทาง (กจ.5) ดำเนินการใหม่' : (statusCat === 'DONE' ? 'กลั่นกรองแล้วเสร็จ (ส่งต่อแล้ว)' : (isComplex ? 'สำนวนซับซ้อนตาม ม.24 วรรคสาม' : 'ความเห็นแย้งในสายงานต้นทาง กจ.5'));
+          const triggerText = (statusCat === 'RETURNED') ? 'ส่งคืนสายงานต้นทางดำเนินการใหม่' : (statusCat === 'DONE' ? 'กลั่นกรองแล้วเสร็จ (ส่งต่อแล้ว)' : (isComplex ? 'สำนวนซับซ้อนตาม ม.24 วรรคสาม' : 'ความเห็นแย้งในสายงานต้นทาง'));
 
           liveCases.push({
             id: c.id,
@@ -279,7 +280,7 @@
         { id: 'ALL', n: total, l: 'สำนวนทั้งหมดในคิว', i: 'fa-folder-open', c: '#0F2A62' },
         { id: 'PENDING', n: pending, l: 'รอกลั่นกรอง', i: 'fa-hourglass-half', c: '#D0A830' },
         { id: 'MORE_INFO', n: moreInfo, l: 'ขอข้อมูลเพิ่มเติม', i: 'fa-file-circle-question', c: '#0284C7' },
-        { id: 'RETURNED', n: returned, l: 'ส่งคืนต้นทาง (กจ.5)', i: 'fa-arrow-left-long', c: '#DC2626' },
+        { id: 'RETURNED', n: returned, l: 'ส่งคืนสายงานต้นทาง', i: 'fa-arrow-left-long', c: '#DC2626' },
         { id: 'DONE', n: done, l: 'กลั่นกรองแล้วเสร็จ', i: 'fa-circle-check', c: '#16A34A' }
       ];
 
@@ -354,7 +355,7 @@
         if (isDone) {
           statusBadge = `<span class="meet-badge meet-done"><i class="fa-solid fa-circle-check text-success me-1" style="font-size:0.5rem"></i>กลั่นกรองแล้วเสร็จ</span>`;
         } else if (isReturned) {
-          statusBadge = `<span class="meet-badge meet-returned"><i class="fa-solid fa-arrow-left-long text-danger me-1" style="font-size:0.6rem"></i>ส่งคืนต้นทาง (กจ.5)</span>`;
+          statusBadge = `<span class="meet-badge meet-returned"><i class="fa-solid fa-arrow-left-long text-danger me-1" style="font-size:0.6rem"></i>ส่งคืนสายงานต้นทาง</span>`;
         } else if (isMoreInfo) {
           statusBadge = `<span class="meet-badge meet-scheduled"><i class="fa-solid fa-file-circle-question me-1" style="font-size:0.65rem"></i>รอข้อมูลเพิ่ม</span>`;
         } else {

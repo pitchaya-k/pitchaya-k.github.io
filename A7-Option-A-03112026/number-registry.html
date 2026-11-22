@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ทะเบียนคุมเลขสารบรรณ | E-CMIS</title>
+  <link rel="icon" type="image/png" href="assets/pacc_logo.png">
+  <link href="assets/vendor/fonts/fonts.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet">
+  <link href="assets/ecmis-app.css" rel="stylesheet">
+  <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
+  <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
+  <style>
+    .nr-tabs .nav-link { font-weight: 600; color: var(--ws-muted, #687789); }
+    .nr-tabs .nav-link.active { color: var(--ws-navy, #082b50); }
+    .nr-kpi { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .75rem; }
+    .nr-kpi button { text-align: left; border: 1px solid var(--ws-border, #dfe4ea); border-radius: .6rem; background: #fff; padding: .6rem .8rem; }
+    .nr-kpi button.is-on { border-color: #0a2647; box-shadow: 0 0 0 2px rgba(10, 38, 71, .15); }
+    .nr-kpi .n { font-size: 1.6rem; font-weight: 700; line-height: 1.1; }
+    .nr-kpi .l { font-size: .82rem; color: #5b6470; }
+    .nr-no { font-family: ui-monospace, Consolas, monospace; font-weight: 700; white-space: nowrap; }
+    .nr-table td { vertical-align: top; }
+    .nr-banner select { width: auto; display: inline-block; }
+    body.dark-mode .nr-kpi button { background: transparent; color: inherit; }
+    @media (max-width: 992px) { .nr-kpi { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (max-width: 576px) { .nr-kpi { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  </style>
+</head>
+
+<body class="ws-std">
+
+  <main class="app-main">
+
+    <div class="page-head d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+      <div>
+        <h1><i class="fa-solid fa-hashtag me-2" style="color:#0F2A62"></i><span>ทะเบียนคุมเลขสารบรรณ</span></h1>
+      </div>
+      <div class="d-flex align-items-center gap-3 ms-auto">
+        <span class="flow-ref">ขอ ติดตาม และปิดเรื่องเลขหนังสือของทุกสำนวนในที่เดียว · เลขออกโดยระบบงานสารบรรณ สำนักงาน ป.ป.ท. (e-office) เท่านั้น</span>
+      </div>
+    </div>
+
+    <div class="ws-callout mb-3 nr-banner d-flex flex-wrap align-items-center gap-2">
+      <span><i class="fa-solid fa-flask me-1"></i><strong>ต้นแบบจำลอง</strong> · ระบบงานสารบรรณในหน้านี้เป็นตัวจำลองตาม Open API 2.0/3.0 (เลขสารบรรณจริงต้องขอจากระบบงานสารบรรณ)</span>
+      <label class="ms-auto small" for="apiMode">สถานะ API สารบรรณ (จำลอง):</label>
+      <select class="form-select form-select-sm" id="apiMode">
+        <option value="ok">ปกติ (201 + doc_no)</option>
+        <option value="timeout">สร้างแล้วแต่ตอบไม่ทัน (408)</option>
+        <option value="down">ล่ม (503)</option>
+      </select>
+    </div>
+
+    <div class="card card-ecmis mb-4">
+      <div class="card-header d-flex align-items-center flex-wrap gap-2">
+        <ul class="nav nav-tabs card-header-tabs nr-tabs" role="tablist">
+          <li class="nav-item" role="presentation"><button class="nav-link active" type="button" role="tab" aria-selected="true" data-tab="nos">เลขสารบรรณ <span class="badge bg-secondary" id="cntNos">0</span></button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link" type="button" role="tab" aria-selected="false" data-tab="todo">ต้องจัดการ <span class="badge bg-danger" id="cntTodo">0</span></button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link" type="button" role="tab" aria-selected="false" data-tab="docs">รายการเอกสารที่ต้องขอเลข <span class="badge bg-secondary" id="cntDocs">0</span></button></li>
+        </ul>
+        <button type="button" class="btn btn-sm btn-navy ms-auto" id="btnRequest"><i class="fa-solid fa-plus me-1"></i>ขอเลขสารบรรณ</button>
+      </div>
+      <div class="card-body">
+
+        <div data-pane="nos todo">
+          <div class="row g-2 align-items-end mb-3">
+            <div class="col-md-4">
+              <label class="form-label small mb-1" for="q">ค้นหา</label>
+              <input class="form-control form-control-sm" id="q" placeholder="เลขที่ / เลขคำขอ / สำนวน / ชื่อเอกสาร">
+            </div>
+            <div class="col-md-3">
+              <label class="form-label small mb-1" for="fFile">แฟ้มทะเบียนส่ง</label>
+              <select class="form-select form-select-sm" id="fFile"><option value="">ทุกแฟ้ม</option></select>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label small mb-1" for="fStep">กระบวนการ</label>
+              <select class="form-select form-select-sm" id="fStep">
+                <option value="">ทุกกระบวนการ</option>
+                <option value="4">4 บรรจุวาระการประชุม</option>
+                <option value="5">5 พิจารณาและจัดทำมติ</option>
+                <option value="6">6 ดำเนินการจัดทำคำสั่ง</option>
+                <option value="7">7 รายงานการไต่สวนเพื่อวินิจฉัยชี้มูล</option>
+              </select>
+            </div>
+            <div class="col-md-2 text-end">
+              <button type="button" class="btn btn-sm btn-outline-secondary" id="btnClear"><i class="fa-solid fa-rotate-left me-1"></i>ล้างตัวกรอง</button>
+            </div>
+          </div>
+          <div class="nr-kpi mb-3" id="kpi"></div>
+          <div class="table-responsive">
+            <table class="table table-sm nr-table align-middle">
+              <thead><tr><th>คำขอ</th><th>เลขที่</th><th>แฟ้มทะเบียน</th><th>เอกสาร</th><th>สำนวน</th><th>ผู้ขอ</th><th>สถานะ</th><th>เวลา</th><th></th></tr></thead>
+              <tbody id="nosBody"><tr><td colspan="9" class="text-center text-muted py-4">กำลังโหลด…</td></tr></tbody>
+            </table>
+          </div>
+          <div class="small text-muted" id="summaryText"></div>
+        </div>
+
+        <div data-pane="docs" hidden>
+          <p class="small mb-2" id="docsIntro"></p>
+          <div class="table-responsive">
+            <table class="table table-sm nr-table">
+              <thead><tr><th>ขั้น</th><th>เอกสาร</th><th>แฟ้มทะเบียนส่ง</th><th>ผู้ขอเลข</th><th>ลำดับ Process สารบรรณ</th><th>หน้าจอ</th></tr></thead>
+              <tbody id="docsBody"></tbody>
+            </table>
+          </div>
+          <div class="small text-muted">ที่มา: Check List สารบรรณ x Process (เติมกิจกรรมที่ 7) 20/11/2569 · ข้อ 2 สร้างเอกสาร (แฟ้มส่ง) · 7 แนบไฟล์ · 10 ส่งต่อ · 6 ปิดเรื่อง · ข้อ 9 กันเลขซ้ำ ระบบทำเองทุกครั้ง</div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="assets/vendor/supabase/supabase.js"></script>
+  <script src="assets/ecmis-app.js?v=20261121-a7-inq64"></script>
+  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
+  <script src="assets/saraban-no.js?v=20261121-a7-saraban"></script>
+  <script src="assets/saraban-docs.js?v=20261121-a7-saraban"></script>
+  <script>
+    ECMIS.renderShell('number-registry.html');
+    const role = ECMIS.currentRole();
+    const esc = ECMIS.escapeHtml;
+    const sb = ECMIS.getSupabaseClient ? ECMIS.getSupabaseClient() : null;
+    ECMIS.ensureSarabanStyle();
+    let tab = 'nos';
+    let kpiFilter = '';
+    let entries = [];
+
+    const STATE_GROUP = {
+      pending: 'รอรับเลข', failed: 'ขอเลขไม่สำเร็จ', manual: 'นอกระบบรอตรวจ',
+      issued: 'ได้เลข รอส่ง', attached: 'ได้เลข รอส่ง', sent: 'ส่งแล้ว รอปิด', closed: 'ปิดเรื่องแล้ว'
+    };
+    const KPI = [['pending', 'รอรับเลข'], ['failed', 'ขอเลขไม่สำเร็จ'], ['manual', 'นอกระบบรอตรวจ'], ['ready', 'ได้เลข รอส่ง'], ['sent', 'ส่งแล้ว รอปิด'], ['closed', 'ปิดเรื่องแล้ว']];
+    const kpiKey = st => (st === 'issued' || st === 'attached' ? 'ready' : st);
+    const NEXT = { pending: 'ตรวจสถานะ', failed: 'ลองใหม่ / บันทึกเลขนอกระบบ', manual: 'ตรวจกับสารบรรณ', issued: 'แนบไฟล์ฉบับลงนาม', attached: 'ส่งต่อ / ส่งไปรษณีย์', sent: 'ปิดเรื่อง' };
+
+    function pageHref(e) {
+      const page = (e.doc && e.doc.page || '').split(' / ')[0];
+      if (!page) return '';
+      if (e.doc.scope === 'meeting') return page;
+      const k = e.cases[0];
+      return `${page}?case=${encodeURIComponent(k.id)}`;
+    }
+    function fileLabel(prefix) { return (ECMIS.SARABAN_FILES[prefix] || {}).label || prefix || '—'; }
+
+    async function load() {
+      entries = await ECMIS.listSarabanEntries(sb);
+      render();
+    }
+
+    function filtered(list) {
+      const q = document.getElementById('q').value.trim().toLowerCase();
+      const fFile = document.getElementById('fFile').value;
+      const fStep = document.getElementById('fStep').value;
+      return list.filter(e => {
+        if (fFile && e.rec.prefix !== fFile) return false;
+        const code = (e.doc && e.doc.code) || e.rec.docCode || '';
+        if (fStep && !code.startsWith(fStep + '.')) return false;
+        if (q) {
+          const hay = [e.rec.no, e.rec.reqId, e.rec.docName, e.doc && e.doc.name, ...e.cases.map(c => ECMIS.caseNo(c))].join(' ').toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+    }
+
+    function renderKpi(list) {
+      const count = k => list.filter(e => kpiKey(e.state) === k).length;
+      document.getElementById('kpi').innerHTML = KPI.map(([k, l]) =>
+        `<button type="button" class="${kpiFilter === k ? 'is-on' : ''}" data-kpi="${k}"><div class="l">${esc(l)}</div><div class="n">${count(k)}</div></button>`).join('');
+    }
+
+    function rowHtml(e) {
+      const d = e.doc;
+      const st = ECMIS.SARABAN_STATES[e.state] || ECMIS.SARABAN_STATES.none;
+      const href = pageHref(e);
+      const when = e.rec.requestedAt || e.rec.issuedAt;
+      const cases = e.cases.map(c => esc(ECMIS.caseNo(c))).join(', ');
+      return `<tr>
+        <td class="text-nowrap">${esc(e.rec.reqId || '—')}</td>
+        <td>${e.rec.no ? `<span class="nr-no">${esc(ECMIS.sarabanThai(e.rec.no))}</span>` : '<span class="text-muted">— ยังไม่มีเลข</span>'}</td>
+        <td>${esc(fileLabel(e.rec.prefix))}<div class="small text-muted">${esc((ECMIS.SARABAN_FILES[e.rec.prefix] || {}).level || '')}</div></td>
+        <td>${d ? `<strong>${esc(d.code)}</strong> ${esc(d.name)}` : esc(e.rec.docName || e.label || e.slot)}</td>
+        <td>${e.cases.length > 1 ? `<span title="${cases}">${esc(ECMIS.caseNo(e.cases[0]))} +${e.cases.length - 1}</span>` : cases}</td>
+        <td>${esc(e.rec.requestedBy || e.rec.issuedByName || '—')}</td>
+        <td><span class="sd-chip ${st.cls}">${esc(st.label)}</span>${e.state !== 'closed' && NEXT[e.state] && tab === 'todo' ? `<div class="small text-muted mt-1">ต่อไป: ${esc(NEXT[e.state])}</div>` : ''}</td>
+        <td class="text-nowrap small">${when ? esc(ECMIS.thaiDate(ECMIS.toBuddhistFakeIso(String(when).slice(0, 10)))) : '—'}</td>
+        <td class="text-end text-nowrap">
+          <button type="button" class="btn btn-sm btn-outline-secondary" data-trace="${esc(e.key)}"><i class="fa-solid fa-clock-rotate-left me-1"></i>trace</button>
+          ${href ? `<a class="btn btn-sm btn-outline-navy" href="${esc(href)}">เปิดหน้า</a>` : ''}
+        </td></tr>`;
+    }
+
+    function renderDocs() {
+      const opt = ECMIS.a7Option();
+      const docs = ECMIS.SARABAN_DOCS.filter(ECMIS.sarabanDocVisible);
+      document.getElementById('cntDocs').textContent = docs.length;
+      document.getElementById('docsIntro').innerHTML = opt === 'AB'
+        ? `เอกสารที่ต้องขอเลข <strong>Option A 16 รายการ</strong> · <strong>Option B 18 รายการ</strong> (เพิ่มขั้น 5.4 และ 7.1.3) — โฟลเดอร์นี้แสดงทั้งสองทางเลือก`
+        : `เอกสารที่ต้องขอเลขของ <strong>Option ${esc(opt)} ${docs.length} รายการ</strong>`;
+      const r = ECMIS.SARABAN_RECEIVE_ITEM;
+      const rows = [`<tr class="text-muted"><td>${esc(r.code)}</td><td>${esc(r.name)}<div class="small">${esc(r.note)}</div></td><td>—</td><td>กลุ่มงานกิจการคณะกรรมการ</td><td>${esc(r.seq)}</td><td>—</td></tr>`]
+        .concat(docs.map(d => {
+          const route = ECMIS.SARABAN_ROUTES[d.route];
+          const b = d.option === 'B' && opt === 'AB' ? ' <span class="sd-chip sd-st-warn">เฉพาะ Option B</span>' : '';
+          return `<tr><td class="fw-bold">${esc(d.code)}</td><td>${esc(d.name)}${b}${d.note ? `<div class="small text-muted">${esc(d.note)}</div>` : ''}</td>
+            <td>${esc(fileLabel(d.prefix))}</td><td>${esc(d.roles.map(id => (ECMIS.getRole(id) || {}).title || id).join(' / '))}</td>
+            <td>${esc(route.steps)}<div class="small text-muted">${esc(route.seq)}</div></td><td class="small">${esc(d.page)}</td></tr>`;
+        }));
+      document.getElementById('docsBody').innerHTML = rows.join('');
+    }
+
+    function render() {
+      document.querySelectorAll('[data-pane]').forEach(p => { p.hidden = !p.dataset.pane.split(' ').includes(tab); });
+      const base = filtered(entries);
+      const todo = base.filter(e => e.state !== 'closed');
+      document.getElementById('cntNos').textContent = entries.length;
+      document.getElementById('cntTodo').textContent = entries.filter(e => e.state !== 'closed').length;
+      renderDocs();
+      if (tab === 'docs') return;
+      const list = tab === 'todo' ? todo : base;
+      renderKpi(list);
+      const rows = kpiFilter ? list.filter(e => kpiKey(e.state) === kpiFilter) : list;
+      document.getElementById('nosBody').innerHTML = rows.length ? rows.map(rowHtml).join('')
+        : `<tr><td colspan="9" class="text-center text-muted py-4">${entries.length ? 'ไม่พบรายการตามตัวกรอง' : 'ยังไม่มีการขอเลขสารบรรณ — กด "ขอเลขสารบรรณ" หรือขอจากการ์ด "เลขหนังสือของขั้นนี้" ในหน้าสำนวน'}</td></tr>`;
+      document.getElementById('summaryText').textContent = rows.length ? `แสดง ${rows.length} รายการ` : '';
+    }
+
+    /* ขอเลขจากหน้าทะเบียน: เลือกสำนวน + เอกสาร (เอกสารระดับครั้งประชุมขอจากหน้าเอกสารการประชุม/รายงานการประชุม) */
+    async function requestFromRegistry() {
+      const docs = ECMIS.SARABAN_DOCS.filter(ECMIS.sarabanDocVisible).filter(d => d.scope !== 'meeting' && ECMIS.sarabanCanAct(d));
+      if (!docs.length) { ECMIS.toastWarn('บทบาทนี้ไม่มีเอกสารที่ขอเลขจากหน้าทะเบียนได้', 'เอกสารระดับครั้งประชุมให้ขอจากหน้าเอกสารการประชุม / รายงานการประชุม'); return; }
+      const cases = (ECMIS.CASES || []).slice().sort((a, b) => String(ECMIS.caseNo(a)).localeCompare(String(ECMIS.caseNo(b))));
+      const r = await Swal.fire({
+        title: 'ขอเลขสารบรรณ — เลือกสำนวนและเอกสาร', width: 720, showCancelButton: true, reverseButtons: true,
+        confirmButtonText: 'ถัดไป', cancelButtonText: 'ยกเลิก', confirmButtonColor: '#0a2647',
+        html: `<div class="text-start">
+          <label class="form-label small" for="pkCase">สำนวน</label>
+          <select class="form-select form-select-sm mb-2" id="pkCase">${cases.map(c => `<option value="${esc(c.id)}">${esc(ECMIS.caseNo(c))} · ${esc((c.subject || c.allegation || '').slice(0, 60))}</option>`).join('')}</select>
+          <label class="form-label small" for="pkDoc">เอกสาร</label>
+          <select class="form-select form-select-sm" id="pkDoc">${docs.map(d => `<option value="${esc(d.code)}">${esc(d.code)} ${esc(d.name)}</option>`).join('')}</select>
+          <div class="form-text">เอกสารระดับครั้งประชุม (4.4.1, 4.4.3, 5.3.2${ECMIS.a7Option().includes('B') ? ', 5.4' : ''}) ขอจากหน้าเอกสารการประชุมและรายงานการประชุม</div></div>`,
+        preConfirm: () => ({ caseId: document.getElementById('pkCase').value, code: document.getElementById('pkDoc').value })
+      });
+      if (!r.isConfirmed) return;
+      const kase = cases.find(c => c.id === r.value.caseId);
+      const doc = docs.find(d => d.code === r.value.code);
+      await ECMIS.openSarabanRequest({ kase, doc, sb, onDone: load });
+    }
+
+    document.querySelectorAll('.nr-tabs [data-tab]').forEach(btn => btn.addEventListener('click', () => {
+      tab = btn.dataset.tab; kpiFilter = '';
+      document.querySelectorAll('.nr-tabs [data-tab]').forEach(b => { b.classList.toggle('active', b === btn); b.setAttribute('aria-selected', b === btn ? 'true' : 'false'); });
+      render();
+    }));
+    document.getElementById('kpi').addEventListener('click', ev => {
+      const b = ev.target.closest('[data-kpi]'); if (!b) return;
+      kpiFilter = kpiFilter === b.dataset.kpi ? '' : b.dataset.kpi; render();
+    });
+    document.getElementById('nosBody').addEventListener('click', ev => {
+      const b = ev.target.closest('[data-trace]'); if (!b) return;
+      const e = entries.find(x => x.key === b.dataset.trace);
+      if (e) ECMIS.showSarabanTrace(e.rec, e.doc ? `${e.doc.code} ${e.doc.name}` : e.slot);
+    });
+    ['q', 'fFile', 'fStep'].forEach(id => document.getElementById(id).addEventListener('input', render));
+    document.getElementById('btnClear').addEventListener('click', () => { ['q', 'fFile', 'fStep'].forEach(id => { document.getElementById(id).value = ''; }); kpiFilter = ''; render(); });
+    document.getElementById('btnRequest').addEventListener('click', requestFromRegistry);
+    const modeSel = document.getElementById('apiMode');
+    modeSel.value = ECMIS.sarabanApiMode();
+    modeSel.addEventListener('change', () => { ECMIS.setSarabanApiMode(modeSel.value); ECMIS.toastOk('ตั้งสถานะ API สารบรรณ (จำลอง) แล้ว', modeSel.options[modeSel.selectedIndex].text); });
+    document.getElementById('fFile').insertAdjacentHTML('beforeend', Object.entries(ECMIS.SARABAN_FILES).map(([p, f]) => `<option value="${esc(p)}">${esc(f.label)}</option>`).join(''));
+    load().catch(e => { console.error(e); document.getElementById('nosBody').innerHTML = '<tr><td colspan="9" class="text-danger">โหลดทะเบียนไม่สำเร็จ</td></tr>'; });
+  </script>
+</body>
+
+</html>

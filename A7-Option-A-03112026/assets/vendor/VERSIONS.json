@@ -1,0 +1,33 @@
+{
+ "sweetalert2": "11.26.25",
+ "supabase-js": "2.119.2",
+ "pizzip": "3.3.0",
+ "docxtemplater": "3.71.1",
+ "files": {
+  "bootstrap/bootstrap.min.css": "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css",
+  "bootstrap/bootstrap.bundle.min.js": "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js",
+  "jquery/jquery.min.js": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js",
+  "fontawesome/css/all.min.css": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css",
+  "fontawesome/webfonts/fa-brands-400.ttf": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-brands-400.ttf",
+  "fontawesome/webfonts/fa-brands-400.woff2": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-brands-400.woff2",
+  "fontawesome/webfonts/fa-regular-400.ttf": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.ttf",
+  "fontawesome/webfonts/fa-regular-400.woff2": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.woff2",
+  "fontawesome/webfonts/fa-solid-900.ttf": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.ttf",
+  "fontawesome/webfonts/fa-solid-900.woff2": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2",
+  "fontawesome/webfonts/fa-v4compatibility.ttf": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-v4compatibility.ttf",
+  "fontawesome/webfonts/fa-v4compatibility.woff2": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-v4compatibility.woff2",
+  "sweetalert2/sweetalert2.all.min.js": "https://cdn.jsdelivr.net/npm/sweetalert2@11.26.25/dist/sweetalert2.all.min.js",
+  "sweetalert2/sweetalert2.min.css": "https://cdn.jsdelivr.net/npm/sweetalert2@11.26.25/dist/sweetalert2.min.css",
+  "supabase/supabase.js": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.2/dist/umd/supabase.js",
+  "pizzip/pizzip.js": "https://cdn.jsdelivr.net/npm/pizzip@3.3.0/dist/pizzip.js",
+  "docxtemplater/docxtemplater.js": "https://cdn.jsdelivr.net/npm/docxtemplater@3.71.1/build/docxtemplater.js",
+  "pdfobject/pdfobject.min.js": "https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js",
+  "xlsx/xlsx.full.min.js": "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js",
+  "mammoth/mammoth.browser.min.js": "https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js",
+  "mermaid/mermaid.min.js": "https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js",
+  "chartjs/chart.umd.min.js": "https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js",
+  "datatables/jquery.dataTables.min.js": "https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js",
+  "datatables/dataTables.bootstrap5.min.js": "https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js",
+  "datatables/dataTables.bootstrap5.min.css": "https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css"
+ }
+}

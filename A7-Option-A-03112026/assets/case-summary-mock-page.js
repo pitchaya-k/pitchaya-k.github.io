@@ -13,7 +13,7 @@ const ROUTE = global.ECMISSecgenRouteText;
 const cfg = global.A7_MOCK_PAGE || {};
 const VIEW_KEY = 'ecmis_a7_mock_view_role';
 const VIEWS = {
-  deputy: { title: 'รองเลขาธิการฯ พิจารณา / ลงความเห็น', icon: 'fa-user-tie', flow: 'ขั้นแรกของ กจ.7 — รองเลขาธิการฯ ลงความเห็นก่อนเสนอเลขาธิการฯ', status: 'PENDING_DEPUTY' },
+  deputy: { title: 'รองเลขาธิการฯ พิจารณา / ลงความเห็น', icon: 'fa-user-tie', flow: 'ขั้นแรกของกระบวนการพิจารณา — รองเลขาธิการฯ ลงความเห็นก่อนเสนอเลขาธิการฯ', status: 'PENDING_DEPUTY' },
   secgen: { title: 'เลขาธิการฯ พิจารณา / ลงนาม', icon: 'fa-user-check', flow: 'เลขาธิการฯ พิจารณาและลงนาม', status: 'PENDING_SECGEN' }
 };
 const esc = v => ECMIS.escapeHtml(String(v == null ? '' : v));

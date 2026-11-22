@@ -7,11 +7,11 @@
   <title>บันทึกมติที่ประชุมคณะกรรมการ ป.ป.ท. (วินิจฉัยชี้มูล) | E-CMIS</title>
   <link rel="icon" type="image/png" href="assets/pacc_logo.png">
   <link
-    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap"
+    href="assets/vendor/fonts/fonts.css"
     rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet">
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
@@ -213,6 +213,8 @@
         </div>
 
         <!-- Task 300: เลขบันทึกแจ้งมติชี้มูลความผิดอาญาและวินัย — กลุ่มงานวินิจฉัยฯ ยกร่างหลังบอร์ดมีมติ (ตารางออกเลข แถว 4) -->
+        <!-- เลขหนังสือของขั้นนี้ (5.3.1 / 5.3.3 ตาม Check List สารบรรณ x Process 20/11/2569) — assets/saraban-docs.js -->
+        <div id="sarabanDocsHost" hidden data-a7ro-keep></div>
         <div class="ws-card mb-3 d-none" id="resNotifyNoCard" data-a7ro-keep>
           <div class="card-header"><i class="fa-solid fa-hashtag"></i> เลขบันทึกแจ้งมติ</div>
           <div class="card-body">
@@ -298,17 +300,19 @@
     <div id="actionBarSlot"></div>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/pizzip@3/dist/pizzip.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3/build/docxtemplater.js"></script>
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="assets/vendor/supabase/supabase.js"></script>
+  <script src="assets/vendor/pizzip/pizzip.js"></script>
+  <script src="assets/vendor/docxtemplater/docxtemplater.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-app.js?v=20261121-a7-inq64"></script>
   <script src="assets/ecmis-livedoc.js?v=20261113"></script>
-  <script src="assets/saraban-no.js?v=20261015-a7-saraban-off"></script>
+  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
+  <script src="assets/saraban-no.js?v=20261121-a7-saraban"></script>
+  <script src="assets/saraban-docs.js?v=20261121-a7-saraban"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
@@ -1477,6 +1481,10 @@
         label: 'เลขบันทึกข้อความแจ้งมติชี้มูลความผิดอาญาและวินัย', slot: 'notifyMemo72', prefix: 'ปป 0004.5/', kase, sb,
         readonly: role.id !== 'board_sec' && !(ECMIS.canEditMaster && ECMIS.canEditMaster(role.id)), ignoreCaseLock: true });
     }
+    /* การ์ดเลขหนังสือของขั้นนี้ (5.3.1 / 5.3.3 สาย 7.2) — ผู้ขอเลข = กลุ่มงานคำวินิจฉัยและมติคณะกรรมการ */
+    const sarabanDocs72 = ECMIS.mountSarabanDocs ? ECMIS.mountSarabanDocs({
+      host: document.getElementById('sarabanDocsHost'), kase, sb, codes: ['5.3.1', '5.3.3'],
+      readonly: role.id !== 'board_sec' && !(ECMIS.canEditMaster && ECMIS.canEditMaster(role.id)) }) : null;
 
     (async function refreshFromSupabase() {
       if (!sb) return;
@@ -1491,6 +1499,7 @@
       if (ECMIS.applyLiveCase(kase, live)) return; // Task 244: สถานะจริงต่างจากที่เรนเดอร์ไป → โหลดหน้าใหม่ด้วยสถานะจริง
       toggleBoxes(); renderQuorum(); renderDoc();
       if (sarabanRes72) sarabanRes72.refresh();
+      if (sarabanDocs72) sarabanDocs72.refresh();
     })();
   </script>
 

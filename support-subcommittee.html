@@ -7,11 +7,11 @@
   <title>คณะอนุกรรมการสนับสนุนเลขาธิการฯ กลั่นกรองสำนวนซับซ้อน | E-CMIS</title>
   <link rel="icon" type="image/png" href="assets/pacc_logo.png">
   <link
-    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap"
+    href="assets/vendor/fonts/fonts.css"
     rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet">
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
@@ -42,7 +42,7 @@
 
         <!-- Card 1: Chain of Opinions (Identical to approval-review.html) -->
         <div class="ws-card mb-3">
-          <div class="card-header"><i class="fa-solid fa-list-ol"></i> ที่มาของสำนวน — การเสนอตามลำดับชั้นภายในกอง/เขต (ต้นทาง กจ.5)</div>
+          <div class="card-header"><i class="fa-solid fa-list-ol"></i> ที่มาของสำนวน — การเสนอตามลำดับชั้นภายในกอง/เขต (ต้นทางระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา)</div>
           <div class="card-body">
             <ul class="tl mb-0" id="chain"></ul>
           </div>
@@ -95,7 +95,7 @@
               </label>
               <label class="list-group-item d-flex gap-2 align-items-start">
                 <input class="form-check-input mt-1" type="radio" name="supportDecision" value="RETURN">
-                <span><strong>ส่งคืนสายงานต้นทาง (กจ.5) เพื่อปรับปรุงสำนวน</strong>
+                <span><strong>ส่งคืนสายงานต้นทาง เพื่อปรับปรุงสำนวน</strong>
                   <br><small class="text-muted">สำนวนไม่สมบูรณ์ตามระเบียบ ส่งคืนให้กอง/เขตดำเนินการใหม่</small></span>
               </label>
             </div>
@@ -229,15 +229,16 @@
     <div id="actionBarSlot"></div>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="assets/vendor/supabase/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
+  <script src="assets/ecmis-app.js?v=20261121-a7-inq64"></script>
   <script src="assets/ecmis-livedoc.js?v=20261113"></script>
-  <script src="assets/saraban-no.js?v=20261015-a7-saraban-off"></script>
+  <script src="assets/saraban-no.js?v=20261121-a7-saraban"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
@@ -548,7 +549,7 @@
           banner.innerHTML = `<i class="fa-solid fa-circle-info text-secondary"></i><span><strong>สำนวนนี้ไม่ได้อยู่ในขั้นคณะอนุกรรมการสนับสนุนฯ</strong> — สถานะปัจจุบัน: ${(ECMIS.STATUS[kase.status] || {}).label || kase.status} (ดูได้อย่างเดียว)</span>`;
         } else if (kase.status === 'RETURNED' || kase.status === 'RETURNED_72' || kase.statusCat === 'RETURNED') {
           banner.className = 'alert alert-danger d-flex align-items-center gap-2 mb-3 py-2 px-3';
-          banner.innerHTML = `<i class="fa-solid fa-arrow-left-long text-danger"></i><span><strong>สำนวนนี้ส่งคืนสายงานต้นทาง (กจ.5) แล้ว (โหมดดูรายละเอียด / อ่านอย่างเดียว)</strong> ระบบล็อกข้อมูลไม่ให้แก้ไข</span>`;
+          banner.innerHTML = `<i class="fa-solid fa-arrow-left-long text-danger"></i><span><strong>สำนวนนี้ส่งคืนสายงานต้นทาง (ระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา) แล้ว (โหมดดูรายละเอียด / อ่านอย่างเดียว)</strong> ระบบล็อกข้อมูลไม่ให้แก้ไข</span>`;
         } else {
           banner.className = 'alert alert-secondary d-flex align-items-center gap-2 mb-3 py-2 px-3';
           banner.innerHTML = `<i class="fa-solid fa-lock text-secondary"></i><span><strong>สำนวนนี้กลั่นกรองแล้วเสร็จ (โหมดดูรายละเอียด / อ่านอย่างเดียว)</strong> ระบบล็อกข้อมูลไม่ให้แก้ไข</span>`;
@@ -595,7 +596,7 @@
         AGREE: 'เห็นพ้องกับความเห็นของผู้รับผิดชอบสำนวน (มีมูลความผิด) และเห็นควรเสนอเลขาธิการ ป.ป.ท. เพื่อพิจารณาเสนอประธานกรรมการ ป.ป.ท. บรรจุวาระการประชุมต่อไป (อ้างอิง ม.24 / ม.28)',
         DIFFER: 'เห็นต่างจากความเห็นของผู้รับผิดชอบสำนวน โดยเห็นควรไม่รับเรื่องหรือสั่งจำหน่ายเรื่องตามข้อกฎหมาย (อ้างอิง ม.28 ประกอบ ม.25 / ม.26)',
         MORE_INFO: 'เห็นควรให้ผู้รับผิดชอบสำนวนแสวงหาข้อเท็จจริงหรือพยานหลักฐานเพิ่มเติมก่อนเสนอเลขาธิการ ป.ป.ท. (อ้างอิง ม.18 / ม.23)',
-        RETURN: 'เห็นควรส่งคืนสายงานต้นทาง (กจ.5) เพื่อปรับปรุงสำนวนให้ถูกต้องครบถ้วน'
+        RETURN: 'เห็นควรส่งคืนสายงานต้นทาง เพื่อปรับปรุงสำนวนให้ถูกต้องครบถ้วน'
       };
 
       const docPaperEl = document.getElementById('docPaper');
@@ -664,7 +665,7 @@
       if (dec === 'MORE_INFO') {
         buttons.push({ act: 'request_more', label: 'ส่งคำขอข้อมูลเพิ่มเติม', icon: 'fa-paper-plane', cls: 'btn-warning text-dark' });
       } else if (dec === 'RETURN') {
-        buttons.push({ act: 'return_source', label: 'ส่งคืนสายงานต้นทาง (กจ.5)', icon: 'fa-arrow-left-long', cls: 'btn-outline-danger' });
+        buttons.push({ act: 'return_source', label: 'ส่งคืนสายงานต้นทาง', icon: 'fa-arrow-left-long', cls: 'btn-outline-danger' });
       } else {
         buttons.push({ act: 'submit', label: 'เสนอความเห็นคืนเลขาธิการฯ', icon: 'fa-paper-plane', cls: 'btn-navy' });
       }
@@ -742,7 +743,7 @@
           return;
         }
         ECMIS.confirmAction({
-          title: 'ส่งคืนสายงานต้นทาง (กจ.5)',
+          title: 'ส่งคืนสายงานต้นทาง (ระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา)',
           html: `<p>สำนวน <strong>${ECMIS.caseNo(kase)}</strong> จะถูกปฏิเสธการรับไปยังหน่วยงานต้นทาง</p>`,
           confirmText: 'ยืนยันส่งคืน'
         }).then(async res => {

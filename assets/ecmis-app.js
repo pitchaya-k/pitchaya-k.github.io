@@ -7,11 +7,11 @@ const ROLES = [
   /* รองเลขาธิการฯ — ขั้นแรกของทุกสาย 7.1/7.2/7.3 ก่อนเลขาธิการฯ (Plan_A7_Deputy_Role, Task 190):
      ลงความเห็น (บังคับ + ลงนามดิจิทัล) แล้วเสนอเลขาธิการฯ หรือปฏิเสธการรับต้นทาง กจ.5 — ไม่มีอำนาจชี้ซับซ้อน/เร่งด่วน */
   { id:'deputy', login:'Prasert.T', row:1, group:'เลขาธิการฯ/รองเลขาธิการ', title:'รองเลขาธิการคณะกรรมการ ป.ป.ท.',
-    name:'นายประเสริฐ ธรรมพิทักษ์', org:'สำนักงาน ป.ป.ท.', lane:'L1', flow:'S0 — ขั้นแรก กจ.7', act:'7.1, 7.2, 7.3',
+    name:'นายประเสริฐ ธรรมพิทักษ์', org:'สำนักงาน ป.ป.ท.', lane:'L1', flow:'S0 — ขั้นแรกของกระบวนการพิจารณา', act:'7.1, 7.2, 7.3',
     perms:['view.all','download','deputy.opinion','return'] },
 
   { id:'secgen', login:'Apichat.S', row:1, group:'เลขาธิการฯ/รองเลขาธิการ', title:'เลขาธิการคณะกรรมการ ป.ป.ท.',
-    name:'นายอภิชาติ สุจริตกุล', org:'สำนักงาน ป.ป.ท.', lane:'L1', flow:'S1 / G1 — จุดเริ่ม กจ.7', act:'7.1, 7.2, 7.3',
+    name:'นายอภิชาติ สุจริตกุล', org:'สำนักงาน ป.ป.ท.', lane:'L1', flow:'S1 / G1 — จุดเริ่มของกระบวนการพิจารณา', act:'7.1, 7.2, 7.3',
     perms:['view.all','download','sign.report213','decide.complex','sign.order24p1','approve.general','return'] },
 
   { id:'support_sub', login:'Jiraporn.N', row:2, group:'คณะอนุกรรมการสนับสนุนเลขาธิการฯ', title:'อนุกรรมการสนับสนุนเลขาธิการฯ',
@@ -127,7 +127,7 @@ const PERM_DEFS = [
   { k:'urgent.endorse',cat:'ปลายน้ำ',   label:'เห็นชอบใบด่วนเบื้องต้นก่อนส่ง กบค.' },
   { k:'dispatch.resolution',cat:'ปลายน้ำ',label:'ส่งมติคืนกอง / สำนักงานคณะกรรมการป้องกันและปราบปรามการทุจริตในภาครัฐ เขต' },
   { k:'dispatch.nacc', cat:'ปลายน้ำ',   label:'ทำหนังสือนำส่งสำนวนถึง ป.ป.ช.' },
-  { k:'track.discipline',cat:'ปลายน้ำ', label:'ติดตามผลการดำเนินการทางวินัย (เชื่อม กจ.8)' },
+  { k:'track.discipline',cat:'ปลายน้ำ', label:'ติดตามผลการดำเนินการทางวินัย (เชื่อมระบบบริหารจัดการ การตรวจสอบประวัติบุคคลและกระบวนงานภายหลังที่คณะกรรมการ ป.ป.ท. มีมติ)' },
   { k:'intake.screen', cat:'ปลายน้ำ',   label:'ลงรับและคัดกรองสำนวนอิเล็กทรอนิกส์' },
   { k:'intake.route',  cat:'ปลายน้ำ',   label:'รับเรื่องจากสารบรรณและส่งเข้าอนุกลั่นกรองฯ' },
   { k:'route.subcommittee',cat:'ปลายน้ำ',label:'ส่งเรื่องเข้าอนุกลั่นกรองฯ ตามคำสั่งประธานฯ' },
@@ -168,7 +168,7 @@ function canViewCase(kase, roleId){
 const STATUS = {
 
   DRAFT:            { label:'ร่างรายงาน 213 (ในกอง/เขต)',   cls:'st-draft',    owner:'owner',        scope:'UPSTREAM' },
-  RETURNED:         { label:'ส่งคืน กจ.5 — รอแก้ไข',        cls:'st-returned', owner:'owner',        scope:'UPSTREAM' },
+  RETURNED:         { label:'ส่งคืนสายงานต้นทาง — รอแก้ไข',        cls:'st-returned', owner:'owner',        scope:'UPSTREAM' },
   PENDING_SECTION:  { label:'รอหัวหน้ากลุ่มงาน (ในกอง/เขต)', cls:'st-pending',  owner:'section_head', scope:'UPSTREAM' },
   PENDING_DIRECTOR: { label:'รอ ผอ.กอง / ผอ.เขต',           cls:'st-pending',  owner:'director',     scope:'UPSTREAM' },
   /* Task 190: ย้ายจากชั้นต้นทาง กจ.5 มาเป็นขั้นแรกของ กจ.7 (ไม่มี scope UPSTREAM แล้ว) */
@@ -274,7 +274,7 @@ const TRANSITIONS = [
     ref:'ลงความเห็นและเสนอเลขาธิการฯ', guard:k => !!String(k.deputyOpinion || '').trim(),
     note:'รองเลขาธิการฯ ลงความเห็น (บังคับ) และลงนามดิจิทัล แล้วเสนอเลขาธิการฯ' },
   { from:'PENDING_DEPUTY', to:'RETURNED', event:'DEPUTY_RETURN', actor:'deputy',
-    ref:'ปฏิเสธการรับต้นทาง (กจ.5)', note:'รองเลขาธิการฯ ปฏิเสธการรับสายงานต้นทางพร้อมเหตุผล' },
+    ref:'ปฏิเสธการรับ ส่งคืนสายงานต้นทาง', note:'รองเลขาธิการฯ ปฏิเสธการรับสายงานต้นทางพร้อมเหตุผล' },
 
   { from:'PENDING_SECGEN', to:'PENDING_SUPPORT_ASSIGN', event:'SIGN_COMPLEX', actor:'secgen',
     ref:'เสนอเลขาธิการฯ', guard:k => g1Triggers(k).required,
@@ -366,7 +366,7 @@ const TRANSITIONS = [
                (!(forwardTarget(k.forwardTo) || {}).requireArchiveCopy || !!k.archiveCopyKept),
     note:'ต้องอัปโหลดไฟล์สแกนฉบับลงนาม และ (ถ้าปลายทางบังคับ) ต้องคัดสำเนาสำนวนเก็บไว้เป็นหลักฐานตาม ม.18/1' },
   { from:'RESOLVED', to:'CLOSED', event:'CLOSE_CASE', actor:'owner',
-    ref:'บันทึกมติการไต่สวน', note:'รับไว้ไต่สวน (ยิงกลับ กจ.5) หรือไม่รับไว้ไต่สวน (ปิดสำนวน)' },
+    ref:'บันทึกมติการไต่สวน', note:'รับไว้ไต่สวน (ส่งกลับระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา) หรือไม่รับไว้ไต่สวน (ปิดสำนวน)' },
   /* ขั้นหลังมติสาย 7.3 (เรื่องทั่วไป/กกม.) — ผัง "มติเรื่องทั่วไป": ทุกมติจบที่กลุ่มงานกิจการฯ ส่งเอกสาร
      ให้ผู้รับผิดชอบดำเนินการตามอำนาจหน้าที่; มติส่งกองกฎหมายก่อน → รอความเห็น → เข้าวาระใหม่หรือปิด (B10 / Task 178) */
   { from:'RESOLVED', to:'CLOSED', event:'NOTIFY_CLOSE_73', actor:'affairs',
@@ -391,7 +391,7 @@ const TRANSITIONS = [
   { from:'PENDING_DIRECTOR_72', to:'RETURNED_72', event:'RETURN_72', actor:'director', ref:'ส่งคืนเสนอตามลำดับชั้น' },
   { from:'PENDING_DEPUTY_72', to:'PENDING_SECGEN_72', event:'PROPOSE_72', actor:'deputy', ref:'ลงความเห็นและเสนอเลขาธิการฯ',
     guard:k => !!String(k.deputyOpinion || '').trim() },
-  { from:'PENDING_DEPUTY_72', to:'RETURNED_72', event:'RETURN_72', actor:'deputy', ref:'ปฏิเสธการรับต้นทาง (กจ.5)' },
+  { from:'PENDING_DEPUTY_72', to:'RETURNED_72', event:'RETURN_72', actor:'deputy', ref:'ปฏิเสธการรับ ส่งคืนสายงานต้นทาง' },
   { from:'RETURNED_72', to:'PENDING_SECTION_72', event:'RESUBMIT_72', actor:'owner', ref:'ส่งคืนแก้ไขและเสนอใหม่' },
 
   { from:'PENDING_SECGEN_72', to:'PENDING_SUPPORT_ASSIGN_72', event:'SIGN_COMPLEX_72', actor:'secgen',
@@ -492,7 +492,7 @@ const TRANSITIONS = [
   /* Task 282: กจ.8 ปฏิเสธการรับ ป.วินัย หลังปิดสำนวนแล้ว — กลับไปรอส่งให้กลุ่มงานกิจการฯ แก้แล้วส่งใหม่
      (ยังไม่ปิด = สถานะคงเดิม เปลี่ยนเฉพาะ disciplinaryTrack72.status เป็น RETURNED) */
   { from:'CLOSED_72', to:'PENDING_DISPATCH_GUILTY_72', event:'DISCIPLINE_RETURNED_72', actor:'affairs',
-    ref:'กจ.8 ปฏิเสธการรับ ป.วินัย — แก้ไขแล้วส่งใหม่', guard:k => hasDisciplineTrack72(k) },
+    ref:'ปฏิเสธการรับ ป.วินัย — แก้ไขแล้วส่งใหม่', guard:k => hasDisciplineTrack72(k) },
   { from:'PENDING_DISPATCH_GUILTY_72', to:'CLOSED_72', event:'CLOSE_GUILTY_72', actor:'affairs',
     ref:'ส่งเรื่องดำเนินการทางอาญาและวินัย · ม.38·ม.44', guard:k => bothTracksDone72(k),
     note:'ปิดสำนวนได้เมื่อสายอาญา (ถ้ามี) ส่งอัยการแล้ว และสายวินัย (ถ้ามี) ส่งหน่วยงานต้นสังกัดแล้ว' }
@@ -3952,6 +3952,8 @@ const PAGE_PERMISSIONS = {
   'dashboard.html': ['secgen', 'chairman', 'board_sec', 'board', 'board_ex', 'affairs', 'case_admin'],
   'followup-dashboard.html': ['secgen', 'chairman', 'board_sec', 'board', 'board_ex', 'affairs', 'case_admin'],
   'case-register.html': null, // public/all roles
+  'number-registry.html': ['affairs', 'board_sec', 'case_admin', 'dir_case'],  // ทะเบียนคุมเลขสารบรรณ
+  'additional-inquiry.html': ['affairs', 'board_sec', 'case_admin'],          // 6.4 รายงานการไต่สวนเพิ่มเติม (Option B)
   'm38-inbox.html': ['deputy', 'secgen'],   // Task 240 รายงานผล ม.38
   'm38-review.html': ['deputy', 'secgen'],
   'register.html': null, // public/all roles
@@ -4343,7 +4345,7 @@ function openResetCaseDialog() {
       <p class="mb-2">สำนวน <strong>${escapeHtml(caseNo)}</strong>${known.status ? ` · สาย ${line} · สถานะตอนนี้ ${escapeHtml(STATUS[known.status] ? STATUS[known.status].label : known.status)}` : ''}</p>
       <p class="mb-2">จะกลับไปเริ่มที่ <strong>${escapeHtml(STATUS[target].label)}</strong> และล้างความเห็น มติ คำสั่ง ลายเซ็น เลขวาระ ที่บันทึกระหว่างเล่น
         (เก็บไว้เฉพาะข้อมูลต้นทางของสำนวน) · ถอดออกจากวาระประชุมและซ่อนไฟล์แนบเท่าที่ทำได้</p>
-      ${known.junction ? '<div class="ws-callout mb-0" style="font-size:.85rem"><i class="fa-solid fa-triangle-exclamation me-1"></i>เคสนี้เชื่อมกับกิจกรรมอื่นผ่าน Hub — ผลที่เคยส่งให้ กจ.5 / กจ.8 ยังค้างอยู่ฝั่งนั้น ระบบรีเซ็ตเฉพาะฝั่ง กจ.7</div>' : ''}
+      ${known.junction ? '<div class="ws-callout mb-0" style="font-size:.85rem"><i class="fa-solid fa-triangle-exclamation me-1"></i>เคสนี้เชื่อมกับกิจกรรมอื่นผ่าน Hub — ผลที่เคยส่งให้ระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา / ระบบบริหารจัดการ การตรวจสอบประวัติบุคคลและกระบวนงานภายหลังที่คณะกรรมการ ป.ป.ท. มีมติ ยังค้างอยู่ฝั่งนั้น ระบบรีเซ็ตเฉพาะฝั่ง กจ.7</div>' : ''}
       ${SCENARIO_SHEET_CASES.includes(caseNo) ? '<div class="ws-callout mt-2 mb-0" style="font-size:.85rem"><i class="fa-solid fa-triangle-exclamation me-1"></i>เคสตามชีตที่กิจกรรมอื่นอ้างถึง (ใช้ฐานข้อมูลร่วมกับ main) — กิจกรรมอื่นจะเห็นสถานะที่รีเซ็ตทันที</div>' : ''}
     </div>`,
     showCancelButton: true, confirmButtonText: 'ยืนยันเริ่มใหม่', cancelButtonText: 'ยกเลิก',
@@ -4434,7 +4436,8 @@ function isBoardResolvedCase(kase){
   return !!kase && BOARD_RESOLVED_ST.test(String(kase.status || ''));
 }
 /* Task 331: หน้ารายการ/กล่องงานไม่ใช่หน้าของเรื่องเดียว — ไม่ล็อกอ่านอย่างเดียวแม้ URL มี ?case= ติดมา */
-const READONLY_SKIP_PAGES = /(^|-)inbox\.html$|^(register|case-register|agenda-registry|dashboard|followup-dashboard)\.html$/;
+/* additional-inquiry.html (ขั้น 6.4 Option B) ไม่มีขั้นในแถบสถานะเดิม — หน้าตรวจสิทธิ์เอง (กลุ่มงานกิจการฯ แก้ได้ บทบาทอื่นดูอย่างเดียว) */
+const READONLY_SKIP_PAGES = /(^|-)inbox\.html$|^(register|case-register|agenda-registry|dashboard|followup-dashboard|additional-inquiry)\.html$/;
 function enforceCaseReadOnly(){
   if (typeof document === 'undefined') return;
   if (READONLY_SKIP_PAGES.test((location.pathname.split('/').pop() || '').toLowerCase())) return;
@@ -4558,7 +4561,7 @@ async function openSwitchLineDialog() {
         <select class="form-select form-select-sm" id="swGeneralType">${typeOpts}</select>
       </div>
       <p class="mb-2" id="swTarget"></p>
-      <div class="ws-callout mb-0" style="font-size:.85rem"><i class="fa-solid fa-triangle-exclamation me-1"></i>เปลี่ยนเฉพาะ กจ.7 — กิจกรรมต้นทาง (กจ.4/กจ.5) และ Hub ยังเป็นสายเดิม</div>
+      <div class="ws-callout mb-0" style="font-size:.85rem"><i class="fa-solid fa-triangle-exclamation me-1"></i>เปลี่ยนเฉพาะในระบบนี้ — ระบบต้นทาง (ระบบบริหารจัดการข้อมูลการรับเรื่องร้องเรียนของสำนักงาน ป.ป.ท. / ระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา) และ Hub ยังเป็นสายเดิม</div>
     </div>`,
     showCancelButton: true, confirmButtonText: 'ยืนยันสลับสาย', cancelButtonText: 'ยกเลิก',
     confirmButtonColor: '#a52c25', cancelButtonColor: '#7C8CA3', reverseButtons: true, focusCancel: true,
@@ -4630,8 +4633,8 @@ const M38_STORE_KEY = 'ecmis_m38_reports_v1';
 const M38_STATUS = {
   PENDING_DEPUTY: { label: 'รอรองเลขาธิการฯ อนุมัติ', cls: 'st-pending', owner: 'deputy' },
   PENDING_SECGEN: { label: 'รอเลขาธิการฯ อนุมัติ', cls: 'st-pending', owner: 'secgen' },
-  APPROVED:       { label: 'เลขาธิการฯ อนุมัติแล้ว — ส่งผลกลับ กจ.8', cls: 'st-done', owner: null },
-  RETURNED:       { label: 'ส่งคืน กจ.8 ให้แก้ไข', cls: 'st-returned', owner: null }
+  APPROVED:       { label: 'เลขาธิการฯ อนุมัติแล้ว — ส่งผลกลับระบบติดตามผลภายหลังมีมติ', cls: 'st-done', owner: null },
+  RETURNED:       { label: 'ส่งคืนให้แก้ไข', cls: 'st-returned', owner: null }
 };
 const M38_SEED = [{
   reportNo: '0004/0112', reportDate: '2569-10-16', round: 1,
@@ -4722,6 +4725,13 @@ const NAV = [
        (not this home item) is what actually shows the full inboxFor() scope of cases. */
     badge: role => !role || role.id !== 'board_sec' },
   { href:'case-register.html',         icon:'fa-folder-open',      label:'ทะเบียนสำนวน' },
+  /* ทะเบียนคุมเลขสารบรรณ (checklist สารบรรณ x Process 20/11/2569) — ผู้ขอเลข: กลุ่มงานกิจการฯ, กลุ่มงานคำวินิจฉัยฯ, กองบริหารคดี */
+  { href:'number-registry.html',       icon:'fa-hashtag',          label:'ทะเบียนคุมเลขสารบรรณ',
+    visible: role => !!role && ['affairs','board_sec','case_admin','dir_case'].includes(role.id) },
+  /* ขั้น 6.4 จัดทำรายงานการไต่สวนเพิ่มเติม (มติเรื่องทั่วไป) — มีเฉพาะ Option B (assets/a7-option.js) */
+  { href:'additional-inquiry.html',    icon:'fa-file-circle-plus', label:'รายงานการไต่สวนเพิ่มเติม',
+    visible: role => !!role && ['affairs','board_sec','case_admin'].includes(role.id)
+      && String((typeof window !== 'undefined' && window.ECMIS_A7_OPTION) || 'AB').includes('B') },
   /* Task 240: รายงานผล ม.38 จาก กจ.8 — รองเลขาธิการฯ อนุมัติ → เลขาธิการฯ อนุมัติ → ส่งผลกลับ กจ.8 */
   { href:'m38-inbox.html',             icon:'fa-file-circle-check', label:'รายงานผล ม.38',
     visible: role => !!role && (role.id === 'deputy' || role.id === 'secgen'), badgeCount: role => m38PendingCount(role && role.id) },
@@ -4752,6 +4762,8 @@ const NAV = [
 const NAV_ICON_SVG = {
   'fa-inbox': '<path d="M4 4h16v16H4z"/><path d="M4 14h4l2 3h4l2-3h4"/>',
   'fa-folder-open': '<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v1H3z"/><path d="M3 10h18l-2 9H5z"/>',
+  'fa-hashtag': '<path d="M9 3 7 21M17 3l-2 18M4 8h17M3 16h17"/>',
+  'fa-file-circle-plus': '<path d="M5 3h10l4 4v14H5z"/><path d="M14 3v5h5"/><path d="M12 11v6M9 14h6"/>',
   'fa-scale-balanced': '<path d="M12 3v18M7 21h10M5 7h14"/><path d="m5 7-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/>',
   'fa-file-contract': '<path d="M5 3h10l4 4v14H5z"/><path d="M14 3v5h5M8 12h8M8 16h5"/>',
   'fa-table-list': '<rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M3 14h18M9 9v11"/>',
@@ -4837,7 +4849,7 @@ function ensureNotificationSupabase(){
   if (notificationSupabaseLoader) return notificationSupabaseLoader;
   notificationSupabaseLoader = new Promise(resolve => {
     const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js';
+    script.src = 'assets/vendor/supabase/supabase.js';
     script.async = true;
     script.onload = () => resolve(getSupabaseClient());
     script.onerror = () => resolve(null);
@@ -5623,7 +5635,7 @@ function actionBar(kase, roleId, buttons, opts){
   }
 
   const scopeTag = role.scope === 'UPSTREAM'
-    ? `<span class="st st-draft ms-1">นอกขอบเขต กจ.7</span>`
+    ? `<span class="st st-draft ms-1">นอกขอบเขตระบบนี้</span>`
     : '';
   const editTag = canEditMaster(roleId)
     ? `<span class="st st-done ms-1" title="ชีตแถว 15 — มีเพียง 7 คนที่แก้ไขมติ/คำสั่ง/รายงานได้">

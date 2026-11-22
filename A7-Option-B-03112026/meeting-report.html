@@ -7,11 +7,11 @@
   <title>จัดทำรายงานมติการประชุม | E-CMIS</title>
   <link rel="icon" type="image/png" href="assets/pacc_logo.png">
   <link
-    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap"
+    href="assets/vendor/fonts/fonts.css"
     rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet">
   <link href="assets/ecmis-app.css" rel="stylesheet">
   <link href="assets/a4-ecmis-workspace.css" rel="stylesheet">
   <link href="assets/ecmis-ws-standard.css?v=215" rel="stylesheet">
@@ -45,6 +45,8 @@
               </div>
             </div>
             <!-- Task 300: เลขรายงานการประชุม — บันทึก (ปป 0004.5/) และหนังสือ (ปป 0004/) ใช้เลขเดียวกันทุกเรื่องในครั้งประชุม -->
+            <!-- เลขหนังสือของขั้นนี้ (5.3.2 / 5.4 เฉพาะ Option B) — เลขเดียวใช้ทุกเรื่องในครั้งประชุม -->
+            <div id="sarabanDocsHost" class="mt-2" hidden data-a7ro-keep></div>
             <div class="row g-2 mt-1" id="minutesNoRow">
               <div class="col-md-6" id="minutesMemoNoBox"></div>
               <div class="col-md-6" id="minutesLetterNoBox"></div>
@@ -152,17 +154,19 @@
     </div>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.jsdelivr.net/npm/pizzip@3/dist/pizzip.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3/build/docxtemplater.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="assets/vendor/pizzip/pizzip.js"></script>
+  <script src="assets/vendor/docxtemplater/docxtemplater.js"></script>
+<script src="assets/vendor/supabase/supabase.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/ecmis-app.js?v=20261113-livedoc"></script>
+  <script src="assets/ecmis-app.js?v=20261121-a7-inq64"></script>
   <script src="assets/ecmis-livedoc.js?v=20261113"></script>
-  <script src="assets/saraban-no.js?v=20261015-a7-saraban-off"></script>
+  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
+  <script src="assets/saraban-no.js?v=20261121-a7-saraban"></script>
+  <script src="assets/saraban-docs.js?v=20261121-a7-saraban"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
 <script src="assets/junction-bridge-a7.js?v=20261006-a7-g73-picks"></script>
@@ -260,7 +264,14 @@
     }
 
     /* Task 300: ช่องเลขสารบรรณของรายงานการประชุม — เลขเดียวเขียนลงทุกเรื่องในครั้งประชุม (group = ครั้งที่ประชุม) */
+    let sarabanDocsMeeting = null;
     function mountMinutesSaraban() {
+      if (ECMIS.mountSarabanDocs) {
+        if (!sarabanDocsMeeting) sarabanDocsMeeting = ECMIS.mountSarabanDocs({
+          host: document.getElementById('sarabanDocsHost'), kases: () => items, sb, readonly: !mayEdit,
+          group: () => `meeting:${currentMeetNo}`, codes: ['5.3.2', '5.4'], onChange: () => renderDoc() });
+        else sarabanDocsMeeting.refresh();
+      }
       const row = document.getElementById('minutesNoRow');
       if (!row || !ECMIS.mountSarabanField) return;
       row.classList.toggle('d-none', !items.length);

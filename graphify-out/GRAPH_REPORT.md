@@ -1,22 +1,22 @@
-# Graph Report - pitchaya-k.github.io  (2026-11-13)
+# Graph Report - pitchaya-k.github.io  (2026-11-21)
 
 ## Corpus Check
-- 135 files · ~16,226,083 words
+- 141 files · ~16,242,011 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 73 file(s) not represented in the graph (top: .drawio 36, .css 12, .ttf 12)
+- Unclassified: 75 file(s) not represented in the graph (top: .drawio 36, .css 12, .ttf 12)
 
 ## Summary
-- 2954 nodes · 7488 edges · 160 communities (137 shown, 23 thin omitted)
-- Extraction: 77% EXTRACTED · 23% INFERRED · 0% AMBIGUOUS · INFERRED: 1727 edges (avg confidence: 0.85)
+- 2927 nodes · 6837 edges · 166 communities (141 shown, 25 thin omitted)
+- Extraction: 78% EXTRACTED · 22% INFERRED · 0% AMBIGUOUS · INFERRED: 1522 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `7c8e1468`
+- Built from commit: `ea5b22a8`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- Minified Vendor Lib A
+- 7. รายละเอียดแยกตาม Path
 - Agenda Registry
 - toggle
 - Roles & Notifications
@@ -66,23 +66,23 @@
 - o
 - o
 - กจ.7 · ปรับ Prototype ตามรายการปรับแก้ mockup A7 (28 ต.ค. 2569)
-- o
+- A7-Option-A-03112026/assets/saraban-docs.js
 - Qe
 - paginateDoc
 - Qe
-- Qe
+- A7-Option-B-03112026/assets/saraban-docs.js
 - A7-Option-A-03112026/assets/html2pdf.bundle.min.js
 - A7-Option-B-03112026/assets/html2pdf.bundle.min.js
 - run_pipeline_parallel.sh script
 - userflow update 26102026 — User Flow กิจกรรมที่ 7 V1.0.3
 - userflow update 26102026 — User Flow กิจกรรมที่ 7 V1.0.3
-- assets/html2pdf.bundle.min.js
+- assets/saraban-docs.js
 - Flow ของโปรเจกต์ E-CMIS (สร้างจาก graphify)
 - dataflow update 26102026 — Data Flow Diagram กิจกรรมที่ 7 (V1.0.2 → V1.0.3)
 - CLAUDE.md
 - .claude/CLAUDE.md
 - prototype/README.md
-- README.md
+- คู่มือพัฒนาต่อ (Developer Guide) — E-CMIS กิจกรรมที่ 7 Prototype
 - A7-Option-A-03112026/assets/dashboard-analytics-service.js
 - A7-Option-B-03112026/assets/dashboard-analytics-service.js
 - toastOk
@@ -90,7 +90,7 @@
 - toastOk
 - t
 - renderFloatToast
-- t
+- E-CMIS กิจกรรมที่ 7 — Prototype (เอกสารส่งต่อทีม Developer)
 - A7-Option-A-03112026/assets/ecmis-livedoc.js
 - A7-Option-A-03112026/docs/agent-prompts/README.md
 - A7-Option-B-03112026/assets/ecmis-livedoc.js
@@ -139,7 +139,7 @@
 - caseFlowSteps
 - p
 - assets/case-summary-mock-page.js
-- p
+- 5. สูตรงานที่ทำบ่อย
 - mount
 - mount
 - A7-Option-A-03112026/assets/ecmis-model.js
@@ -152,7 +152,7 @@
 - m38Act
 - paginateDoc
 - ye
-- ye
+- 3. กระบวนการทำงานของระบบ (ตามโค้ด)
 - A7-Option-A-03112026/assets/case-summary-prototype-fill.js
 - initA11yAndPref
 - A7-Option-B-03112026/assets/case-summary-prototype-fill.js
@@ -170,26 +170,27 @@
 - A7-Option-A-03112026/.claude/CLAUDE.md
 - run_pipeline_parallel.sh script
 - run_pipeline_parallel.sh script
+- 3. สิ่งที่ตรวจพบด้านเทคนิค
+- 4. บทบาทผู้ใช้และสิทธิ์
+- 5. ลำดับการใช้งานและการเปลี่ยนหน้าจอ
 
 ## God Nodes (most connected - your core abstractions)
 1. `e()` - 132 edges
 2. `e()` - 132 edges
-3. `e()` - 132 edges
+3. `h()` - 113 edges
 4. `h()` - 113 edges
-5. `h()` - 113 edges
-6. `h()` - 113 edges
-7. `Qe()` - 49 edges
-8. `Qe()` - 49 edges
-9. `Qe()` - 49 edges
-10. `t()` - 46 edges
+5. `Qe()` - 49 edges
+6. `Qe()` - 49 edges
+7. `t()` - 46 edges
+8. `t()` - 46 edges
+9. `o()` - 41 edges
+10. `o()` - 41 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `h()` --indirect_call--> `K()`  [INFERRED]
   A7-Option-A-03112026/assets/html2pdf.bundle.min.js → tests/resolution-rules.test.mjs
 - `h()` --indirect_call--> `K()`  [INFERRED]
   A7-Option-B-03112026/assets/html2pdf.bundle.min.js → tests/resolution-rules.test.mjs
-- `h()` --indirect_call--> `K()`  [INFERRED]
-  assets/html2pdf.bundle.min.js → tests/resolution-rules.test.mjs
 - `h()` --indirect_call--> `J()`  [INFERRED]
   A7-Option-A-03112026/assets/html2pdf.bundle.min.js → A7-Option-A-03112026/assets/junction-bridge-a7.js
 - `h()` --indirect_call--> `J()`  [INFERRED]
@@ -198,11 +199,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (160 total, 23 thin omitted)
+## Communities (166 total, 25 thin omitted)
 
-### Community 0 - "Minified Vendor Lib A"
-Cohesion: 0.10
-Nodes (51): e(), at(), br(), bt(), cr(), ct(), dr(), dt() (+43 more)
+### Community 0 - "7. รายละเอียดแยกตาม Path"
+Cohesion: 0.05
+Nodes (38): 7.10 `/board-detail.html`, 7.11 `/resolution-inbox.html`, 7.12 `/m38-inbox.html`, 7.13 `/m38-review.html`, 7.15 `/approval-review.html`, 7.16 `/review.html`, 7.17 `/dir-case-support-assign.html`, 7.18 `/support-subcommittee.html` (+30 more)
 
 ### Community 1 - "Agenda Registry"
 Cohesion: 0.08
@@ -258,7 +259,7 @@ Nodes (13): canAct(), caseFlowSteps(), caseStepActorIds(), caseStepInfo(), compa
 
 ### Community 14 - "Saraban Numbering"
 Cohesion: 0.23
-Nodes (19): actor(), currentYearBE(), ensureStyle(), escRe(), formatSarabanNo(), issueSarabanNo(), loadRows(), mountSarabanField() (+11 more)
+Nodes (20): actor(), currentYearBE(), ensureStyle(), escRe(), formatSarabanNo(), issueSarabanNo(), loadRows(), mountSarabanField() (+12 more)
 
 ### Community 15 - "Seed Deputy Cases"
 Cohesion: 0.10
@@ -392,9 +393,9 @@ Nodes (33): a(), C(), a(), c(), E(), er(), ht(), i() (+25 more)
 Cohesion: 0.22
 Nodes (8): A7-10 · เอาตัวเลือก "สั่งรับเรื่อง" (ม.28) ออก, A7-13 · แจ้งเตือนเมื่อส่งคืน, A7-15 / A7-16 · วิธีลงนามรายงานวินิจฉัยชี้มูลของประธานฯ, กจ.7 · ปรับ Prototype ตามรายการปรับแก้ mockup A7 (28 ต.ค. 2569), การทดสอบ (stub คำขอเขียน Supabase ทั้งหมด), ประเด็นที่ไม่เคลียร์: solution + assumption, สถานะรายการ, เอกสารที่อัปเดตรอบนี้
 
-### Community 50 - "o"
+### Community 50 - "A7-Option-A-03112026/assets/saraban-docs.js"
 Cohesion: 0.19
-Nodes (33): a(), C(), a(), c(), E(), er(), ht(), i() (+25 more)
+Nodes (24): apiMode(), canAct(), caseLabel(), checkPending(), docsFor(), docVisible(), ensureStyle(), listSarabanEntries() (+16 more)
 
 ### Community 51 - "Qe"
 Cohesion: 0.13
@@ -408,9 +409,9 @@ Nodes (7): paginateDoc(), measure(), prefixFor(), processBlock(), pushPage(), to
 Cohesion: 0.13
 Nodes (32): be(), Ce(), De(), Dr(), ar(), de(), ee(), fe() (+24 more)
 
-### Community 54 - "Qe"
-Cohesion: 0.13
-Nodes (32): be(), Ce(), De(), Dr(), ar(), de(), ee(), fe() (+24 more)
+### Community 54 - "A7-Option-B-03112026/assets/saraban-docs.js"
+Cohesion: 0.19
+Nodes (24): apiMode(), canAct(), caseLabel(), checkPending(), docsFor(), docVisible(), ensureStyle(), listSarabanEntries() (+16 more)
 
 ### Community 55 - "A7-Option-A-03112026/assets/html2pdf.bundle.min.js"
 Cohesion: 0.07
@@ -428,9 +429,9 @@ Nodes (5): userflow update 26102026 — User Flow กิจกรรมที่
 Cohesion: 0.33
 Nodes (5): userflow update 26102026 — User Flow กิจกรรมที่ 7 V1.0.3, ข้อควรทราบเมื่อเปิดไฟล์, วิธีอ่านผัง, หน้าในไฟล์ drawio, ไฟล์ในโฟลเดอร์นี้
 
-### Community 62 - "assets/html2pdf.bundle.min.js"
-Cohesion: 0.07
-Nodes (15): Cr(), ae(), ve(), z(), Er(), He(), Ht(), Je() (+7 more)
+### Community 62 - "assets/saraban-docs.js"
+Cohesion: 0.19
+Nodes (24): apiMode(), canAct(), caseLabel(), checkPending(), docsFor(), docVisible(), ensureStyle(), listSarabanEntries() (+16 more)
 
 ### Community 63 - "Flow ของโปรเจกต์ E-CMIS (สร้างจาก graphify)"
 Cohesion: 0.40
@@ -439,6 +440,10 @@ Nodes (4): 1) ภาพรวมโมดูล (Module Flow), 2) Flow ของ
 ### Community 64 - "dataflow update 26102026 — Data Flow Diagram กิจกรรมที่ 7 (V1.0.2 → V1.0.3)"
 Cohesion: 0.50
 Nodes (3): dataflow update 26102026 — Data Flow Diagram กิจกรรมที่ 7 (V1.0.2 → V1.0.3), ก่อนส่งฉบับจริง, ไฟล์ในโฟลเดอร์นี้
+
+### Community 68 - "คู่มือพัฒนาต่อ (Developer Guide) — E-CMIS กิจกรรมที่ 7 Prototype"
+Cohesion: 0.22
+Nodes (7): 1. Branch, 2. โครงสร้างโปรเจกต์, 4. วิธีรันและทดสอบ, 6. ข้อควรระวัง (พบในโค้ด), 7. ใช้ graphify ค้นโค้ด (ตาม CLAUDE.md ของโปรเจกต์), 8. สิ่งที่ยังไม่ทราบ (ต้องยืนยันก่อนพัฒนาต่อ), คู่มือพัฒนาต่อ (Developer Guide) — E-CMIS กิจกรรมที่ 7 Prototype
 
 ### Community 69 - "A7-Option-A-03112026/assets/dashboard-analytics-service.js"
 Cohesion: 0.13
@@ -468,9 +473,9 @@ Nodes (27): B(), b(), be(), ge(), gr(), h(), j(), je() (+19 more)
 Cohesion: 0.70
 Nodes (5): hideFloatToast(), renderFloatToast(), resumeFloatToast(), saveFloatToast(), showFloatToast()
 
-### Community 76 - "t"
-Cohesion: 0.19
-Nodes (27): B(), b(), be(), ge(), gr(), h(), j(), je() (+19 more)
+### Community 76 - "E-CMIS กิจกรรมที่ 7 — Prototype (เอกสารส่งต่อทีม Developer)"
+Cohesion: 0.15
+Nodes (13): 0. ข้อควรรู้ก่อนอ่าน (สรุปสำคัญ), 10. ข้อจำกัดของ Prototype (ตรวจสอบได้จากไฟล์), 11. รายการที่ต้องยืนยันก่อนพัฒนาระบบจริง [ต้องยืนยัน], 12. ข้อเสนอแนะ [ข้อเสนอแนะ — ไม่ใช่ข้อกำหนด], 13. ไฟล์ที่ตรวจสอบเพื่อจัดทำเอกสารนี้, 1. วัตถุประสงค์และขอบเขตของ Prototype, 2.1 โครงสร้าง (ตรวจจากโฟลเดอร์จริง), 2.2 วิธีเปิด [พฤติกรรมใน Prototype] (+5 more)
 
 ### Community 77 - "A7-Option-A-03112026/assets/ecmis-livedoc.js"
 Cohesion: 0.19
@@ -510,11 +515,11 @@ Nodes (23): confirmAction(), exportDocToDocx(), initBulkActions(), getChecked(),
 
 ### Community 86 - "A7-Option-A-03112026/assets/saraban-no.js"
 Cohesion: 0.23
-Nodes (19): actor(), currentYearBE(), ensureStyle(), escRe(), formatSarabanNo(), issueSarabanNo(), loadRows(), mountSarabanField() (+11 more)
+Nodes (20): actor(), currentYearBE(), ensureStyle(), escRe(), formatSarabanNo(), issueSarabanNo(), loadRows(), mountSarabanField() (+12 more)
 
 ### Community 87 - "A7-Option-B-03112026/assets/saraban-no.js"
 Cohesion: 0.23
-Nodes (19): actor(), currentYearBE(), ensureStyle(), escRe(), formatSarabanNo(), issueSarabanNo(), loadRows(), mountSarabanField() (+11 more)
+Nodes (20): actor(), currentYearBE(), ensureStyle(), escRe(), formatSarabanNo(), issueSarabanNo(), loadRows(), mountSarabanField() (+12 more)
 
 ### Community 88 - "A7-Option-A-03112026/scripts/seed-deputy-cases.mjs"
 Cohesion: 0.10
@@ -664,9 +669,9 @@ Nodes (13): d(), ce(), f(), g(), l(), m(), w(), l() (+5 more)
 Cohesion: 0.26
 Nodes (11): init(), linkBtn(), mockSecgenRoute(), mountOpinionCard(), render(), update(), noComplexLabel(), opinionCardHtml() (+3 more)
 
-### Community 125 - "p"
-Cohesion: 0.33
-Nodes (13): d(), ce(), f(), g(), l(), m(), w(), l() (+5 more)
+### Community 125 - "5. สูตรงานที่ทำบ่อย"
+Cohesion: 0.22
+Nodes (9): 5.1 เพิ่มหน้าจอใหม่, 5.2 เพิ่ม/แก้ขั้นตอนสถานะ, 5.3 ผูกฟิลด์ฟอร์มกับเอกสาร, 5.4 แก้ `ecmis-app.js` / assets, 5.5 ซิงก์ Option A/B, 5.6 เลขหนังสือสารบรรณ (ปรับ 21/11/2569), 5.7 เปิดแบบออฟไลน์, 5.8 หน้าจอขั้น 6.4 รายงานการไต่สวนเพิ่มเติม (Option B, เพิ่ม 21/11/2569) (+1 more)
 
 ### Community 126 - "mount"
 Cohesion: 0.30
@@ -708,9 +713,9 @@ Nodes (7): paginateDoc(), measure(), prefixFor(), processBlock(), pushPage(), to
 Cohesion: 0.36
 Nodes (8): hr(), pr(), ye(), H(), I(), L(), P(), T()
 
-### Community 138 - "ye"
-Cohesion: 0.36
-Nodes (8): hr(), pr(), ye(), H(), I(), L(), P(), T()
+### Community 138 - "3. กระบวนการทำงานของระบบ (ตามโค้ด)"
+Cohesion: 0.33
+Nodes (6): 3.1 ลำดับตั้งแต่เปิดเว็บ, 3.2 โมเดลสถานะ, 3.3 สองแหล่งข้อมูลซ้อนกัน (สำคัญ), 3.4 เอกสาร (A4) และการส่งออก, 3.5 จอแบ่งสองฝั่ง, 3. กระบวนการทำงานของระบบ (ตามโค้ด)
 
 ### Community 139 - "A7-Option-A-03112026/assets/case-summary-prototype-fill.js"
 Cohesion: 0.60
@@ -748,23 +753,35 @@ Nodes (3): dataflow update 26102026 — Data Flow Diagram กิจกรรม�
 Cohesion: 0.50
 Nodes (4): initRichTextBox(), plainTextToHtml(), sanitizeRichPaste(), walk()
 
+### Community 160 - "3. สิ่งที่ตรวจพบด้านเทคนิค"
+Cohesion: 0.33
+Nodes (6): 3.1 โครงสร้างหน้า (Shared shell), 3.2 การเชื่อม Supabase [พฤติกรรมใน Prototype — ตรวจจากโค้ดเท่านั้น], 3.3 การเก็บข้อมูลฝั่ง Browser, 3.4 การสร้างเอกสาร / ส่งออก [พฤติกรรมใน Prototype], 3.5 กลไกจอแบ่งสองฝั่ง (Live-doc) (เพิ่มใน commit `0afb372`), 3. สิ่งที่ตรวจพบด้านเทคนิค
+
+### Community 161 - "4. บทบาทผู้ใช้และสิทธิ์"
+Cohesion: 0.40
+Nodes (5): 4.1 บัญชีที่เข้าสู่ระบบได้ (10 บัญชี, ตัวระบุ `LOGIN_ALLOWED_ROLE_IDS`), 4.2 การเข้าสู่ระบบ (`login.html`) [พฤติกรรมใน Prototype], 4.3 สิทธิ์เข้าหน้า (`PAGE_PERMISSIONS` ใน `assets/ecmis-app.js`), 4.4 รายการสิทธิ์ (`perms`) ต่อบทบาทที่นิยามไว้ในโค้ด, 4. บทบาทผู้ใช้และสิทธิ์
+
+### Community 162 - "5. ลำดับการใช้งานและการเปลี่ยนหน้าจอ"
+Cohesion: 0.50
+Nodes (4): 5.1 ลำดับหลัก [พฤติกรรมใน Prototype], 5.2 ลิงก์ระหว่างหน้าที่ตรวจพบในโค้ด (ยืนยันจากไฟล์), 5.3 เมนู Sidebar (ตามนิยาม `NAV` ใน `ecmis-app.js`), 5. ลำดับการใช้งานและการเปลี่ยนหน้าจอ
+
 ## Knowledge Gaps
-- **23 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **25 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `K()` connect `ref_node_fs` to `e`, `Minified Vendor Lib A`, `e`?**
-  _High betweenness centrality (0.049) - this node is a cross-community bridge._
+- **Why does `h()` connect `e` to `ye`, `t`, `A7-Option-A-03112026/assets/junction-bridge-a7.js`, `o`, `Qe`, `A7-Option-A-03112026/assets/html2pdf.bundle.min.js`, `p`, `ref_node_fs`?**
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._
 - **Are the 39 inferred relationships involving `e()` (e.g. with `A7-Option-A-03112026/assets/html2pdf.bundle.min.js` and `Dr()`) actually correct?**
   _`e()` has 39 INFERRED edges - model-reasoned connections that need verification._
-- **Should `Minified Vendor Lib A` be split into smaller, more focused modules?**
-  _Cohesion score 0.09503843466107617 - nodes in this community are weakly interconnected._
-- **Why does `h()` connect `Minified Vendor Lib A` to `Junction Bridge A7`, `ye`, `t`, `o`, `Qe`, `ref_node_fs`, `p`, `assets/html2pdf.bundle.min.js`?**
-  _High betweenness centrality (0.038) - this node is a cross-community bridge._
+- **Should `7. รายละเอียดแยกตาม Path` be split into smaller, more focused modules?**
+  _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
+- **Why does `h()` connect `e` to `ye`, `t`, `A7-Option-B-03112026/assets/junction-bridge-a7.js`, `o`, `Qe`, `A7-Option-B-03112026/assets/html2pdf.bundle.min.js`, `p`, `ref_node_fs`?**
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._
 - **Are the 39 inferred relationships involving `e()` (e.g. with `A7-Option-B-03112026/assets/html2pdf.bundle.min.js` and `Dr()`) actually correct?**
   _`e()` has 39 INFERRED edges - model-reasoned connections that need verification._
 - **Should `Agenda Registry` be split into smaller, more focused modules?**
   _Cohesion score 0.08235294117647059 - nodes in this community are weakly interconnected._
-- **Why does `h()` connect `e` to `ye`, `t`, `A7-Option-A-03112026/assets/junction-bridge-a7.js`, `o`, `Qe`, `A7-Option-A-03112026/assets/html2pdf.bundle.min.js`, `p`, `ref_node_fs`?**
-  _High betweenness centrality (0.032) - this node is a cross-community bridge._
+- **Why does `K()` connect `ref_node_fs` to `e`, `e`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._

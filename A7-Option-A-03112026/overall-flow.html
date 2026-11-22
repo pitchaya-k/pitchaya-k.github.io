@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ภาพรวมกระบวนงาน กจ.7 | E-CMIS</title>
+<title>ภาพรวมกระบวนงาน | E-CMIS</title>
 <link rel="icon" type="image/png" href="assets/pacc_logo.png">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@600;700;800&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="assets/vendor/fonts/fonts.css" rel="stylesheet">
 <style>
 :root{
   --navy:#0a2647; --navy-2:#123b63; --gold:#c9a227; --red:#a5322a;
@@ -63,12 +63,12 @@ tr.row-drift td{background:#fbeceb !important}
 
 <header>
   <div class="wrap">
-    <h1>ภาพรวมกระบวนงาน ระบบรายงานการไต่สวน (กจ.7) (E-CMIS)</h1>
-    <p>การพิจารณาและดำเนินการตามมติคณะกรรมการ ป.ป.ท. — ทุกขั้น ทุกทางแยก พร้อมหน้าจอ prototype ที่ใช้ — คลิกกล่องเพื่อเปิดหน้าจริงด้วยเคสตัวอย่าง (เข้าระบบเป็นบทบาทของขั้นนั้นให้อัตโนมัติ)</p>
+    <h1>ภาพรวมกระบวนงาน ระบบบริหารจัดการกระบวนงานพิจารณาและดำเนินการมติคณะกรรมการ ป.ป.ท.</h1>
+    <p>การพิจารณาและดำเนินการมติคณะกรรมการ ป.ป.ท. — ทุกขั้น ทุกทางแยก พร้อมหน้าจอ prototype ที่ใช้ — คลิกกล่องเพื่อเปิดหน้าจริงด้วยเคสตัวอย่าง (เข้าระบบเป็นบทบาทของขั้นนั้นให้อัตโนมัติ)</p>
   </div>
 </header>
 
-<nav class="toc" aria-label="สารบัญ"><a href="business-flow.html">Business Flow (8 Process)</a>
+<nav class="toc" aria-label="สารบัญ">
   <a href="#overview">ภาพรวม</a>
   <a href="#flow71">สาย 7.1 / 7.3</a>
   <a href="#after71">หลังมติ 7.1 / 7.3</a>
@@ -81,7 +81,7 @@ tr.row-drift td{background:#fbeceb !important}
 <main>
 
 <ul class="legend" aria-label="คำอธิบายสี">
-  <li><i style="background:#eceff3;border-color:#8a94a3"></i>กจ.5 / เจ้าของสำนวน / สายบังคับบัญชา</li>
+  <li><i style="background:#eceff3;border-color:#8a94a3"></i>ระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา / เจ้าของสำนวน / สายบังคับบัญชา</li>
   <li><i style="background:#dbe6f4;border-color:#123b63"></i>รองเลขาฯ / เลขาธิการฯ</li>
   <li><i style="background:#ece3f7;border-color:#6b46c1"></i>ผอ.กบค.</li>
   <li><i style="background:#d9f1ee;border-color:#2c7a7b"></i>คณะอนุสนับสนุน / อนุกลั่นกรองฯ</li>
@@ -94,10 +94,10 @@ tr.row-drift td{background:#fbeceb !important}
 <!-- ───────────── 0. ภาพรวม ───────────── -->
 <section id="overview">
   <h2>0 · ภาพรวม 3 สาย</h2>
-  <p class="lead">เรื่องเข้าจาก กจ.5 แล้วแยกตามประเภทเอกสาร: <span class="pill p71">7.1</span> รายงาน 213 (ไต่สวนเบื้องต้น) · <span class="pill p73">7.3</span> เรื่องทั่วไป / กกม. · <span class="pill p72">7.2</span> รายงานวินิจฉัยชี้มูล (644)</p>
+  <p class="lead">เรื่องเข้าจากระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา แล้วแยกตามประเภทเอกสาร: <span class="pill p71">7.1</span> รายงาน 213 (ไต่สวนเบื้องต้น) · <span class="pill p73">7.3</span> เรื่องทั่วไป / กกม. · <span class="pill p72">7.2</span> รายงานวินิจฉัยชี้มูล (644)</p>
   <div class="diagram"><pre class="mermaid">
 flowchart LR
-  IN(["กจ.5 ส่งเรื่องเข้า กจ.7"]):::up --> T{"ประเภทเรื่อง?"}:::dec
+  IN(["ระบบกระบวนการดำเนินงาน<br/>เรื่องร้องเรียนกล่าวหา<br/>ส่งเรื่องเข้า"]):::up --> T{"ประเภทเรื่อง?"}:::dec
   T -->|"รายงาน 213"| L71["สาย 7.1<br/>ไต่สวนเบื้องต้น"]:::sec
   T -->|"เรื่องทั่วไป / กกม."| L73["สาย 7.3<br/>ไม่ผ่านอนุกลั่นกรองฯ"]:::sec
   T -->|"รายงานชี้มูล 644"| L72["สาย 7.2<br/>วินิจฉัยชี้มูล"]:::sec
@@ -129,10 +129,10 @@ flowchart LR
   <p class="lead">7.1 กับ 7.3 ใช้ทางเดียวกันจนถึงประธานฯ — 7.3 ไม่มีคณะอนุกลั่นกรองฯ จึงตรงเข้าบรรจุวาระ</p>
   <div class="diagram" data-flow="f71"><pre class="mermaid">
 flowchart TD
-  D0["000 ร่างรายงาน 213<br/><i>เจ้าของสำนวน (กจ.5)</i>"]:::up --> D2["002 หัวหน้ากลุ่มงาน"]:::up --> D3["003 ผอ.กอง / ผอ.เขต"]:::up
+  D0["000 ร่างรายงาน 213<br/><i>เจ้าของสำนวน</i>"]:::up --> D2["002 หัวหน้ากลุ่มงาน"]:::up --> D3["003 ผอ.กอง / ผอ.เขต"]:::up
   D3 --> DEP["004 รอรองเลขาฯ พิจารณา<br/><i>รองเลขาฯ · approval-review</i>"]:::sec
   DEP -->|"ลงความเห็น (บังคับ) + ลงนาม"| SG["005 รอเลขาธิการฯ ลงนาม<br/><i>เลขาฯ · approval-review</i>"]:::sec
-  DEP -->|"ปฏิเสธการรับ + เหตุผล/ไฟล์ · แจ้งเตือน"| RET["001 ส่งคืน กจ.5 รอแก้ไข<br/><i>เจ้าของสำนวน</i>"]:::up
+  DEP -->|"ปฏิเสธการรับ + เหตุผล/ไฟล์ · แจ้งเตือน"| RET["001 ส่งคืนสายงานต้นทาง รอแก้ไข<br/><i>เจ้าของสำนวน</i>"]:::up
   RET -.->|"แก้แล้วเสนอใหม่"| D2
 
   SG --> Q1{"ซับซ้อน หรือ<br/>ความเห็นในสายไม่ตรงกัน?"}:::dec
@@ -180,7 +180,7 @@ flowchart TD
   <ul class="notes">
     <li>รองเลขาฯ / เลขาฯ ส่งคืน: ใส่เหตุผล + แนบไฟล์ (ไม่บังคับ) → ระบบแจ้งเตือนผู้รับผิดชอบสำนวน (A7-13)</li>
     <li>หน้าเลขาฯ: ซ่อนการ์ด ม.28 — ค่าเริ่มต้น "สั่งรับเรื่องไว้พิจารณา" (A7-10)</li>
-    <li>ขั้น 000–003 เป็นงานต้นทาง กจ.5 (แสดงเพื่อให้เห็นทางกลับเมื่อถูกปฏิเสธการรับ)</li>
+    <li>ขั้น 000–003 เป็นงานต้นทางในระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา (แสดงเพื่อให้เห็นทางกลับเมื่อถูกปฏิเสธการรับ)</li>
   </ul>
 </section>
 
@@ -235,7 +235,7 @@ flowchart TD
   S2 -->|"เสนอ"| SG["104 เลขาฯ พิจารณา / ลงนาม<br/><i>approval-review</i>"]:::sec
   S0 -->|"ส่งคืน"| RT["103 ปฏิเสธการรับเจ้าของสำนวน"]:::up
   S1 -->|"ส่งคืน"| RT
-  S2 -->|"ปฏิเสธการรับ กจ.5"| RT
+  S2 -->|"ปฏิเสธการรับ ส่งคืนสายงานต้นทาง"| RT
   RT -->|"แก้แล้วเสนอใหม่"| S0
 
   SG --> Q1{"ซับซ้อน?"}:::dec
@@ -283,7 +283,7 @@ flowchart TD
   AN --> CL(["116 ปิดสำนวน — จบกระบวนการ"]):::fin
   NC --> CL
   GU -->|"ทั้ง 2 สายส่งครบ"| CL
-  CL -.->|"กจ.8 ปฏิเสธการรับ ป.วินัย → แก้แล้วส่งใหม่"| GU
+  CL -.->|"ระบบติดตามผลภายหลังมีมติ ปฏิเสธการรับ ป.วินัย → แก้แล้วส่งใหม่"| GU
 
   classDef up fill:#eceff3,stroke:#8a94a3,color:#20262e
   classDef sec fill:#dbe6f4,stroke:#123b63,color:#0a2647
@@ -353,7 +353,7 @@ flowchart TD
 <script>
 (function () {
   var OWNER = {
-    owner:'เจ้าของสำนวน (กจ.5)', section_head:'หัวหน้ากลุ่มงาน', director:'ผอ.กอง / ผอ.เขต',
+    owner:'เจ้าของสำนวน', section_head:'หัวหน้ากลุ่มงาน', director:'ผอ.กอง / ผอ.เขต',
     deputy:'รองเลขาธิการฯ', secgen:'เลขาธิการฯ', dir_case:'ผอ.กบค.', support_sub:'คณะอนุสนับสนุนฯ',
     chairman:'ประธานกรรมการ', subcommittee:'คณะอนุกลั่นกรองฯ', board_sec:'ฝ่ายเลขาฯ บอร์ด',
     affairs:'กลุ่มงานกิจการฯ', '-':'—'
@@ -362,7 +362,7 @@ flowchart TD
   /* [รหัส, สาย, สถานะ, owner, หน้า] */
   var ROWS = [
     ['000','7.1','ร่างรายงาน 213 (ในกอง/เขต)','owner','—'],
-    ['001','7.1','ส่งคืน กจ.5 — รอแก้ไข','owner','approval-review.html'],
+    ['001','7.1','ส่งคืนสายงานต้นทาง — รอแก้ไข','owner','approval-review.html'],
     ['002','7.1','รอหัวหน้ากลุ่มงาน (ในกอง/เขต)','section_head','—'],
     ['003','7.1','รอ ผอ.กอง / ผอ.เขต','director','—'],
     ['004','7.1/7.3','รอรองเลขาธิการฯ พิจารณา','deputy','approval-review.html'],
@@ -460,8 +460,8 @@ flowchart TD
 })();
 </script>
 <script src="assets/overall-flow.js"></script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
+<script src="assets/vendor/mermaid/mermaid.min.js"></script>
+<script>
 mermaid.initialize({
   startOnLoad: true,
   securityLevel: 'loose',
