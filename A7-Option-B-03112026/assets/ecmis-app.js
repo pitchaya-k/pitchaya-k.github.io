@@ -3986,6 +3986,8 @@ const PAGE_PERMISSIONS = {
   'urgent-agenda.html': ['dir_case', 'chairman', 'affairs', 'secgen', 'board_sec', 'board', 'board_ex', 'case_admin'],
   // ผอ.กบค. ออกเลขทะเบียนคุม/มอบหมายคณะอนุสนับสนุน (2026-09-28) — role อื่นเปิดดูใบบันทึกซับซ้อนได้อย่างเดียว
   'dir-case-support-assign.html': ['dir_case', 'secgen', 'support_sub', 'sup_chair', 'sup_sec', 'sup_asst'],
+  // ผอ.กบค. พิจารณาเห็นชอบคำสั่ง 6.1.4/6.2.1 และหนังสือลงโทษ 7.2.1 ก่อนเสนอผู้ลงนาม (22/11/2569) — role อื่นเปิดอ่าน
+  'dir-case-approve.html': ['dir_case', 'affairs', 'secgen', 'chairman', 'case_admin'],
   'agenda-set.html': ['board_sec', 'affairs', 'chairman', 'board', 'board_ex', 'secgen', 'case_admin'],
   'agenda.html': ['board_sec', 'affairs', 'chairman', 'board', 'board_ex', 'secgen', 'case_admin'],
   'agenda-meeting-docs.html': ['board_sec', 'affairs', 'chairman', 'board', 'board_ex', 'secgen', 'case_admin'],
@@ -4502,7 +4504,7 @@ function isBoardResolvedCase(kase){
 }
 /* Task 331: หน้ารายการ/กล่องงานไม่ใช่หน้าของเรื่องเดียว — ไม่ล็อกอ่านอย่างเดียวแม้ URL มี ?case= ติดมา */
 /* additional-inquiry.html (ขั้น 6.4 Option B) ไม่มีขั้นในแถบสถานะเดิม — หน้าตรวจสิทธิ์เอง (กลุ่มงานกิจการฯ แก้ได้ บทบาทอื่นดูอย่างเดียว) */
-const READONLY_SKIP_PAGES = /(^|-)inbox\.html$|^(register|case-register|agenda-registry|dashboard|followup-dashboard|additional-inquiry)\.html$/;
+const READONLY_SKIP_PAGES = /(^|-)inbox\.html$|^(register|case-register|agenda-registry|dashboard|followup-dashboard|additional-inquiry|dir-case-approve)\.html$/;
 function enforceCaseReadOnly(){
   if (typeof document === 'undefined') return;
   if (READONLY_SKIP_PAGES.test((location.pathname.split('/').pop() || '').toLowerCase())) return;
@@ -4794,6 +4796,9 @@ const NAV = [
   { href:'number-registry.html',       icon:'fa-hashtag',          label:'ทะเบียนคุมเลขสารบรรณ',
     visible: role => !!role && ['affairs','board_sec','case_admin','dir_case'].includes(role.id) },
   /* ขั้น 6.4 จัดทำรายงานการไต่สวนเพิ่มเติม (มติเรื่องทั่วไป) — มีเฉพาะ Option B (assets/a7-option.js) */
+  /* ผอ.กบค. พิจารณาเห็นชอบเอกสารก่อนเสนอผู้ลงนาม (ผัง 6-1, 6-2, 7-2) — ไม่เปลี่ยนสถานะสำนวน */
+  { href:'dir-case-approve.html',       icon:'fa-file-circle-check', label:'พิจารณาเห็นชอบเอกสาร',
+    visible: role => !!role && role.id === 'dir_case' },
   { href:'additional-inquiry.html',    icon:'fa-file-circle-plus', label:'รายงานการไต่สวนเพิ่มเติม',
     visible: role => !!role && ['affairs','board_sec','case_admin'].includes(role.id)
       && String((typeof window !== 'undefined' && window.ECMIS_A7_OPTION) || 'AB').includes('B') },

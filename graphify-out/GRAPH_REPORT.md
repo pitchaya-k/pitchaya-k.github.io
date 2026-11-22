@@ -1,17 +1,17 @@
 # Graph Report - pitchaya-k.github.io  (2026-11-22)
 
 ## Corpus Check
-- 119 files · ~12,300,345 words
+- 123 files · ~12,310,274 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 58 file(s) not represented in the graph (top: .drawio 19, .css 15, .ttf 12)
 
 ## Summary
-- 2940 nodes · 7106 edges · 151 communities (130 shown, 21 thin omitted)
-- Extraction: 77% EXTRACTED · 23% INFERRED · 0% AMBIGUOUS · INFERRED: 1650 edges (avg confidence: 0.85)
+- 2975 nodes · 7162 edges · 154 communities (133 shown, 21 thin omitted)
+- Extraction: 77% EXTRACTED · 23% INFERRED · 0% AMBIGUOUS · INFERRED: 1671 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `854eef41`
+- Built from commit: `76c67ab6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -112,6 +112,7 @@
 - A7-Option-B-03112026/assets/dashboard-chart-service.js
 - A7-Option-B-03112026/assets/overall-flow.js
 - สร้างข้อมูลผังกระบวนงาน `assets/a7-flow-data.js`
+- A7-Option-A-03112026/assets/a7-dircase-approval.js
 - initAttachmentCard
 - caseNo
 - initAttachmentCard
@@ -127,8 +128,10 @@
 - create
 - supabaseRowToCase
 - initSmartCombobox
+- A7-Option-B-03112026/assets/a7-dircase-approval.js
 - supabaseRowToCase
 - initSmartCombobox
+- assets/a7-dircase-approval.js
 - A7-Option-A-03112026/assets/case-summary-mock-page.js
 - caseFlowSteps
 - p
@@ -186,11 +189,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (151 total, 21 thin omitted)
+## Communities (154 total, 21 thin omitted)
 
 ### Community 0 - "7. รายละเอียดแยกตาม Path"
 Cohesion: 0.05
-Nodes (40): 7.10 `/board-detail.html`, 7.11 `/resolution-inbox.html`, 7.12 `/m38-inbox.html`, 7.13 `/m38-review.html`, 7.15 `/approval-review.html`, 7.16 `/review.html`, 7.17 `/dir-case-support-assign.html`, 7.18 `/support-subcommittee.html` (+32 more)
+Nodes (41): 7.10 `/board-detail.html`, 7.11 `/resolution-inbox.html`, 7.12 `/m38-inbox.html`, 7.13 `/m38-review.html`, 7.15 `/approval-review.html`, 7.16 `/review.html`, 7.17 `/dir-case-support-assign.html`, 7.18 `/support-subcommittee.html` (+33 more)
 
 ### Community 1 - "Agenda Registry"
 Cohesion: 0.08
@@ -361,8 +364,8 @@ Cohesion: 0.17
 Nodes (35): applyLinkedCase(), baseResult(), choose(), disciplineFollowUp(), ecmis(), emptyReportResult(), emptyReportWorkflow(), importPending() (+27 more)
 
 ### Community 44 - "build_flow_data.py"
-Cohesion: 0.07
-Nodes (8): fuzzy_B(), simulate(), clean(), guard(), open_page(), click_label(), guard(), page_for()
+Cohesion: 0.06
+Nodes (9): fuzzy_B(), simulate(), clean(), route(), guard(), open_page(), click_label(), guard() (+1 more)
 
 ### Community 45 - "backfill-stale-agenda-links.mjs"
 Cohesion: 0.20
@@ -533,8 +536,8 @@ Cohesion: 0.29
 Nodes (7): 14.1 เส้นทาง (route), 14.2 แหล่งข้อมูลเดียว, 14.3 วิธีใช้, 14.4 สลับบทบาท / Demo Session, 14.5 ความปลอดภัยของโหมดสาธิต, 14.6 ผลการแมปและผลทดสอบ, 14. ผังกระบวนงานและหน้าจอ (Flow to Page) · คู่มือเดิน Flow (Flow Guide) · สลับบทบาททันที (เพิ่ม 22/11/2569)
 
 ### Community 94 - "กิจกรรมที่ 7 · รายงานการแมปขั้นกับหน้าจอ (Flow to Page / Flow Guide)"
-Cohesion: 0.40
-Nodes (4): กิจกรรมที่ 7 · รายงานการแมปขั้นกับหน้าจอ (Flow to Page / Flow Guide), รายการที่ยังไม่ครบ / ต่างจากผัง / ผังไม่สอดคล้อง, สถานการณ์ในคู่มือเดิน Flow, สรุปจำนวนขั้นงานตามสถานะ
+Cohesion: 0.33
+Nodes (5): กิจกรรมที่ 7 · รายงานการแมปขั้นกับหน้าจอ (Flow to Page / Flow Guide), รายการที่ยังไม่ครบ / ต่างจากผัง / ผังไม่สอดคล้อง, สถานการณ์ในคู่มือเดิน Flow, สรุปจำนวนขั้นงานตามสถานะ, เพิ่มหน้าจอให้ Option B ครบ (22/11/2569)
 
 ### Community 95 - "A7-Option-B-03112026/assets/dashboard-chart-service.js"
 Cohesion: 0.31
@@ -543,6 +546,10 @@ Nodes (16): beforeDraw(), createBarTooltipConfig(), createDonutTooltipConfig(), 
 ### Community 96 - "A7-Option-B-03112026/assets/overall-flow.js"
 Cohesion: 0.24
 Nodes (15): bindButtons(), cell(), confirmReset(), isDrifted(), markDrift(), nodeIdOf(), openSample(), refreshLive() (+7 more)
+
+### Community 98 - "A7-Option-A-03112026/assets/a7-dircase-approval.js"
+Cohesion: 0.42
+Nodes (8): autoBanner(), bannerHtml(), injectCss(), isOpenFor(), recordOf(), roleName(), signerRoleOf(), stageOf()
 
 ### Community 99 - "initAttachmentCard"
 Cohesion: 0.20
@@ -604,6 +611,10 @@ Nodes (22): addDaysToDateStr(), addYearsToDateStr(), autoMountAttachmentCard(), 
 Cohesion: 0.27
 Nodes (13): initMultiSelectCombo(), closeDropdown(), commit(), openDropdown(), renderItems(), renderToggle(), initSmartCombobox(), getOptions() (+5 more)
 
+### Community 114 - "A7-Option-B-03112026/assets/a7-dircase-approval.js"
+Cohesion: 0.42
+Nodes (8): autoBanner(), bannerHtml(), injectCss(), isOpenFor(), recordOf(), roleName(), signerRoleOf(), stageOf()
+
 ### Community 115 - "supabaseRowToCase"
 Cohesion: 0.12
 Nodes (22): addDaysToDateStr(), addYearsToDateStr(), autoMountAttachmentCard(), buildChainOpinions(), cacheLiveCases(), chainStepsDone(), daysUntilFakeIso(), demoGuardFetch() (+14 more)
@@ -611,6 +622,10 @@ Nodes (22): addDaysToDateStr(), addYearsToDateStr(), autoMountAttachmentCard(), 
 ### Community 116 - "initSmartCombobox"
 Cohesion: 0.27
 Nodes (13): initMultiSelectCombo(), closeDropdown(), commit(), openDropdown(), renderItems(), renderToggle(), initSmartCombobox(), getOptions() (+5 more)
+
+### Community 117 - "assets/a7-dircase-approval.js"
+Cohesion: 0.42
+Nodes (8): autoBanner(), bannerHtml(), injectCss(), isOpenFor(), recordOf(), roleName(), signerRoleOf(), stageOf()
 
 ### Community 118 - "A7-Option-A-03112026/assets/case-summary-mock-page.js"
 Cohesion: 0.26
@@ -641,8 +656,8 @@ Cohesion: 0.26
 Nodes (11): init(), linkBtn(), mockSecgenRoute(), mountOpinionCard(), render(), update(), noComplexLabel(), opinionCardHtml() (+3 more)
 
 ### Community 125 - "5. สูตรงานที่ทำบ่อย"
-Cohesion: 0.15
-Nodes (13): 5.10 ค่า `?v=` ล่าสุด, 5.11 Live-doc ตาม sample-livedoc (เพิ่ม 22/11/2569), 5.12 ผังกระบวนงานและหน้าจอ / คู่มือเดิน Flow / สลับบทบาท (เพิ่ม 22/11/2569), 5.1 เพิ่มหน้าจอใหม่, 5.2 เพิ่ม/แก้ขั้นตอนสถานะ, 5.3 ผูกฟิลด์ฟอร์มกับเอกสาร, 5.4 แก้ `ecmis-app.js` / assets, 5.5 ซิงก์ Option A/B (+5 more)
+Cohesion: 0.14
+Nodes (14): 5.10 ค่า `?v=` ล่าสุด, 5.11 Live-doc ตาม sample-livedoc (เพิ่ม 22/11/2569), 5.12 ผังกระบวนงานและหน้าจอ / คู่มือเดิน Flow / สลับบทบาท (เพิ่ม 22/11/2569), 5.13 หน้าจอให้ Option B ครบตามผัง (เพิ่ม 22/11/2569), 5.1 เพิ่มหน้าจอใหม่, 5.2 เพิ่ม/แก้ขั้นตอนสถานะ, 5.3 ผูกฟิลด์ฟอร์มกับเอกสาร, 5.4 แก้ `ecmis-app.js` / assets (+6 more)
 
 ### Community 126 - "mount"
 Cohesion: 0.30
@@ -693,12 +708,12 @@ Cohesion: 0.14
 Nodes (19): applyColorMode(), changeFont(), fontBaseSize(), getSuggestionsData(), hideFloatToast(), initA11yAndPref(), initAutoSave(), initCharCounterAndCopy() (+11 more)
 
 ### Community 149 - "กจ.7 · Business Flow — OPTION A (รอบ 03/11/2569)"
-Cohesion: 0.40
-Nodes (4): กจ.7 · Business Flow — OPTION A (รอบ 03/11/2569), รอบ 12/11/2569, รอบ 21–22/11/2569 (ซิงก์จากโฟลเดอร์รากแล้ว), รอบ 22/11/2569 (บ่าย)
+Cohesion: 0.33
+Nodes (5): กจ.7 · Business Flow — OPTION A (รอบ 03/11/2569), รอบ 12/11/2569, รอบ 21–22/11/2569 (ซิงก์จากโฟลเดอร์รากแล้ว), รอบ 22/11/2569 (ค่ำ) — Option B ครบทุกขั้นในผัง, รอบ 22/11/2569 (บ่าย)
 
 ### Community 151 - "กจ.7 · Business Flow — OPTION B (รอบ 03/11/2569)"
-Cohesion: 0.40
-Nodes (4): กจ.7 · Business Flow — OPTION B (รอบ 03/11/2569), รอบ 12/11/2569, รอบ 21–22/11/2569 (ซิงก์จากโฟลเดอร์รากแล้ว), รอบ 22/11/2569 (บ่าย)
+Cohesion: 0.33
+Nodes (5): กจ.7 · Business Flow — OPTION B (รอบ 03/11/2569), รอบ 12/11/2569, รอบ 21–22/11/2569 (ซิงก์จากโฟลเดอร์รากแล้ว), รอบ 22/11/2569 (ค่ำ) — Option B ครบทุกขั้นในผัง, รอบ 22/11/2569 (บ่าย)
 
 ### Community 160 - "3. สิ่งที่ตรวจพบด้านเทคนิค"
 Cohesion: 0.33
@@ -715,16 +730,16 @@ Nodes (5): 4.1 บัญชีที่เข้าสู่ระบบได�
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `K()` connect `ref_node_fs` to `e`, `e`?**
-  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+  _High betweenness centrality (0.022) - this node is a cross-community bridge._
 - **Are the 39 inferred relationships involving `e()` (e.g. with `A7-Option-A-03112026/assets/html2pdf.bundle.min.js` and `Dr()`) actually correct?**
   _`e()` has 39 INFERRED edges - model-reasoned connections that need verification._
 - **Should `7. รายละเอียดแยกตาม Path` be split into smaller, more focused modules?**
-  _Cohesion score 0.05 - nodes in this community are weakly interconnected._
-- **Why does `h()` connect `e` to `ye`, `t`, `A7-Option-B-03112026/assets/junction-bridge-a7.js`, `o`, `Qe`, `A7-Option-B-03112026/assets/html2pdf.bundle.min.js`, `p`, `ref_node_fs`?**
-  _High betweenness centrality (0.022) - this node is a cross-community bridge._
+  _Cohesion score 0.04878048780487805 - nodes in this community are weakly interconnected._
+- **Why does `h()` connect `e` to `ye`, `t`, `A7-Option-A-03112026/assets/junction-bridge-a7.js`, `o`, `Qe`, `A7-Option-A-03112026/assets/html2pdf.bundle.min.js`, `p`, `ref_node_fs`?**
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._
 - **Are the 39 inferred relationships involving `e()` (e.g. with `A7-Option-B-03112026/assets/html2pdf.bundle.min.js` and `Dr()`) actually correct?**
   _`e()` has 39 INFERRED edges - model-reasoned connections that need verification._
 - **Should `Agenda Registry` be split into smaller, more focused modules?**
   _Cohesion score 0.08235294117647059 - nodes in this community are weakly interconnected._
-- **Why does `h()` connect `e` to `ye`, `t`, `A7-Option-A-03112026/assets/junction-bridge-a7.js`, `o`, `Qe`, `A7-Option-A-03112026/assets/html2pdf.bundle.min.js`, `p`, `ref_node_fs`?**
-  _High betweenness centrality (0.021) - this node is a cross-community bridge._
+- **Why does `h()` connect `e` to `ye`, `t`, `A7-Option-B-03112026/assets/junction-bridge-a7.js`, `o`, `Qe`, `A7-Option-B-03112026/assets/html2pdf.bundle.min.js`, `p`, `ref_node_fs`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._

@@ -70,6 +70,7 @@
                 <div class="mt-1" id="stBadge"></div>
             </div>
         </div>
+        <div id="unitAssign73Box"></div>
 
         <div class="ws-card mb-3">
             <div class="card-body pb-1" id="stepper"></div>
@@ -255,7 +256,7 @@
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
     <script src="../cases.js"></script>
     <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
-    <script src="assets/ecmis-app.js?v=20261122-flow1"></script>
+    <script src="assets/ecmis-app.js?v=20261122-flow2"></script>
   <script src="assets/ecmis-livedoc.js?v=20261122-livedoc2"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
@@ -328,6 +329,7 @@
             renderDoc();
             renderLawAndOpinion();
             renderUrgentOpinions();
+            renderUnitAssign73();
             renderActionButtons();
         }
 
@@ -336,6 +338,78 @@
            เคส 7.1 ที่เป็นด่วน (kase.urgent) ยังใช้เส้นทางเดิม (ลงนาม ปปท.๕-๐๒ → บรรจุวาระด่วน) */
         function isAssignStep() {
             return (kase.status === 'PENDING_CHAIRMAN' || kase.status === 'PENDING_CHAIRMAN_72') && !kase.urgent;
+        }
+
+        /* ผัง V1.0.14 หน้า 3-4 (เรื่องทั่วไป 7.3): ประธานฯ เลือก "มอบหมาย/สั่งการหน่วยงานที่เกี่ยวข้อง" แล้วสิ้นสุด แทนการบรรจุวาระ
+           ไม่เปลี่ยนสถานะสำนวน (ไม่มี TRANSITION จาก PENDING_CHAIRMAN ไปปิดเรื่อง และข้อกำหนดห้ามแก้ TRANSITIONS)
+           เก็บใน trr_resolution_data.chairAssign73 { units, instruction, at, by, method } + event CHAIR_ASSIGN_UNIT_73
+           แล้วหน้านี้แสดงว่าเรื่องสิ้นสุดและซ่อนปุ่มอื่น */
+        function unitAssign73() {
+            return (kase.resolutionData && kase.resolutionData.chairAssign73) || kase.chairAssign73 || null;
+        }
+        const UNITS_73 = ['สำนักงาน ป.ป.ท. เขต (ตามพื้นที่)', 'กองปราบปรามการทุจริต', 'กองกฎหมาย', 'หน่วยงานต้นสังกัดของผู้ถูกร้อง', 'สำนักงานการตรวจเงินแผ่นดิน', 'อื่น ๆ (ระบุในข้อสั่งการ)'];
+        function renderUnitAssign73() {
+            const rec = unitAssign73();
+            const host = document.getElementById('unitAssign73Box');
+            if (!host) return;
+            if (!rec) { host.innerHTML = ''; return; }
+            const E = ECMIS.escapeHtml;
+            host.innerHTML = `<div class="ws-callout mb-3" style="padding:.7rem .9rem;border-left:4px solid #16A34A;background:#ecfdf3;color:#14532d;border-radius:0 8px 8px 0">
+                <div class="fw-semibold"><i class="fa-solid fa-circle-check me-1"></i>ประธานฯ มอบหมาย/สั่งการหน่วยงานแล้ว — สิ้นสุดเรื่อง (ไม่บรรจุวาระ)${rec.at ? ' · ' + ECMIS.thaiDate(String(rec.at).slice(0, 10)) : ''}</div>
+                <div class="mt-1">หน่วยงาน: ${E((rec.units || []).join(', ') || '—')}</div>
+                <div>ข้อสั่งการ: ${E(rec.instruction || '—')}</div>
+                <div class="text-muted mt-1" style="font-size:.78rem">สถานะในฐานข้อมูลยังเป็น "${E((ECMIS.STATUS[kase.status] || {}).label || kase.status)}" เพราะยังไม่มีเส้นทางสถานะปิดเรื่องจากขั้นนี้ ผลการมอบหมายบันทึกในข้อมูลมติ</div>
+            </div>`;
+        }
+        async function assignUnit73() {
+            const E = ECMIS.escapeHtml;
+            const r = await Swal.fire({
+                icon: 'question', showCancelButton: true, cancelButtonText: 'ยกเลิก', reverseButtons: true,
+                confirmButtonColor: '#0a2647', cancelButtonColor: '#6b7280', customClass: { popup: 'text-start' },
+                title: 'มอบหมาย/สั่งการหน่วยงานที่เกี่ยวข้อง',
+                html: `<div class="text-start">
+                    <label class="form-label fw-semibold">หน่วยงานที่มอบหมาย <span style="color:#DB2626">*</span></label>
+                    ${UNITS_73.map((u, i) => `<div class="form-check"><input class="form-check-input" type="checkbox" id="u73_${i}" value="${E(u)}"><label class="form-check-label" for="u73_${i}">${E(u)}</label></div>`).join('')}
+                    <label class="form-label fw-semibold mt-2" for="u73_note">ข้อสั่งการ <span style="color:#DB2626">*</span></label>
+                    <textarea id="u73_note" class="form-control" rows="3" placeholder="เช่น ให้สำนักงาน ป.ป.ท. เขต ตรวจสอบข้อเท็จจริงและรายงานผลภายใน ๓๐ วัน"></textarea>
+                  </div>`,
+                confirmButtonText: 'ถัดไป: ลงนาม',
+                preConfirm: () => {
+                    const units = UNITS_73.filter((u, i) => document.getElementById('u73_' + i)?.checked);
+                    const instruction = (document.getElementById('u73_note')?.value || '').trim();
+                    if (!units.length || !instruction) { Swal.showValidationMessage('กรุณาเลือกหน่วยงานและระบุข้อสั่งการ'); return false; }
+                    return { units, instruction };
+                }
+            });
+            if (!r.isConfirmed || !r.value) return;
+            const { units, instruction } = r.value;
+            const res = await ECMIS.signDialog(`หนังสือมอบหมาย/สั่งการหน่วยงาน — เรื่องที่ ${ECMIS.caseNo(kase)}`, `${SIGNER_NAME} — ${SIGNER_TITLE}`);
+            if (!res.isConfirmed) return;
+            const entry = { units, instruction, at: new Date().toISOString(), by: 'chairman', method: (res.value && res.value.mode) || 'cert' };
+            const merged = Object.assign({}, kase.resolutionData || {}, { chairAssign73: entry });
+            try {
+                if (kase.trr_id && sb) {
+                    const { error } = await sb.from('tbl_res_request').update({ trr_resolution_data: merged }).eq('trr_id', kase.trr_id);
+                    if (error) throw error;
+                    await ECMIS.logRequestEvent(kase.trr_id, kase.status, kase.status, {
+                        type: 'CHAIR_ASSIGN_UNIT_73', actorRole: 'chairman', note: instruction, data: entry
+                    });
+                }
+            } catch (e) {
+                console.error(e);
+                ECMIS.toastWarn('บันทึกลงฐานข้อมูลไม่สำเร็จ: ' + e.message);
+                return;
+            }
+            kase.resolutionData = merged;
+            kase.chairAssign73 = entry;
+            if (ECMIS.Model && ECMIS.Model.SignatureStore) {
+                ECMIS.Model.SignatureStore.create({ caseId: kase.id, docType: 'หนังสือมอบหมาย/สั่งการหน่วยงาน', signerRole: 'chairman',
+                    signerName: `${SIGNER_NAME} — ${SIGNER_TITLE}`, method: entry.method, signedAt: entry.at });
+            }
+            ECMIS.pushCaseHistory(kase, { action: 'CHAIR_ASSIGN_UNIT_73', status: kase.status, note: instruction });
+            ECMIS.toastOk('มอบหมาย/สั่งการหน่วยงานเรียบร้อย · ' + ECMIS.caseNo(kase), 'สิ้นสุดเรื่อง (ไม่บรรจุวาระ)');
+            renderUnitAssign73();
+            renderActionButtons();
         }
 
         /* ขั้น "ลงนามสั่งบรรจุวาระ" (7.2 วินิจฉัยชี้มูล) — ลายเซ็นประธานที่ 2 หลังคณะอนุกลั่นกรองฯ พิจารณาเสร็จ
@@ -715,6 +789,9 @@
                     { act: 'sign_agenda', label: 'ลงนามสั่งบรรจุวาระ', icon: 'fa-signature', cls: 'btn-gold' }
                 ];
             }
+            if (isAssignStep() && unitAssign73()) {
+                return [];
+            }
             if (isAssignStep()) {
                 const assignLabel = ECMIS.isCase73(kase)
                     ? 'ลงนามมอบหมาย → บรรจุวาระประชุม'
@@ -722,7 +799,9 @@
                 return [
                     { act: 'return', label: 'ปฏิเสธการรับให้ผู้รับผิดชอบสำนวนแก้ไข', icon: 'fa-arrow-left-long', cls: 'btn-outline-danger' },
                     { act: 'assign_screening', label: assignLabel, icon: 'fa-signature', cls: 'btn-gold' }
-                ];
+                ].concat(ECMIS.isCase73(kase) ? [
+                    { act: 'assign_unit_73', label: 'มอบหมาย/สั่งการหน่วยงาน แล้วสิ้นสุดเรื่อง', icon: 'fa-share-from-square', cls: 'btn-outline-primary' }
+                ] : []);
             }
             if (signed) {
                 return [
@@ -804,6 +883,10 @@
                         })();
                     }
                 });
+                return;
+            }
+            if (act === 'assign_unit_73') {
+                assignUnit73();
                 return;
             }
             if (act === 'assign_screening') {

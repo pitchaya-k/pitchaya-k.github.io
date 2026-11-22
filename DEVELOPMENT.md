@@ -173,10 +173,18 @@ Option A/B เป็นสำเนา ไม่ได้เชื่อมอ�
   - `tests/flow/test_optflow.py` โฟลเดอร์ Option A/B เลือก Option ได้เฉพาะของตัวเอง สถานการณ์ 7/9 เมนูถูกต้อง
   - `tests/flow/verify_walk.py` ตรวจซ้ำ 66 ขั้นของต้นแบบหลังแก้ ecmis-app.js: ผ่าน 65 · ตรวจจากโค้ด 1 (เท่าเดิม)
   - ข้อจำกัด: ไม่ได้ทดสอบโหมด "บันทึกจริง" (จะเขียนฐานข้อมูลร่วม) · ไม่ได้ตรวจ PNG ที่ส่งออกด้วยตา
-- `?v=` ของ ecmis-app.js ทุกหน้า = `20261122-flow1`
+- `?v=` ของ ecmis-app.js ทุกหน้า = `20261122-flow2`
+
+### 5.13 หน้าจอให้ Option B ครบตามผัง (เพิ่ม 22/11/2569)
+- **ไฟล์ใหม่:** `dir-case-approve.html` (ผอ.กบค. เห็นชอบ 6.1.4 / 6.2.1 / 7.2.1), `assets/a7-dircase-approval.js` (ข้อมูลขั้น + แถบผลบน `order.html` / `ruling-report.html` — ใส่แท็กสคริปต์อย่างเดียว ไม่ต้องแก้โค้ดหน้า), `tests/flow/test_dircase.py`
+- **แก้ `chairman-agenda.html`:** ปุ่ม `assign_unit_73` เฉพาะเรื่องทั่วไป 7.3 ที่ขั้นลงนามมอบหมาย · เก็บ `trr_resolution_data.chairAssign73`
+- **แก้ `assets/ecmis-app.js`:** `PAGE_PERMISSIONS['dir-case-approve.html']` · เมนู "พิจารณาเห็นชอบเอกสาร" (dir_case) · `READONLY_SKIP_PAGES` เพิ่ม dir-case-approve (หน้าตรวจสิทธิ์เอง แบบเดียวกับ additional-inquiry) — **ไม่แตะ STATUS / STATUS_CODE / TRANSITIONS / guard**
+- **ไม่เปลี่ยนสถานะสำนวน** ทั้ง 4 ขั้น: บันทึกใน `trr_resolution_data` + event `DIR_CASE_APPROVE` / `DIR_CASE_RETURN` / `CHAIR_ASSIGN_UNIT_73` (from = to = สถานะปัจจุบัน) ถ้าจะให้ผลมีผลกับสถานะจริง ต้องเพิ่ม TRANSITIONS (เช่น PENDING_CHAIRMAN → CLOSED สำหรับ 3-4) และ guard ให้ผู้ลงนามรอ ผอ.กบค. ก่อน
+- **การแมป:** `node_map.py` p22_t5, p23_t2, p26_t2 = mapped (RES-032) · p11_g1, p11_t2 = pending (ไม่มีเรื่องทั่วไปค้างที่ประธานฯ) → Option B ยังไม่มีหน้าจอ 0 ขั้น
+- **ผลทดสอบ 22/11/2569** (บล็อกการเขียน Supabase ทุกคำขอ): `test_dircase.py` บนรากและ Option B — เมนูและรายการ 8 เรื่อง · เห็นชอบทั้ง 3 ขั้นเขียนเฉพาะ `trr_resolution_data` ไม่มี `trr_status` · ส่งกลับโดยไม่มีเหตุผลถูกกัน · แถบบนหน้าคำสั่ง/รายงาน · ขั้น 3-4 (จำลองเรื่อง 2014/2569 เป็นเรื่องทั่วไปในเบราว์เซอร์) ตรวจช่องบังคับ ลงนาม เขียน `chairAssign73` ซ่อนปุ่ม — ไม่มี error · ชุดทดสอบเดิม test_ftp / test_optflow / test_guide / verify_walk รันซ้ำ (ดูผลใน commit)
 
 ### 5.10 ค่า `?v=` ล่าสุด
-`ecmis-app.js` ใช้ `?v=20261122-flow1` · `a7-option.js` ใช้ `?v=20261121-a7-inq64` (ทุกหน้า ทั้งรากและ Option A/B) · `saraban-docs.js`, `saraban-no.js`, `report-export.js`, `case-summary-*.js` ใช้ `?v=20261121-a7-saraban`
+`ecmis-app.js` ใช้ `?v=20261122-flow2` · `a7-option.js` ใช้ `?v=20261121-a7-inq64` (ทุกหน้า ทั้งรากและ Option A/B) · `saraban-docs.js`, `saraban-no.js`, `report-export.js`, `case-summary-*.js` ใช้ `?v=20261121-a7-saraban`
 
 ---
 

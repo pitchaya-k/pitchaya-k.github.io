@@ -86,6 +86,7 @@ SCREENS = {
     'RES-029': ('ทะเบียนคุมเลขสารบรรณ', 'number-registry.html', 'affairs, board_sec, case_admin, dir_case'),
     'RES-030': ('จัดทำรายงานการไต่สวนเพิ่มเติม', 'additional-inquiry.html', 'affairs (Option B)'),
     'RES-031': ('บันทึกมติที่ประชุม (วินิจฉัยชี้มูล)', 'resolution-72.html', 'board_sec'),
+    'RES-032': ('พิจารณาเห็นชอบเอกสาร (ผอ.กบค.)', 'dir-case-approve.html', 'dir_case (หน้าจอใหม่ 22/11/2569 ยังไม่มีในเล่ม 4.1)'),
 }
 PROCESSES = [
     ('P1', '1', 'รับและตรวจสอบรายงานเสนอพิจารณา', 'RCV'), ('P2', '2', 'กลั่นกรองสำนวนซับซ้อนยุ่งยาก', 'CPX'),
