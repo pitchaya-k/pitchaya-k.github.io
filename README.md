@@ -10,6 +10,8 @@
 >
 > ข้อความ "ยังไม่พบข้อมูล/ต้องยืนยัน" หมายถึงค้นในไฟล์แล้วไม่พบ ไม่ได้แปลว่าไม่มี
 
+**อัปเดตล่าสุด 22/11/2569** — ดูสิ่งที่เปลี่ยนในรอบนี้ที่หัวข้อ 0.1 · คู่มือพัฒนาต่ออยู่ที่ [DEVELOPMENT.md](DEVELOPMENT.md)
+
 ---
 
 ## 0. ข้อควรรู้ก่อนอ่าน (สรุปสำคัญ)
@@ -19,7 +21,17 @@
 3. URL และ publishable key ของ Supabase ถูก **ฝังในไฟล์ฝั่งหน้าเว็บ** (`assets/ecmis-app.js` และบางหน้า HTML) ไม่คัดลอกค่ามาไว้ในเอกสารนี้ [ต้องยืนยัน] ว่าเป็นฐานข้อมูลทดสอบหรือใช้งานจริง และตั้ง Row Level Security ไว้หรือไม่
 4. **การเข้าสู่ระบบเป็นการจำลอง** — ตรวจเฉพาะว่า username อยู่ในรายชื่อ 10 บัญชี และรหัสผ่านไม่ว่าง ไม่มีการตรวจรหัสผ่านจริง (หัวข้อ 4)
 5. **สถานะ branch:** `temp1` ถูก merge เข้า `main` แบบ fast-forward แล้ว (HEAD `0afb372`) จึงมีจอแบ่งสองฝั่ง (ฟอร์ม ↔ เอกสาร) และคำ "ปฏิเสธการรับ" อยู่ใน `main` ทั้งหมด ข้อความ "เฉพาะ temp1" ที่เหลือในเอกสารนี้ = ฟีเจอร์ที่เพิ่มใน commit `0afb372` (ตรวจแล้ว `assets/ecmis-livedoc.js` มีอยู่ และ 23 หน้า HTML โหลด livedoc)
-6. **ยังไม่ได้กดทดสอบรายปุ่มของทุกหน้า** ผลลัพธ์ของปุ่มในหัวข้อ 7 จึงระบุตามโค้ดที่อ่านได้ การทดสอบ sync สองฝั่งในเบราว์เซอร์ที่เคยทำ ทำก่อน merge (บน `temp1`) และไม่ได้ทดสอบซ้ำหลัง merge
+6. **ยังไม่ได้กดปุ่มยืนยันจริงทุกหน้า** — รอบ 22/11/2569 เปิดหน้าตาม User Flow ครบ 27 หน้าผัง (66 ขั้น) ด้วยบทบาทที่ถูกต้อง และตรวจว่าปุ่ม/ข้อความที่ต้องใช้มีอยู่จริง (บล็อกการเขียนฐานข้อมูล ไม่ได้กดยืนยัน) ผลอยู่ในไฟล์ขั้นตอนการกด (หัวข้อ 0.1) ส่วนผลลัพธ์หลังกดปุ่มในหัวข้อ 7 ยังระบุตามโค้ดที่อ่านได้
+
+### 0.1 สิ่งที่เปลี่ยนในรอบ 21–22/11/2569
+| เรื่อง | สิ่งที่เปลี่ยน | ดูเพิ่ม |
+|---|---|---|
+| ชื่อระบบ | ข้อความบนหน้าจอใช้ชื่อระบบตามกติกาใหม่ เช่น "ระบบงานสารบรรณ สำนักงาน ป.ป.ท. (e-office)", "ระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา" | DEVELOPMENT.md |
+| เปิดออฟไลน์ | ไลบรารี ฟอนต์ และไอคอนทั้งหมดย้ายมาอยู่ `assets/vendor/` ไม่โหลดจาก CDN แล้ว (เว้น Supabase ที่ยังต้องต่ออินเทอร์เน็ต) | หัวข้อ 2.2, DEVELOPMENT.md 5.7 |
+| ออกเลขหนังสือสารบรรณ | การ์ด "เลขหนังสือของขั้นนี้" ในหน้าเอกสาร 6 หน้า + หน้าใหม่ `number-registry.html` ทะเบียนคุมเลขสารบรรณ (เอกสาร 18 รายการตาม Check List สารบรรณ x Process 20/11/2569) ระบบสารบรรณยังเป็นตัวจำลอง | หัวข้อ 7.45, DEVELOPMENT.md 5.6 |
+| Option A / B | `assets/a7-option.js` บอกว่าชุดไฟล์เป็น Option ใด (`AB` ราก · `A` · `B`) ใช้ซ่อน/แสดงเมนูและเอกสารเฉพาะ Option B | DEVELOPMENT.md 5.5 |
+| หน้าใหม่ขั้น 6.4 | `additional-inquiry.html` จัดทำรายงานการไต่สวนเพิ่มเติม (Option B) | หัวข้อ 7.46, DEVELOPMENT.md 5.8 |
+| คู่มือการกดต้นแบบ | ไฟล์ Excel บอกบทบาท เมนู เลขสำนวน ปุ่มที่กด และภาพหน้าจอของทุกหน้า User Flow V1.0.14 พร้อมผลตรวจ: `../06 ต้นแบบ Prototype/กิจกรรมที่ 7 ขั้นตอนการกดต้นแบบตาม User Flow V1.0.14_22112026.xlsx` (อยู่นอกโปรเจกต์) | DEVELOPMENT.md 5.9 |
 
 ---
 
@@ -34,7 +46,8 @@
 | ไต่สวนวินิจฉัยชี้มูล (`7.2`, รายงาน ปปท. ๖-๔๔) | `affairs-case-detail`, `affairs-opinion`, `resolution-72`, `ruling-report` |
 | เรื่องทั่วไป / ข้อกฎหมาย / กิจการคณะกรรมการ (`7.3`) | `agenda`, `agenda-set`, `meeting-docs`, `board-resolution`, `resolution` |
 | Dashboard | `dashboard`, `followup-dashboard` |
-| ทะเบียน | `case-register`, `register`, `agenda-registry` |
+| ทะเบียน | `case-register`, `register`, `agenda-registry`, `number-registry` (ทะเบียนคุมเลขสารบรรณ) |
+| รายงานการไต่สวนเพิ่มเติม (ขั้น 6.4 เฉพาะ Option B) | `additional-inquiry` |
 | รายงานและเอกสาร | `meeting-report`, `ruling-report`, `dashboard` (ส่งออก Word/Excel/PDF/พิมพ์) |
 | อื่นๆ | รายงานผล ม.38 (`m38-*`), หน้าสาธารณะ (`index`), เข้าสู่ระบบ (`login`) |
 
@@ -43,7 +56,7 @@
 - ไม่พบการเชื่อมระบบ e-Meeting, ระบบสารบรรณ, ThaID, ลายเซ็นดิจิทัล PKI จริง (รายละเอียดหัวข้อ 10)
 
 **โฟลเดอร์ที่ไม่ได้อธิบายในเอกสารนี้**
-- `A7-Option-A-03112026/`, `A7-Option-B-03112026/` — ชุดสำเนา Prototype แบบ Option A/B (มีไฟล์เพิ่ม เช่น `business-flow.html`, `report-07.html`) มี README ของตัวเอง
+- `A7-Option-A-03112026/`, `A7-Option-B-03112026/` — ชุดสำเนา Prototype แบบ Option A/B (มีไฟล์เพิ่ม เช่น `business-flow.html`, `report-07.html`) มี README ของตัวเอง · ซิงก์กับรากครั้งล่าสุด 22/11/2569 · Option A ไม่มีหน้า `additional-inquiry.html` และไม่มีเอกสารขอเลข 5.4 / 7.1.3
 - `docs/`, `prototype/` (ภาพหน้าจอ), `commit-c64-summary/`, `graphify-out/` — เอกสารอ้างอิงและผลวิเคราะห์ ไม่ใช่โค้ดของระบบ
 
 ---
@@ -54,11 +67,14 @@
 
 ```
 pitchaya-k.github.io/
-├── *.html            หน้าจอ 52 ไฟล์ (รวมหน้า mock 10 ไฟล์)
+├── *.html            หน้าจอ 54 ไฟล์ (รวมหน้า mock 10 ไฟล์ · เพิ่ม number-registry, additional-inquiry เมื่อ 21/11/2569)
 ├── assets/
 │   ├── ecmis-app.js          แกนหลักของทุกหน้า (~9,700 บรรทัด: บทบาท สถานะ ข้อมูลจำลอง เมนู การเชื่อม Supabase)
 │   ├── ecmis-model.js        CaseStore / StatusStore / RoundStore / SignatureStore
 │   ├── ecmis-livedoc.js/.css กลไกจอแบ่งสองฝั่ง (เพิ่มใน commit 0afb372)
+│   ├── a7-option.js          ค่า Option ของชุดไฟล์ ('AB' ราก · 'A' · 'B') โหลดก่อน ecmis-app.js ทุกหน้า
+│   ├── saraban-docs.js       รายการเอกสารที่ต้องขอเลข 18 รายการ + การ์ดและหน้าต่างขอเลขสารบรรณ (e-office จำลอง)
+│   ├── vendor/               ไลบรารี ฟอนต์ ไอคอน สำหรับเปิดออฟไลน์ (เวอร์ชันใน vendor/VERSIONS.json)
 │   ├── agenda-registry-data.js, case-closure.js, saraban-no.js, resolution-split.js, ...
 │   ├── dashboard-analytics-service.js / -chart-service.js / -export-service.js
 │   ├── templates/            ไฟล์แม่แบบ .docx (คำสั่ง บันทึก รายงาน ระเบียบวาระ ฯลฯ)
@@ -67,13 +83,18 @@ pitchaya-k.github.io/
 ├── scripts/          สคริปต์ seed/backfill (.mjs, .py, .sh) ไม่ใช่ส่วนของหน้าเว็บ
 ├── prototype/        ภาพหน้าจอแยกตามบทบาท
 ├── docs/             เอกสารอ้างอิงกิจกรรม 7
+├── A7-Option-A-03112026/, A7-Option-B-03112026/   ชุดสำเนาตาม Option (มี README-OPTION-*.md)
+├── DEVELOPMENT.md    คู่มือพัฒนาต่อ (โครงโค้ด วิธีเพิ่มหน้า เลขสารบรรณ ออฟไลน์ ขั้น 6.4 การทดสอบ)
+├── .graphifyignore   ไม่ให้ graphify อ่าน assets/vendor และไฟล์ bundle
 └── .claude/launch.json   ตั้งค่า dev server
 ```
 
 ### 2.2 วิธีเปิด [พฤติกรรมใน Prototype]
 - เป็นไฟล์ HTML/JS ล้วน ไม่มี build step
 - ตั้งค่าใน `.claude/launch.json`: `python -m http.server 8765 --bind 127.0.0.1` → เปิด `http://127.0.0.1:8765/login.html`
-- ทุกหน้าโหลด jQuery, Bootstrap, SweetAlert2, Supabase JS, Chart.js, mammoth, ฟอนต์ ฯลฯ จาก **CDN (ต้องต่ออินเทอร์เน็ต)** ยกเว้น `html2pdf.bundle.min.js` และฟอนต์บางส่วนที่อยู่ในโฟลเดอร์ `assets/`
+- เปิดชุด Option: `http://127.0.0.1:8765/A7-Option-A-03112026/login.html` หรือ `.../A7-Option-B-03112026/login.html`
+- ทุกหน้าโหลด jQuery, Bootstrap, SweetAlert2, Supabase JS, Chart.js, mammoth, Mermaid, ฟอนต์ และไอคอน จาก `assets/vendor/` **(เปิดออฟไลน์ได้ตั้งแต่ 21/11/2569)** — ที่ยังต้องใช้อินเทอร์เน็ตคือการอ่าน/เขียน Supabase ถ้าไม่มีเน็ตหน้าจะใช้ข้อมูลจำลองใน `CASES`
+- คู่มือการกดหน้าจอให้เห็นทุก User Flow: `../06 ต้นแบบ Prototype/กิจกรรมที่ 7 ขั้นตอนการกดต้นแบบตาม User Flow V1.0.14_22112026.xlsx`
 - `index.html` และ `login.html` อ้างสคริปต์ `../cases.js` ซึ่ง **ไม่พบในโฟลเดอร์ระดับบน** (ตรวจแล้วไม่มี `../cases.js`) ที่เหลือที่อ้างนอกโฟลเดอร์คือ `../shared-auth.js`, `../shared-handoff.js`, `../shared-junctions.js` ก็ไม่พบเช่นกัน [ต้องยืนยัน] ว่าไฟล์เหล่านี้เป็นของระบบ hub ภายนอกหรือไม่ และหน้ารัน ได้โดยไม่มีไฟล์เหล่านี้หรือไม่
 
 ---
@@ -91,7 +112,7 @@ pitchaya-k.github.io/
 ### 3.2 การเชื่อม Supabase [พฤติกรรมใน Prototype — ตรวจจากโค้ดเท่านั้น]
 ตารางที่พบการเรียกใช้ (จำนวนครั้งที่ปรากฏในโค้ด): `tbl_res_request` (~80), `tbl_cmp_case` (7), `tbl_res_attachment` (6), `tbl_res_calendar` (5), `tbl_res_calendar_item` (6), `tbl_res_calendar_item_case` (6), `tbl_res_accused_offense` (3), `tbl_res_request_event` (2), `tbl_res_calendar_item_history` (1), `tbl_res_calendar_item_qualifier` (1), `tbl_res_offense_basis` (1), `ecmis_notification_read_receipt` (1), `public_case_status_view` (1)
 
-หน้าที่มีการ **เขียน** (update/insert/upsert/delete) พบในโค้ด: `approval-review`, `review`, `affairs-case-detail`, `affairs-opinion`, `agenda`, `agenda-set`, `agenda-registry`, `board-resolution`, `resolution`, `resolution-72`, `ruling-report`, `order`, `order-m24`, `chairman-agenda`, `case-admin-inbox`, `case-admin-detail`, `case-register`, `register`, `dir-case-support-assign`, `meeting-report`, `resolution-inbox`, `subcommittee-screening`, `support-subcommittee`, `urgent-agenda` และไฟล์ `assets/agenda-registry-data.js`, `case-closure.js`, `saraban-no.js`
+หน้าที่มีการ **เขียน** (update/insert/upsert/delete) พบในโค้ด: `approval-review`, `review`, `affairs-case-detail`, `affairs-opinion`, `agenda`, `agenda-set`, `agenda-registry`, `board-resolution`, `resolution`, `resolution-72`, `ruling-report`, `order`, `order-m24`, `chairman-agenda`, `case-admin-inbox`, `case-admin-detail`, `case-register`, `register`, `dir-case-support-assign`, `meeting-report`, `resolution-inbox`, `subcommittee-screening`, `support-subcommittee`, `urgent-agenda`, `additional-inquiry` (เขียน `trr_resolution_data.additionalInquiry`), `number-registry` และหน้าที่มีการ์ดเลขสารบรรณ (เขียน `trr_resolution_data.sarabanNos` ผ่าน `saraban-docs.js`) และไฟล์ `assets/agenda-registry-data.js`, `case-closure.js`, `saraban-no.js`, `saraban-docs.js`
 
 หน้าที่พบเฉพาะการ **อ่าน**: `inbox`, `chairman`, `subcommittee-inbox`, `support-subcommittee-inbox`, `followup-dashboard`, `dashboard` (ผ่าน `dashboard-analytics-service.js`), `index`
 
@@ -113,6 +134,8 @@ pitchaya-k.github.io/
 | `ecmis_flash_toast` | sessionStorage | ข้อความแจ้งเตือนข้ามหน้า |
 | `ecmis_color_mode`, `ecmis_dark_mode`, `ecmis_high_contrast`, `ecmis_font_step`, `ecmis_sidebar_collapsed`, `ecmis_managed_suggestions` | localStorage | การตั้งค่าการแสดงผล |
 | `ecmis.livedoc.split`  | localStorage | สัดส่วนจอแบ่งสองฝั่ง |
+| `ecmis_eoffice_mode` | localStorage | โหมดจำลองระบบสารบรรณ (ปกติ / 408 / 503) ที่เลือกในหน้า `number-registry.html` |
+| `ecmis-additional-inquiry-pane-collapsed`, `ecmis-additional-inquiry-cards` | localStorage | สถานะย่อแผงเอกสารและการ์ดของหน้า `additional-inquiry.html` |
 | `ecmis_sso_for` + key ใน `login.html` (`SHARED_AUTH_KEY`) | local/sessionStorage | ข้อมูล "shared auth" สำหรับ hub ภายนอก |
 
 ผลคือ **ข้อมูลที่ผู้ใช้แก้และไม่ได้เขียนลง Supabase จะหายเมื่อปิด Tab/Session** (sessionStorage)
@@ -227,6 +250,8 @@ pitchaya-k.github.io/
 | รายการรอจัดทำมติ | `resolution-inbox.html` | board_sec |
 | จัดทำรายงานมติการประชุม | `meeting-report.html` | บทบาทที่มี perm `compile.minutes` (board_sec ในข้อมูลปัจจุบัน) |
 | ทะเบียนวาระการประชุม | `agenda-registry.html` | ซ่อนสำหรับ secgen, board_sec, chairman, affairs, case_admin |
+| ทะเบียนคุมเลขสารบรรณ | `number-registry.html` | affairs, board_sec, case_admin, dir_case (เพิ่ม 21/11/2569) |
+| รายงานการไต่สวนเพิ่มเติม | `additional-inquiry.html` | affairs, board_sec, case_admin และเฉพาะชุดไฟล์ที่ `ECMIS_A7_OPTION` มี `B` (ราก และ Option B) |
 | ติดตามผลมติ | `followup-dashboard.html` | affairs, board_sec, chairman, board, case_admin |
 | Dashboard สถิติมติ | `dashboard.html` | affairs, board_sec, chairman, board, secgen, case_admin |
 
@@ -281,6 +306,8 @@ pitchaya-k.github.io/
 | 41 | `/dashboard.html` | Dashboard สถิติมติคณะกรรมการ ป.ป.ท. | Dashboard |
 | 42 | `/followup-dashboard.html` | Dashboard ติดตามผลมติ | Dashboard |
 | 43–52 | `/approval-review-mock-01.html` ถึง `-10.html` | สรุปสำนวน (Mock …) | หน้า mock การ์ดสรุป |
+| 53 | `/number-registry.html` | ทะเบียนคุมเลขสารบรรณ | ทะเบียน (เพิ่ม 21/11/2569) |
+| 54 | `/additional-inquiry.html` | จัดทำรายงานการไต่สวนเพิ่มเติม | ขั้น 6.4 Option B (เพิ่ม 21/11/2569) |
 
 หมายเหตุที่ตรวจด้วย `diff` ไฟล์
 - `agenda-detail.html` กับ `agenda-registry-detail.html` **เนื้อหาเหมือนกันทุกบรรทัด**
@@ -544,6 +571,23 @@ pitchaya-k.github.io/
 - **ข้อมูล:** `assets/case-summary-mock-data.js`, `case-summary-mock-page.js`
 - **ข้อจำกัด:** เป็นหน้าสาธิตแยก ไม่เชื่อมกับสำนวนจริง
 
+### 7.45 `/number-registry.html` (เพิ่ม 21/11/2569)
+- **วัตถุประสงค์:** ทะเบียนคุมเลขสารบรรณ ขอ ติดตาม และปิดเรื่องเลขหนังสือของทุกสำนวนในที่เดียว
+- **เข้าถึง:** affairs, board_sec, case_admin, dir_case
+- **แท็บ:** "เลขสารบรรณ" (ทุกเลขที่ออกแล้ว), "ต้องจัดการ", "รายการเอกสารที่ต้องขอเลข" (18 รายการ · Option A แสดง 16)
+- **ปุ่ม:** ขอเลขสารบรรณ (เลือกสำนวน + เอกสาร → หน้าต่าง 4 ขั้น), ตัวกรองสถานะ (รอรับเลข / ขอเลขไม่สำเร็จ / นอกระบบรอตรวจ / ได้เลข รอส่ง / ส่งแล้ว รอปิด / ปิดเรื่องแล้ว), trace, ตัวเลือกโหมดจำลอง API
+- **ผลลัพธ์:** เขียน `trr_resolution_data.sarabanNos[slot]`; เคสที่ไม่มี `trr_id` เก็บใน sessionStorage
+- **ข้อจำกัด:** ระบบงานสารบรรณ (e-office) เป็นตัวจำลอง ยังไม่เรียก Open API จริง (ดู DEVELOPMENT.md 5.6)
+
+### 7.46 `/additional-inquiry.html` (เพิ่ม 21/11/2569 · ขั้น 6.4 Option B)
+- **วัตถุประสงค์:** RES217 จัดทำรายงานการไต่สวนเพิ่มเติมตามมติคณะกรรมการ ป.ป.ท. (เรื่องทั่วไป) → RES218 ส่งเอกสารให้ผู้รับผิดชอบสำนวน → สิ้นสุด
+- **เข้าถึง:** affairs (จัดทำ), board_sec, case_admin (ดูอย่างเดียว) · Option A เมนูซ่อนและหน้าแจ้งว่ามีเฉพาะ Option B
+- **โหมดรายการ (ไม่มี `?case=`):** เรื่องทั่วไปที่มีมติแล้ว แท็บ "รอจัดทำ / ร่าง" และ "ส่งผู้รับผิดชอบสำนวนแล้ว" + ค้นหา
+- **โหมดเรื่องเดียว:** แถบขั้นตอน 5 ขั้น · การ์ดสรุปเรื่อง / มติ / ฟอร์มรายงาน (ประเด็นที่ต้องไต่สวนเพิ่มเติม = บังคับ) / ส่งเอกสาร · เอกสาร A4 "บันทึกข้อความ" ผูกฟอร์มสองฝั่ง · ป้าย SLA ไม่เกิน 15 วัน
+- **ปุ่ม:** บันทึกร่าง, ส่งเอกสารให้ผู้รับผิดชอบสำนวน (มีกล่องยืนยัน) + ชุดปุ่มเอกสาร
+- **ผลลัพธ์:** เขียน `trr_resolution_data.additionalInquiry` (DRAFT → SENT) + `tbl_res_request_event` ชนิด `ADDITIONAL_INQUIRY_SENT` · **ไม่เปลี่ยนสถานะสำนวน**
+- **ข้อจำกัด:** ไม่ขอเลขสารบรรณ (ไม่อยู่ใน Check List) · ช่อง "ระยะเวลาให้รายงานผลกลับ" เป็นข้อสมมติ [ต้องยืนยัน]
+
 ---
 
 ## 8. ตารางสรุปองค์ประกอบสำคัญ
@@ -603,7 +647,7 @@ pitchaya-k.github.io/
 1. ไม่มี Backend ของตัวเองในโฟลเดอร์ราก; มีเพียงการเรียก Supabase จากหน้าเว็บโดยตรง (หัวข้อ 3.2) พร้อม key ฝังใน client
 2. การตรวจสิทธิ์ทำฝั่ง client (`sessionStorage`) เท่านั้น แก้ค่าในเบราว์เซอร์แล้วเข้าหน้าอื่นได้
 3. การเข้าสู่ระบบไม่ตรวจรหัสผ่าน; ThaID มีเฉพาะหน้าจอเดโม; ไม่พบ SSO/Single Sign-On จริง
-4. ไม่พบการเชื่อมระบบภายนอก: ระบบสารบรรณ (`saraban-no.js` ออกเลขโดยหาเลขสูงสุดของ prefix+ปี ใน `tbl_res_request.trr_resolution_data.sarabanNos` ของ Supabase แล้วบวก 1 ตามคอมเมนต์ในไฟล์ — ไม่ใช่การเชื่อมระบบสารบรรณ และอาจซ้ำกันได้เมื่อมีหลายคนออกเลขพร้อมกัน [ต้องยืนยัน]), e-Meeting, อีเมล/SMS, ระบบ กจ.5/กจ.8, ป.ป.ช., PKI/ลายเซ็นดิจิทัลจริง (`SignatureStore` ระบุในโค้ดว่าเป็น mock)
+4. ไม่พบการเชื่อมระบบภายนอก: ระบบสารบรรณ (ตั้งแต่ 21/11/2569 ใช้ `saraban-docs.js` จำลองการขอเลขจากระบบงานสารบรรณ (e-office) ตามขั้นตอน wireframe — เลขยังคำนวณในหน้าเว็บโดยหาเลขสูงสุดของแฟ้ม+ปีใน `trr_resolution_data.sarabanNos` แล้วบวก 1 ผ่าน `saraban-no.js` ไม่ใช่การเชื่อมระบบสารบรรณจริง และอาจซ้ำกันได้เมื่อหลายคนออกเลขพร้อมกัน · พบเลขซ้ำในฐานข้อมูลเดิม ปป 0004/0007/2569 สองสำนวน [ต้องยืนยัน]), e-Meeting, อีเมล/SMS, ระบบ กจ.5/กจ.8, ป.ป.ช., PKI/ลายเซ็นดิจิทัลจริง (`SignatureStore` ระบุในโค้ดว่าเป็น mock)
 5. การแจ้งเตือนเป็นข้อมูลจำลอง (`MOCK_NOTIFICATIONS`) — ไม่พบการส่งแจ้งเตือนจริง
 6. ไม่พบการอัปโหลดไฟล์ไป storage จริง ยกเว้นตาราง `tbl_res_attachment` (บันทึกข้อมูลไฟล์แนบ) [ต้องยืนยัน] ว่าเก็บตัวไฟล์ที่ใด
 
@@ -625,7 +669,7 @@ pitchaya-k.github.io/
 
 **สภาพแวดล้อม**
 15. ต้องเปิดผ่าน HTTP server (ไม่ใช่ `file://`) เพราะมี `fetch` แม่แบบและโหลดสคริปต์แบบไดนามิก
-16. ต้องมีอินเทอร์เน็ตเพื่อโหลดไลบรารี/ฟอนต์จาก CDN และเพื่อให้ Supabase ทำงาน
+16. ไลบรารี/ฟอนต์อยู่ใน `assets/vendor/` แล้ว (ไม่ต้องต่ออินเทอร์เน็ตเพื่อเปิดหน้า) แต่ Supabase ยังต้องต่ออินเทอร์เน็ต · `index.html`/`login.html` ยังเรียก `../cases.js` และ `shared-assets` ที่ไม่มีอยู่ (ขึ้น 404 แต่หน้าใช้งานได้)
 17. ออกแบบสำหรับจอกว้าง (จอแบ่งสองฝั่งเปิดใช้เมื่อกว้างกว่า 1,100 px) ยังไม่ได้ตรวจรองรับมือถือครบทุกหน้า
 
 ---
@@ -640,6 +684,12 @@ pitchaya-k.github.io/
 - [ ] องค์ประชุม การลงมติ การออกเสียงเห็นแย้ง
 - [ ] ถ้อยคำ "ปฏิเสธการรับ" เทียบ "ตีกลับ" และ "ส่ง ป.ป.ช."
 - [ ] โครงสร้างกระบวนการตามเอกสาร 12/11/2569 (ข้อ 3.2 กองปราบ, 6.1/6.3, 7.1.3) — หน้า `business-flow.html` อยู่ในโฟลเดอร์ Option A/B ไม่ใช่โฟลเดอร์รากนี้ และไม่ได้ตรวจในรอบนี้ว่าตรงกับเอกสารหรือไม่
+- [ ] **ผลตรวจการกดตาม User Flow V1.0.14 (22/11/2569)** จุดที่ต้นแบบต่างจากผัง:
+  - หน้า 6-1: สถานะเรื่อง "รอประธานฯ ลงนามคำสั่ง ม.24" แต่หน้า `order.html` กำหนดผู้ลงนามเป็นเลขาธิการฯ (ประธานฯ ไม่มีปุ่มลงนาม) ขณะที่ผังให้ประธานฯ ลงนามคำสั่งคณะกรรมการ
+  - หน้า 3-2 (Option B): ยังไม่มีเอกสาร "บันทึกกองปราบ" แยก ใช้หน้าลงนามมอบหมายของประธานฯ แทน
+  - หน้า 3-5: ผังให้กองบริหารคดีทำบันทึกส่งมติ แต่ช่องขอเลขบันทึกแจ้งมติอยู่ในหน้าคณะอนุกลั่นกรองฯ (`subcommittee-screening.html`)
+  - หน้า 1-4: สาย 7.2 มีปุ่มส่งคืนเฉพาะขั้นรองเลขาธิการฯ ขั้นเลขาธิการฯ ไม่มีปุ่มส่งคืน
+- [ ] ขั้น 6.4: ระยะเวลาให้ผู้รับผิดชอบสำนวนรายงานผลกลับ และเลขข้อ 6.4 (ไม่มี 6.3 ใน Option B)
 
 **ข. สิทธิ์ผู้ใช้**
 - [ ] นิยามบทบาทและ `perms` ทั้งหมด รวมบทบาทที่มีใน `PAGE_PERMISSIONS` แต่ไม่ได้เปิดให้ล็อกอิน (owner, director, section_head, legal, admin, board_ex, sup_chair, sup_sec, sup_asst)
@@ -695,5 +745,6 @@ pitchaya-k.github.io/
 - `assets/ecmis-model.js`, `assets/flow-samples.json` (ส่วนต้น), `assets/templates/` (รายชื่อไฟล์), รายชื่อไฟล์ใน `assets/`
 - `.claude/launch.json`, `.gitignore`, `README.md` เดิม, `FLOW.md`, `prototype/README.md`, โครงสร้างโฟลเดอร์ `docs/`, `scripts/`, `prototype/`
 - ผลทดสอบเบราว์เซอร์ของ Live-doc รอบก่อนหน้า (ทำก่อน merge)
+- **รอบ 21–22/11/2569:** `assets/saraban-docs.js`, `assets/a7-option.js`, `number-registry.html`, `additional-inquiry.html`, `assets/vendor/VERSIONS.json`, User Flow V1.0.14 Option A/B (drawio), Check List สารบรรณ x Process 20/11/2569 และผลเปิดหน้าอัตโนมัติ 66 ขั้นด้วย Microsoft Edge (บล็อกการเขียน Supabase)
 
-**ไม่ได้ตรวจ:** เนื้อหาภายในไฟล์ใน `docs/`, ไฟล์ `.docx` แม่แบบ, ข้อมูลจริงใน Supabase, การทำงานเมื่อออฟไลน์ครบทุกหน้า, การกดทดสอบปุ่มทุกปุ่มทุกบทบาท
+**ไม่ได้ตรวจ:** เนื้อหาภายในไฟล์ใน `docs/`, ไฟล์ `.docx` แม่แบบ, ข้อมูลจริงใน Supabase, ผลหลังกดปุ่มยืนยัน (รอบ 22/11/2569 ตรวจว่าปุ่มมีอยู่ ไม่ได้กดเพื่อไม่ให้ข้อมูลร่วมเปลี่ยน)

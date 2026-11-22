@@ -1,2 +1,7 @@
 # Word documents
 *.docx
+
+# ไฟล์บีบอัดและไฟล์ชั่วคราว (ไม่เก็บใน git — GitHub รับไฟล์ไม่เกิน 100 MB)
+*.zip
+.scratch/
+~$*

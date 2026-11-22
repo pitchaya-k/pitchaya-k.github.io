@@ -17,7 +17,7 @@
 
 ```
 pitchaya-k.github.io/
-├── *.html                  หน้าจอ 52 ไฟล์ (Multi-page, ไม่ใช่ SPA)
+├── *.html                  หน้าจอ 54 ไฟล์ (Multi-page, ไม่ใช่ SPA)
 ├── assets/
 │   ├── ecmis-app.js        แกนหลัก ~9,700 บรรทัด: ROLES, DOC_TYPES, STATUS, TRANSITIONS, CASES (ข้อมูลจำลอง),
 │   │                       PAGE_PERMISSIONS, เมนู, renderShell, Supabase, mergeField, initDocEditor, export
@@ -26,6 +26,9 @@ pitchaya-k.github.io/
 │   ├── agenda-registry-data.js, case-closure.js, saraban-no.js, resolution-split.js,
 │   │   case-summary-*.js, secgen-route-text.js, junction-bridge-a7.js, report-export.js, order-memo-docs.js
 │   ├── dashboard-{analytics,chart,export}-service.js
+│   ├── a7-option.js        ค่า Option ของชุดไฟล์ ('AB' / 'A' / 'B') — ห้ามคัดลอกทับระหว่างโฟลเดอร์
+│   ├── saraban-docs.js     รายการเอกสารขอเลข + การ์ด/หน้าต่างขอเลขสารบรรณ (ข้อ 5.6)
+│   ├── vendor/             ไลบรารี ฟอนต์ ไอคอน สำหรับเปิดออฟไลน์ (ข้อ 5.7)
 │   ├── templates/          แม่แบบ .docx    flow-samples.json  ข้อมูลตัวอย่างต่อสถานะ
 ├── scripts/                seed/backfill (.mjs, .py, .sh)  — เครื่องมือเตรียมข้อมูลทดสอบ
 ├── A7-Option-A-03112026/, A7-Option-B-03112026/   สำเนา Prototype แบบ Option A/B
@@ -88,8 +91,10 @@ python -m http.server 8765 --bind 127.0.0.1
 
 - เข้าระบบ: ปุ่มลัดบทบาทในหน้า login หรือใช้ username ตาราง README 4.1 กับรหัสผ่านอะไรก็ได้
 - ทดสอบหน้าเอกสาร: ใช้ `?case=` เช่น `9205/2569` (approval-review), `3027/2569` (order), `?meet=4` (meeting-docs)
-- เครื่องต้องต่ออินเทอร์เน็ต (CDN + Supabase) — **ระวังการกดบันทึก: ถ้าเข้าถึง Supabase ได้ จะเขียนข้อมูลจริง** (README 3.2) ถ้าต้องการทดสอบแบบไม่เขียน ให้บล็อกคำขอ POST/PATCH/PUT/DELETE ไปยังโดเมน Supabase ใน DevTools (ทีมเคยทำแบบนี้ตอนถ่ายภาพหน้าจอ ตาม `prototype/README.md`)
-- ไม่พบชุดทดสอบอัตโนมัติ (unit/e2e) ในรีโป [ต้องยืนยัน] — การทดสอบ sync ที่ผ่านมาใช้สคริปต์ชั่วคราวนอกรีโป
+- เปิดหน้าได้โดยไม่ต้องต่ออินเทอร์เน็ต (ไลบรารีอยู่ใน `assets/vendor/`) แต่ข้อมูลจาก Supabase ต้องต่ออินเทอร์เน็ต — **ระวังการกดบันทึก: ถ้าเข้าถึง Supabase ได้ จะเขียนข้อมูลจริง** (README 3.2) ถ้าต้องการทดสอบแบบไม่เขียน ให้บล็อกคำขอ POST/PATCH/PUT/DELETE ไปยังโดเมน Supabase ใน DevTools (ทีมเคยทำแบบนี้ตอนถ่ายภาพหน้าจอ ตาม `prototype/README.md`)
+- ไม่พบชุดทดสอบอัตโนมัติ (unit/e2e) ในรีโป [ต้องยืนยัน] — การทดสอบที่ผ่านมาใช้สคริปต์ชั่วคราวนอกรีโป (ข้อ 5.9)
+- ทดลองเดินตาม User Flow: ใช้ไฟล์ขั้นตอนการกด (ข้อ 5.9) สลับบทบาทระหว่างทางที่ช่อง "สิทธิ์การทำงาน" มุมขวาบน
+- เล่นเรื่องเดิมซ้ำ: บนหน้าของเรื่องกด R สามครั้งภายใน 1.5 วินาที (`openResetCaseDialog` → กลับไปขั้นรองเลขาธิการฯ) · กด K สามครั้ง = สลับสาย 7.1/7.2/7.3 (`openSwitchLineDialog`) — ทั้งสองเขียนฐานข้อมูลร่วม และมีรายการเรื่องที่ห้ามรีเซ็ต (`RESET_PROTECTED_CASES`)
 
 ---
 
@@ -128,8 +133,6 @@ Option A/B เป็นสำเนา ไม่ได้เชื่อมอ�
 ### 5.7 เปิดแบบออฟไลน์
 ไลบรารีและฟอนต์ทั้งหมดอยู่ใน `assets/vendor/` (เวอร์ชันใน `assets/vendor/VERSIONS.json`) — หน้าใหม่ให้อ้าง `assets/vendor/...` แทน CDN · ข้อมูลจาก Supabase ยังต้องใช้อินเทอร์เน็ต ถ้าไม่มีเน็ตจะใช้ข้อมูลจำลองใน `CASES`
 
----
-
 ### 5.8 หน้าจอขั้น 6.4 รายงานการไต่สวนเพิ่มเติม (Option B, เพิ่ม 21/11/2569)
 
 - หน้า `additional-inquiry.html` (มีในราก และ `A7-Option-B-03112026/` เท่านั้น — Option A ไม่มีขั้นนี้ เมนูซ่อนตาม `window.ECMIS_A7_OPTION`)
@@ -138,6 +141,19 @@ Option A/B เป็นสำเนา ไม่ได้เชื่อมอ�
 - เรื่องที่เข้าขั้นนี้: เรื่องทั่วไป (`isCase73`) ที่สถานะ RESOLVED_PENDING / RESOLVED / DISPATCHING / CLOSED — กลุ่มงานกิจการเลือกเรื่องเองเพราะมติเรื่องทั่วไปเป็นข้อความอิสระ
 - **ไม่เปลี่ยนสถานะสำนวน** (ไม่แตะ TRANSITIONS / STATUS_CODE) เก็บความคืบหน้าใน `trr_resolution_data.additionalInquiry` {status DRAFT|SENT, issues, evidence, opinion, dueDays, note, docs, startedAt, sentAt, sentBy, to} และบันทึกเหตุการณ์ `ADDITIONAL_INQUIRY_SENT`
 - ไม่ขอเลขสารบรรณ (ไม่อยู่ใน Check List สารบรรณ x Process) · ช่อง "ระยะเวลาให้รายงานผลกลับ" เป็นข้อสมมติ รอยืนยัน
+- หน้าตาใช้โครงเดียวกับ `affairs-opinion.html` (แถบขั้นตอน + การ์ดซ้าย + เอกสาร A4 ขวา + แถบปุ่มล่าง) ตรวจค่า CSS เทียบกันแล้วตรงกัน
+
+### 5.9 ทดสอบตาม User Flow และไฟล์ขั้นตอนการกด (22/11/2569)
+- คู่มือการกด: `../06 ต้นแบบ Prototype/กิจกรรมที่ 7 ขั้นตอนการกดต้นแบบตาม User Flow V1.0.14_22112026.xlsx` (นอกโปรเจกต์) — 27 หน้าผัง 66 ขั้น บอกบทบาท เมนู เลขสำนวน ปุ่มที่กด ผลที่ควรเห็น และภาพหน้าจอที่ตีกรอบแดงตรงปุ่ม
+- วิธีตรวจที่ใช้: Playwright (Python) + Microsoft Edge แบบ headless · ตั้ง `sessionStorage` บทบาทเอง · route ดักคำขอ `POST/PATCH/PUT/DELETE` ไปโดเมน Supabase แล้วตอบ `200 []` (ไม่มีข้อมูลเปลี่ยน) · เปิดหน้า → เทียบข้อความ/ปุ่มที่คาดไว้ → ถ่ายภาพ
+- ผล 22/11/2569: ผ่าน 65 ขั้น · 1 ขั้นตรวจจากโค้ด (หน้า 3-4 ไม่มีเรื่องค้างในสถานะนั้น) · จุดที่ต้นแบบต่างจากผังอยู่ใน README หัวข้อ 11
+- สคริปต์ (`walk_data.py` ขั้นตอน, `verify_walk.py` ตรวจ+ถ่ายภาพ, `build_xlsx.py` สร้าง Excel) อยู่ในโฟลเดอร์ชั่วคราวของเครื่องที่ทำงาน ยังไม่ได้เก็บเข้ารีโป [ต้องยืนยัน] ว่าจะเก็บไว้ที่ `tests/` หรือไม่
+- เมื่อแก้หน้า/ปุ่ม ให้ตรวจซ้ำและอัปเดตไฟล์ขั้นตอนการกด เพราะเลขสำนวนตัวอย่างอิงสถานะในฐานข้อมูลร่วม ณ วันที่ตรวจ
+
+### 5.10 ค่า `?v=` ล่าสุด
+`ecmis-app.js` และ `a7-option.js` ใช้ `?v=20261121-a7-inq64` (ทุกหน้า ทั้งรากและ Option A/B) · `saraban-docs.js`, `saraban-no.js`, `report-export.js`, `case-summary-*.js` ใช้ `?v=20261121-a7-saraban`
+
+---
 
 ## 6. ข้อควรระวัง (พบในโค้ด)
 
@@ -165,4 +181,4 @@ graphify update .                          # หลังแก้โค้ด (
 
 ## 8. สิ่งที่ยังไม่ทราบ (ต้องยืนยันก่อนพัฒนาต่อ)
 
-ดูรายการเต็มใน [README.md](README.md) หัวข้อ 11 ที่สำคัญสุด: (1) Supabase นี้เป็น staging หรือ production และมี RLS หรือไม่, (2) ระบบจริงจะมี Backend/API แยกหรือใช้ Supabase ต่อ, (3) กฎสถานะ/SLA/สิทธิ์ที่ถูกต้อง, (4) ใช้ branch ใดเป็นฐาน และคงโครงสร้างสำเนา Option A/B หรือไม่
+ดูรายการเต็มใน [README.md](README.md) หัวข้อ 11 ที่สำคัญสุด: (1) Supabase นี้เป็น staging หรือ production และมี RLS หรือไม่, (2) ระบบจริงจะมี Backend/API แยกหรือใช้ Supabase ต่อ, (3) กฎสถานะ/SLA/สิทธิ์ที่ถูกต้อง, (4) ใช้ branch ใดเป็นฐาน และคงโครงสร้างสำเนา Option A/B หรือไม่, (5) ผู้ลงนามคำสั่ง ม.24 ในหน้า `order.html` (เลขาธิการฯ) ต่างจากสถานะ/ผัง (ประธานฯ), (6) การต่อ Open API ระบบงานสารบรรณจริง

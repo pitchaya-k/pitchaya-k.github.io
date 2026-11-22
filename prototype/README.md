@@ -15,4 +15,6 @@
 
 `index.csv` = รายการภาพทั้งหมด: โฟลเดอร์, role, ประเภทหน้า, ชื่อหน้า, URL, ไฟล์ภาพ
 
+ภาพชุดใหม่กว่า (22 พ.ย. 2569): ภาพหน้าจอทีละขั้นตาม User Flow V1.0.14 พร้อมกรอบแดงที่ปุ่มที่ต้องกด อยู่ในชีต "ภาพหน้าจอ" ของไฟล์ `06 ต้นแบบ Prototype/กิจกรรมที่ 7 ขั้นตอนการกดต้นแบบตาม User Flow V1.0.14_22112026.xlsx` (นอกโปรเจกต์) ภาพในโฟลเดอร์นี้ยังเป็นชุด 28 ต.ค. ไม่มีหน้า `number-registry.html` และ `additional-inquiry.html`
+
 role ที่ใช้ล็อกอิน: affairs Siriporn.K, deputy Prasert.T, secgen Apichat.S, dir_case Bunlue.S, support_sub Jiraporn.N, subcommittee Sumet.N, chairman Wichai.Y, board_sec Thanakrit.B, board Somboon.T, case_admin Kannika.W
