@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ผังกระบวนงานและหน้าจอ | E-CMIS กิจกรรมที่ 7</title>
+  <link rel="icon" type="image/png" href="assets/pacc_logo.png">
+  <link href="assets/vendor/fonts/fonts.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="assets/a7-flow.css?v=20261122-flow1" rel="stylesheet">
+</head>
+
+<body class="a7f">
+  <!-- Flow to Page: ผังกระบวนงาน 8 กระบวนการ → ขั้น → บทบาท → จุดตัดสินใจ → หน้าจอต้นแบบ
+       ข้อมูลทั้งหมดมาจาก assets/a7-flow-data.js (สร้างจาก User Flow V1.0.14 + ผลตรวจต้นแบบ 22/11/2569) -->
+  <header class="a7f-top">
+    <a class="brand" href="flow-to-page.html"><img src="assets/pacc_logo.png" alt=""><span><b>ผังกระบวนงานและหน้าจอ</b><small>E-CMIS กิจกรรมที่ 7 · Flow to Page</small></span></a>
+    <span class="a7f-demo-tag" title="หน้านี้ใช้สาธิตต้นแบบเท่านั้น"><i class="fa-solid fa-flask"></i>โหมดสาธิต</span>
+    <span class="spacer"></span>
+    <div class="a7f-opt" id="optToggle" role="group" aria-label="เลือก Option"></div>
+    <a class="a7f-link" href="flow-guide.html"><i class="fa-solid fa-route me-1"></i>คู่มือเดิน Flow</a>
+    <a class="a7f-link" href="login.html" id="lnkProto"><i class="fa-solid fa-display me-1"></i>เปิดต้นแบบ</a>
+    <div id="roleSwitcher"></div>
+  </header>
+
+  <nav class="a7f-tabs" id="procTabs" aria-label="กระบวนการ"></nav>
+
+  <main class="a7f-main" id="main">
+    <section>
+      <div id="viewOverview" class="d-none">
+        <div class="a7f-card mb-3">
+          <div class="hd"><i class="fa-solid fa-sitemap"></i>ภาพรวม 8 กระบวนการ <small class="text-muted fw-normal" id="ovSub"></small>
+            <span class="ms-auto d-flex gap-1">
+              <button class="btn btn-sm btn-outline-secondary" data-ov="fit" title="พอดีจอ"><i class="fa-solid fa-expand"></i></button>
+              <button class="btn btn-sm btn-outline-secondary" data-ov="svg"><i class="fa-solid fa-file-code me-1"></i>SVG</button>
+              <button class="btn btn-sm btn-outline-secondary" data-ov="png"><i class="fa-solid fa-image me-1"></i>PNG (A4 แนวนอน)</button>
+            </span></div>
+          <div class="a7f-canvas" id="ovCanvas" style="height:300px;min-height:300px"><div class="a7f-stage" id="ovStage"></div><span class="hint">คลิกกล่องกระบวนการเพื่อดูผังละเอียด · ลากเพื่อเลื่อน · Ctrl+ล้อเมาส์เพื่อซูม</span></div>
+        </div>
+        <div class="a7f-legend mb-2" id="ovLegend"></div>
+        <div class="a7f-proc-grid" id="procCards"></div>
+        <div class="a7f-card mt-3"><div class="hd"><i class="fa-solid fa-plug"></i>การเชื่อมโยงกับระบบอื่น (นอกระบบนี้)</div><div class="bd" id="extList"></div></div>
+      </div>
+
+      <div id="viewProcess" class="a7f-card d-none">
+        <div class="hd"><span id="procTitle"></span><span class="ms-auto small fw-normal text-muted" id="pageTitle"></span></div>
+        <div class="a7f-pages" id="pageChips"></div>
+        <div class="a7f-tools">
+          <div class="a7f-search">
+            <input type="search" class="form-control" id="q" placeholder="ค้นหาขั้น เลขขั้น รหัสหน้าจอ หรือเลขสำนวน" style="width:280px" aria-label="ค้นหาขั้น">
+            <div class="a7f-search-res d-none" id="qRes"></div>
+          </div>
+          <select class="form-select" id="roleFilter" style="width:auto" aria-label="กรองตามบทบาท"></select>
+          <span class="ms-auto d-flex gap-1">
+            <button class="btn btn-outline-secondary" data-z="out" title="ย่อ"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+            <button class="btn btn-outline-secondary" data-z="in" title="ขยาย"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+            <button class="btn btn-outline-secondary" data-z="fit" title="พอดีจอ"><i class="fa-solid fa-expand"></i> พอดีจอ</button>
+            <button class="btn btn-outline-secondary" data-z="svg"><i class="fa-solid fa-file-code me-1"></i>SVG</button>
+            <button class="btn btn-outline-secondary" data-z="png"><i class="fa-solid fa-image me-1"></i>PNG (A4)</button>
+            <button class="btn btn-outline-secondary" data-z="panel" title="เปิด/ปิดแผงรายละเอียด"><i class="fa-solid fa-table-columns"></i></button>
+          </span>
+        </div>
+        <div class="a7f-tools py-1"><div class="a7f-legend" id="legend"></div></div>
+        <div class="a7f-canvas" id="canvas"><div class="a7f-stage" id="stage"></div><span class="hint">คลิกกล่องเพื่อดูรายละเอียด · ลากเพื่อเลื่อน · Ctrl+ล้อเมาส์เพื่อซูม</span></div>
+      </div>
+
+      <div id="viewReport" class="d-none">
+        <div class="a7f-card mb-3">
+          <div class="hd"><i class="fa-solid fa-clipboard-list"></i>รายงานการแมปขั้นกับหน้าจอ (Missing Mapping Report)
+            <span class="ms-auto d-flex gap-1"><button class="btn btn-sm btn-outline-secondary" id="dlJson"><i class="fa-solid fa-download me-1"></i>JSON</button>
+              <button class="btn btn-sm btn-outline-secondary" id="dlMd"><i class="fa-solid fa-download me-1"></i>Markdown</button></span></div>
+          <div class="bd"><div id="repSummary"></div></div>
+        </div>
+        <div class="a7f-card mb-3"><div class="hd"><i class="fa-solid fa-triangle-exclamation"></i>ขั้นที่ยังไม่ครบ / ต่างจากผัง / ผังไม่สอดคล้อง</div><div class="bd p-0" style="max-height:520px;overflow:auto"><table class="a7f-table" id="repTable"></table></div></div>
+        <div class="a7f-card"><div class="hd"><i class="fa-solid fa-display"></i>ทะเบียนหน้าจอ (เล่ม 4.1 บทที่ 4) → ไฟล์ต้นแบบ</div><div class="bd p-0" style="max-height:520px;overflow:auto"><table class="a7f-table" id="scrTable"></table></div></div>
+      </div>
+    </section>
+
+    <aside class="a7f-panel a7f-card" id="panel" aria-live="polite">
+      <div class="hd"><i class="fa-solid fa-circle-info"></i>รายละเอียดขั้น</div>
+      <div class="bd" id="panelBody"><div class="a7f-empty"><i class="fa-regular fa-hand-pointer fa-2x mb-2 d-block"></i>คลิกกล่องในผังเพื่อดูบทบาท ข้อมูลเข้า-ออก กฎ และหน้าจอของขั้นนั้น</div></div>
+    </aside>
+  </main>
+
+  <div class="a7f-modal" id="preview" hidden>
+    <div class="box"><div class="hd"><i class="fa-solid fa-display"></i><span id="pvTitle"></span>
+      <a class="btn btn-sm btn-outline-secondary ms-auto" id="pvOpen" target="_blank" rel="noopener"><i class="fa-solid fa-up-right-from-square me-1"></i>เปิดแท็บใหม่</a>
+      <button class="btn btn-sm btn-light border" id="pvClose"><i class="fa-solid fa-xmark"></i> ปิด</button></div>
+      <iframe id="pvFrame" name="a7guide-frame" title="ตัวอย่างหน้าจอ"></iframe></div>
+  </div>
+
+  <script src="assets/vendor/supabase/supabase.js"></script>
+  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
+  <script src="assets/ecmis-app.js?v=20261122-flow1"></script>
+  <script src="assets/vendor/mermaid/mermaid.min.js"></script>
+  <script src="assets/a7-flow-data.js?v=20261122-flow1"></script>
+  <script src="assets/a7-flow-common.js?v=20261122-flow1"></script>
+  <script>
+  (function () {
+    const F = window.A7Flow, D = F.D, esc = F.esc;
+    let opt = F.option(), view = 'overview', proc = 'P1', pid = null, selected = null, roleSel = '';
+    let pz = null, ovPz = null, lastSvg = null;
+    const $ = id => document.getElementById(id);
+    if (!sessionStorage.getItem('ecmis_authed')) F.switchRole('secgen', 'flow-to-page-default');
+
+    /* ---------- หัวหน้า ---------- */
+    function paintOpt() {
+      const allowed = F.allowedOptions();
+      $('optToggle').innerHTML = ['A', 'B'].map(o => `<button type="button" data-o="${o}" class="${o === opt ? 'is-on' : ''}" ${allowed.includes(o) ? '' : 'disabled title="ชุดไฟล์นี้ไม่มี Option ' + o + '"'}>Option ${o}</button>`).join('');
+    }
+    $('optToggle').addEventListener('click', e => { const b = e.target.closest('button[data-o]'); if (!b || b.disabled) return; opt = b.dataset.o; F.setOption(opt); selected = null; route(); });
+    F.mountRoleSwitcher($('roleSwitcher'), { onChange: r => { if (selected) showNode(selected.pid, selected.nid); } });
+
+    /* ---------- แท็บกระบวนการ ---------- */
+    function paintTabs() {
+      const cnt = id => F.pagesOf(opt).filter(p => p.proc === id).length;
+      $('procTabs').innerHTML = `<button data-v="overview" class="${view === 'overview' ? 'is-on' : ''}"><i class="fa-solid fa-sitemap me-1"></i>ภาพรวม</button>`
+        + D.processes.map(p => `<button data-v="${p.id}" class="${view === 'process' && proc === p.id ? 'is-on' : ''}" title="${esc(p.name)}">${p.id} ${esc(p.name.length > 22 ? p.name.slice(0, 22) + '…' : p.name)}<span class="cnt">${cnt(p.id)}</span></button>`).join('')
+        + `<button data-v="report" class="${view === 'report' ? 'is-on' : ''}"><i class="fa-solid fa-clipboard-list me-1"></i>รายงานการแมป</button>`;
+    }
+    $('procTabs').addEventListener('click', e => {
+      const b = e.target.closest('button[data-v]'); if (!b) return;
+      const v = b.dataset.v;
+      location.hash = v === 'overview' ? '' : v === 'report' ? 'report' : v;
+    });
+
+    function legendHtml() {
+      return ['mapped', 'partial', 'pending', 'missing', 'external'].map(s => `<span title="${esc(F.STATUS[s].desc)}"><span class="sw ${s}"></span>${F.STATUS[s].label}</span>`).join('')
+        + '<span><span class="sw dec"></span>จุดตัดสินใจ</span><span><i class="fa-solid fa-caret-right"></i> ตัวเชื่อมไปหน้าอื่น</span>';
+    }
+
+    /* ---------- ภาพรวม ---------- */
+    async function renderOverview() {
+      $('ovSub').textContent = `Option ${opt} · ${F.pagesOf(opt).length} หน้าผัง`;
+      $('ovLegend').innerHTML = '<span class="me-2 fw-bold">สถานะการแมปขั้นกับหน้าจอ:</span>' + legendHtml();
+      const def = F.overviewMermaid(opt);
+      const svg = await F.renderMermaid($('ovStage'), def, id => { if (/^P\d$/.test(id)) location.hash = id; });
+      ovPz = ovPz || F.panZoom($('ovCanvas'), $('ovStage'), { fitWhole: true });
+      setTimeout(() => ovPz.fit(), 30);
+      $('ovCanvas').dataset.def = def;
+      lastSvg = svg;
+      $('procCards').innerHTML = D.processes.map(p => {
+        const pages = F.pagesOf(opt).filter(x => x.proc === p.id);
+        const tasks = pages.flatMap(x => x.nodes.filter(n => n.type === 'task'));
+        const by = s => tasks.filter(n => n.status === s).length;
+        const tot = tasks.length || 1;
+        const bar = ['mapped', 'partial', 'pending', 'missing', 'external'].map(s => `<span style="width:${by(s) / tot * 100}%;background:${{ mapped: '#10b981', partial: '#f59e0b', pending: '#60a5fa', missing: '#f87171', external: '#9ca3af' }[s]}" title="${F.STATUS[s].label} ${by(s)}"></span>`).join('');
+        return `<div class="a7f-card a7f-proc" data-p="${p.id}" tabindex="0" role="button" aria-label="${esc(p.name)}">
+          <div class="bd"><div class="d-flex align-items-center gap-2 mb-1"><span class="num">${p.num}</span><b>${esc(p.name)}</b></div>
+          <div class="small text-muted">${p.id} · ${p.abbr} · หน้าผัง ${pages.map(x => x.id).join(', ') || '—'}</div>
+          <div class="small mt-1">ขั้นงาน ${tasks.length} · มีหน้าจอ ${by('mapped')} · บางส่วน ${by('partial')} · รอยืนยัน ${by('pending')} · ยังไม่มี ${by('missing')}</div>
+          <div class="a7f-bar">${bar}</div>
+          <div class="small mt-2"><b>ข้อมูลเข้า:</b> ${esc(p.inputs.slice(0, 2).join(' · ') || '—')}${p.inputs.length > 2 ? ' …' : ''}</div>
+          <div class="small"><b>ข้อมูลออก:</b> ${esc(p.outputs.slice(0, 2).join(' · ') || '—')}${p.outputs.length > 2 ? ' …' : ''}</div></div></div>`;
+      }).join('');
+      $('extList').innerHTML = '<ul class="mb-0 small">' + D.externals.map(x => `<li><b>${esc(x.name)}</b> — ${esc(x.rel)}</li>`).join('') + '</ul>';
+    }
+    $('procCards').addEventListener('click', e => { const c = e.target.closest('[data-p]'); if (c) location.hash = c.dataset.p; });
+    $('procCards').addEventListener('keydown', e => { const c = e.target.closest('[data-p]'); if (c && e.key === 'Enter') location.hash = c.dataset.p; });
+    document.querySelectorAll('[data-ov]').forEach(b => b.addEventListener('click', () => {
+      const a = b.dataset.ov, svg = $('ovStage').querySelector('svg');
+      if (a === 'fit') ovPz && ovPz.fit();
+      if (a === 'svg' && svg) F.exportSvg(svg, `A7-ภาพรวม-Option${opt}`);
+      if (a === 'png') F.exportPng($('ovCanvas').dataset.def, `A7-ภาพรวม-Option${opt}`, 'landscape');
+    }));
+
+    /* ---------- ผังรายกระบวนการ ---------- */
+    async function renderProcess() {
+      const p = F.procOf(proc);
+      const pages = F.pagesOf(opt).filter(x => x.proc === proc);
+      if (!pid || !pages.some(x => x.id === pid)) pid = pages.length ? pages[0].id : null;
+      $('procTitle').innerHTML = `<span class="badge bg-dark me-1">${proc}</span>${esc(p.name)} <small class="text-muted fw-normal">· Option ${opt}</small>`;
+      const bOnly = id => opt === 'B' && !F.pageOf('A', id) ? '<span class="b-only">B</span>' : '';
+      $('pageChips').innerHTML = pages.map(x => `<button data-pg="${x.id}" class="${x.id === pid ? 'is-on' : ''}" title="${esc(x.title)}">หน้า ${x.id}${bOnly(x.id)}</button>`).join('') || '<span class="text-muted small">ไม่มีหน้าผังของกระบวนการนี้ใน Option นี้</span>';
+      if (!pid) { $('stage').innerHTML = ''; return; }
+      const pg = F.pageOf(opt, pid);
+      $('pageTitle').textContent = pg.title + (pg.sub && pg.sub !== pg.title ? ' · ' + pg.sub : '');
+      $('legend').innerHTML = legendHtml();
+      const def = F.pageMermaid(opt, pid);
+      $('canvas').dataset.def = def;
+      lastSvg = await F.renderMermaid($('stage'), def, nid => selectNode(pid, nid));
+      pz = pz || F.panZoom($('canvas'), $('stage'));
+      setTimeout(() => { pz.fit(); applyRole(); if (selected && selected.pid === pid) markSel(); }, 30);
+    }
+    $('pageChips').addEventListener('click', e => { const b = e.target.closest('button[data-pg]'); if (!b) return; location.hash = `${proc}/${b.dataset.pg}`; });
+    document.querySelectorAll('[data-z]').forEach(b => b.addEventListener('click', () => {
+      const a = b.dataset.z;
+      if (a === 'in') pz && pz.zoomIn(); if (a === 'out') pz && pz.zoomOut(); if (a === 'fit') pz && pz.fit();
+      if (a === 'svg') { const s = $('stage').querySelector('svg'); if (s) F.exportSvg(s, `A7-ผัง-${pid}-Option${opt}`); }
+      if (a === 'png') F.exportPng($('canvas').dataset.def, `A7-ผัง-${pid}-Option${opt}`, 'portrait');
+      if (a === 'panel') $('main').classList.toggle('panel-off');
+    }));
+
+    /* ---------- เลือกโหนด ---------- */
+    function selectNode(p, n) { location.hash = `${proc}/${p}/${n}`; }
+    function markSel() {
+      const st = $('stage');
+      st.querySelectorAll('g.node').forEach(g => g.classList.remove('is-sel', 'is-next'));
+      st.querySelectorAll('path.is-hl').forEach(e => e.classList.remove('is-hl'));
+      if (!selected || selected.pid !== pid) return;
+      const g = st.querySelector(`g.node[data-nid="${CSS.escape(selected.nid)}"]`);
+      if (g) { g.classList.add('is-sel'); }
+      const pg = F.pageOf(opt, pid);
+      pg.edges.filter(e => e.from === selected.nid).forEach(e => {
+        st.querySelectorAll(`path[id^="L-${CSS.escape(e.from)}-${CSS.escape(e.to)}"]`).forEach(x => x.classList.add('is-hl'));
+        const t = st.querySelector(`g.node[data-nid="${CSS.escape(e.to)}"]`); if (t) t.classList.add('is-next');
+      });
+      if (g && pz) pz.center(g);
+    }
+    function nextStops(o, p, n) {
+      const ch = F.choicesOf(o, p, n);
+      const list = ch.length ? ch.map(c => ({ label: c.label, r: F.advance(o, p, n, c.index) })) : [{ label: '', r: F.advance(o, p, n, 0) }];
+      return list.map(({ label, r }) => {
+        const nn = r.nid ? F.nodeOf(o, r.pid, r.nid) : null;
+        const txt = r.dead ? r.dead : nn ? (nn.type === 'end' ? 'สิ้นสุด' : `${nn.label}${r.pid !== p ? ` (หน้า ${r.pid})` : ''}`) : '—';
+        return `<li>${label ? `<b>${esc(label)}</b> → ` : ''}${r.nid && !r.dead && nn && nn.type !== 'end' ? `<a href="#P${r.pid[0]}/${r.pid}/${r.nid}">${esc(txt)}</a>` : esc(txt)}${nn && nn.role && nn.role !== (F.nodeOf(o, p, n) || {}).role ? ` <span class="badge text-bg-light border">ส่งต่อ: ${esc(F.roleInfo(nn.role).title)}</span>` : ''}</li>`;
+      }).join('');
+    }
+    function showNode(p, nid) {
+      const n = F.nodeOf(opt, p, nid);
+      const box = $('panelBody');
+      if (!n) { box.innerHTML = '<div class="a7f-empty">ไม่พบขั้นนี้ใน Option ' + opt + '</div>'; return; }
+      $('main').classList.remove('panel-off');
+      if (n.type === 'connector' || n.type === 'start' || n.type === 'end' || n.type === 'merge') {
+        const ts = n.type === 'connector' ? F.connectorTargets(opt, p, n) : [];
+        box.innerHTML = `<h6 class="fw-bold text-navy">${esc(n.label || (n.type === 'merge' ? 'จุดรวมเส้นทาง' : n.type))}</h6>
+          <div class="small text-muted mb-2">${n.type === 'connector' ? 'ตัวเชื่อมระหว่างหน้าผัง' : n.type === 'start' ? 'จุดเริ่มต้น' : n.type === 'end' ? 'จุดสิ้นสุด' : 'จุดรวม/แยกเส้นทาง'} · หน้า ${p}</div>
+          ${ts.length ? `<div class="small">ไปหน้า: ${ts.map(t => `<a href="#P${t[0]}/${t}">${t}</a>`).join(', ')}</div>` : ''}
+          ${/6-3/.test(n.label) && opt === 'B' ? '<div class="a7f-note">ผังชี้ไปหน้า 6-3 ซึ่งไม่มีใน Option B — 6.3 รวมเข้า 6.1 ตามเล่ม 4.1 ระบบจึงพาไปหน้า 6-1</div>' : ''}`;
+        return;
+      }
+      const sm = F.statusMeta(n.status);
+      const pr = F.procOf(n.proc) || {};
+      const role = n.role ? F.roleInfo(n.role) : null;
+      const url = n.url ? F.screenUrl(n.url, F.roleForNode(n)) : '';
+      const scr = n.code && D.screens[n.code] ? D.screens[n.code] : null;
+      const sla = n.sla && n.sla !== '-' ? `SLA: ${n.sla}` : '';
+      box.innerHTML = `
+        <div class="d-flex align-items-start gap-2 mb-2"><div class="flex-grow-1"><div class="small text-muted">${esc(pr.id)} · ${esc(pr.name)}</div>
+          <h6 class="fw-bold mb-0" style="color:#082b50">${esc(n.label)}</h6></div><span class="st-pill ${sm.cls}"><i class="fa-solid ${sm.icon}"></i>${sm.label}</span></div>
+        <dl class="a7f-kv">
+          <dt>1. กระบวนการ</dt><dd>${esc(pr.id)} ${esc(pr.name)} · หน้าผัง ${esc(p)}</dd>
+          <dt>2. รหัสขั้น</dt><dd>${esc(n.step || '—')} <small class="text-muted">(โหนด ${esc(n.id)})</small></dd>
+          <dt>3. ชื่อขั้น</dt><dd>${esc(n.label)}${n.stepName && n.stepName !== n.label ? `<br><small class="text-muted">เล่ม 4.1: ${esc(n.stepName)}</small>` : ''}</dd>
+          <dt>4. ผู้รับผิดชอบ</dt><dd>ในผัง: ${esc(n.lane || '—')}${role ? `<br>ในต้นแบบ: <b>${esc(role.title)}</b>${role.login ? ` (${esc(role.login)})` : ''}` : ''}</dd>
+          <dt>5. วัตถุประสงค์</dt><dd>${esc(n.stepName || n.label)}${n.type === 'decision' ? ' — จุดตัดสินใจ' : ''}</dd>
+          <dt>6. ข้อมูลเข้า</dt><dd>${pr.inputs && pr.inputs.length ? '<ul>' + pr.inputs.slice(0, 4).map(x => `<li>${esc(x)}</li>`).join('') + '</ul><small class="text-muted">จาก DFD Level 1 ของ ' + esc(pr.id) + '</small>' : '—'}</dd>
+          <dt>7. สิ่งที่ผู้ใช้ทำ</dt><dd>${esc(n.do || '—')}${n.target ? `<br><span class="badge text-bg-warning">ปุ่ม/ช่อง: ${esc(n.target)}</span>` : ''}</dd>
+          <dt>8. กฎทางธุรกิจ</dt><dd>${(n.rules || []).length || sla ? '<ul>' + (sla ? `<li>${esc(sla)}</li>` : '') + (n.rules || []).map(r => `<li>${esc(F.ruleText(r))}</li>`).join('') + '</ul>' : '—'}</dd>
+          <dt>9. เงื่อนไข</dt><dd>${F.choicesOf(opt, p, nid).length ? '<ul>' + F.choicesOf(opt, p, nid).map(c => `<li><b>${esc(c.label)}</b> → ${esc(c.describe || '')}</li>`).join('') + '</ul>' : 'ไม่มี (ขั้นต่อเนื่อง)'}</dd>
+          <dt>10. ผลที่ได้</dt><dd>${esc(n.result || '—')}</dd>
+          <dt>11. ขั้นถัดไป</dt><dd><ul>${nextStops(opt, p, nid)}</ul></dd>
+          <dt>12. หน้าจอ</dt><dd>${url ? `<code>${esc(n.url)}</code>` : '<span class="text-muted">— ไม่มีหน้าจอในต้นแบบ —</span>'}${scr ? `<br><small>${esc(n.code)} ${esc(scr.name)}</small>` : ''}</dd>
+          <dt>13. ภาพหน้าจอ</dt><dd>${url ? 'กด "ดูตัวอย่างหน้าจอ" (เปิดหน้าจริงแบบอ่านอย่างเดียว ไม่บันทึกข้อมูล)' : '—'}</dd>
+          <dt>14. อ้างอิง</dt><dd>User Flow V1.0.14 Option ${opt} หน้า ${esc(p)} · เล่ม 4.1 หัวข้อ 2.2 ขั้น ${esc(n.step || '—')}${n.code ? ` · บทที่ 4 ${esc(n.code)}` : ''}</dd>
+          <dt>15. สถานะการแมป</dt><dd><span class="st-pill ${sm.cls}">${sm.label}</span> <small class="text-muted">${esc(sm.desc)}</small>${n.case && n.case !== '—' ? `<br>เรื่องตัวอย่าง: <b>${esc(n.case)}</b>${n.caseStatus ? ` <small class="text-muted">(${esc(n.caseStatus)} ณ 22/11/2569)</small>` : ''}` : ''}</dd>
+        </dl>
+        ${n.note ? `<div class="a7f-note"><i class="fa-solid fa-circle-exclamation me-1"></i>${esc(n.note)}</div>` : ''}
+        ${(n.pending || []).length ? `<div class="a7f-note">${(n.pending || []).map(k => esc(F.pendingText(k))).join('<br>')}</div>` : ''}
+        <div class="a7f-actions">
+          ${url ? `<a class="btn btn-navy" href="${esc(url)}" target="_blank" rel="noopener"><i class="fa-solid fa-up-right-from-square me-1"></i>เปิดหน้าจอ</a>
+          <button class="btn btn-outline-secondary" id="btnPreview"><i class="fa-solid fa-eye me-1"></i>ดูตัวอย่างหน้าจอ</button>` : ''}
+          <a class="btn btn-gold" href="flow-guide.html?start=${encodeURIComponent(`${opt}:${p}:${nid}`)}"><i class="fa-solid fa-route me-1"></i>เริ่มคู่มือจากขั้นนี้</a>
+          ${role && role.login ? `<button class="btn btn-outline-secondary" id="btnAsRole"><i class="fa-solid fa-user-gear me-1"></i>สลับเป็น ${esc(role.title.slice(0, 18))}</button>` : ''}
+        </div>`;
+      const pv = $('btnPreview'); if (pv) pv.addEventListener('click', () => openPreview(n, url));
+      const ar = $('btnAsRole'); if (ar) ar.addEventListener('click', () => F.switchRole(n.role, 'flow-to-page'));
+    }
+    function openPreview(n, url) {
+      $('pvTitle').textContent = `${n.label} · ${n.url}`;
+      $('pvOpen').href = url;
+      /* เปิดในกรอบชื่อ a7guide-frame + โหมดสาธิต → หน้าต้นแบบไม่ส่งคำขอเขียนฐานข้อมูล */
+      const s = F.load() || {}; if (!s.mode) { s.mode = 'demo'; F.save(s); }
+      $('pvFrame').src = url;
+      $('preview').hidden = false;
+    }
+    $('pvClose').addEventListener('click', () => { $('preview').hidden = true; $('pvFrame').src = 'about:blank'; });
+    $('preview').addEventListener('click', e => { if (e.target === $('preview')) $('pvClose').click(); });
+
+    /* ---------- กรองตามบทบาท ---------- */
+    function paintRoleFilter() {
+      $('roleFilter').innerHTML = '<option value="">ทุกบทบาท</option>' + F.roles().map(r => `<option value="${r.id}" ${r.id === roleSel ? 'selected' : ''}>${esc(r.title)}</option>`).join('');
+    }
+    function applyRole() {
+      const st = $('stage');
+      st.querySelectorAll('g.node').forEach(g => {
+        const n = F.nodeOf(opt, pid, g.dataset.nid);
+        const hit = !roleSel || (n && (n.role === roleSel || n.laneRole === roleSel));
+        g.classList.toggle('is-dim', !!roleSel && !hit && n && (n.type === 'task' || n.type === 'decision'));
+        g.classList.toggle('is-role', !!roleSel && hit && n && (n.type === 'task' || n.type === 'decision'));
+      });
+      if (roleSel && !selected) showRoleSummary();
+    }
+    function showRoleSummary() {
+      const r = F.roleInfo(roleSel);
+      const rows = [];
+      F.pagesOf(opt).forEach(pg => pg.nodes.forEach(n => {
+        if (n.type !== 'task' || (n.role !== roleSel && n.laneRole !== roleSel)) return;
+        const nx = F.advance(opt, pg.id, n.id, 0);
+        const nn = nx.nid ? F.nodeOf(opt, nx.pid, nx.nid) : null;
+        const hand = nn && nn.role && nn.role !== roleSel ? F.roleInfo(nn.role).title : '';
+        rows.push(`<li><a href="#${pg.proc}/${pg.id}/${n.id}">${esc(n.label)}</a> <small class="text-muted">หน้า ${pg.id}${n.step ? ' · ' + esc(n.step) : ''}</small>${hand ? `<br><small>ส่งต่อ → ${esc(hand)}</small>` : ''}</li>`);
+      }));
+      $('panelBody').innerHTML = `<h6 class="fw-bold" style="color:#082b50">${esc(r.title)}</h6><div class="small text-muted mb-2">${esc(r.name || '')} ${r.login ? '· ' + esc(r.login) : ''}</div>
+        <button class="btn btn-sm btn-navy mb-2" id="btnSwitchR"><i class="fa-solid fa-user-gear me-1"></i>สลับเป็นบัญชีนี้</button>
+        <div class="small fw-bold mb-1">ขั้นของบทบาทนี้ใน Option ${opt} (${rows.length})</div><ul class="small ps-3">${rows.join('') || '<li class="text-muted">ไม่มี</li>'}</ul>`;
+      $('btnSwitchR').addEventListener('click', () => F.switchRole(roleSel, 'role-filter'));
+    }
+    $('roleFilter').addEventListener('change', () => { roleSel = $('roleFilter').value; selected = null; applyRole(); if (!roleSel) $('panelBody').innerHTML = '<div class="a7f-empty">คลิกกล่องในผังเพื่อดูรายละเอียด</div>'; });
+
+    /* ---------- ค้นหา ---------- */
+    $('q').addEventListener('input', () => {
+      const t = $('q').value.trim().toLowerCase();
+      const res = $('qRes');
+      if (t.length < 2) { res.classList.add('d-none'); return; }
+      const hits = [];
+      F.pagesOf(opt).forEach(pg => pg.nodes.forEach(n => {
+        if (n.type !== 'task' && n.type !== 'decision') return;
+        const hay = [n.label, n.step, n.code, n.case, n.url, n.lane, pg.id].join(' ').toLowerCase();
+        if (hay.includes(t)) hits.push({ pg, n });
+      }));
+      res.innerHTML = hits.slice(0, 15).map(h => `<button data-h="${h.pg.proc}/${h.pg.id}/${h.n.id}"><b>${esc(h.n.label)}</b><br><small>หน้า ${h.pg.id} · ${esc(h.n.step || '')} ${h.n.code ? '· ' + esc(h.n.code) : ''} ${h.n.case && h.n.case !== '—' ? '· ' + esc(h.n.case) : ''}</small></button>`).join('') || '<div class="p-2 small text-muted">ไม่พบ</div>';
+      res.classList.remove('d-none');
+    });
+    $('qRes').addEventListener('click', e => { const b = e.target.closest('button[data-h]'); if (!b) return; $('qRes').classList.add('d-none'); location.hash = b.dataset.h; });
+    document.addEventListener('click', e => { if (!e.target.closest('.a7f-search')) $('qRes').classList.add('d-none'); });
+
+    /* ---------- รายงาน ---------- */
+    function renderReport() {
+      const cnt = o => { const c = {}; F.pagesOf(o).forEach(p => p.nodes.forEach(n => { if (n.type === 'task') c[n.status || 'none'] = (c[n.status || 'none'] || 0) + 1; })); return c; };
+      $('repSummary').innerHTML = F.allowedOptions().map(o => { const c = cnt(o); const tot = Object.values(c).reduce((a, b) => a + b, 0);
+        return `<div class="mb-2"><b>Option ${o}</b> · ขั้นงาน ${tot} · ` + ['mapped', 'partial', 'pending', 'missing', 'external'].map(s => `<span class="st-pill ${F.STATUS[s].cls} me-1">${F.STATUS[s].label} ${c[s] || 0}</span>`).join('') + '</div>'; }).join('')
+        + `<div class="small text-muted">ที่มา: ${esc(D.source.userFlow)} · ${esc(D.source.book)} · ${esc(D.source.verified)}</div>`;
+      const rows = D.mappingReport.filter(r => F.allowedOptions().includes(r.option));
+      $('repTable').innerHTML = '<thead><tr><th>Option</th><th>หน้า</th><th>ขั้น</th><th>ประเด็น</th></tr></thead><tbody>'
+        + rows.map(r => `<tr><td>${r.option}</td><td><a href="#P${r.page[0]}/${r.page}/${r.node}" data-o="${r.option}">${r.page}</a></td><td>${esc(r.label)}</td><td>${esc(r.issue)}</td></tr>`).join('') + '</tbody>';
+      $('scrTable').innerHTML = '<thead><tr><th>รหัส</th><th>หน้าจอ</th><th>ไฟล์ต้นแบบ</th><th>บทบาท</th></tr></thead><tbody>'
+        + Object.entries(D.screens).sort().map(([k, v]) => `<tr><td>${k}</td><td>${esc(v.name)}</td><td><a href="${esc(v.path)}" target="_blank" rel="noopener"><code>${esc(v.path)}</code></a></td><td class="small">${esc(v.roles)}</td></tr>`).join('') + '</tbody>';
+    }
+    $('repTable').addEventListener('click', e => { const a = e.target.closest('a[data-o]'); if (a && a.dataset.o !== opt) { opt = a.dataset.o; F.setOption(opt); } });
+    $('dlJson').addEventListener('click', () => F.download('A7-mapping-report.json', new Blob([JSON.stringify({ source: D.source, report: D.mappingReport, screens: D.screens }, null, 2)], { type: 'application/json' })));
+    $('dlMd').addEventListener('click', () => {
+      const md = ['# กิจกรรมที่ 7 · รายงานการแมปขั้นกับหน้าจอ', '', `ที่มา: ${D.source.userFlow} · ${D.source.verified}`, '', '| Option | หน้า | ขั้น | ประเด็น |', '|---|---|---|---|']
+        .concat(D.mappingReport.map(r => `| ${r.option} | ${r.page} | ${r.label.replace(/\|/g, '/')} | ${r.issue.replace(/\|/g, '/')} |`)).join('\n');
+      F.download('A7-mapping-report.md', new Blob([md], { type: 'text/markdown' }));
+    });
+
+    /* ---------- เส้นทาง (deep link) #P3/3-2/p9_t2 · #report ---------- */
+    async function route() {
+      const h = decodeURIComponent(location.hash.replace(/^#/, ''));
+      const qOpt = new URLSearchParams(location.search).get('opt');
+      if (qOpt && F.allowedOptions().includes(qOpt) && qOpt !== opt) { opt = qOpt; F.setOption(opt); }
+      paintOpt();
+      ['viewOverview', 'viewProcess', 'viewReport'].forEach(id => $(id).classList.add('d-none'));
+      if (h === 'report') { view = 'report'; paintTabs(); $('viewReport').classList.remove('d-none'); renderReport(); return; }
+      const m = /^(P\d)(?:\/(\d-\d))?(?:\/([\w-]+))?$/.exec(h);
+      if (!m) { view = 'overview'; paintTabs(); $('viewOverview').classList.remove('d-none'); await renderOverview(); return; }
+      view = 'process'; proc = m[1];
+      const newPid = m[2] || null;
+      const changed = newPid !== pid || !$('stage').querySelector('svg') || $('stage').dataset.opt !== opt;
+      if (newPid) pid = newPid; else pid = null;
+      paintTabs(); paintRoleFilter();
+      $('viewProcess').classList.remove('d-none');
+      if (changed || !m[3]) { await renderProcess(); $('stage').dataset.opt = opt; }
+      selected = m[3] ? { pid, nid: m[3] } : null;
+      if (selected) { showNode(pid, m[3]); setTimeout(markSel, 60); }
+      else if (!roleSel) $('panelBody').innerHTML = '<div class="a7f-empty"><i class="fa-regular fa-hand-pointer fa-2x mb-2 d-block"></i>คลิกกล่องในผังเพื่อดูบทบาท ข้อมูลเข้า-ออก กฎ และหน้าจอของขั้นนั้น</div>';
+    }
+    window.addEventListener('hashchange', route);
+    route();
+  })();
+  </script>
+</body>
+
+</html>

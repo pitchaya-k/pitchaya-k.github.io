@@ -4005,6 +4005,7 @@ function canAccessPage(pageName, roleId){
 function currentRoleId(){ return sessionStorage.getItem('ecmis_role') || 'affairs'; }
 function setRole(id, opts){
   sessionStorage.setItem('ecmis_role', id);
+  noteDemoRoleSwitch(id, 'topbar');
   const r = getRole(id);
   if (r && r.login) {
     sessionStorage.setItem('ecmis_username', r.login);
@@ -4102,6 +4103,67 @@ function assetUrl(relPath) {
 const DEFAULT_SUPABASE_URL = 'https://ljhabbwjxnoucrcrsoii.supabase.co';
 const DEFAULT_SUPABASE_KEY = 'sb_publishable_2Bps-dWMZHz_7cs3BppF6A_ul1_A_xd';
 
+/* ===== Demo Mode (คู่มือเดิน Flow / ผังกระบวนงาน) — ใช้กับต้นแบบเท่านั้น ไม่ใช่การยืนยันตัวตนจริง =====
+   - ?demo_role=<id> : สลับบทบาททันทีโดยไม่ต้องออกจากระบบ (เฉพาะ 10 บทบาทสาธิต)
+   - หน้าที่เปิดในกรอบของ flow-guide.html (window.name = 'a7guide-frame') ในโหมดสาธิต ได้ Supabase client
+     ที่ไม่ส่งคำขอเขียน (POST/PATCH/PUT/DELETE) แต่ตอบกลับเหมือนสำเร็จ และแจ้งกรอบแม่ว่ามีการกดดำเนินการ
+   - สถานะคู่มือเก็บใน localStorage 'ecmis_a7_demo' (ดู assets/a7-flow-common.js) */
+const A7_DEMO_KEY = 'ecmis_a7_demo';
+function readDemoSession(){ try { return JSON.parse(localStorage.getItem(A7_DEMO_KEY) || 'null'); } catch (e) { return null; } }
+function applyDemoRoleParam(){
+  try {
+    const r = new URLSearchParams(location.search).get('demo_role');
+    if (!r || !LOGIN_ALLOWED_ROLE_IDS.includes(r)) return;
+    const ro = getRole(r);
+    sessionStorage.setItem('ecmis_role', r);
+    sessionStorage.setItem('ecmis_username', (ro && ro.login) || r);
+    sessionStorage.setItem('ecmis_authed', '1');
+    noteDemoRoleSwitch(r, 'deep-link');
+  } catch (e) { /* ignore */ }
+}
+function noteDemoRoleSwitch(roleId, via){
+  try {
+    const s = readDemoSession();
+    if (!s || !s.scenario_id || s.active_role === roleId) return;
+    s.active_role = roleId;
+    s.active_account = (getRole(roleId) || {}).login || roleId;
+    (s.workflow_history = s.workflow_history || []).push({ t: new Date().toISOString(), type: 'role-switch', role: roleId, via });
+    localStorage.setItem(A7_DEMO_KEY, JSON.stringify(s));
+  } catch (e) { /* ignore */ }
+}
+function inGuideFrame(){ try { return window.name === 'a7guide-frame' && window.parent !== window; } catch (e) { return false; } }
+function demoReadOnly(){
+  if (!inGuideFrame()) return false;
+  const s = readDemoSession();
+  return !s || s.mode !== 'live';
+}
+function demoGuardFetch(baseFetch){
+  return function (input, init) {
+    const method = String((init && init.method) || (input && input.method) || 'GET').toUpperCase();
+    const url = String((input && input.url) || input || '');
+    const write = /^(POST|PATCH|PUT|DELETE)$/.test(method) && !/\/rpc\//.test(url);
+    if (write && inGuideFrame()) { try { window.parent.postMessage({ type: 'a7-supabase-write', method, url: url.split('?')[0].slice(-60), blocked: demoReadOnly() }, '*'); } catch (e) { /* ignore */ } }
+    if (write && demoReadOnly()) {
+      return Promise.resolve(new Response('[]', { status: 200, headers: { 'Content-Type': 'application/json' } }));
+    }
+    return baseFetch(input, init);
+  };
+}
+function renderDemoGuideChip(){
+  try {
+    if (window.top !== window) return;
+    const s = readDemoSession();
+    if (!s || !s.scenario_id || document.getElementById('a7GuideChip')) return;
+    const a = document.createElement('a');
+    a.id = 'a7GuideChip';
+    a.href = 'flow-guide.html?resume=1';
+    a.className = 'no-print';
+    a.style.cssText = 'position:fixed;left:16px;bottom:16px;z-index:1080;background:#0a2647;color:#fff;border-radius:999px;padding:.4rem .85rem;font:600 .8rem Sarabun,sans-serif;box-shadow:0 6px 18px rgba(8,43,80,.25);text-decoration:none';
+    a.innerHTML = '<i class="fa-solid fa-route me-1"></i>กลับคู่มือเดิน Flow' + (s.scenario_name ? ' · ' + escapeHtml(String(s.scenario_name).slice(0, 40)) : '');
+    document.body.appendChild(a);
+  } catch (e) { /* ignore */ }
+}
+
 function getSupabaseClient(url, key, customOpts) {
   if (window.__ecmisSupabaseClient) {
     return window.__ecmisSupabaseClient;
@@ -4116,6 +4178,9 @@ function getSupabaseClient(url, key, customOpts) {
     }
   };
   const opts = customOpts ? Object.assign({}, defaultOpts, customOpts) : defaultOpts;
+  if (inGuideFrame() && typeof fetch === 'function') {
+    opts.global = Object.assign({}, opts.global || {}, { fetch: demoGuardFetch(fetch.bind(window)) });
+  }
   if (window.supabase && typeof window.supabase.createClient === 'function') {
     window.__ecmisSupabaseClient = window.supabase.createClient(targetUrl, targetKey, opts);
     return window.__ecmisSupabaseClient;
@@ -4753,7 +4818,11 @@ const NAV = [
        ไม่ใช่แค่ฝ่ายปฏิบัติการ (affairs/board_sec) เท่านั้นที่ควรเห็น */
     visible: role => !!role && ['affairs','board_sec','chairman','board','case_admin'].includes(role.id) },
   { href:'dashboard.html',                icon:'fa-chart-pie',        label:'Dashboard สถิติมติ',
-    visible: role => !!role && ['affairs','board_sec','chairman','board','secgen','case_admin'].includes(role.id) }
+    visible: role => !!role && ['affairs','board_sec','chairman','board','secgen','case_admin'].includes(role.id) },
+  /* คู่มือต้นแบบ (Demo Mode เท่านั้น) — ผังกระบวนงานเชื่อมหน้าจอ และคู่มือเดิน Flow ตาม User Flow V1.0.14 */
+  { section:'คู่มือต้นแบบ' },
+  { href:'flow-to-page.html',             icon:'fa-sitemap',          label:'ผังกระบวนงานและหน้าจอ',  visible: role => !!role },
+  { href:'flow-guide.html',               icon:'fa-route',            label:'คู่มือเดิน Flow (สาธิต)', visible: role => !!role }
 ];
 
 /* ไอคอนเมนู sidebar แบบเส้น (stroke) ตามต้นแบบ ก4/ก5 (ecmis-sidebar.js ICONS) — Task 180
@@ -4764,6 +4833,8 @@ const NAV_ICON_SVG = {
   'fa-folder-open': '<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v1H3z"/><path d="M3 10h18l-2 9H5z"/>',
   'fa-hashtag': '<path d="M9 3 7 21M17 3l-2 18M4 8h17M3 16h17"/>',
   'fa-file-circle-plus': '<path d="M5 3h10l4 4v14H5z"/><path d="M14 3v5h5"/><path d="M12 11v6M9 14h6"/>',
+  'fa-sitemap': '<path d="M9 3h6v5H9zM3 16h6v5H3zM15 16h6v5h-6z"/><path d="M12 8v4M6 16v-4h12v4"/>',
+  'fa-route': '<circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.5"/>',
   'fa-scale-balanced': '<path d="M12 3v18M7 21h10M5 7h14"/><path d="m5 7-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/>',
   'fa-file-contract': '<path d="M5 3h10l4 4v14H5z"/><path d="M14 3v5h5M8 12h8M8 16h5"/>',
   'fa-table-list': '<rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M3 14h18M9 9v11"/>',
@@ -4923,6 +4994,7 @@ function handleNotifLinkClick(event, anchor){
 }
 
 function renderShell(activeHref){
+  applyDemoRoleParam();
   if(!isAuthed()){
     location.href = hubLoginHref(location.pathname.replace(/^.*(\/board-resolution\/)/, '$1') + location.search);
     return;
@@ -5042,9 +5114,9 @@ function renderShell(activeHref){
       </div>
 
       <!-- สิทธิ์การทำงาน: ตัวสลับบทบาทแบบ ก4/ก5 (Task 207) -->
-      <label class="a7-role-label d-none d-xl-inline" for="a7RoleSelect">สิทธิ์การทำงาน</label>
+      <label class="a7-role-label d-none d-xl-inline" for="a7RoleSelect" title="เลือกบัญชีเพื่อสลับบทบาทการทำงานทันที โดยไม่ต้องออกจากระบบ (โหมดสาธิต)">สลับบทบาท</label>
       <div class="user-profile">
-        <select class="a7-role-select" id="a7RoleSelect" aria-label="สิทธิ์การทำงาน" title="${role.name} — ${role.title}">${roleOptionsHtml}</select>
+        <select class="a7-role-select" id="a7RoleSelect" aria-label="สลับบทบาท — เลือกบัญชีเพื่อสลับบทบาทการทำงานทันที โดยไม่ต้องออกจากระบบ" title="${role.name} — ${role.title} · เลือกบัญชีเพื่อสลับบทบาททันที โดยไม่ต้องออกจากระบบ">${roleOptionsHtml}</select>
       </div>
     </div>
   </header>`;
@@ -5113,6 +5185,7 @@ function renderShell(activeHref){
   });
   const roleSel = document.getElementById('a7RoleSelect');
   if(roleSel) roleSel.addEventListener('change', () => setRole(roleSel.value, { home: true }));
+  renderDemoGuideChip();
   const tog = document.getElementById('sbToggle');
   if(tog) tog.addEventListener('click', () => document.getElementById('appSidebar').classList.toggle('open'));
   const collapseTog = document.getElementById('sbCollapseToggle');
@@ -9696,6 +9769,7 @@ if (typeof localStorage !== 'undefined') {
   initAuditTrail, initChecklistGatekeeper, initBulkActions, initDragDropUpload,
   initDocPaneToggle, initDocFullscreen, initCardCollapse, initRichTextBox, initDocEditor, renderDocToolbar, renderBackButton,
   initDocPagination, updateDocPaginationUI,
+  readDemoSession, applyDemoRoleParam, noteDemoRoleSwitch, inGuideFrame, demoReadOnly,
 
   getSuggestionsData, saveSuggestionsData, openSuggestionsModal, initWritingSuggestions
 };

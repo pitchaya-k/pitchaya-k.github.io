@@ -161,8 +161,22 @@ Option A/B เป็นสำเนา ไม่ได้เชื่อมอ�
 - API เพิ่ม: `ECMISLiveDoc.mergeBound / cardState / validateForm / fillSample / resetSavedEdit / updateCompleteness`
 - `?v=20261122-livedoc2`
 
+### 5.12 ผังกระบวนงานและหน้าจอ / คู่มือเดิน Flow / สลับบทบาท (เพิ่ม 22/11/2569)
+รายละเอียดการใช้งานดู README หัวข้อ 14
+- **ไฟล์ใหม่:** `flow-to-page.html`, `flow-guide.html`, `assets/a7-flow-data.js` (สร้างอัตโนมัติ ห้ามแก้มือ), `assets/a7-flow-common.js`, `assets/a7-flow.css`, `scripts/flow-data/` (ตัวสร้างข้อมูล), `tests/flow/` (สคริปต์ทดสอบ), `docs/A7-flow-mapping-report.md`
+- **แก้ `assets/ecmis-app.js`** (เฉพาะโหมดสาธิต): เมนู "คู่มือต้นแบบ" 2 รายการ + ไอคอน · ป้าย "สลับบทบาท" · `applyDemoRoleParam()` รับ `?demo_role=` · `noteDemoRoleSwitch()` บันทึกการสลับลง demo session · `getSupabaseClient()` ใส่ fetch กันการเขียนเมื่ออยู่ในกรอบคู่มือ (`window.name === 'a7guide-frame'`) และโหมดไม่ใช่ live · `renderDemoGuideChip()` ปุ่มกลับคู่มือ — ไม่แตะ STATUS / TRANSITIONS / สิทธิ์หน้า
+- **เพิ่มขั้น/แก้การแมป:** แก้ `scripts/flow-data/node_map.py` แล้วสร้าง `assets/a7-flow-data.js` ใหม่ (scripts/flow-data/README.md) · ปุ่มที่ต้องการให้คู่มือหาแน่นอน ใส่ `data-guide-id="<ข้อความ target>"` ที่ปุ่มนั้น (คู่มือหา data-guide-id ก่อน แล้วจึงหาจากข้อความ)
+- **ผังไม่ใช้รูปวาดเอง:** สร้างด้วย Mermaid 10.9.1 (vendor) จากโหนด/เส้นของ drawio · PNG ส่งออกด้วยป้ายแบบ SVG (ไม่ใช้ foreignObject) เพื่อให้ canvas ส่งออกได้
+- **ผลทดสอบ 22/11/2569** (Playwright + Edge, บล็อกการเขียน Supabase อีกชั้นที่ระดับเครือข่าย):
+  - `tests/flow/test_ftp.py` ภาพรวม 8 กระบวนการ · ผังรายหน้า · แผงรายละเอียด 15 รายการ · ไฮไลต์เส้นทาง · กรองบทบาท · ค้นหา · ดูตัวอย่างหน้าจอด้วยบทบาทที่ถูกต้อง · รายงาน · Option A · มือถือไม่ล้น — ไม่มี error
+  - `tests/flow/test_guide.py` เริ่มสถานการณ์ → ไฮไลต์ลิงก์ในแถวเรื่องตัวอย่าง → กดแล้วนับว่าทำจริง → จุดตัดสินใจ → ส่งต่องานเลขาธิการฯ→ประธานฯ → สลับบทบาทผิดขึ้นเตือนและไม่นับ → กลับบทบาท → ย้อนกลับ → ลิงก์ลึกจากผัง → Option A → จบเส้นทางและเล่นทางอื่น — คำขอเขียนที่หลุดถึงเครือข่าย **0** · ปุ่มดำเนินการอื่นในโหมดสาธิตถูกปิด
+  - `tests/flow/test_optflow.py` โฟลเดอร์ Option A/B เลือก Option ได้เฉพาะของตัวเอง สถานการณ์ 7/9 เมนูถูกต้อง
+  - `tests/flow/verify_walk.py` ตรวจซ้ำ 66 ขั้นของต้นแบบหลังแก้ ecmis-app.js: ผ่าน 65 · ตรวจจากโค้ด 1 (เท่าเดิม)
+  - ข้อจำกัด: ไม่ได้ทดสอบโหมด "บันทึกจริง" (จะเขียนฐานข้อมูลร่วม) · ไม่ได้ตรวจ PNG ที่ส่งออกด้วยตา
+- `?v=` ของ ecmis-app.js ทุกหน้า = `20261122-flow1`
+
 ### 5.10 ค่า `?v=` ล่าสุด
-`ecmis-app.js` และ `a7-option.js` ใช้ `?v=20261121-a7-inq64` (ทุกหน้า ทั้งรากและ Option A/B) · `saraban-docs.js`, `saraban-no.js`, `report-export.js`, `case-summary-*.js` ใช้ `?v=20261121-a7-saraban`
+`ecmis-app.js` ใช้ `?v=20261122-flow1` · `a7-option.js` ใช้ `?v=20261121-a7-inq64` (ทุกหน้า ทั้งรากและ Option A/B) · `saraban-docs.js`, `saraban-no.js`, `report-export.js`, `case-summary-*.js` ใช้ `?v=20261121-a7-saraban`
 
 ---
 
