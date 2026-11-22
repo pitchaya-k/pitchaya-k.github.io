@@ -58,9 +58,40 @@
 @keyframes ldFlash { 0% { background-color: #ffe08a; box-shadow: 0 0 0 3px rgba(245, 159, 0, .55); } 100% { box-shadow: 0 0 0 0 rgba(245, 159, 0, 0); } }
 @media (prefers-reduced-motion: reduce) { .ld-flash { animation: none; } }
 
+/* ---- ตาม sample-livedoc (22/11/2569): ป้ายความครบ / แถบเครื่องมือฟอร์ม / เมนูกระโดด / ป้ายบันทึก ---- */
+.ws-card > .card-header > .ld-badge { margin-left: auto; flex: 0 0 auto; }
+.ws-card > .card-header.card-collapsible > .ld-badge { margin-right: .8rem; }
+.ws-card > .card-header > .ld-badge::after {
+  content: attr(data-label); display: inline-block; padding: .08rem .5rem; border-radius: 999px; border: 1px solid #cfd8e2;
+  background: #f4f6f9; color: #52657a; font: 600 .7rem/1.5 'Sarabun', sans-serif; white-space: nowrap;
+}
+.ws-card > .card-header > .ld-badge[data-state="complete"]::after { background: #ecfdf5; color: #047857; border-color: #6ee7b7; }
+.ws-card > .card-header > .ld-badge[data-state="partial"]::after { background: #fffbeb; color: #b45309; border-color: #fde68a; }
+.ws-card > .card-header > .ld-badge[data-state="empty"]::after { background: #fef2f2; color: #b91c1c; border-color: #fca5a5; }
+.ws-card > .card-header > .ld-badge[data-state="system"]::after,
+.ws-card > .card-header > .ld-badge[data-state="readonly"]::after { background: #eef3f8; color: #44586c; border-color: #c9d3dd; }
+.ld-form-tools {
+  display: flex; align-items: center; flex-wrap: wrap; gap: .4rem .5rem; margin: 0 0 .75rem; padding: .45rem .7rem;
+  border: 1px solid #dfe6eb; border-left: 4px solid #c9a227; border-radius: 10px; background: #fff; font-size: .8rem; color: #34465a;
+}
+.ld-form-tools[data-state="complete"] { border-left-color: #22a06b; }
+.ld-form-tools .ld-ft-msg { display: inline-flex; align-items: center; gap: .4rem; margin-right: auto; }
+.ld-form-tools .ld-ft-msg i { color: #7890a5; }
+.ld-form-tools .btn { font-size: .75rem; padding: .18rem .55rem; }
+.ld-doc-jump { width: auto; max-width: 15rem; font-size: .76rem; padding-top: .15rem; padding-bottom: .15rem; }
+.ld-sync-bar { flex-wrap: wrap; }
+.ld-sync-bar > span:not(.ld-edit-note) { flex: 1 1 0; min-width: 0; }
+.ld-sync-bar .ld-edit-note { display: flex; flex-basis: 100%; justify-content: flex-end; align-items: center; gap: .35rem; color: #7a4b00; }
+.ld-sync-bar .ld-reset-edit { border: 1px solid #d9b96a; background: #fff8e5; color: #7a4b00; border-radius: 6px; padding: 0 .45rem; font-size: .72rem; cursor: pointer; }
+.ld-sync-bar .ld-reset-edit:hover { background: #fdefc4; }
+.doc-edit-bar .ld-save-chip { display: inline-flex; align-items: center; gap: .3rem; padding: 0 .5rem; border-radius: 999px; font-size: .72rem; white-space: nowrap; background: #eef3f8; color: #44586c; }
+.doc-edit-bar .ld-save-chip[data-state="dirty"] { background: #fffbeb; color: #b45309; }
+.doc-edit-bar .ld-save-chip[data-state="saved"] { background: #ecfdf5; color: #047857; }
+.is-invalid-ecmis { border-color: #db2626 !important; box-shadow: 0 0 0 .15rem rgba(219, 38, 38, .15) !important; }
+
 /* ---- พิมพ์ / ส่งออก: ไม่แสดงเส้นประและตัวช่วย ---- */
 @media print {
-  .ld-divider, .ld-sync-bar { display: none !important; }
+  .ld-divider, .ld-sync-bar, .ld-form-tools, .ld-doc-jump, .ld-badge { display: none !important; }
   .ws-doc-pane .ld-bind { background: none !important; border: 0 !important; box-shadow: none !important; }
   .ws-doc-pane .ld-bind:empty::before { content: none !important; }
 }
