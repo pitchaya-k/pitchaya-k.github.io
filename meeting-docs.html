@@ -461,7 +461,7 @@
 
         const openLine = `ด้วยคณะกรรมการ ป.ป.ท. ได้มีมติให้มีการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meeting.trc_name)}
         ในวันที่ ${M(meetDate)} เวลา ${M(meetTime, '……… น.', 'meetTime')} เป็นต้นไป โดยเป็นการประชุม
-        ณ ${M(meetPlace, 'ห้องประชุมสำนักงาน ป.ป.ท.', 'meetPlace')}`;
+        ณ ${M(meetPlace, 'ห้องประชุมสำนักงาน ป.ป.ท.', 'meetPlace')} และชี้แจงผ่านสื่ออิเล็กทรอนิกส์ (Web Conference)`;
 
         const runningHeader = subjectLine => pageNo => `
       <div class="doc-run-title">${subjectLine} (ต่อ)</div>
@@ -473,6 +473,7 @@
           const dayName = ECMIS.thaiDayName ? ECMIS.thaiDayName(meeting.trc_date) : '';
           const introBlock = `
       ${secretLine}
+      <div style="text-align:right;font-size:.9rem">ออกระเบียบวาระ วันที่ ${M(ECMIS.thaiDate(new Date().toISOString().slice(0,10).replace(/^(\d{4})/, y => String(+y + 543))))} เวลา ${M(new Date().toTimeString().slice(0,5).replace(':', '.'))} น.${items.length ? ` (วาระ ${M(items[0].trci_number)}–${M(items[items.length - 1].trci_number)})` : ''}</div>
       <div class="doc-title" style="margin-bottom:0">ระเบียบวาระ</div>
       <div class="doc-sub" style="margin-bottom:0">การประชุมคณะกรรมการ ป.ป.ท.</div>
       <div class="doc-sub" style="margin-bottom:0">ครั้งที่ ${M(meeting.trc_name)}</div>
@@ -487,15 +488,27 @@
         (การชี้แจงผ่านระบบ Web Conference) โดย ผู้อำนวยการกอง/เขต ......................</div>
       <div class="doc-h">ระเบียบวาระที่ 4&emsp;เรื่องสืบเนื่องจากการประชุม</div>
       <div class="doc-h">ระเบียบวาระที่ 5&emsp;เรื่องเสนอให้ที่ประชุมพิจารณา</div>`;
-          const flowBlocks = items.length ? items.map(it => `
-        <div style="margin-top:6px">
-          <div class="doc-row"><span class="k">วาระที่ ${M(it.trci_number)}</span> ${M(it.trci_topic)}</div>
-          <div style="padding-left:2em">
-            <div class="doc-row"><span class="k">หมวดหมู่</span> ${M(AR.CATEGORY_LABEL[it.category])}</div>
-            <div class="doc-row"><span class="k">เลขที่เรื่อง</span> ${M(ECMIS.caseRefText(it.case_ref, 'full'), '-')}</div>
-            <div class="doc-row"><span class="k">สถานะ/หมายเหตุ</span> ${M(it.remark, '-')}</div>
-          </div>
-        </div>`) : [`<div class="text-muted" style="margin-top:8px">— ไม่มีวาระในการประชุมครั้งนี้ —</div>`];
+          /* รูปแบบรายการตามระเบียบวาระจริงของลูกค้า (ครั้งที่ 39/2569):
+             เลขวาระ ชื่อเรื่อง เรื่องที่ … (ครบกำหนดอายุความ…) (ผ่านการพิจารณาของคณะอนุกรรมการกลั่นกรองฯ)
+             (การชี้แจงผ่านระบบ Web Conference) โดย ชื่อ ตำแหน่ง สังกัด — เรื่องชุดแนบบัญชีแนบ */
+          const flowBlocks = items.length ? items.map(it => {
+            const refs = itemCaseRefs(it);
+            const bundled = AR.isBundled(it);
+            const oo = AR.getOwnerOrg(it.trci_id) || {};
+            const by = (it.presenters && it.presenters.length) ? it.presenters.join(', ') : [oo.owner, oo.org].filter(Boolean).join(' ');
+            const passedSub = (it.qualifiers || []).some(q => q.group === 'subcommittee_stance') || /กลั่นกรอง/.test(it.remark || '');
+            const caseText = bundled
+              ? ` จำนวน ${M(String((it.caseDetails && it.caseDetails.length) || refs.length))} เรื่อง รายละเอียดตามบัญชีแนบ`
+              : (refs.length ? ` เรื่องที่ ${M(ECMIS.caseRefText(it.case_ref, 'full'))}` : '');
+            const due = it.category === 'finding' ? ` (ครบกำหนดอายุความวันที่ ${M(it.prescription_date, '', 'prescription_' + it.trci_id)})`
+              : (it.category === 'preliminary' && !bundled ? ` (ครบกำหนดอายุความเดือน ${M(it.prescription_date, '', 'prescription_' + it.trci_id)})` : '');
+            return `
+        <div class="doc-indent" style="margin-top:6px;text-indent:-2.5em;padding-left:2.5em">
+          ${M(it.trci_number)}&emsp;${M(it.trci_topic)}${caseText}${due}${passedSub ? ' (ผ่านการพิจารณาของคณะอนุกรรมการกลั่นกรองฯ)' : ''}
+          (การชี้แจงผ่านระบบ Web Conference) โดย ${M(by, '', 'presenter_' + it.trci_id)}
+          ${bundled && AR.renderCaseSchedule ? AR.renderCaseSchedule(it) : ''}
+        </div>`;
+          }) : [`<div class="text-muted" style="margin-top:8px">— ไม่มีวาระในการประชุมครั้งนี้ —</div>`];
           const signBlock = `
       <div class="doc-h" style="margin-top:16px">ระเบียบวาระที่ 6&emsp;เรื่องอื่น ๆ</div>
       <div class="doc-indent" style="text-indent:2em">พิจารณากำหนดวัน เวลา ในการประชุมครั้งต่อไป</div>
@@ -510,14 +523,15 @@
           const subject = `การเสนอระเบียบวาระการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meeting.trc_name)}`;
           const introBlock = `
       ${memoHead('กลุ่มงานคำวินิจฉัยและมติคณะกรรมการ กองบริหารคดี', subject)}
-      <div class="doc-memo-hdr" style="margin-top:6px"><span class="doc-memo-lbl">เรียน</span> กบค.กลุ่มงานบริหารคดีและบริหารทั่วไป</div>`;
+      <div class="doc-memo-hdr" style="margin-top:6px"><span class="doc-memo-lbl">เรียน</span> ผู้อำนวยการกองบริหารคดี</div>`;
           const flowBlocks = [
             `<div class="doc-indent" style="margin-top:10px">
         ${openLine} โดยมีระเบียบวาระเพื่อพิจารณารวม <strong>${itemCountTh}</strong> เรื่อง
       </div>`,
             `<div class="doc-indent" style="margin-top:8px">
-        ในการนี้ เพื่อให้เป็นไปตามระเบียบคณะกรรมการป้องกันและปราบปรามการทุจริตในภาครัฐ ว่าด้วยการประชุมคณะกรรมการ ป.ป.ท.
-        และที่แก้ไขเพิ่มเติม กองบริหารคดีจึงขอเสนอระเบียบวาระการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meeting.trc_name)}
+        ในการนี้ เพื่อให้เป็นไปตามระเบียบคณะกรรมการป้องกันและปราบปรามการทุจริตในภาครัฐ ว่าด้วยการประชุมคณะกรรมการ ป.ป.ท. พ.ศ. ๒๕๕๔
+        และที่แก้ไขเพิ่มเติม ประกอบมติการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ๘๒/๒๕๖๐ ระเบียบวาระที่ ๖.๒ เรื่องกำหนดหลักเกณฑ์การบรรจุเรื่องเข้าวาระการประชุมคณะกรรมการ ป.ป.ท.
+        ซึ่งเป็นไปตามแนวทางที่คณะกรรมการ ป.ป.ท. กำหนด กองบริหารคดีจึงขอเสนอระเบียบวาระการประชุมคณะกรรมการ ป.ป.ท. ครั้งที่ ${M(meeting.trc_name)}
         ในวันที่ ${M(meetDate)} เวลา ${M(meetTime, '……… น.', 'meetTime')} รายละเอียดปรากฏตามระเบียบวาระการประชุมที่แนบมาพร้อมนี้
       </div>`
           ];
@@ -527,7 +541,7 @@
         <span class="doc-dots"></span><br>(${M(signerName, '', 'signerName')})<br>${M(signerTitle, '', 'signerTitle')}
       </div>
       <div class="doc-row" style="margin-top:20px;font-size:.85rem;color:#666">
-        → เรียน เลขาธิการคณะกรรมการ ป.ป.ท. เพื่อโปรดพิจารณาให้ความเห็นชอบระเบียบวาระการประชุมข้างต้น
+        → เรียน เลขาธิการคณะกรรมการ ป.ป.ท. เพื่อโปรดพิจารณาให้ความเห็นชอบระเบียบวาระการประชุมข้างต้น ทั้งนี้ กบค. ได้ดำเนินการตามแนวทางและหลักเกณฑ์การบรรจุเรื่องเข้าวาระการประชุมฯ ที่คณะกรรมการ ป.ป.ท. กำหนดเรียบร้อยแล้ว
       </div>`;
           ECMIS.paginateDoc(docPaperEl, { introBlock, flowBlocks, signBlock, runningHeaderHtml: runningHeader(subject) });
 
@@ -538,7 +552,6 @@
       ${memoHead('กองบริหารคดี กลุ่มงานคำวินิจฉัยและมติคณะกรรมการ', subject)}
       <div class="doc-memo-hdr" style="margin-top:6px"><span class="doc-memo-lbl">เรียน</span></div>`;
           const flowBlocks = [
-            ...BOARD_ROSTER.map(r => `<div class="doc-row" style="padding:.15rem 0"><span class="k" style="min-width:9rem">${M(r.n)}</span>${r.t}</div>`),
             `<div class="doc-indent" style="margin-top:10px">${openLine}</div>`,
             `<div class="doc-indent" style="margin-top:8px">
         กองบริหารคดีได้จัดทำระเบียบวาระการประชุมและเอกสารประกอบการประชุมดังกล่าวเสร็จเรียบร้อยแล้ว
@@ -552,7 +565,9 @@
       <div class="doc-indent" style="margin-top:8px">จึงเรียนมาเพื่อโปรดพิจารณา และขอเรียนเชิญเข้าร่วมประชุมตามวัน และเวลาดังกล่าว</div>
       <div class="doc-sign">
         <span class="doc-dots"></span><br>(${M(signerName, '', 'signerName')})<br>${M(signerTitle, '', 'signerTitle')}
-      </div>`;
+      </div>
+      <div class="doc-h" style="margin-top:18px">สำเนาแนบท้าย</div>
+      ${BOARD_ROSTER.map(r => `<div class="doc-row" style="padding:.15rem 0"><span class="k" style="min-width:3rem">เรียน</span><span style="min-width:14rem;display:inline-block">${M(r.n)}</span>${r.t}</div>`).join('')}`;
           ECMIS.paginateDoc(docPaperEl, { introBlock, flowBlocks, signBlock, runningHeaderHtml: runningHeader(subject) });
 
         } else if (docTab === 'invite-pacc') {
@@ -612,7 +627,7 @@
       <div class="doc-memo-hdr" style="margin-top:6px"><span class="doc-memo-lbl">เรียน</span> ผู้อำนวยการศูนย์เทคโนโลยีสารสนเทศและการสื่อสาร</div>`;
           const flowBlocks = [
             `<div class="doc-indent" style="margin-top:10px">
-        ${openLine} โดยเป็นการประชุมผ่านสื่ออิเล็กทรอนิกส์และชี้แจงผ่านระบบ (Web Conference) ทั้งนี้ เพื่อเป็นการลด
+        ${openLine} ทั้งนี้ เพื่อเป็นการลด
         ภาระค่าใช้จ่ายในการเดินทาง เพิ่มประสิทธิภาพในการบริหารจัดการคดี เป็นประโยชน์แก่ราชการ และสอดคล้องกับสถานการณ์ในปัจจุบัน
       </div>`,
             `<div class="doc-indent" style="margin-top:8px">
