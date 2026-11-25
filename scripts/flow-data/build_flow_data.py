@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """สร้าง assets/a7-flow-data.js — แหล่งข้อมูลเดียวของ Flow to Page และ Flow Guide
-ที่มา: User Flow V1.0.14 Option A/B (drawio) · เล่ม 4.1 Option B 22/11/2569 (ตาราง 2.2, DFD L1, ประเด็นรอยืนยัน, ข้อกำหนด R, รหัสหน้าจอบทที่ 4)
+ที่มา: User Flow V1.0.14 Option B (drawio) · เล่ม 4.1 Option B 22/11/2569 (ตาราง 2.2, DFD L1, ประเด็นรอยืนยัน, ข้อกำหนด R, รหัสหน้าจอบทที่ 4)
       · ผลตรวจต้นแบบ 22/11/2569 (node_map.py)"""
 import json, os, re, sys
 from pathlib import Path
 HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE))
-from node_map import M, MA, NOTE_PREFIXES, LANE_ROLE, EXTERNAL_HINTS
+from node_map import M, NOTE_PREFIXES, LANE_ROLE, EXTERNAL_HINTS
 
 uf = json.loads(Path(os.environ.get('A7_USERFLOW_JSON', HERE / 'userflow.json')).read_text(encoding='utf-8'))
 book = Path(os.environ.get('A7_BOOK_MD', HERE.parent / 'doc' / 'book41B.md')).read_text(encoding='utf-8').splitlines()
@@ -102,30 +102,12 @@ def lane_role(name):
     for k, r in LANE_ROLE:
         if k in name: return r
     return 'any'
-norm = lambda s: re.sub(r'\s+', '', s or '')
 
 # ---------- รวมผัง + แมปหน้าจอ ----------
-by_label_B = {}
-for p in uf['B']:
-    for n in p['nodes']:
-        if n['id'] in M:
-            by_label_B.setdefault((p['id'], norm(n['label'])), n['id'])      # หน้าเดียวกันก่อน
-            by_label_B.setdefault((p['id'][0], norm(n['label'])), n['id'])   # แล้วจึงกระบวนการเดียวกัน
-import difflib
-def fuzzy_B(proc, n):
-    """Option A ใช้ชื่อโหนดต่างจาก B เล็กน้อย — จับคู่โหนดชนิดเดียวกันในกระบวนการเดียวกันที่ชื่อคล้ายที่สุด (≥ 0.6)"""
-    if n['type'] not in ('task', 'decision'): return None
-    best, score = None, 0.0
-    for p in uf['B']:
-        if p['id'][0] != proc: continue
-        for m in p['nodes']:
-            if m['id'] not in M or m['type'] != n['type']: continue
-            s = difflib.SequenceMatcher(None, norm(n['label']), norm(m['label'])).ratio()
-            if s > score: best, score = m['id'], s
-    return best if score >= 0.6 else None
+OPTIONS = 'B'  # ใช้ Option B เป็นโครงหลัก (ตัด Option A ออกแล้ว 25/11/2569)
 pages_out = {}
 report = []
-for opt in 'AB':
+for opt in OPTIONS:
     pages = []
     for p in uf[opt]:
         lanes = {l['id']: l['name'] for l in p['lanes']}
@@ -134,11 +116,7 @@ for opt in 'AB':
             if n['type'] == 'task' and any(n['label'].startswith(x) for x in NOTE_PREFIXES):
                 n = dict(n, type='note')
             node = {'id': n['id'], 'type': n['type'], 'label': n['label'], 'lane': lanes.get(n['lane'], ''), 'laneRole': lane_role(lanes.get(n['lane'], ''))}
-            ma = MA.get(f"{p['id']}:{n['id']}") if opt == 'A' else None
-            if isinstance(ma, dict): key, mp = f"A:{p['id']}:{n['id']}", ma
-            else:
-                key = n['id'] if opt == 'B' else (ma or by_label_B.get((p['id'], norm(n['label']))) or by_label_B.get((p['id'][0], norm(n['label']))) or fuzzy_B(p['id'][0], n))
-                mp = M.get(key) if key else None
+            mp = M.get(n['id'])
             if n['type'] in ('task', 'decision'):
                 if any(h in n['label'] for h in EXTERNAL_HINTS) and not mp:
                     mp = dict(step='', role='owner', url='', code='', status='external', case='—', do='ทำในระบบกระบวนการดำเนินงานเรื่องร้องเรียนกล่าวหา (นอกระบบนี้)', target='', result='', note='')
@@ -152,7 +130,7 @@ for opt in 'AB':
                         'stepName': tbl.get('name', ''), 'owner': tbl.get('owner', ''), 'sla': tbl.get('sla', ''),
                         'rules': [r for r in pick(R_BY_STEP, st) if r in RULES],
                         'pending': [k for k in pick(K_BY_STEP, st) if k in PENDING],
-                        'mappedFrom': key if opt == 'A' else None, 'proc': 'P' + proc,
+                        'proc': 'P' + proc,
                     })
                 else:
                     node.update({'status': 'missing', 'proc': 'P' + p['id'][0], 'note': 'ไม่พบการแมปกับหน้าจอ (Missing Mapping)'})
@@ -164,7 +142,7 @@ for opt in 'AB':
 
 # ---------- ปลายทางตัวเชื่อม "ไป x-x" ที่ไม่มีหน้า ----------
 ALIASES = {'6-3': '6-1'}
-for opt in 'AB':
+for opt in OPTIONS:
     ids = {p['id'] for p in pages_out[opt]}
     for p in pages_out[opt]:
         for n in p['nodes']:
@@ -175,7 +153,7 @@ for opt in 'AB':
                                        'issue': f'ตัวเชื่อมชี้ไปหน้า {t} ที่ไม่มีใน Option {opt}' + (f' — ใช้หน้า {ALIASES[t]} แทน (6.3 รวมเข้า 6.1 ตามเล่ม 4.1)' if t in ALIASES and ALIASES[t] in ids else '')})
 
 # ---------- รายงานหน้าจอ mapping สถานะ ----------
-for opt in 'AB':
+for opt in OPTIONS:
     for p in pages_out[opt]:
         for n in p['nodes']:
             if n.get('status') in ('partial', 'pending', 'missing', 'external') and n['type'] in ('task', 'decision') and n.get('note'):
@@ -183,38 +161,36 @@ for opt in 'AB':
 
 # ---------- สถานการณ์จำลอง (เส้นทางผ่านผังจริง + คำตอบตั้งต้นของจุดตัดสินใจ) ----------
 SCEN = [
-    dict(id='S71-normal', name='7.1 ไต่สวนเบื้องต้น · เส้นทางปกติ (สำนวนกองปราบ · รับไว้ไต่สวน)', line='7.1', option='AB', start=('1-1', 'p1_t1'),
+    dict(id='S71-normal', name='7.1 ไต่สวนเบื้องต้น · เส้นทางปกติ (สำนวนกองปราบ · รับไว้ไต่สวน)', line='7.1', option='B', start=('1-1', 'p1_t1'),
          objective='เดินสำนวนไต่สวนเบื้องต้นตั้งแต่รับเรื่องจนออกคำสั่งแต่งตั้งผู้ไต่สวน',
          outcome='คำสั่งแต่งตั้งผู้ไต่สวนลงนามแล้ว และส่งหนังสือแจ้งหน่วยงาน',
          choices={'p1_g1': 'ครบ', 'p1_g2': 'ไม่', 'p2_g1': 'ไม่', 'p2_g2': 'ไม่', 'p2_g3': 'ใช่', 'p10_g1': 'ใช่', 'p17_g1': 'ไม่',
-                  'p20_p1': 0, 'p21_g1': 'ไม่', 'p21_g2': 'ใช่', 'p22_g1': 'ใช่'},
-         choicesA={'p12_g1': 'ไม่', 'p14_g1': 'รับไว้ไต่สวน หรือไม่ชี้มูล'}),
-    dict(id='S71-complex', name='7.1 ไต่สวนเบื้องต้น · สำนวนซับซ้อน (ผ่านคณะอนุสนับสนุนฯ)', line='7.1', option='AB', start=('1-2', 'p2_t1'),
+                  'p20_p1': 0, 'p21_g1': 'ไม่', 'p21_g2': 'ใช่', 'p22_g1': 'ใช่'}),
+    dict(id='S71-complex', name='7.1 ไต่สวนเบื้องต้น · สำนวนซับซ้อน (ผ่านคณะอนุสนับสนุนฯ)', line='7.1', option='B', start=('1-2', 'p2_t1'),
          objective='เลขาธิการฯ ชี้ว่าซับซ้อน ผอ.กบค. มอบหมายคณะอนุสนับสนุนฯ แล้วกลับมาลงนาม',
          outcome='สำนวนผ่านความเห็นคณะอนุสนับสนุนฯ แล้วเข้าสู่การกลั่นกรองก่อนเสนอคณะกรรมการ',
          choices={'p2_g1': 'ใช่', 'p2_g3': 'ไม่', 'p10_g1': 'ไม่'}, stop_at_page='4-1'),
-    dict(id='S71-urgent', name='7.1 ไต่สวนเบื้องต้น · มีใบด่วน (วาระด่วน)', line='7.1', option='AB', start=('1-1', 'p1_t1'),
+    dict(id='S71-urgent', name='7.1 ไต่สวนเบื้องต้น · มีใบด่วน (วาระด่วน)', line='7.1', option='B', start=('1-1', 'p1_t1'),
          objective='เรื่องที่แนบใบด่วน ผ่าน ผอ.กบค. รับรอง แล้วเลขาธิการฯ ยืนยันเข้าวาระด่วน',
          outcome='เรื่องเข้าบรรจุวาระด่วน', choices={'p1_g1': 'ครบ', 'p1_g2': 'ใช่'}, stop_at_page='4-2'),
-    dict(id='S71-reject', name='7.1 ไต่สวนเบื้องต้น · สำนวนไม่ครบ (ปฏิเสธการรับ)', line='7.1', option='AB', start=('1-1', 'p1_t1'),
+    dict(id='S71-reject', name='7.1 ไต่สวนเบื้องต้น · สำนวนไม่ครบ (ปฏิเสธการรับ)', line='7.1', option='B', start=('1-1', 'p1_t1'),
          objective='สำนวนไม่ครบ เลขาธิการฯ ปฏิเสธการรับพร้อมหมายเหตุ', outcome='เรื่องคืนผู้รับผิดชอบสำนวน (สิ้นสุดในระบบนี้)', choices={'p1_g1': 'ไม่ครบ'}),
-    dict(id='S72-normal', name='7.2 วินิจฉัยชี้มูล · ไม่ซับซ้อน · ชี้มูลสายอาญาและวินัย', line='7.2', option='AB', start=('1-3', 'p3_t1'),
+    dict(id='S72-normal', name='7.2 วินิจฉัยชี้มูล · ไม่ซับซ้อน · ชี้มูลสายอาญาและวินัย', line='7.2', option='B', start=('1-3', 'p3_t1'),
          objective='เดินสำนวนวินิจฉัยชี้มูลจนจัดทำรายงานและหนังสือลงโทษทางวินัย',
          outcome='รายงานวินิจฉัยชี้มูลลงนาม ส่งดำเนินคดีอาญา และส่งหนังสือลงโทษทางวินัย',
          choices={'p3_g1': 'ครบ', 'p3_g2': 'ไม่', 'p4_g1': 'ไม่', 'p4_g2': 'ไม่', 'p8_g1': 'ไม่', 'p17_g1': 'ไม่', 'p20_p1': 0,
-                  'p21_g1': 'ใช่', 'p25_g1': 'ใช่'},
-         choicesA={'p12_g1': 'ไม่', 'p14_g1': 'ชี้มูล'}),
-    dict(id='S72-complex', name='7.2 วินิจฉัยชี้มูล · ประธานฯ คัดกรองว่าซับซ้อน (ผ่านคณะอนุกลั่นกรองฯ)', line='7.2', option='AB', start=('3-1', 'p8_t1'),
+                  'p21_g1': 'ใช่', 'p25_g1': 'ใช่'}),
+    dict(id='S72-complex', name='7.2 วินิจฉัยชี้มูล · ประธานฯ คัดกรองว่าซับซ้อน (ผ่านคณะอนุกลั่นกรองฯ)', line='7.2', option='B', start=('3-1', 'p8_t1'),
          objective='ประธานฯ คัดกรองว่าซับซ้อน ส่งคณะอนุกลั่นกรองฯ พิจารณาเสนอมติ', outcome='เรื่องพร้อมบรรจุวาระ',
          choices={'p8_g1': 'ใช่', 'p10_g1': 'ไม่'}, stop_at_page='4-1'),
     dict(id='S73-agenda', name='7.3 เรื่องทั่วไป · เสนอคณะกรรมการ แล้วจัดทำรายงานการไต่สวนเพิ่มเติม', line='7.3', option='B', start=('1-5', 'p5_t1'),
          objective='เรื่องทั่วไปผ่านเลขาธิการฯ ประธานฯ บรรจุวาระ คณะกรรมการมีมติ แล้วจัดทำรายงานการไต่สวนเพิ่มเติม (6.4)',
          outcome='ส่งรายงานการไต่สวนเพิ่มเติมให้ผู้รับผิดชอบสำนวน',
          choices={'p5_g1': 'ครบ', 'p5_g2': 'ไม่', 'p11_g1': 'ไม่', 'p17_g1': 'ไม่', 'p20_p1': 0, 'p21_g1': 'ไม่', 'p21_g2': 'ไม่', '__multi': '6-4'}),
-    dict(id='S73-assign', name='7.3 เรื่องทั่วไป · ประธานฯ มอบหมาย/สั่งการหน่วยงาน', line='7.3', option='AB', start=('1-5', 'p5_t1'),
+    dict(id='S73-assign', name='7.3 เรื่องทั่วไป · ประธานฯ มอบหมาย/สั่งการหน่วยงาน', line='7.3', option='B', start=('1-5', 'p5_t1'),
          objective='ประธานฯ มอบหมายหน่วยงานที่เกี่ยวข้องโดยไม่บรรจุวาระ', outcome='สิ้นสุดที่การมอบหมาย (ต้นแบบยังไม่มีหน้าจอขั้นนี้)',
          choices={'p5_g1': 'ครบ', 'p5_g2': 'ไม่', 'p11_g1': 'ใช่'}),
-    dict(id='S8-search', name='ค้นหาและรายงานข้อมูลคดี (ใช้ได้ทุกช่วง)', line='ทุกสาย', option='AB', start=('8-1', 'p27_t1'),
+    dict(id='S8-search', name='ค้นหาและรายงานข้อมูลคดี (ใช้ได้ทุกช่วง)', line='ทุกสาย', option='B', start=('8-1', 'p27_t1'),
          objective='ค้นหา กรอง ดูแดชบอร์ด และส่งออกข้อมูล', outcome='ได้รายงาน/ไฟล์ส่งออก', choices={}),
 ]
 
@@ -262,32 +238,8 @@ def simulate(opt, sc, max_steps=200):
 scen_out = []
 for sc in SCEN:
     res = {}
-    for opt in 'AB':
-        if opt not in sc['option'] and sc['option'] != 'AB': continue
-        if opt == 'A':
-            # Option A: เริ่มจากหน้าเดียวกันด้วยโหนดที่ชื่อตรงกัน
-            pa = {p['id']: p for p in pages_out['A']}
-            pb = {p['id']: p for p in pages_out['B']}
-            sp, sn = sc['start']
-            lab = next((n['label'] for n in pb[sp]['nodes'] if n['id'] == sn), '')
-            cand = next(((p['id'], n['id']) for p in pages_out['A'] for n in p['nodes'] if p['id'] == sp and norm(n['label']) == norm(lab)), None)                 or next(((p['id'], n['id']) for p in pages_out['A'] for n in p['nodes'] if p['id'][0] == sp[0] and norm(n['label']) == norm(lab)), None)
-            if not cand: continue
-            # คำตอบของจุดตัดสินใจ Option A แปลงจากชื่อโหนด
-            chA = {}
-            for kB, v in sc['choices'].items():
-                if kB.startswith('__'): chA[kB] = v; continue
-                labB = next((n['label'] for p in pages_out['B'] for n in p['nodes'] if n['id'] == kB), None)
-                for p in pages_out['A']:
-                    for n in p['nodes']:
-                        if n['type'] == 'decision' and labB is not None and norm(n['label']) == norm(labB) and p['id'][0] == next(pp['id'][0] for pp in pages_out['B'] if any(x['id'] == kB for x in pp['nodes'])):
-                            chA[n['id']] = v
-            chA.update(sc.get('choicesA', {}))
-            scA = dict(sc, start=cand, choices=chA)
-            path, notes = simulate('A', scA)
-            res['A'] = {'start': list(cand), 'choices': chA, 'path': path, 'notes': notes}
-        else:
-            path, notes = simulate('B', sc)
-            res['B'] = {'start': list(sc['start']), 'choices': sc['choices'], 'path': path, 'notes': notes}
+    path, notes = simulate('B', sc)
+    res['B'] = {'start': list(sc['start']), 'choices': sc['choices'], 'path': path, 'notes': notes}
     roles = []
     for opt, r in res.items():
         pg = {p['id']: {n['id']: n for n in p['nodes']} for p in pages_out[opt]}
@@ -299,7 +251,7 @@ for sc in SCEN:
 
 data = {
     'version': '2026-11-22', 'source': {
-        'userFlow': 'กิจกรรมที่ 7 User Flow V1.0.14 Option A/B_21112026.drawio',
+        'userFlow': 'กิจกรรมที่ 7 User Flow V1.0.14 Option B_21112026.drawio',
         'book': 'เล่ม 4.1 กิจกรรมที่ 7 ฉบับเต็ม - Option B_22112026.docx (หัวข้อ 2.2, DFD L1, 2.6, บทที่ 4)',
         'verified': 'เปิดต้นแบบตรวจปุ่ม/หน้าจอทุกขั้น 22/11/2569 (บล็อกการเขียนฐานข้อมูล)'},
     'processes': [{'id': p[0], 'num': p[1], 'name': p[2], 'abbr': p[3], 'inputs': DFD.get(p[1], {}).get('in', []), 'outputs': DFD.get(p[1], {}).get('out', [])} for p in PROCESSES],

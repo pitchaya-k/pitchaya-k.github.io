@@ -108,8 +108,21 @@
       });
   }
 
+  /* Local DB mode (assets/ecmis-localdb.js): same two queries through the local client. */
+  var localDb = window.ECMISLocalDB && window.ECMISLocalDB.enabled ? window.ECMISLocalDB.client : null;
+  function unwrap(res) { if (res.error) throw new Error(res.error.message); return res.data || []; }
+
   function refreshLive() {
     var ids = Object.keys(samples).map(function (k) { return samples[k].trrId; });
+    if (localDb) {
+      return localDb.from('tbl_res_request').select('trr_id,trr_status').in('trr_id', ids).then(unwrap)
+        .then(function (rows) {
+          liveStatus = {};
+          rows.forEach(function (r) { liveStatus[r.trr_id] = r.trr_status; });
+          markDrift();
+          renderTable();
+        });
+    }
     return sbFetch('tbl_res_request?select=trr_id,trr_status&trr_id=in.(' + ids.join(',') + ')')
       .then(function (rows) {
         liveStatus = {};
@@ -122,6 +135,7 @@
   function resetSamples(keys) {
     return Promise.all(keys.map(function (k) {
       var s = samples[k];
+      if (localDb) return localDb.from('tbl_res_request').update(s.request).eq('trr_id', s.trrId).then(unwrap);
       return sbFetch('tbl_res_request?trr_id=eq.' + s.trrId, { method: 'PATCH', body: JSON.stringify(s.request) });
     })).then(refreshLive);
   }
@@ -208,7 +222,7 @@
       whenDiagramsReady(function (boxes) { boxes.forEach(wireDiagram); markDrift(); });
       renderTable();
       bindButtons();
-      return loadSupabaseConf().then(refreshLive);
+      return (localDb ? Promise.resolve() : loadSupabaseConf()).then(refreshLive);
     })
     .catch(showError);
 })();

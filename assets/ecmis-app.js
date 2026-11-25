@@ -3806,6 +3806,21 @@ function getCase(id){
     } catch (e) {}
   }
 
+  // Local DB (assets/ecmis-localdb.js) is synchronous underneath — same query as the XHR below
+  if (typeof window !== 'undefined' && window.ECMISLocalDB && window.ECMISLocalDB.enabled && typeof supabaseRowToCase === 'function') {
+    try {
+      const { data } = window.ECMISLocalDB.client.from('tbl_res_request')
+        .select('*, tbl_cmp_case!inner(*, tbl_cmp_case_accused(*))')
+        .eq('tbl_cmp_case.tcc_no', id).eq('is_deleted', false).execSync();
+      found = data && data[0] ? supabaseRowToCase(data[0]) : null;
+      if (found) {
+        CASES.push(found);
+        return found;
+      }
+    } catch (e) { console.error('local getCase lookup failed:', e); }
+    return undefined;
+  }
+
   // Synchronous XHR fallback to Supabase if in browser
   if (typeof XMLHttpRequest !== 'undefined' && typeof window !== 'undefined' && typeof supabaseRowToCase === 'function') {
     try {
@@ -4726,10 +4741,10 @@ const M38_SEED = [{
   ]
 }];
 function m38Load(){
-  try { return JSON.parse(localStorage.getItem(M38_STORE_KEY) || '{}') || {}; } catch (e) { return {}; }
+  try { return (window.ECMISAppState ? window.ECMISAppState.get(M38_STORE_KEY, {}) : JSON.parse(localStorage.getItem(M38_STORE_KEY) || '{}')) || {}; } catch (e) { return {}; }
 }
 function m38Save(state){
-  try { localStorage.setItem(M38_STORE_KEY, JSON.stringify(state)); } catch (e) {}
+  try { if (window.ECMISAppState) window.ECMISAppState.set(M38_STORE_KEY, state); else localStorage.setItem(M38_STORE_KEY, JSON.stringify(state)); } catch (e) {}
 }
 function m38Reports(){
   const state = m38Load();
@@ -4795,13 +4810,12 @@ const NAV = [
   /* ทะเบียนคุมเลขสารบรรณ (checklist สารบรรณ x Process 20/11/2569) — ผู้ขอเลข: กลุ่มงานกิจการฯ, กลุ่มงานคำวินิจฉัยฯ, กองบริหารคดี */
   { href:'number-registry.html',       icon:'fa-hashtag',          label:'ทะเบียนคุมเลขสารบรรณ',
     visible: role => !!role && ['affairs','board_sec','case_admin','dir_case'].includes(role.id) },
-  /* ขั้น 6.4 จัดทำรายงานการไต่สวนเพิ่มเติม (มติเรื่องทั่วไป) — มีเฉพาะ Option B (assets/a7-option.js) */
+  /* ขั้น 6.4 จัดทำรายงานการไต่สวนเพิ่มเติม (มติเรื่องทั่วไป) */
   /* ผอ.กบค. พิจารณาเห็นชอบเอกสารก่อนเสนอผู้ลงนาม (ผัง 6-1, 6-2, 7-2) — ไม่เปลี่ยนสถานะสำนวน */
   { href:'dir-case-approve.html',       icon:'fa-file-circle-check', label:'พิจารณาเห็นชอบเอกสาร',
     visible: role => !!role && role.id === 'dir_case' },
   { href:'additional-inquiry.html',    icon:'fa-file-circle-plus', label:'รายงานการไต่สวนเพิ่มเติม',
-    visible: role => !!role && ['affairs','board_sec','case_admin'].includes(role.id)
-      && String((typeof window !== 'undefined' && window.ECMIS_A7_OPTION) || 'AB').includes('B') },
+    visible: role => !!role && ['affairs','board_sec','case_admin'].includes(role.id) },
   /* Task 240: รายงานผล ม.38 จาก กจ.8 — รองเลขาธิการฯ อนุมัติ → เลขาธิการฯ อนุมัติ → ส่งผลกลับ กจ.8 */
   { href:'m38-inbox.html',             icon:'fa-file-circle-check', label:'รายงานผล ม.38',
     visible: role => !!role && (role.id === 'deputy' || role.id === 'secgen'), badgeCount: role => m38PendingCount(role && role.id) },
@@ -9466,6 +9480,11 @@ if (typeof localStorage !== 'undefined') {
   }
 
   function uploadWithProgress(path, file, onProgress) {
+    if (window.ECMISLocalDB && window.ECMISLocalDB.enabled) {
+      const promise = window.ECMISLocalDB.client.storage.from('case-documents').upload(path, file)
+        .then(({ error }) => { if (error) throw new Error(error.message); onProgress(100); });
+      return { xhr: { abort() {} }, promise };
+    }
     const xhr = new XMLHttpRequest();
     const promise = new Promise((resolve, reject) => {
       xhr.open('POST', `${DEFAULT_SUPABASE_URL}/storage/v1/object/case-documents/${path}`);

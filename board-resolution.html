@@ -281,6 +281,7 @@
   <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
   <script src="assets/vendor/supabase/supabase.js"></script>
+  <script src="assets/ecmis-localdb.js"></script>
   <script src="assets/vendor/pizzip/pizzip.js"></script>
   <script src="assets/vendor/docxtemplater/docxtemplater.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
@@ -288,7 +289,6 @@
   <script src="assets/ecmis-app.js?v=20261122-flow2"></script>
   <script src="assets/ecmis-livedoc.js?v=20261122-livedoc2"></script>
   <script src="assets/resolution-split.js?v=20261014-a7-split2"></script>
-  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
   <script src="assets/saraban-no.js?v=20261121-a7-saraban"></script>
   <script src="assets/saraban-docs.js?v=20261121-a7-saraban"></script>
 <script src="../shared-assets/handoff.js"></script>
@@ -510,16 +510,16 @@
     function loadMeetingLastAttendance(meetingNo) {
       if (!meetingNo) return null;
       try {
-        const all = JSON.parse(localStorage.getItem(MEETING_ATTENDANCE_KEY) || '{}') || {};
+        const all = (window.ECMISAppState ? window.ECMISAppState.get(MEETING_ATTENDANCE_KEY, {}) : JSON.parse(localStorage.getItem(MEETING_ATTENDANCE_KEY) || '{}')) || {};
         return (all[meetingNo] && all[meetingNo].attendance) || null;
       } catch (e) { return null; }
     }
     function saveMeetingLastAttendance(meetingNo, attendanceMap) {
       if (!meetingNo) return;
       try {
-        const all = JSON.parse(localStorage.getItem(MEETING_ATTENDANCE_KEY) || '{}') || {};
+        const all = (window.ECMISAppState ? window.ECMISAppState.get(MEETING_ATTENDANCE_KEY, {}) : JSON.parse(localStorage.getItem(MEETING_ATTENDANCE_KEY) || '{}')) || {};
         all[meetingNo] = { attendance: attendanceMap, updatedAt: Date.now(), agendaNo: document.getElementById('agendaNo').value.trim(), caseId: kase.id };
-        localStorage.setItem(MEETING_ATTENDANCE_KEY, JSON.stringify(all));
+        window.ECMISAppState ? window.ECMISAppState.set(MEETING_ATTENDANCE_KEY, all) : localStorage.setItem(MEETING_ATTENDANCE_KEY, JSON.stringify(all));
       } catch (e) { /* localStorage เต็ม/ไม่พร้อมใช้งาน — ข้ามแบบเงียบ */ }
     }
 

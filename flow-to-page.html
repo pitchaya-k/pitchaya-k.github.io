@@ -19,7 +19,6 @@
     <a class="brand" href="flow-to-page.html"><img src="assets/pacc_logo.png" alt=""><span><b>ผังกระบวนงานและหน้าจอ</b><small>E-CMIS กิจกรรมที่ 7 · Flow to Page</small></span></a>
     <span class="a7f-demo-tag" title="หน้านี้ใช้สาธิตต้นแบบเท่านั้น"><i class="fa-solid fa-flask"></i>โหมดสาธิต</span>
     <span class="spacer"></span>
-    <div class="a7f-opt" id="optToggle" role="group" aria-label="เลือก Option"></div>
     <a class="a7f-link" href="flow-guide.html"><i class="fa-solid fa-route me-1"></i>คู่มือเดิน Flow</a>
     <a class="a7f-link" href="login.html" id="lnkProto"><i class="fa-solid fa-display me-1"></i>เปิดต้นแบบ</a>
     <div id="roleSwitcher"></div>
@@ -92,7 +91,7 @@
   </div>
 
   <script src="assets/vendor/supabase/supabase.js"></script>
-  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
+  <script src="assets/ecmis-localdb.js"></script>
   <script src="assets/ecmis-app.js?v=20261122-flow2"></script>
   <script src="assets/vendor/mermaid/mermaid.min.js"></script>
   <script src="assets/a7-flow-data.js?v=20261122-flow2"></script>
@@ -106,11 +105,7 @@
     if (!sessionStorage.getItem('ecmis_authed')) F.switchRole('secgen', 'flow-to-page-default');
 
     /* ---------- หัวหน้า ---------- */
-    function paintOpt() {
-      const allowed = F.allowedOptions();
-      $('optToggle').innerHTML = ['A', 'B'].map(o => `<button type="button" data-o="${o}" class="${o === opt ? 'is-on' : ''}" ${allowed.includes(o) ? '' : 'disabled title="ชุดไฟล์นี้ไม่มี Option ' + o + '"'}>Option ${o}</button>`).join('');
-    }
-    $('optToggle').addEventListener('click', e => { const b = e.target.closest('button[data-o]'); if (!b || b.disabled) return; opt = b.dataset.o; F.setOption(opt); selected = null; route(); });
+    function paintOpt() { /* มี Option B ชุดเดียว — ไม่มีปุ่มสลับ */ }
     F.mountRoleSwitcher($('roleSwitcher'), { onChange: r => { if (selected) showNode(selected.pid, selected.nid); } });
 
     /* ---------- แท็บกระบวนการ ---------- */
@@ -172,8 +167,7 @@
       const pages = F.pagesOf(opt).filter(x => x.proc === proc);
       if (!pid || !pages.some(x => x.id === pid)) pid = pages.length ? pages[0].id : null;
       $('procTitle').innerHTML = `<span class="badge bg-dark me-1">${proc}</span>${esc(p.name)} <small class="text-muted fw-normal">· Option ${opt}</small>`;
-      const bOnly = id => opt === 'B' && !F.pageOf('A', id) ? '<span class="b-only">B</span>' : '';
-      $('pageChips').innerHTML = pages.map(x => `<button data-pg="${x.id}" class="${x.id === pid ? 'is-on' : ''}" title="${esc(x.title)}">หน้า ${x.id}${bOnly(x.id)}</button>`).join('') || '<span class="text-muted small">ไม่มีหน้าผังของกระบวนการนี้ใน Option นี้</span>';
+      $('pageChips').innerHTML = pages.map(x => `<button data-pg="${x.id}" class="${x.id === pid ? 'is-on' : ''}" title="${esc(x.title)}">หน้า ${x.id}</button>`).join('') || '<span class="text-muted small">ไม่มีหน้าผังของกระบวนการนี้ใน Option นี้</span>';
       if (!pid) { $('stage').innerHTML = ''; return; }
       const pg = F.pageOf(opt, pid);
       $('pageTitle').textContent = pg.title + (pg.sub && pg.sub !== pg.title ? ' · ' + pg.sub : '');

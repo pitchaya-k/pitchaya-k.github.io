@@ -3,20 +3,19 @@
    ------------------------------------------------------------
    ที่มา: Check List สารบรรณ x Process (เติมกิจกรรมที่ 7) 20112026 ชีต Checklist ลำดับ 115–133
           และต้นแบบทะเบียนคุมเลข กจ.7 (wireframe W1: หน้าต่างขอเลข 4 ขั้น)
-   - SARABAN_DOCS   รายการเอกสาร 18 รายการที่ต้องขอเลข (Option A 16 / Option B 18) + แฟ้มทะเบียนส่ง
+   - SARABAN_DOCS   รายการเอกสาร 18 รายการที่ต้องขอเลข (Option B) + แฟ้มทะเบียนส่ง
    - openSarabanRequest()  หน้าต่างขอเลขสารบรรณ: กรอกคำขอ → ส่งไปสารบรรณ → รอรับเลข → ได้รับเลข
    - mountSarabanDocs()    การ์ด "เลขหนังสือของขั้นนี้" ในหน้าสำนวน: ขอเลข → แนบไฟล์ลงนาม → ส่งต่อ/ส่งไปรษณีย์ → ปิดเรื่อง
    ระบบสารบรรณในต้นแบบเป็นตัวจำลอง (Open API 2.0/3.0) เลขจริงออกโดยระบบงานสารบรรณเท่านั้น
    ข้อมูลเก็บใน record เดิมของ saraban-no.js: trr_resolution_data.sarabanNos[slot]
      { no, prefix, ..., docCode, state, reqId, ref, file, sent, closedAt, error, trace[] }
-   ต้องโหลดหลัง ecmis-app.js, saraban-no.js และ a7-option.js
+   ต้องโหลดหลัง ecmis-app.js และ saraban-no.js
    ============================================================ */
 (function (root) {
   'use strict';
 
   const E = () => root.ECMIS;
   const SYS = 'ระบบงานสารบรรณ สำนักงาน ป.ป.ท. (e-office)';
-  const OPT = () => String(root.ECMIS_A7_OPTION || 'AB');
 
   /* แฟ้มทะเบียนส่ง (ชีต "เทียบเอกสารอ้างอิง" ข้อ 2) — prefix ต่อท้ายด้วยเลขลำดับ/ปี (ดู formatSarabanNo) */
   const FILES = {
@@ -35,46 +34,46 @@
 
   /* slot = ชื่อ record ใน sarabanNos — ใช้ชื่อเดิมของหน้า (Task 300) ถ้ามี เอกสารในหน้าจึงแสดงเลขเดียวกัน */
   const SARABAN_DOCS = [
-    { code: '4.4.1', name: 'บันทึกเสนอ ผอ.กอง ขออนุมัติหนังสือเชิญประชุม', prefix: 'ปป 0004.5/', route: 'eoffice', option: 'AB',
+    { code: '4.4.1', name: 'บันทึกเสนอ ผอ.กอง ขออนุมัติหนังสือเชิญประชุม', prefix: 'ปป 0004.5/', route: 'eoffice',
       slot: 'inviteMemo', scope: 'meeting', roles: BOARD_SEC, signer: 'ผอ.กบค.', to: 'ผู้อำนวยการกองบริหารคดี', page: 'meeting-docs.html' },
-    { code: '4.4.3', name: 'หนังสือเวียน (ว) เชิญประชุมคณะกรรมการ ป.ป.ท.', prefix: 'ปป 0004/ว ', route: 'eoffice', option: 'AB',
+    { code: '4.4.3', name: 'หนังสือเวียน (ว) เชิญประชุมคณะกรรมการ ป.ป.ท.', prefix: 'ปป 0004/ว ', route: 'eoffice',
       slot: 'inviteCircular', scope: 'meeting', roles: BOARD_SEC, signer: 'ผอ.กบค.', to: 'กรรมการ ป.ป.ท. และหน่วยงานที่เกี่ยวข้อง', page: 'meeting-docs.html' },
-    { code: '5.3.1', name: 'หนังสือนำส่งมติ เสนอ ผอ.กอง', prefix: 'ปป 0004.5/', route: 'eoffice', option: 'AB',
+    { code: '5.3.1', name: 'หนังสือนำส่งมติ เสนอ ผอ.กอง', prefix: 'ปป 0004.5/', route: 'eoffice',
       slot: k => (E().isCase72 && E().isCase72(k) ? 'notifyMemo72' : 'resNotifyMemo71'), roles: BOARD_SEC, signer: 'ผอ.กบค.', to: 'ผู้อำนวยการกองบริหารคดี',
       page: 'board-resolution.html / resolution-72.html' },
-    { code: '5.3.2', name: 'หนังสือนำส่งมติให้กลุ่มงานกิจการคณะกรรมการ', prefix: 'ปป 0004.5/', route: 'eoffice', option: 'AB',
+    { code: '5.3.2', name: 'หนังสือนำส่งมติให้กลุ่มงานกิจการคณะกรรมการ', prefix: 'ปป 0004.5/', route: 'eoffice',
       slot: 'minutesMemo', scope: 'meeting', roles: BOARD_SEC, signer: 'ผอ.กบค.', to: 'กลุ่มงานกิจการคณะกรรมการ', page: 'meeting-report.html' },
-    { code: '5.3.3', name: 'หนังสือส่งมติถึงหน่วยงานเจ้าของสำนวน', prefix: 'ปป 0004/', route: 'eoffice', option: 'AB',
+    { code: '5.3.3', name: 'หนังสือส่งมติถึงหน่วยงานเจ้าของสำนวน', prefix: 'ปป 0004/', route: 'eoffice',
       slot: k => (E().isCase72 && E().isCase72(k) ? 'resReturnLetter72' : 'resReturnLetter71'), roles: BOARD_SEC, signer: 'ผอ.กบค.', to: 'หน่วยงานเจ้าของสำนวน (สำนัก/เขต)',
       page: 'board-resolution.html / resolution-72.html' },
-    { code: '5.4', name: 'หนังสือคัดแยกผลมติ', prefix: 'ปป 0004.5/', route: 'eoffice', option: 'B',
+    { code: '5.4', name: 'หนังสือคัดแยกผลมติ', prefix: 'ปป 0004.5/', route: 'eoffice',
       slot: 'resultSplitMemo', scope: 'meeting', roles: BOARD_SEC, signer: 'ผอ.กบค.', to: 'ผู้อำนวยการกองบริหารคดี', page: 'meeting-report.html' },
-    { code: '6.1.1', name: 'บันทึกเสนอคำสั่งคณะกรรมการ ป.ป.ท. (เรียน ผอ.กบค.)', prefix: 'ปป 0004.3/', route: 'eoffice', option: 'AB',
+    { code: '6.1.1', name: 'บันทึกเสนอคำสั่งคณะกรรมการ ป.ป.ท. (เรียน ผอ.กบค.)', prefix: 'ปป 0004.3/', route: 'eoffice',
       slot: 'memoNo', roles: AFFAIRS, signer: 'ผอ.กบค.', to: 'ผู้อำนวยการกองบริหารคดี', page: 'order.html', note: 'รวมคำสั่งแต่งตั้งผู้ไต่สวน' },
-    { code: '6.1.4', name: 'บันทึกเสนอคำสั่งเพื่อประธานกรรมการ ป.ป.ท. ลงนาม', prefix: 'ปป 0004/', route: 'eoffice', option: 'AB',
+    { code: '6.1.4', name: 'บันทึกเสนอคำสั่งเพื่อประธานกรรมการ ป.ป.ท. ลงนาม', prefix: 'ปป 0004/', route: 'eoffice',
       slot: 'orderSignMemo', roles: AFFAIRS, signer: 'ผอ.กบค.', to: 'ประธานกรรมการ ป.ป.ท.', page: 'order.html' },
-    { code: '6.1.5', name: 'หนังสือส่งคำสั่งคณะกรรมการ ป.ป.ท. ถึงหน่วยงานที่เกี่ยวข้อง', prefix: 'ปป 0004/', route: 'eoffice', option: 'AB',
+    { code: '6.1.5', name: 'หนังสือส่งคำสั่งคณะกรรมการ ป.ป.ท. ถึงหน่วยงานที่เกี่ยวข้อง', prefix: 'ปป 0004/', route: 'eoffice',
       slot: 'orderNotifyLetter', roles: AFFAIRS, signer: 'ผอ.กบค.', to: 'หน่วยงานที่เกี่ยวข้อง (สำนัก/เขต)', page: 'order.html' },
-    { code: '6.2.1', name: 'บันทึกเสนอคำสั่งสำนักงาน ป.ป.ท. (เรียน ผอ.กบค.)', prefix: 'ปป 0004.3/', route: 'eoffice', option: 'AB',
+    { code: '6.2.1', name: 'บันทึกเสนอคำสั่งสำนักงาน ป.ป.ท. (เรียน ผอ.กบค.)', prefix: 'ปป 0004.3/', route: 'eoffice',
       slot: 'memoNo', roles: AFFAIRS, signer: 'ผอ.กบค.', to: 'ผู้อำนวยการกองบริหารคดี', page: 'order.html' },
-    { code: '6.2.2', name: 'บันทึกเสนอคำสั่งสำนักงาน ป.ป.ท. เพื่อเลขาธิการ ป.ป.ท. ลงนาม', prefix: 'ปป 0004/', route: 'eoffice', option: 'AB',
+    { code: '6.2.2', name: 'บันทึกเสนอคำสั่งสำนักงาน ป.ป.ท. เพื่อเลขาธิการ ป.ป.ท. ลงนาม', prefix: 'ปป 0004/', route: 'eoffice',
       slot: 'orderSignMemo', roles: AFFAIRS, signer: 'ผอ.กบค.', to: 'เลขาธิการ ป.ป.ท.', page: 'order.html' },
-    { code: '6.2.3', name: 'หนังสือส่งคำสั่งสำนักงาน ป.ป.ท. ถึงหน่วยงานที่เกี่ยวข้อง', prefix: 'ปป 0004/', route: 'eoffice', option: 'AB',
+    { code: '6.2.3', name: 'หนังสือส่งคำสั่งสำนักงาน ป.ป.ท. ถึงหน่วยงานที่เกี่ยวข้อง', prefix: 'ปป 0004/', route: 'eoffice',
       slot: 'orderNotifyLetter', roles: AFFAIRS, signer: 'ผอ.กบค.', to: 'หน่วยงานที่เกี่ยวข้อง (สำนัก/เขต)', page: 'order.html' },
-    { code: '7.1.1', name: 'บันทึกเสนอรายงานการไต่สวนเพื่อวินิจฉัยชี้มูล (เรียน ผอ.กบค.)', prefix: 'ปป 0004.3/', route: 'eoffice', option: 'AB',
+    { code: '7.1.1', name: 'บันทึกเสนอรายงานการไต่สวนเพื่อวินิจฉัยชี้มูล (เรียน ผอ.กบค.)', prefix: 'ปป 0004.3/', route: 'eoffice',
       slot: 'rulingMemo72', roles: AFFAIRS, signer: 'ผอ.กบค.', to: 'ผู้อำนวยการกองบริหารคดี', page: 'ruling-report.html' },
-    { code: '7.1.2', name: 'หนังสือส่งรายงานการไต่สวนเพื่อวินิจฉัยชี้มูล', prefix: 'ปป 0004/', route: 'eoffice', option: 'AB',
+    { code: '7.1.2', name: 'หนังสือส่งรายงานการไต่สวนเพื่อวินิจฉัยชี้มูล', prefix: 'ปป 0004/', route: 'eoffice',
       slot: 'notifyLetter72', roles: AFFAIRS, signer: 'ผอ.กบค.', to: 'หน่วยงานเจ้าของสำนวน (สำนัก/เขต)', page: 'ruling-report.html' },
-    { code: '7.1.3', name: 'หนังสือส่งเรื่องดำเนินคดีอาญา (สายอาญา)', prefix: 'ปป 0004/', route: 'mail', option: 'B',
+    { code: '7.1.3', name: 'หนังสือส่งเรื่องดำเนินคดีอาญา (สายอาญา)', prefix: 'ปป 0004/', route: 'mail',
       slot: 'crimDispatchLetter72', when: k => !!(E().hasCriminalTrack72 && E().hasCriminalTrack72(k)), roles: AFFAIRS, signer: 'ผอ.กบค.',
       to: 'อัยการสูงสุด / พนักงานสอบสวน', page: 'ruling-report.html', note: 'ขอเลขจากทะเบียนส่ง (ลับ) กบค. · ส่งไปรษณีย์ลงทะเบียน บันทึกเลข EMS' },
-    { code: '7.2.1', name: 'บันทึกเสนอหนังสือลงโทษทางวินัย (เรียน ผอ.กบค.)', prefix: 'ปป 0004.3/', route: 'eoffice', option: 'AB',
+    { code: '7.2.1', name: 'บันทึกเสนอหนังสือลงโทษทางวินัย (เรียน ผอ.กบค.)', prefix: 'ปป 0004.3/', route: 'eoffice',
       slot: 'disciplineMemo72', when: k => !!(E().hasDisciplineTrack72 && E().hasDisciplineTrack72(k)), roles: AFFAIRS, signer: 'ผอ.กบค.',
       to: 'ผู้อำนวยการกองบริหารคดี', page: 'ruling-report.html' },
-    { code: '7.2.2', name: 'หนังสือลงโทษทางวินัย (ประธานกรรมการ ป.ป.ท. ลงนาม)', prefix: 'ปป 0004/ป ', route: 'mail', option: 'AB',
+    { code: '7.2.2', name: 'หนังสือลงโทษทางวินัย (ประธานกรรมการ ป.ป.ท. ลงนาม)', prefix: 'ปป 0004/ป ', route: 'mail',
       slot: 'disciplineLetter72', when: k => !!(E().hasDisciplineTrack72 && E().hasDisciplineTrack72(k)), roles: AFFAIRS, signer: 'ประธานกรรมการ ป.ป.ท.',
       to: 'หน่วยงานต้นสังกัดของผู้ถูกกล่าวหา', page: 'ruling-report.html', note: 'ออกเลขและลงนามก่อน แล้วจึงส่งตามรายการ 7.2.3' },
-    { code: '7.2.3', name: 'หนังสือส่งหนังสือลงโทษทางวินัยถึงหน่วยงานต้นสังกัด', prefix: 'ปป 0004/ป ', route: 'eoffice', option: 'AB',
+    { code: '7.2.3', name: 'หนังสือส่งหนังสือลงโทษทางวินัยถึงหน่วยงานต้นสังกัด', prefix: 'ปป 0004/ป ', route: 'eoffice',
       slot: 'discDispatchLetter72', when: k => !!(E().hasDisciplineTrack72 && E().hasDisciplineTrack72(k)), roles: AFFAIRS, signer: 'ประธานกรรมการ ป.ป.ท.',
       to: 'หน่วยงานต้นสังกัดของผู้ถูกกล่าวหา', page: 'ruling-report.html' }
   ];
@@ -101,8 +100,7 @@
     closed:   { label: 'ปิดเรื่องแล้ว', cls: 'sd-st-done' }
   };
 
-  function docVisible(d) { return d.option === 'AB' || OPT().includes(d.option); }
-  function docsFor(codes) { return codes.map(c => SARABAN_DOCS.find(d => d.code === c)).filter(Boolean).filter(docVisible); }
+  function docsFor(codes) { return codes.map(c => SARABAN_DOCS.find(d => d.code === c)).filter(Boolean); }
   function slotOf(d, kase) { return typeof d.slot === 'function' ? d.slot(kase) : d.slot; }
   function stateOf(rec) {
     if (!rec) return 'none';
@@ -371,7 +369,6 @@
       }
       if (rec && (rec.trace || rec.no)) acts.push(btn('trace', 'trace', 'fa-clock-rotate-left', 'btn-outline-secondary'));
       const f = FILES[(rec && rec.prefix) || d.prefix] || {};
-      const optB = d.option === 'B' && OPT() === 'AB' ? '<span class="sd-chip sd-st-warn">เฉพาะ Option B</span>' : '';
       const sub = [];
       if (rec && rec.file) sub.push(`<i class="fa-solid fa-paperclip me-1"></i>${esc(rec.file.name)}`);
       if (rec && rec.sent) sub.push(rec.sent.via === 'mail' ? `<i class="fa-solid fa-envelope me-1"></i>EMS ${esc(rec.sent.ems || '—')}` : `<i class="fa-solid fa-share me-1"></i>ส่งต่อถึง ${esc(rec.sent.to || '')}`);
@@ -380,7 +377,7 @@
       return `<div class="sd-row" data-code="${d.code}">
         <div class="sd-code">${esc(d.code)}</div>
         <div>
-          <div class="fw-semibold">${esc(d.name)} ${optB}</div>
+          <div class="fw-semibold">${esc(d.name)}</div>
           <div class="sd-meta">แฟ้ม ${esc(f.label || d.prefix)} · ${esc(route.label)} (${esc(route.seq)})${d.note ? ' · ' + esc(d.note) : ''}</div>
           <div class="mt-1"><span class="sd-chip ${s.cls}">${esc(s.label)}</span>${rec && rec.no ? `<span class="sd-no">${esc(ECMIS.sarabanThai(rec.no))}</span>` : ''}</div>
           ${sub.length ? `<div class="sd-meta mt-1">${sub.join(' · ')}</div>` : ''}
@@ -535,7 +532,7 @@
   }
 
   const api = { SARABAN_DOCS, SARABAN_FILES: FILES, SARABAN_ROUTES: ROUTE, SARABAN_STATES: STATES, SARABAN_RECEIVE_ITEM: RECEIVE_ITEM, SARABAN_SYSTEM: SYS,
-    sarabanDocVisible: docVisible, sarabanDocsFor: docsFor, sarabanSlotOf: slotOf, sarabanStateOf: stateOf, sarabanApiMode: apiMode, setSarabanApiMode: setApiMode,
-    sarabanCanAct: canAct, ensureSarabanStyle: ensureStyle, openSarabanRequest, showSarabanTrace: showTrace, mountSarabanDocs, listSarabanEntries, a7Option: OPT };
+    sarabanDocsFor: docsFor, sarabanSlotOf: slotOf, sarabanStateOf: stateOf, sarabanApiMode: apiMode, setSarabanApiMode: setApiMode,
+    sarabanCanAct: canAct, ensureSarabanStyle: ensureStyle, openSarabanRequest, showSarabanTrace: showTrace, mountSarabanDocs, listSarabanEntries };
   if (root.ECMIS) Object.assign(root.ECMIS, api);
 })(typeof window !== 'undefined' ? window : globalThis);

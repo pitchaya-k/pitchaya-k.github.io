@@ -92,9 +92,9 @@
   <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
   <script src="assets/vendor/supabase/supabase.js"></script>
+  <script src="assets/ecmis-localdb.js"></script>
 <script src="../shared-assets/auth.js?v=20261002-boundary2"></script>
   <script src="../cases.js"></script>
-  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
   <script src="assets/ecmis-app.js?v=20261122-flow2"></script>
 <script src="../shared-assets/handoff.js"></script>
 <script src="../shared-assets/junctions.js"></script>
@@ -566,13 +566,13 @@
     ];
     function getLockedRoster() {
       try {
-        const saved = JSON.parse(localStorage.getItem(LOCKED_ROSTER_KEY) || 'null');
+        const saved = (window.ECMISAppState ? window.ECMISAppState.get(LOCKED_ROSTER_KEY, null) : JSON.parse(localStorage.getItem(LOCKED_ROSTER_KEY) || 'null'));
         if (saved && Array.isArray(saved.present)) return saved;
       } catch (e) { /* ค่าเสีย ใช้ default แทน */ }
       return { locked: false, present: BOARD_NAMES.slice() };
     }
     function saveLockedRoster(locked, presentNames) {
-      localStorage.setItem(LOCKED_ROSTER_KEY, JSON.stringify({ locked, present: presentNames }));
+      window.ECMISAppState ? window.ECMISAppState.set(LOCKED_ROSTER_KEY, { locked, present: presentNames }) : localStorage.setItem(LOCKED_ROSTER_KEY, JSON.stringify({ locked, present: presentNames }));
     }
 
     document.getElementById('btnAddMeeting').addEventListener('click', () => {

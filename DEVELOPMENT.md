@@ -26,18 +26,16 @@ pitchaya-k.github.io/
 │   ├── agenda-registry-data.js, case-closure.js, saraban-no.js, resolution-split.js,
 │   │   case-summary-*.js, secgen-route-text.js, junction-bridge-a7.js, report-export.js, order-memo-docs.js
 │   ├── dashboard-{analytics,chart,export}-service.js
-│   ├── a7-option.js        ค่า Option ของชุดไฟล์ ('AB' / 'A' / 'B') — ห้ามคัดลอกทับระหว่างโฟลเดอร์
 │   ├── saraban-docs.js     รายการเอกสารขอเลข + การ์ด/หน้าต่างขอเลขสารบรรณ (ข้อ 5.6)
 │   ├── vendor/             ไลบรารี ฟอนต์ ไอคอน สำหรับเปิดออฟไลน์ (ข้อ 5.7)
 │   ├── templates/          แม่แบบ .docx    flow-samples.json  ข้อมูลตัวอย่างต่อสถานะ
 ├── scripts/                seed/backfill (.mjs, .py, .sh)  — เครื่องมือเตรียมข้อมูลทดสอบ
-├── A7-Option-A-03112026/, A7-Option-B-03112026/   สำเนา Prototype แบบ Option A/B
 ├── docs/, prototype/, commit-c64-summary/          เอกสารอ้างอิงและภาพหน้าจอ
 ├── graphify-out/           กราฟความรู้ของโค้ด (ดูข้อ 7)
 └── .claude/launch.json     dev server
 ```
 
-Option A/B มีไฟล์ HTML ชุดเดียวกับรากเกือบทั้งหมด เพิ่ม `business-flow.html` และ `report-07.html` (ไม่มีในราก) และมี README ของตัวเอง
+ต้นแบบใช้โครงกระบวนการ Option B ชุดเดียวที่โฟลเดอร์ราก (ตัด Option A และโฟลเดอร์สำเนา A/B ออก 25/11/2569) · `business-flow.html`, `report-07.html` ย้ายจากโฟลเดอร์ Option B มาไว้ที่ราก · บันทึกรอบงานเดิมของ Option B อยู่ที่ `docs/README-OPTION-B.md`
 
 ---
 
@@ -118,12 +116,11 @@ python -m http.server 8765 --bind 127.0.0.1
 - เปลี่ยนค่า `?v=` ของสคริปต์ในหน้า HTML ทุกครั้งที่แก้ไฟล์ asset (ไม่งั้น browser ใช้ไฟล์เก่า)
 - แก้โครงสร้าง `CASES` → เพิ่ม `CASES_VERSION`
 
-### 5.5 ซิงก์ Option A/B
-Option A/B เป็นสำเนา ไม่ได้เชื่อมอัตโนมัติ — หลังแก้ในรากต้องคัดลอกไฟล์ที่เปลี่ยน (HTML + `assets/`) ไปทั้งสองโฟลเดอร์ด้วยมือ/สคริปต์ [ต้องยืนยัน] ว่าจะคงรูปแบบสำเนาต่อหรือรวมเป็นชุดเดียว
-ไฟล์เดียวที่ต้องต่างกันระหว่างโฟลเดอร์คือ `assets/a7-option.js` (`'AB'` ราก · `'A'` · `'B'`) และ `business-flow.html` / `report-07.html` ที่มีเฉพาะในโฟลเดอร์ Option — ห้ามคัดลอก `a7-option.js` ทับ
+### 5.5 Option B ชุดเดียว (25/11/2569)
+เลิกใช้โฟลเดอร์สำเนา Option A/B และ `assets/a7-option.js` แล้ว — แก้ที่รากที่เดียว ข้อมูลผัง (`a7-flow-data.js`) มีเฉพาะ Option B
 
 ### 5.6 เลขหนังสือสารบรรณ (ปรับ 21/11/2569)
-- รายการเอกสารที่ต้องขอเลข 18 รายการ (Option A 16 · Option B 18) อยู่ใน `SARABAN_DOCS` ของ `assets/saraban-docs.js` ตาม Check List สารบรรณ x Process 20/11/2569 พร้อมแฟ้มทะเบียนส่ง (ปป 0004 / .3 / .5 / ว / ป)
+- รายการเอกสารที่ต้องขอเลข 18 รายการ (Option B) อยู่ใน `SARABAN_DOCS` ของ `assets/saraban-docs.js` ตาม Check List สารบรรณ x Process 20/11/2569 พร้อมแฟ้มทะเบียนส่ง (ปป 0004 / .3 / .5 / ว / ป)
 - การ์ด "เลขหนังสือของขั้นนี้" = `ECMIS.mountSarabanDocs({ host, kase | kases, group, codes, inputs, readonly, onChange })` ใช้ใน ruling-report, order, board-resolution, resolution-72, meeting-report, meeting-docs
 - ลำดับในการ์ด: ขอเลข (หน้าต่าง 4 ขั้นตาม wireframe W1) → แนบไฟล์ฉบับลงนาม → ส่งต่อในระบบสารบรรณ หรือส่งไปรษณีย์ (EMS) → ปิดเรื่อง · กันเลขซ้ำด้วยรหัสอ้างอิง `E-CMIS|สำนวน|ขั้น|slot|vN` ใน doc_detail
 - ระบบงานสารบรรณ สำนักงาน ป.ป.ท. (e-office) ยังเป็นตัวจำลอง — สลับสถานะ API (ปกติ / 408 / 503) ได้ที่หน้า `number-registry.html` · ข้อมูลเก็บที่ `trr_resolution_data.sarabanNos[slot]` เหมือน Task 300 (เคสที่ไม่มี trr_id เก็บใน sessionStorage)
@@ -135,7 +132,7 @@ Option A/B เป็นสำเนา ไม่ได้เชื่อมอ�
 
 ### 5.8 หน้าจอขั้น 6.4 รายงานการไต่สวนเพิ่มเติม (Option B, เพิ่ม 21/11/2569)
 
-- หน้า `additional-inquiry.html` (มีในราก และ `A7-Option-B-03112026/` เท่านั้น — Option A ไม่มีขั้นนี้ เมนูซ่อนตาม `window.ECMIS_A7_OPTION`)
+- หน้า `additional-inquiry.html` 
 - ที่มา: User Flow V1.0.14 Option B หน้า 6-4 (RES217 จัดทำรายงานการไต่สวนเพิ่มเติมตามมติ → RES218 ส่งเอกสารให้ผู้รับผิดชอบสำนวน → สิ้นสุด), เล่ม 4.1 Option B (ไม่เกิน 15 วัน), DFD L2 B หน้า 4/4
 - ผู้จัดทำ: `affairs` (กลุ่มงานกิจการคณะกรรมการ) · `board_sec`, `case_admin` ดูได้อย่างเดียว
 - เรื่องที่เข้าขั้นนี้: เรื่องทั่วไป (`isCase73`) ที่สถานะ RESOLVED_PENDING / RESOLVED / DISPATCHING / CLOSED — กลุ่มงานกิจการเลือกเรื่องเองเพราะมติเรื่องทั่วไปเป็นข้อความอิสระ
@@ -170,7 +167,6 @@ Option A/B เป็นสำเนา ไม่ได้เชื่อมอ�
 - **ผลทดสอบ 22/11/2569** (Playwright + Edge, บล็อกการเขียน Supabase อีกชั้นที่ระดับเครือข่าย):
   - `tests/flow/test_ftp.py` ภาพรวม 8 กระบวนการ · ผังรายหน้า · แผงรายละเอียด 15 รายการ · ไฮไลต์เส้นทาง · กรองบทบาท · ค้นหา · ดูตัวอย่างหน้าจอด้วยบทบาทที่ถูกต้อง · รายงาน · Option A · มือถือไม่ล้น — ไม่มี error
   - `tests/flow/test_guide.py` เริ่มสถานการณ์ → ไฮไลต์ลิงก์ในแถวเรื่องตัวอย่าง → กดแล้วนับว่าทำจริง → จุดตัดสินใจ → ส่งต่องานเลขาธิการฯ→ประธานฯ → สลับบทบาทผิดขึ้นเตือนและไม่นับ → กลับบทบาท → ย้อนกลับ → ลิงก์ลึกจากผัง → Option A → จบเส้นทางและเล่นทางอื่น — คำขอเขียนที่หลุดถึงเครือข่าย **0** · ปุ่มดำเนินการอื่นในโหมดสาธิตถูกปิด
-  - `tests/flow/test_optflow.py` โฟลเดอร์ Option A/B เลือก Option ได้เฉพาะของตัวเอง สถานการณ์ 7/9 เมนูถูกต้อง
   - `tests/flow/verify_walk.py` ตรวจซ้ำ 66 ขั้นของต้นแบบหลังแก้ ecmis-app.js: ผ่าน 65 · ตรวจจากโค้ด 1 (เท่าเดิม)
   - ข้อจำกัด: ไม่ได้ทดสอบโหมด "บันทึกจริง" (จะเขียนฐานข้อมูลร่วม) · ไม่ได้ตรวจ PNG ที่ส่งออกด้วยตา
 - `?v=` ของ ecmis-app.js ทุกหน้า = `20261122-flow2`
@@ -181,10 +177,10 @@ Option A/B เป็นสำเนา ไม่ได้เชื่อมอ�
 - **แก้ `assets/ecmis-app.js`:** `PAGE_PERMISSIONS['dir-case-approve.html']` · เมนู "พิจารณาเห็นชอบเอกสาร" (dir_case) · `READONLY_SKIP_PAGES` เพิ่ม dir-case-approve (หน้าตรวจสิทธิ์เอง แบบเดียวกับ additional-inquiry) — **ไม่แตะ STATUS / STATUS_CODE / TRANSITIONS / guard**
 - **ไม่เปลี่ยนสถานะสำนวน** ทั้ง 4 ขั้น: บันทึกใน `trr_resolution_data` + event `DIR_CASE_APPROVE` / `DIR_CASE_RETURN` / `CHAIR_ASSIGN_UNIT_73` (from = to = สถานะปัจจุบัน) ถ้าจะให้ผลมีผลกับสถานะจริง ต้องเพิ่ม TRANSITIONS (เช่น PENDING_CHAIRMAN → CLOSED สำหรับ 3-4) และ guard ให้ผู้ลงนามรอ ผอ.กบค. ก่อน
 - **การแมป:** `node_map.py` p22_t5, p23_t2, p26_t2 = mapped (RES-032) · p11_g1, p11_t2 = pending (ไม่มีเรื่องทั่วไปค้างที่ประธานฯ) → Option B ยังไม่มีหน้าจอ 0 ขั้น
-- **ผลทดสอบ 22/11/2569** (บล็อกการเขียน Supabase ทุกคำขอ): `test_dircase.py` บนรากและ Option B — เมนูและรายการ 8 เรื่อง · เห็นชอบทั้ง 3 ขั้นเขียนเฉพาะ `trr_resolution_data` ไม่มี `trr_status` · ส่งกลับโดยไม่มีเหตุผลถูกกัน · แถบบนหน้าคำสั่ง/รายงาน · ขั้น 3-4 (จำลองเรื่อง 2014/2569 เป็นเรื่องทั่วไปในเบราว์เซอร์) ตรวจช่องบังคับ ลงนาม เขียน `chairAssign73` ซ่อนปุ่ม — ไม่มี error · ชุดทดสอบเดิม test_ftp / test_optflow / test_guide / verify_walk รันซ้ำ (ดูผลใน commit)
+- **ผลทดสอบ 22/11/2569** (บล็อกการเขียน Supabase ทุกคำขอ): `test_dircase.py` — เมนูและรายการ 8 เรื่อง · เห็นชอบทั้ง 3 ขั้นเขียนเฉพาะ `trr_resolution_data` ไม่มี `trr_status` · ส่งกลับโดยไม่มีเหตุผลถูกกัน · แถบบนหน้าคำสั่ง/รายงาน · ขั้น 3-4 (จำลองเรื่อง 2014/2569 เป็นเรื่องทั่วไปในเบราว์เซอร์) ตรวจช่องบังคับ ลงนาม เขียน `chairAssign73` ซ่อนปุ่ม — ไม่มี error · ชุดทดสอบเดิม test_ftp / test_optflow / test_guide / verify_walk รันซ้ำ (ดูผลใน commit)
 
 ### 5.10 ค่า `?v=` ล่าสุด
-`ecmis-app.js` ใช้ `?v=20261122-flow2` · `a7-option.js` ใช้ `?v=20261121-a7-inq64` (ทุกหน้า ทั้งรากและ Option A/B) · `saraban-docs.js`, `saraban-no.js`, `report-export.js`, `case-summary-*.js` ใช้ `?v=20261121-a7-saraban`
+`ecmis-app.js` ใช้ `?v=20261122-flow2` · `saraban-docs.js`, `saraban-no.js`, `report-export.js`, `case-summary-*.js` ใช้ `?v=20261121-a7-saraban`
 
 ---
 

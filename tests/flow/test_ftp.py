@@ -16,7 +16,7 @@ with sync_playwright() as p:
     pg.on('pageerror', lambda e: errs.append(str(e)[:300]))
     pg.on('console', lambda m: errs.append('console: ' + m.text[:200]) if m.type == 'error' and '404' not in m.text else None)
     pg.goto(f'{BASE}/flow-to-page.html'); pg.wait_for_timeout(3500)
-    res['overview'] = pg.evaluate("() => ({ nodes: document.querySelectorAll('#ovStage g.node').length, cards: document.querySelectorAll('.a7f-proc').length, tabs: document.querySelectorAll('#procTabs button').length, opt: document.querySelector('#optToggle .is-on')?.textContent, role: document.querySelector('.a7-rs-cur')?.innerText })")
+    res['overview'] = pg.evaluate("() => ({ nodes: document.querySelectorAll('#ovStage g.node').length, cards: document.querySelectorAll('.a7f-proc').length, tabs: document.querySelectorAll('#procTabs button').length, role: document.querySelector('.a7-rs-cur')?.innerText })")
     pg.screenshot(path=str(OUT / 'ftp_overview.png'), full_page=True)
     pg.click('#ovStage g.node[data-nid="P1"]'); pg.wait_for_timeout(2500)
     res['p1'] = pg.evaluate("() => ({ hash: location.hash, nodes: document.querySelectorAll('#stage g.node').length, chips: [...document.querySelectorAll('#pageChips button')].map(b=>b.textContent) })")
@@ -41,9 +41,6 @@ with sync_playwright() as p:
     pg.goto(f'{BASE}/flow-to-page.html#report'); pg.wait_for_timeout(1500)
     res['report'] = pg.evaluate("() => ({ rows: document.querySelectorAll('#repTable tbody tr').length, screens: document.querySelectorAll('#scrTable tbody tr').length, sum: document.getElementById('repSummary').innerText.slice(0, 300) })")
     pg.screenshot(path=str(OUT / 'ftp_report.png'))
-    # option A
-    pg.goto(f'{BASE}/flow-to-page.html?opt=A#P5'); pg.wait_for_timeout(2500)
-    res['optA'] = pg.evaluate("() => ({ opt: document.querySelector('#optToggle .is-on')?.textContent, chips: [...document.querySelectorAll('#pageChips button')].map(b=>b.textContent), nodes: document.querySelectorAll('#stage g.node').length })")
     # mobile
     pg.set_viewport_size({'width': 390, 'height': 860}); pg.goto(f'{BASE}/flow-to-page.html#P1/1-1'); pg.wait_for_timeout(2500)
     res['mobile_overflow'] = pg.evaluate('document.documentElement.scrollWidth - innerWidth')

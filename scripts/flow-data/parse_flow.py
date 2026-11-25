@@ -1,4 +1,4 @@
-"""แปลง User Flow V1.0.14 (drawio) Option A/B เป็น JSON โครงผัง: lanes / nodes / edges"""
+"""แปลง User Flow V1.0.14 (drawio) Option B เป็น JSON โครงผัง: lanes / nodes / edges"""
 import os, re, html, json, sys
 from lxml import etree
 from pathlib import Path
@@ -16,7 +16,7 @@ def kind(st, val):
     if 'rounded=1' in st or 'rounded' in st: return 'task'
     return 'note'
 out = {}
-for opt in 'AB':
+for opt in 'B':
     f = SRC / f'กิจกรรมที่ 7 User Flow V1.0.14 Option {opt}_21112026.drawio'
     root = etree.fromstring(f.read_bytes())
     pages = []
@@ -43,5 +43,5 @@ for opt in 'AB':
                       'edges': [e for e in edges if e['from'] and e['to']], 'notes': texts[2:]})
     out[opt] = pages
 Path(sys.argv[1]).write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding='utf-8')
-for opt in 'AB':
+for opt in 'B':
     print(opt, len(out[opt]), 'pages', sum(len(p['nodes']) for p in out[opt]), 'nodes')

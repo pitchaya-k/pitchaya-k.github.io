@@ -5,7 +5,7 @@
 - chairman-agenda.html: ประธานฯ มอบหมาย/สั่งการหน่วยงานแล้วสิ้นสุดเรื่อง (3-4) — ไม่มีเรื่อง 7.3 ค้างที่ประธานฯ
   ในฐานข้อมูล จึงแก้ข้อมูลที่อ่านได้ของเรื่อง 2014/2569 ในเบราว์เซอร์ให้เป็นเรื่องทั่วไป (tcc_doc_type = GENERAL)
 การเขียนฐานข้อมูลทุกคำขอ (POST/PATCH/PUT/DELETE) ถูกดักไว้ ไม่ส่งออกจริง แล้วตรวจเนื้อหาที่จะเขียน
-ใช้: python tests/flow/test_dircase.py http://localhost:8766[/A7-Option-B-03112026]"""
+ใช้: python tests/flow/test_dircase.py http://localhost:8766"""
 import sys, json
 from playwright.sync_api import sync_playwright
 

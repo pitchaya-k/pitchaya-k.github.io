@@ -101,17 +101,14 @@ with sync_playwright() as p:
                 signerName: (document.getElementById('signerName')||{}).innerText || '', hint: ((document.getElementById('sigHint')||{}).innerText || '').slice(0,90),
                 noperm: ((document.querySelector('.action-bar .no-permission')||{}).innerText || '').replace(/\\s+/g,' ').slice(0,120) })""")
 
-    # Option A / B: เมนูและเอกสารเฉพาะ Option B
-    opt = {}
-    for folder in ['A7-Option-A-03112026', 'A7-Option-B-03112026']:
-        base = f'{BASE}/{folder}'
-        pg = page_for(base, 'board_sec')
-        pg.goto(f'{base}/meeting-report.html', wait_until='domcontentloaded'); wait(pg)
-        has54 = pg.evaluate("() => document.body.textContent.includes('หนังสือคัดแยกผลมติ')")
-        pg2 = page_for(base, 'affairs')
-        pg2.goto(f'{base}/inbox.html', wait_until='domcontentloaded'); wait(pg2, 2500)
-        menu64 = pg2.eval_on_selector_all('a[href="additional-inquiry.html"]', 'e => e.length')
-        opt[folder] = {'opt': pg2.evaluate('window.ECMIS_A7_OPTION'), 'meeting_report_5_4': has54, 'menu_6_4': menu64}
+    # ขั้นของ Option B: เอกสาร 5.4 ในหน้ารายงานมติ และเมนู 6.4
+    pg = page_for(BASE, 'board_sec')
+    pg.goto(f'{BASE}/meeting-report.html', wait_until='domcontentloaded'); wait(pg)
+    has54 = pg.evaluate("() => document.body.textContent.includes('หนังสือคัดแยกผลมติ')")
+    pg2 = page_for(BASE, 'affairs')
+    pg2.goto(f'{BASE}/inbox.html', wait_until='domcontentloaded'); wait(pg2, 2500)
+    menu64 = pg2.eval_on_selector_all('a[href="additional-inquiry.html"]', 'e => e.length')
+    opt = {'meeting_report_5_4': has54, 'menu_6_4': menu64}
     for ctx, _ in ctxs.values(): ctx.close()
     b.close()
 

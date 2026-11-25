@@ -117,8 +117,9 @@
   <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
   <script src="assets/vendor/supabase/supabase.js"></script>
+
+  <script src="assets/ecmis-localdb.js"></script>
   <script src="assets/ecmis-app.js?v=20261122-flow2"></script>
-  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
   <script src="assets/saraban-no.js?v=20261121-a7-saraban"></script>
   <script src="assets/saraban-docs.js?v=20261121-a7-saraban"></script>
   <script>
@@ -197,18 +198,14 @@
     }
 
     function renderDocs() {
-      const opt = ECMIS.a7Option();
-      const docs = ECMIS.SARABAN_DOCS.filter(ECMIS.sarabanDocVisible);
+      const docs = ECMIS.SARABAN_DOCS;
       document.getElementById('cntDocs').textContent = docs.length;
-      document.getElementById('docsIntro').innerHTML = opt === 'AB'
-        ? `เอกสารที่ต้องขอเลข <strong>Option A 16 รายการ</strong> · <strong>Option B 18 รายการ</strong> (เพิ่มขั้น 5.4 และ 7.1.3) — โฟลเดอร์นี้แสดงทั้งสองทางเลือก`
-        : `เอกสารที่ต้องขอเลขของ <strong>Option ${esc(opt)} ${docs.length} รายการ</strong>`;
+      document.getElementById('docsIntro').innerHTML = `เอกสารที่ต้องขอเลข <strong>${docs.length} รายการ</strong>`;
       const r = ECMIS.SARABAN_RECEIVE_ITEM;
       const rows = [`<tr class="text-muted"><td>${esc(r.code)}</td><td>${esc(r.name)}<div class="small">${esc(r.note)}</div></td><td>—</td><td>กลุ่มงานกิจการคณะกรรมการ</td><td>${esc(r.seq)}</td><td>—</td></tr>`]
         .concat(docs.map(d => {
           const route = ECMIS.SARABAN_ROUTES[d.route];
-          const b = d.option === 'B' && opt === 'AB' ? ' <span class="sd-chip sd-st-warn">เฉพาะ Option B</span>' : '';
-          return `<tr><td class="fw-bold">${esc(d.code)}</td><td>${esc(d.name)}${b}${d.note ? `<div class="small text-muted">${esc(d.note)}</div>` : ''}</td>
+          return `<tr><td class="fw-bold">${esc(d.code)}</td><td>${esc(d.name)}${d.note ? `<div class="small text-muted">${esc(d.note)}</div>` : ''}</td>
             <td>${esc(fileLabel(d.prefix))}</td><td>${esc(d.roles.map(id => (ECMIS.getRole(id) || {}).title || id).join(' / '))}</td>
             <td>${esc(route.steps)}<div class="small text-muted">${esc(route.seq)}</div></td><td class="small">${esc(d.page)}</td></tr>`;
         }));
@@ -233,7 +230,7 @@
 
     /* ขอเลขจากหน้าทะเบียน: เลือกสำนวน + เอกสาร (เอกสารระดับครั้งประชุมขอจากหน้าเอกสารการประชุม/รายงานการประชุม) */
     async function requestFromRegistry() {
-      const docs = ECMIS.SARABAN_DOCS.filter(ECMIS.sarabanDocVisible).filter(d => d.scope !== 'meeting' && ECMIS.sarabanCanAct(d));
+      const docs = ECMIS.SARABAN_DOCS.filter(d => d.scope !== 'meeting' && ECMIS.sarabanCanAct(d));
       if (!docs.length) { ECMIS.toastWarn('บทบาทนี้ไม่มีเอกสารที่ขอเลขจากหน้าทะเบียนได้', 'เอกสารระดับครั้งประชุมให้ขอจากหน้าเอกสารการประชุม / รายงานการประชุม'); return; }
       const cases = (ECMIS.CASES || []).slice().sort((a, b) => String(ECMIS.caseNo(a)).localeCompare(String(ECMIS.caseNo(b))));
       const r = await Swal.fire({
@@ -244,7 +241,7 @@
           <select class="form-select form-select-sm mb-2" id="pkCase">${cases.map(c => `<option value="${esc(c.id)}">${esc(ECMIS.caseNo(c))} · ${esc((c.subject || c.allegation || '').slice(0, 60))}</option>`).join('')}</select>
           <label class="form-label small" for="pkDoc">เอกสาร</label>
           <select class="form-select form-select-sm" id="pkDoc">${docs.map(d => `<option value="${esc(d.code)}">${esc(d.code)} ${esc(d.name)}</option>`).join('')}</select>
-          <div class="form-text">เอกสารระดับครั้งประชุม (4.4.1, 4.4.3, 5.3.2${ECMIS.a7Option().includes('B') ? ', 5.4' : ''}) ขอจากหน้าเอกสารการประชุมและรายงานการประชุม</div></div>`,
+          <div class="form-text">เอกสารระดับครั้งประชุม (4.4.1, 4.4.3, 5.3.2, 5.4) ขอจากหน้าเอกสารการประชุมและรายงานการประชุม</div></div>`,
         preConfirm: () => ({ caseId: document.getElementById('pkCase').value, code: document.getElementById('pkDoc').value })
       });
       if (!r.isConfirmed) return;

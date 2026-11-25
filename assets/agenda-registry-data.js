@@ -230,13 +230,50 @@
   }
 
   function mapMeetingRow(row) {
-    return {
+    return withInviteFields({
       trc_id: row.trc_id, trc_name: row.trc_name || '',
       trc_date: toBuddhistFakeIso(row.trc_date), trc_status: row.trc_status || '0',
       trc_start_time: row.trc_start_time || '', trc_end_time: row.trc_end_time || '',
       trc_confirmed: !!row.trc_confirmed
-    };
+    }, row);
   }
+
+  /* หนังสือเชิญประชุม (เลขที่/วันที่หนังสือ เวลา สถานที่ ผู้ลงนาม ฯลฯ) — เดิมเก็บแค่บนหน้า หายเมื่อโหลดใหม่
+     ตอนนี้เป็นคอลัมน์ของ tbl_res_calendar: หน้า meeting-docs / agenda-meeting-docs แค่เขียน meeting.trc_xxx = ค่า
+     ตามเดิม setter ด้านล่างจะบันทึกลงฐานข้อมูลให้เอง (หน่วง 600ms รวบหลายช่องเป็นคำสั่งเดียว) */
+  const INVITE_FIELDS = ['trc_invite_no', 'trc_invite_date', 'trc_time', 'trc_place', 'trc_contact_tel',
+    'trc_dept_recipient', 'trc_secrecy', 'trc_signer_name', 'trc_signer_title'];
+  const pendingInvite = {};
+  let inviteTimer = null;
+  function flushInviteSaves() {
+    clearTimeout(inviteTimer);
+    Object.keys(pendingInvite).forEach(trcId => {
+      const patch = pendingInvite[trcId];
+      delete pendingInvite[trcId];
+      const q = sb && sb.from('tbl_res_calendar').update(patch).eq('trc_id', trcId);
+      if (!q) return;
+      const done = res => { if (res && res.error) console.error('บันทึกรายละเอียดหนังสือเชิญไม่สำเร็จ:', res.error.message || res.error); };
+      if (typeof q.execSync === 'function') done(q.execSync()); else q.then(done);
+    });
+  }
+  function withInviteFields(meeting, row) {
+    INVITE_FIELDS.forEach(f => {
+      let value = row[f] == null ? '' : row[f];
+      Object.defineProperty(meeting, f, {
+        enumerable: true,
+        get: () => value,
+        set: v => {
+          if (v === value) return;
+          value = v;
+          (pendingInvite[meeting.trc_id] = pendingInvite[meeting.trc_id] || {})[f] = v;
+          clearTimeout(inviteTimer);
+          inviteTimer = setTimeout(flushInviteSaves, 600);
+        }
+      });
+    });
+    return meeting;
+  }
+  if (global.addEventListener) global.addEventListener('pagehide', flushInviteSaves);
   function mapItemRow(row) {
     const oo = getOwnerOrg(row.trci_id);
     const caseRef = combinedCaseRef(row.trci_id);

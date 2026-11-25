@@ -38,7 +38,6 @@
       </div>
     </div>
 
-    <div id="optionBox" class="alert alert-warning d-none"><i class="fa-solid fa-circle-info me-1"></i>ขั้น 6.4 จัดทำรายงานการไต่สวนเพิ่มเติม มีเฉพาะโครงกระบวนการ Option B</div>
     <div id="notFoundBox" class="alert alert-warning d-none">ไม่พบสำนวนนี้ หรือสำนวนนี้ไม่ใช่เรื่องทั่วไปที่มีมติคณะกรรมการ ป.ป.ท. แล้ว — <a href="additional-inquiry.html">กลับรายการ</a></div>
 
     <!-- รายการเรื่องที่เข้าขั้น 6.4 (เปิดหน้าโดยไม่มี ?case=) -->
@@ -211,9 +210,10 @@
   <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
   <script src="assets/vendor/supabase/supabase.js"></script>
+
+  <script src="assets/ecmis-localdb.js"></script>
   <script src="assets/vendor/pizzip/pizzip.js"></script>
   <script src="assets/vendor/docxtemplater/docxtemplater.js"></script>
-  <script src="assets/a7-option.js?v=20261121-a7-inq64"></script>
   <script src="assets/ecmis-app.js?v=20261122-flow2"></script>
   <script src="assets/ecmis-livedoc.js?v=20261122-livedoc2"></script>
   <script src="assets/ecmis-model.js"></script>
@@ -463,10 +463,6 @@
     }
 
     (async function init() {
-      if (!String(window.ECMIS_A7_OPTION || 'AB').includes('B')) {
-        document.getElementById('optionBox').classList.remove('d-none');
-        return;
-      }
       if (!caseId) {
         document.getElementById('listWrap').classList.remove('d-none');
         document.querySelectorAll('.ai-tabs [data-tab]').forEach(btn => btn.addEventListener('click', () => {

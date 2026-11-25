@@ -8,7 +8,6 @@
   const D = root.A7FLOW;
   if (!D) { console.error('A7FLOW data missing (assets/a7-flow-data.js)'); return; }
   const KEY = 'ecmis_a7_demo';
-  const OPT_KEY = 'ecmis_a7_flow_opt';
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   const STATUS = {
@@ -21,17 +20,11 @@
   const ROLE_FALLBACK = { owner: 'ผู้รับผิดชอบสำนวนคดี (นอกระบบ)', any: 'บุคลากรสำนักงาน ป.ป.ท. (ตามสิทธิ์)' };
 
   /* ---------- Option ---------- */
-  function allowedOptions() {
-    const o = String(root.ECMIS_A7_OPTION || 'AB');
-    return o === 'A' ? ['A'] : o === 'B' ? ['B'] : ['A', 'B'];
-  }
-  function option() {
-    const allowed = allowedOptions();
-    let v = null;
-    try { v = localStorage.getItem(OPT_KEY); } catch (e) { /* ignore */ }
-    return allowed.includes(v) ? v : allowed[allowed.length - 1];
-  }
-  function setOption(v) { try { localStorage.setItem(OPT_KEY, v); } catch (e) { /* ignore */ } }
+  /* ต้นแบบใช้โครงกระบวนการ Option B ชุดเดียว (ตัด Option A ออก 25/11/2569) — ฟังก์ชันคงไว้ให้หน้าที่เรียกด้วย opt ทำงานเหมือนเดิม */
+  const OPTION = 'B';
+  function allowedOptions() { return [OPTION]; }
+  function option() { return OPTION; }
+  function setOption() { /* มี Option เดียว */ }
 
   /* ---------- บทบาท (จาก ECMIS.ROLES ของต้นแบบ) ---------- */
   function roles() {

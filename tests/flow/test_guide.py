@@ -97,15 +97,10 @@ with sync_playwright() as p:
     pg.goto(f'{BASE}/flow-guide.html?start=B:6-4:p24_t1'); wait(pg, 6000)
     res['deeplink'] = {'state': state(pg), 'frame': frame_info(pg)}
     pg.screenshot(path=str(OUT / 'g_deeplink.png'))
-    # สถานการณ์ Option A
+    # จบเส้นทาง: สถานการณ์ปฏิเสธการรับ (สั้น)
     pg.goto(f'{BASE}/flow-guide.html'); wait(pg, 1500)
     pg.click('#bExit') if pg.locator('#bExit').is_visible() else None
-    pg.click('#optToggle button[data-o="A"]'); wait(pg, 800)
-    res['optA_cards'] = pg.locator('#scenList .a7f-card').count()
-    pg.click('button[data-sc="S72-normal"]'); wait(pg, 5000)
-    res['optA'] = {'state': state(pg), 'frame': frame_info(pg)}
-    # จบเส้นทาง: สถานการณ์ปฏิเสธการรับ (สั้น)
-    pg.click('#bExit'); wait(pg, 800); pg.click('#optToggle button[data-o="B"]'); wait(pg, 600)
+    wait(pg, 600)
     pg.click('button[data-sc="S71-reject"]'); wait(pg, 5000)
     for i in range(10):
         if pg.locator('#guidePanel [data-ch].is-def').count(): pg.click('#guidePanel [data-ch].is-def'); wait(pg, 2000); continue
